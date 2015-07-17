@@ -23,7 +23,6 @@
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         _ntNotSupported.hidden = YES;
             });
-   // _ntNotSupported.hidden = YES;
     
 }
 
