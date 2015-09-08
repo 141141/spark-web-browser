@@ -1,9 +1,10 @@
 //
-// MainMenu.xib
-// How to add to your project:
-// Open your MainMenu.xib file with TextEdit instead of Xcode
-// Paste the text into the file
-// Save the file
+// MainMenu.xib - Originally created by Insleep on GitHub
+// How to add this to your project:
+// Open TextEdit
+// Click "Format" then "Make Plain Text"
+// Paste the text below into the TextEdit document
+// Save the file as MainMenu.xib in the same folder as your AppDelegate.m and AppDelegate.h files and uncheck the box for .txt extensions
 // You're done! You should now be able to open this file in the Interface Editor and edit normally.
 //
 
