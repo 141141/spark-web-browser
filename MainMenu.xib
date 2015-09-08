@@ -2,9 +2,9 @@
 // MainMenu.xib
 // How to add to your project:
 // Open your MainMenu.xib file with TextEdit instead of Xcode
-// Paste the below into the file
+// Paste the text into the file
 // Save the file
-// You're done!
+// You're done! You should now be able to open this file in the Interface Editor and edit normally.
 //
 
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
