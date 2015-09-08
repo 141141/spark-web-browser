@@ -1,10 +1,12 @@
+// Originally created by Insleep on GitHub
+// Feel free to alter this to your liking.
+
 #import <Cocoa/Cocoa.h>
 #import <WebKit/WebKit.h>
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 // Declarations
-
 @property (assign) IBOutlet NSWindow *window;
 
 @property (assign) IBOutlet WebView *webView;
