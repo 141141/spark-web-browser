@@ -1,3 +1,6 @@
+// Originally created by Insleep on GitHub
+// Feel free to alter this to your liking.
+
 #import "AppDelegate.h"
 #import "WebKit/WebKit.h"
 
