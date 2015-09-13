@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB06BC381BA5E93B00C6618C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83983B19817E15001D31B7 /* WebKit.framework */; };
+		AB06BC391BA5E94000C6618C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83980719817D8E001D31B7 /* Cocoa.framework */; };
 		AB2D008E1B50ECF700F09562 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2D008D1B50ECF700F09562 /* AppDelegate.m */; };
 		AB2E069B198E9902001F4E78 /* AppIcon256.png in Resources */ = {isa = PBXBuildFile; fileRef = AB2E0696198E9902001F4E78 /* AppIcon256.png */; };
 		AB2E069C198E9902001F4E78 /* AppIcon128.png in Resources */ = {isa = PBXBuildFile; fileRef = AB2E0697198E9902001F4E78 /* AppIcon128.png */; };
 		AB2E069D198E9902001F4E78 /* AppIcon64.png in Resources */ = {isa = PBXBuildFile; fileRef = AB2E0698198E9902001F4E78 /* AppIcon64.png */; };
 		AB2E069E198E9902001F4E78 /* AppIcon32.png in Resources */ = {isa = PBXBuildFile; fileRef = AB2E0699198E9902001F4E78 /* AppIcon32.png */; };
 		AB2E069F198E9902001F4E78 /* AppIcon16.png in Resources */ = {isa = PBXBuildFile; fileRef = AB2E069A198E9902001F4E78 /* AppIcon16.png */; };
-		AB83980819817D8E001D31B7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83980719817D8E001D31B7 /* Cocoa.framework */; };
 		AB83981219817D8E001D31B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB83981019817D8E001D31B7 /* InfoPlist.strings */; };
 		AB83981419817D8E001D31B7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB83981319817D8E001D31B7 /* main.m */; };
 		AB83981819817D8E001D31B7 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AB83981619817D8E001D31B7 /* Credits.rtf */; };
@@ -23,7 +24,6 @@
 		AB83982819817D8E001D31B7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83980719817D8E001D31B7 /* Cocoa.framework */; };
 		AB83983019817D8E001D31B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB83982E19817D8E001D31B7 /* InfoPlist.strings */; };
 		AB83983219817D8E001D31B7 /* Web_BrowserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB83983119817D8E001D31B7 /* Web_BrowserTests.m */; };
-		AB83983C19817E15001D31B7 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83983B19817E15001D31B7 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,8 +69,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB83983C19817E15001D31B7 /* WebKit.framework in Frameworks */,
-				AB83980819817D8E001D31B7 /* Cocoa.framework in Frameworks */,
+				AB06BC391BA5E94000C6618C /* Cocoa.framework in Frameworks */,
+				AB06BC381BA5E93B00C6618C /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,7 +368,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -401,7 +401,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -414,7 +414,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Web Browser/Spark Web Browser-Prefix.pch";
 				INFOPLIST_FILE = "Web Browser/Spark Web Browser-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.insleep.Spark-Web-Browser";
 				PRODUCT_NAME = "Spark Web Browser";
 				WRAPPER_EXTENSION = app;
@@ -429,7 +429,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Web Browser/Spark Web Browser-Prefix.pch";
 				INFOPLIST_FILE = "Web Browser/Spark Web Browser-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.insleep.Spark-Web-Browser";
 				PRODUCT_NAME = "Spark Web Browser";
 				WRAPPER_EXTENSION = app;
