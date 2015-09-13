@@ -8,11 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		AB2D008E1B50ECF700F09562 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2D008D1B50ECF700F09562 /* AppDelegate.m */; };
-		AB2E068D198E81E7001F4E78 /* BackupReloadImage.png in Resources */ = {isa = PBXBuildFile; fileRef = AB2E068C198E81E7001F4E78 /* BackupReloadImage.png */; };
-		AB2E068F198E82A9001F4E78 /* BackupStopImage.gif in Resources */ = {isa = PBXBuildFile; fileRef = AB2E068E198E82A9001F4E78 /* BackupStopImage.gif */; };
-		AB2E0691198E8358001F4E78 /* BackupPrintImage.png in Resources */ = {isa = PBXBuildFile; fileRef = AB2E0690198E8358001F4E78 /* BackupPrintImage.png */; };
-		AB2E0694198E844C001F4E78 /* BackIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = AB2E0692198E844C001F4E78 /* BackIcon.png */; };
-		AB2E0695198E844C001F4E78 /* ForwardIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = AB2E0693198E844C001F4E78 /* ForwardIcon.png */; };
 		AB2E069B198E9902001F4E78 /* AppIcon256.png in Resources */ = {isa = PBXBuildFile; fileRef = AB2E0696198E9902001F4E78 /* AppIcon256.png */; };
 		AB2E069C198E9902001F4E78 /* AppIcon128.png in Resources */ = {isa = PBXBuildFile; fileRef = AB2E0697198E9902001F4E78 /* AppIcon128.png */; };
 		AB2E069D198E9902001F4E78 /* AppIcon64.png in Resources */ = {isa = PBXBuildFile; fileRef = AB2E0698198E9902001F4E78 /* AppIcon64.png */; };
@@ -43,11 +38,6 @@
 
 /* Begin PBXFileReference section */
 		AB2D008D1B50ECF700F09562 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		AB2E068C198E81E7001F4E78 /* BackupReloadImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackupReloadImage.png; sourceTree = "<group>"; };
-		AB2E068E198E82A9001F4E78 /* BackupStopImage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = BackupStopImage.gif; sourceTree = "<group>"; };
-		AB2E0690198E8358001F4E78 /* BackupPrintImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackupPrintImage.png; sourceTree = "<group>"; };
-		AB2E0692198E844C001F4E78 /* BackIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackIcon.png; sourceTree = "<group>"; };
-		AB2E0693198E844C001F4E78 /* ForwardIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ForwardIcon.png; sourceTree = "<group>"; };
 		AB2E0696198E9902001F4E78 /* AppIcon256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon256.png; sourceTree = "<group>"; };
 		AB2E0697198E9902001F4E78 /* AppIcon128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon128.png; sourceTree = "<group>"; };
 		AB2E0698198E9902001F4E78 /* AppIcon64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon64.png; sourceTree = "<group>"; };
@@ -156,11 +146,6 @@
 				AB2E0698198E9902001F4E78 /* AppIcon64.png */,
 				AB2E0699198E9902001F4E78 /* AppIcon32.png */,
 				AB2E069A198E9902001F4E78 /* AppIcon16.png */,
-				AB2E0692198E844C001F4E78 /* BackIcon.png */,
-				AB2E0693198E844C001F4E78 /* ForwardIcon.png */,
-				AB2E0690198E8358001F4E78 /* BackupPrintImage.png */,
-				AB2E068E198E82A9001F4E78 /* BackupStopImage.gif */,
-				AB2E068C198E81E7001F4E78 /* BackupReloadImage.png */,
 				AB83980F19817D8E001D31B7 /* Spark Web Browser-Info.plist */,
 				AB83981019817D8E001D31B7 /* InfoPlist.strings */,
 				AB83981319817D8E001D31B7 /* main.m */,
@@ -265,18 +250,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB2E069E198E9902001F4E78 /* AppIcon32.png in Resources */,
-				AB2E068F198E82A9001F4E78 /* BackupStopImage.gif in Resources */,
 				AB83981219817D8E001D31B7 /* InfoPlist.strings in Resources */,
 				AB2E069B198E9902001F4E78 /* AppIcon256.png in Resources */,
 				AB83982019817D8E001D31B7 /* Images.xcassets in Resources */,
 				AB2E069C198E9902001F4E78 /* AppIcon128.png in Resources */,
-				AB2E0694198E844C001F4E78 /* BackIcon.png in Resources */,
-				AB2E068D198E81E7001F4E78 /* BackupReloadImage.png in Resources */,
-				AB2E0695198E844C001F4E78 /* ForwardIcon.png in Resources */,
 				AB2E069F198E9902001F4E78 /* AppIcon16.png in Resources */,
 				AB2E069D198E9902001F4E78 /* AppIcon64.png in Resources */,
 				AB83981819817D8E001D31B7 /* Credits.rtf in Resources */,
-				AB2E0691198E8358001F4E78 /* BackupPrintImage.png in Resources */,
 				AB83981E19817D8E001D31B7 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,7 +368,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -421,7 +401,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -434,8 +414,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Web Browser/Spark Web Browser-Prefix.pch";
 				INFOPLIST_FILE = "Web Browser/Spark Web Browser-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jonathanwukitsch.$(PRODUCT_NAME:rfc1034identifier)";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.insleep.Spark-Web-Browser";
 				PRODUCT_NAME = "Spark Web Browser";
 				WRAPPER_EXTENSION = app;
 			};
@@ -449,8 +429,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Web Browser/Spark Web Browser-Prefix.pch";
 				INFOPLIST_FILE = "Web Browser/Spark Web Browser-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jonathanwukitsch.$(PRODUCT_NAME:rfc1034identifier)";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.insleep.Spark-Web-Browser";
 				PRODUCT_NAME = "Spark Web Browser";
 				WRAPPER_EXTENSION = app;
 			};
