@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Web Browser.xcodeproj">
+      location = "self:Spark Web Browser.xcodeproj">
    </FileRef>
 </Workspace>
