@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8191" systemVersion="15A282a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
         <plugIn identifier="com.apple.WebKitIBPlugin" version="8191"/>
     </dependencies>
@@ -222,7 +221,7 @@
                         <rect key="frame" x="89" y="672" width="998" height="24"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <animations/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="http://bit.ly/SparkWeb" placeholderString="Type the URL of the website you want to go to here (including http://)" bezelStyle="round" id="MSe-fD-WSx">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="http://bit.ly/SparkWeb" placeholderString="Type the URL of the website you want to go to here (including http:// or https://)" bezelStyle="round" id="MSe-fD-WSx">
                             <font key="font" size="12" name="MyriadPro-Regular"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

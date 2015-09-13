@@ -1,6 +1,6 @@
 //
 //  AppDelegate.m
-//  Web Browser
+//  Spark Web Browser
 //
 
 #import "AppDelegate.h"
@@ -12,14 +12,14 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Initialize app
+    // Initialize
     _ntNotSupported.hidden = YES;
     _stillLoading.hidden = NO;
 }
 
 - (IBAction)newTab:(id)sender {
     
-    // Display a label for 2 seconds saying that new tab is not available at the moment but will be implemented soon
+    // Display a label for 2 seconds telling the user that there is no support for tabs in Spark
     _ntNotSupported.hidden = NO;
    
     // Timer to only display the label for 2 seconds
@@ -28,8 +28,6 @@
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         _ntNotSupported.hidden = YES;
             });
-   // _ntNotSupported.hidden = YES;
-    
 }
 
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame
@@ -44,10 +42,9 @@
 - (void)webView:(WebView *)sender didReceiveTitle:(NSString *)title forFrame:(WebFrame *)frame
 {
 
-    // Report feedback only for the main frame.
+    // Only report feedback for the main frame.
     if (frame == [sender mainFrame]){
         [_titleStatus setStringValue:title];
-       // [[sender window] setTitle:title];
         _stillLoading.hidden = YES;
     }
 }
