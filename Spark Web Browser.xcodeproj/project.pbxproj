@@ -218,7 +218,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0700;
-				ORGANIZATIONNAME = "Jonathan Wukitsch";
+				ORGANIZATIONNAME = Insleep;
 				TargetAttributes = {
 					AB83982419817D8E001D31B7 = {
 						TestTargetID = AB83980319817D8E001D31B7;
