@@ -262,7 +262,7 @@
                         <rect key="frame" x="18" y="650" width="1071" height="18"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <animations/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Spark Web Browser v2.14 (Build SWB2A4)" placeholderString="Loading..." id="I9i-cv-n8A">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Spark Web Browser v2.14 (Build SWB2B4)" placeholderString="Loading..." id="I9i-cv-n8A">
                             <font key="font" size="15" name="MyriadPro-Regular"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -342,7 +342,7 @@
                         <rect key="frame" x="18" y="193" width="251" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <animations/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Version 2.14 (Build SWB2A4)" id="sH9-de-kgl">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Version 2.14 (Build SWB2B4)" id="sH9-de-kgl">
                             <font key="font" size="15" name="MyriadPro-Regular"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -351,7 +351,7 @@
                 </subviews>
                 <animations/>
             </view>
-            <point key="canvasLocation" x="1773" y="-335"/>
+            <point key="canvasLocation" x="1904" y="-334"/>
         </window>
     </objects>
     <resources>
