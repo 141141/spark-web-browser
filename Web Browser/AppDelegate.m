@@ -1,6 +1,6 @@
 //
 //  AppDelegate.m
-//  Spark Web Browser
+//  Spark Web Browser v2.14
 //
 
 #import "AppDelegate.h"

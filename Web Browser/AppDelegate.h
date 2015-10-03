@@ -1,6 +1,6 @@
 //
 //  AppDelegate.h
-//  Spark Web Browser
+//  Spark Web Browser v2.14
 //
 
 #import <Cocoa/Cocoa.h>
