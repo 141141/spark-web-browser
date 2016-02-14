@@ -209,10 +209,10 @@
                         </connections>
                     </button>
                     <textField toolTip="Type the URL of the website you want to go to here. (including http://)" verticalHuggingPriority="750" id="6S4-CW-iwm">
-                        <rect key="frame" x="89" y="672" width="998" height="24"/>
+                        <rect key="frame" x="89" y="674" width="998" height="22"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="http://www.google.com" placeholderString="Type the URL of the website you want to go to here (including http:// or https://)" bezelStyle="round" id="MSe-fD-WSx">
-                            <font key="font" size="12" name="MyriadPro-Regular"/>
+                            <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
@@ -252,13 +252,13 @@
                             <outlet property="frameLoadDelegate" destination="Voe-Tx-rLC" id="1w1-0b-LT2"/>
                         </connections>
                     </webView>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="GpZ-Eb-XLd">
-                        <rect key="frame" x="-2" y="0.0" width="53" height="12"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Loading..." id="iHE-ua-GJq">
-                            <font key="font" size="12" name="MyriadPro-Regular"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="JvK-hQ-Wwq">
+                        <rect key="frame" x="416" y="651" width="276" height="19"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Spark Web Browser v2.1.7 (Build 20170)" placeholderString="Loading..." id="I9i-cv-n8A">
+                            <font key="font" metaFont="systemLight" size="15"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="e3k-CE-CDi">
@@ -270,13 +270,13 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="JvK-hQ-Wwq">
-                        <rect key="frame" x="416" y="651" width="276" height="19"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Spark Web Browser v2.1.7 (Build 20170)" placeholderString="Loading..." id="I9i-cv-n8A">
-                            <font key="font" metaFont="systemLight" size="15"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="GpZ-Eb-XLd">
+                        <rect key="frame" x="3" y="3" width="56" height="14"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Loading..." id="iHE-ua-GJq">
+                            <font key="font" metaFont="system" size="11"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                 </subviews>
