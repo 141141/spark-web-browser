@@ -211,7 +211,7 @@
                     <textField toolTip="Type the URL of the website you want to go to here. (including http://)" verticalHuggingPriority="750" id="6S4-CW-iwm">
                         <rect key="frame" x="89" y="672" width="998" height="24"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="http://bit.ly/SparkWeb" placeholderString="Type the URL of the website you want to go to here (including http:// or https://)" bezelStyle="round" id="MSe-fD-WSx">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="http://www.google.com" placeholderString="Type the URL of the website you want to go to here (including http:// or https://)" bezelStyle="round" id="MSe-fD-WSx">
                             <font key="font" size="12" name="MyriadPro-Regular"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -252,15 +252,6 @@
                             <outlet property="frameLoadDelegate" destination="Voe-Tx-rLC" id="1w1-0b-LT2"/>
                         </connections>
                     </webView>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="JvK-hQ-Wwq">
-                        <rect key="frame" x="18" y="650" width="1071" height="18"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Spark Web Browser v2.1.6 (Build 20168)" placeholderString="Loading..." id="I9i-cv-n8A">
-                            <font key="font" size="15" name="MyriadPro-Regular"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="GpZ-Eb-XLd">
                         <rect key="frame" x="-2" y="0.0" width="53" height="12"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
@@ -274,9 +265,18 @@
                         <rect key="frame" x="828" y="651" width="281" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Tabs are not available in this version of Spark." id="gfc-dE-ICK">
-                            <font key="font" size="14" name="MyriadPro-Regular"/>
+                            <font key="font" metaFont="systemLight" size="13"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="JvK-hQ-Wwq">
+                        <rect key="frame" x="416" y="651" width="276" height="19"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Spark Web Browser v2.1.7 (Build 20170)" placeholderString="Loading..." id="I9i-cv-n8A">
+                            <font key="font" metaFont="systemLight" size="15"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                 </subviews>
@@ -286,47 +286,38 @@
         <window title="About Spark Web Browser" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="oJi-1c-Sb5" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="83" y="97" width="480" height="270"/>
+            <rect key="contentRect" x="83" y="97" width="480" height="189"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1080"/>
             <view key="contentView" id="zUI-Uv-Oe8">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <rect key="frame" x="0.0" y="0.0" width="480" height="189"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="V8S-oR-cKe">
-                        <rect key="frame" x="18" y="128" width="255" height="47"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Spark Web Browser" id="zBy-tw-PyQ">
-                            <font key="font" size="31" name="MyriadPro-Regular"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="fTQ-Lo-mC4">
-                        <rect key="frame" x="18" y="95" width="251" height="16"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Created by Insleep" id="QZ0-mx-BAl">
-                            <font key="font" size="15" name="MyriadPro-Regular"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="XYY-bE-W9s">
-                        <rect key="frame" x="314" y="61" width="146" height="149"/>
+                        <rect key="frame" x="314" y="20" width="146" height="149"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="AppIcon256" id="S9P-GN-W2g"/>
                     </imageView>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="sbh-Aa-9pH">
-                        <rect key="frame" x="18" y="119" width="251" height="16"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="V8S-oR-cKe">
+                        <rect key="frame" x="18" y="90" width="242" height="35"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Version 2.1.6 (Build 20168)" id="sH9-de-kgl">
-                            <font key="font" size="15" name="MyriadPro-Regular"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Spark Web Browser" id="zBy-tw-PyQ">
+                            <font key="font" metaFont="systemThin" size="29"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="sbh-Aa-9pH">
+                        <rect key="frame" x="18" y="63" width="183" height="19"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Version 2.1.7 (Build 20170)" id="sH9-de-kgl">
+                            <font key="font" metaFont="systemLight" size="15"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="1950" y="-325"/>
+            <point key="canvasLocation" x="2101" y="-299.5"/>
         </window>
     </objects>
     <resources>
