@@ -13,13 +13,18 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Initialize
+    NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
+    NSString *appVersion = [infoDict objectForKey:@"CFBundleShortVersionString"]; // fetch the version number from info.plist
+    NSString *buildNumber = [infoDict objectForKey:@"CFBundleVersion"]; // fetch the build number from info.plist
+    
     _ntNotSupported.hidden = YES;
     _stillLoading.hidden = NO;
+    _currentVersion.stringValue = [NSString stringWithFormat:@"Version %@ (build %@)", appVersion, buildNumber];
 }
 
 - (IBAction)newTab:(id)sender {
     
-    // Display a label for 2 seconds telling the user that there is no support for tabs in Spark
+    // No support for tabs in Spark -- display a label
     _ntNotSupported.hidden = NO;
    
     // Timer to only display the label for 2 seconds

@@ -16,6 +16,7 @@
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
                 <outlet property="addressBar" destination="6S4-CW-iwm" id="yLL-ye-fyR"/>
+                <outlet property="currentVersion" destination="sbh-Aa-9pH" id="pub-aC-Yo5"/>
                 <outlet property="ntNotSupported" destination="e3k-CE-CDi" id="JB0-P4-EAc"/>
                 <outlet property="stillLoading" destination="GpZ-Eb-XLd" id="jHW-NI-Yhx"/>
                 <outlet property="titleStatus" destination="JvK-hQ-Wwq" id="Bnr-Fc-Cti"/>
@@ -255,7 +256,7 @@
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="JvK-hQ-Wwq">
                         <rect key="frame" x="416" y="651" width="276" height="19"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Spark Web Browser v2.1.7 (Build 20170)" placeholderString="Loading..." id="I9i-cv-n8A">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" placeholderString="Loading..." id="I9i-cv-n8A">
                             <font key="font" metaFont="systemLight" size="15"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
