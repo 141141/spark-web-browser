@@ -254,7 +254,7 @@
                         </connections>
                     </webView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="JvK-hQ-Wwq">
-                        <rect key="frame" x="416" y="651" width="276" height="19"/>
+                        <rect key="frame" x="-2" y="651" width="1111" height="19"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" placeholderString="Loading..." id="I9i-cv-n8A">
                             <font key="font" metaFont="systemLight" size="15"/>
