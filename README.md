@@ -9,4 +9,4 @@ Installation is easy. Just download the Xcode project and open it up using Xcode
 
 ## License
 
-See [LICENSE.md](https://github.com/insleep/spark-web-browser/blob/master/LICENSE.md) for more details.
+See the [license](https://github.com/insleep/spark-web-browser/blob/master/LICENSE) for more details.
