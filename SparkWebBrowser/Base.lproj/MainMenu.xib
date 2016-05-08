@@ -260,15 +260,6 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="e3k-CE-CDi">
-                        <rect key="frame" x="828" y="683" width="281" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Tabs are not available in this version of Spark." id="gfc-dE-ICK">
-                            <font key="font" metaFont="systemLight" size="13"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="zxq-kF-Fbg">
                         <rect key="frame" x="284" y="684" width="21" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -308,14 +299,6 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSMenuOnStateTemplate" id="b52-Dm-mT6"/>
                     </imageView>
-                    <button id="qck-7U-Em5">
-                        <rect key="frame" x="438" y="670" width="48" height="48"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="P6l-3L-W30">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
                     <webView focusRingType="exterior" id="662-Pj-xvd" customClass="WebViewHandler">
                         <rect key="frame" x="0.0" y="0.0" width="1107" height="649"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
@@ -326,6 +309,15 @@
                             <outlet property="frameLoadDelegate" destination="Voe-Tx-rLC" id="1w1-0b-LT2"/>
                         </connections>
                     </webView>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="e3k-CE-CDi">
+                        <rect key="frame" x="311" y="687" width="281" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Tabs are not available in this version of Spark." id="gfc-dE-ICK">
+                            <font key="font" metaFont="systemLight" size="13"/>
+                            <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
             <connections>
