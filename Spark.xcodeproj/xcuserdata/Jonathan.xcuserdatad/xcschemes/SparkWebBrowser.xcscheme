@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AB83980319817D8E001D31B7"
-               BuildableName = "Spark Web Browser.app"
+               BuildableName = "Spark.app"
                BlueprintName = "Spark"
                ReferencedContainer = "container:Spark.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AB83980319817D8E001D31B7"
-            BuildableName = "Spark Web Browser.app"
+            BuildableName = "Spark.app"
             BlueprintName = "Spark"
             ReferencedContainer = "container:Spark.xcodeproj">
          </BuildableReference>
@@ -66,7 +66,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AB83980319817D8E001D31B7"
-            BuildableName = "Spark Web Browser.app"
+            BuildableName = "Spark.app"
             BlueprintName = "Spark"
             ReferencedContainer = "container:Spark.xcodeproj">
          </BuildableReference>
@@ -85,7 +85,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AB83980319817D8E001D31B7"
-            BuildableName = "Spark Web Browser.app"
+            BuildableName = "Spark.app"
             BlueprintName = "Spark"
             ReferencedContainer = "container:Spark.xcodeproj">
          </BuildableReference>

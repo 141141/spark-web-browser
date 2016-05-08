@@ -205,7 +205,7 @@
                         <rect key="frame" x="322" y="31" width="152" height="66"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" id="JIE-U0-fhO">
-                            <font key="font" metaFont="system" size="9"/>
+                            <font key="font" metaFont="miniSystem"/>
                             <string key="title">Copyright 2016 InsleepTech. All rights reserved.
 Spark is made possible by the WebKit open source project and other open source software.
 </string>
@@ -259,10 +259,10 @@ Spark is made possible by the WebKit open source project and other open source s
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="9o1-qW-hns">
-                        <rect key="frame" x="100" y="92" width="207" height="51"/>
+                        <rect key="frame" x="100" y="75" width="207" height="68"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Mozilla/5.0 (Macintosh; Intel Mac OS X) SparkWebBrowser/2.2.0.20806 (KHTML, like Gecko)" id="PS7-Pn-omo">
-                            <font key="font" metaFont="system"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Mozilla/5.0 (Macintosh; Intel Mac OS X) SparkWebBrowser/0.2.2.0.20806 (KHTML, like Gecko)" id="PS7-Pn-omo">
+                            <font key="font" metaFont="systemLight" size="13"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
