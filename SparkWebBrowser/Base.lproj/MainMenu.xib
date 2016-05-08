@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="10117"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -23,7 +22,6 @@
                 <outlet property="stillLoading" destination="GpZ-Eb-XLd" id="jHW-NI-Yhx"/>
                 <outlet property="tabView" destination="xTX-zj-7wI" id="PoN-fg-XGT"/>
                 <outlet property="titleStatus" destination="JvK-hQ-Wwq" id="Bnr-Fc-Cti"/>
-                <outlet property="webView" destination="662-Pj-xvd" id="3tl-cM-4Aq"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="FlD-yq-Bjm"/>
             </connections>
         </customObject>
@@ -71,33 +69,13 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="File" id="bib-Uj-vzu">
                         <items>
-                            <menuItem title="Back" keyEquivalent="" id="Was-JA-tGl">
-                                <connections>
-                                    <action selector="goBack:" target="662-Pj-xvd" id="Wog-6u-BAW"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Forward" keyEquivalent="" id="IAo-SY-fd9">
-                                <connections>
-                                    <action selector="goForward:" target="662-Pj-xvd" id="adC-QZ-Ead"/>
-                                </connections>
-                            </menuItem>
+                            <menuItem title="Back" keyEquivalent="" id="Was-JA-tGl"/>
+                            <menuItem title="Forward" keyEquivalent="" id="IAo-SY-fd9"/>
                             <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
-                            <menuItem title="Reload" keyEquivalent="r" id="DVo-aG-piG">
-                                <connections>
-                                    <action selector="reload:" target="662-Pj-xvd" id="vNM-gT-LIm"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Stop Loading" keyEquivalent="s" id="pxx-59-PXV">
-                                <connections>
-                                    <action selector="stopLoading:" target="662-Pj-xvd" id="SiA-KN-xOk"/>
-                                </connections>
-                            </menuItem>
+                            <menuItem title="Reload" keyEquivalent="r" id="DVo-aG-piG"/>
+                            <menuItem title="Stop Loading" keyEquivalent="s" id="pxx-59-PXV"/>
                             <menuItem isSeparatorItem="YES" id="8GF-dM-pAl"/>
-                            <menuItem title="Print" keyEquivalent="p" id="aTl-1u-JFS">
-                                <connections>
-                                    <action selector="print:" target="662-Pj-xvd" id="d4i-Zj-c2S"/>
-                                </connections>
-                            </menuItem>
+                            <menuItem title="Print" keyEquivalent="p" id="aTl-1u-JFS"/>
                         </items>
                     </menu>
                 </menuItem>
@@ -129,11 +107,7 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="3If-vn-ywh"/>
-                            <menuItem title="Print" keyEquivalent="p" id="UUc-6P-gA8">
-                                <connections>
-                                    <action selector="print:" target="662-Pj-xvd" id="pUI-yg-QTh"/>
-                                </connections>
-                            </menuItem>
+                            <menuItem title="Print" keyEquivalent="p" id="UUc-6P-gA8"/>
                         </items>
                     </menu>
                 </menuItem>
@@ -147,21 +121,9 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="bAC-By-dtc"/>
-                            <menuItem title="Text Size +" keyEquivalent="o" id="ZWq-yV-KRx">
-                                <connections>
-                                    <action selector="makeTextLarger:" target="662-Pj-xvd" id="YgQ-fm-D7C"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Text Size -" keyEquivalent="i" id="2mC-9m-Fag">
-                                <connections>
-                                    <action selector="makeTextSmaller:" target="662-Pj-xvd" id="r3m-01-DqR"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Text Size Normal" keyEquivalent="u" id="GJj-Hz-AnA">
-                                <connections>
-                                    <action selector="makeTextStandardSize:" target="662-Pj-xvd" id="CMy-rf-ogE"/>
-                                </connections>
-                            </menuItem>
+                            <menuItem title="Text Size +" keyEquivalent="o" id="ZWq-yV-KRx"/>
+                            <menuItem title="Text Size -" keyEquivalent="i" id="2mC-9m-Fag"/>
+                            <menuItem title="Text Size Normal" keyEquivalent="u" id="GJj-Hz-AnA"/>
                         </items>
                     </menu>
                 </menuItem>
@@ -308,9 +270,6 @@ Spark is made possible by the WebKit open source project and other open source s
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
-                        <connections>
-                            <action selector="goBack:" target="662-Pj-xvd" id="cZI-rb-wyv"/>
-                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="wRb-WG-N9I">
                         <rect key="frame" x="29" y="649" width="30" height="31"/>
@@ -319,9 +278,6 @@ Spark is made possible by the WebKit open source project and other open source s
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
-                        <connections>
-                            <action selector="goForward:" target="662-Pj-xvd" id="ZtH-yp-vcm"/>
-                        </connections>
                     </button>
                     <textField toolTip="Type the URL of the website you want to go to here. (including http://)" verticalHuggingPriority="750" id="6S4-CW-iwm">
                         <rect key="frame" x="89" y="653" width="1013" height="22"/>
@@ -331,9 +287,6 @@ Spark is made possible by the WebKit open source project and other open source s
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
-                        <connections>
-                            <action selector="takeStringURLFrom:" target="662-Pj-xvd" id="crc-u4-2yz"/>
-                        </connections>
                     </textField>
                     <button verticalHuggingPriority="750" id="gZC-HQ-A14">
                         <rect key="frame" x="55" y="649" width="30" height="29"/>
@@ -342,9 +295,6 @@ Spark is made possible by the WebKit open source project and other open source s
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
-                        <connections>
-                            <action selector="reload:" target="662-Pj-xvd" id="MRF-6H-yAa"/>
-                        </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="JvK-hQ-Wwq">
                         <rect key="frame" x="111" y="684" width="143" height="19"/>
@@ -394,16 +344,6 @@ Spark is made possible by the WebKit open source project and other open source s
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSMenuOnStateTemplate" id="b52-Dm-mT6"/>
                     </imageView>
-                    <webView focusRingType="exterior" id="662-Pj-xvd" customClass="WebViewHandler">
-                        <rect key="frame" x="0.0" y="0.0" width="1107" height="649"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
-                        <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12">
-                            <nil key="identifier"/>
-                        </webPreferences>
-                        <connections>
-                            <outlet property="frameLoadDelegate" destination="Voe-Tx-rLC" id="1w1-0b-LT2"/>
-                        </connections>
-                    </webView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="e3k-CE-CDi">
                         <rect key="frame" x="311" y="687" width="281" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
@@ -413,8 +353,8 @@ Spark is made possible by the WebKit open source project and other open source s
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <tabView id="xTX-zj-7wI">
-                        <rect key="frame" x="-7" y="-10" width="1121" height="623"/>
+                    <tabView type="leftTabsBezelBorder" id="xTX-zj-7wI">
+                        <rect key="frame" x="-9" y="-10" width="1124" height="696"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <font key="font" metaFont="system"/>
                         <tabViewItems/>
@@ -424,9 +364,6 @@ Spark is made possible by the WebKit open source project and other open source s
                     </tabView>
                 </subviews>
             </view>
-            <connections>
-                <outlet property="initialFirstResponder" destination="662-Pj-xvd" id="PlE-gj-Fmq"/>
-            </connections>
             <point key="canvasLocation" x="1174.5" y="-119"/>
         </window>
     </objects>
