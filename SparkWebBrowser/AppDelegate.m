@@ -10,6 +10,7 @@
 
 @interface AppDelegate () <NSTabViewDelegate>
 @property (readwrite, retain, nonatomic) NSMutableSet *viewControllers;
+
 @end
 
 @implementation AppDelegate
@@ -86,10 +87,10 @@
     [self.viewControllers addObject: viewController];
     
     WebView *webView = viewController.view;
-    
     NSTabView *tabView = self.tabView;
     TabViewItem *item = [[TabViewItem alloc] initWithIdentifier: nil];
-    [item setLabel: @"title"];
+    
+    [item setLabel: _titleStatus];
     [item setWebView: webView];
     
     NSView *view = item.view;

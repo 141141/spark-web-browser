@@ -353,11 +353,18 @@ Spark is made possible by the WebKit open source project and other open source s
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <tabView type="leftTabsBezelBorder" id="xTX-zj-7wI">
-                        <rect key="frame" x="-9" y="-10" width="1124" height="696"/>
+                    <tabView id="xTX-zj-7wI">
+                        <rect key="frame" x="-16" y="-21" width="1139" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <font key="font" metaFont="system"/>
-                        <tabViewItems/>
+                        <tabViewItems>
+                            <tabViewItem label="Item 0" identifier="" id="Djg-mR-ALe">
+                                <view key="view" id="g53-Yk-dU6">
+                                    <rect key="frame" x="10" y="33" width="1119" height="626"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                            </tabViewItem>
+                        </tabViewItems>
                         <connections>
                             <outlet property="delegate" destination="Voe-Tx-rLC" id="n8V-Wo-Wjl"/>
                         </connections>
