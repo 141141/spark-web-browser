@@ -23,6 +23,7 @@
     NSURL *url = [NSURL URLWithString:[[event paramDescriptorForKeyword:keyDirectObject] stringValue]];
     NSString *urlToString = [url absoluteString];
     if([urlToString isEqual: @"spark://about"]) {
+        // This is not finished -- nothing happens when you visit spark://about (yet)
         NSLog(@"Secure Spark page loaded");
         _securePageIndicator.hidden = NO;
         _securePageIndicator.toolTip = @"You are viewing a secure Spark page.";
@@ -37,14 +38,13 @@
     NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
     NSString *appVersion = [infoDict objectForKey:@"CFBundleShortVersionString"]; // fetch the version number from info.plist
     NSString *buildNumber = [infoDict objectForKey:@"CFBundleVersion"]; // fetch the build number from info.plist
-    window.titleVisibility = NSWindowTitleHidden;
-   // window.level = NSMainMenuWindowLevel + 1;
-    [_webView setCustomUserAgent: @"Mozilla/5.0 (Macintosh; Intel Mac OS X) SparkWebBrowser/2.2.0.20806 (KHTML, like Gecko)"];
+    window.titleVisibility = NSWindowTitleHidden; // for future purposes
+    [_webView setCustomUserAgent: @"Mozilla/5.0 (Macintosh; Intel Mac OS X) SparkWebBrowser/2.2.0.20806 (KHTML, like Gecko)"]; // static for now, will fix later
     _ntNotSupported.hidden = YES;
     _securePageIndicator.hidden = YES;
     _stillLoading.hidden = NO;
-    _currentVersion.stringValue = [NSString stringWithFormat:@"Version %@ (build %@)", appVersion, buildNumber];
-    self.window.backgroundColor = [NSColor colorWithRed:0.773 green:0.231 blue:0.212 alpha:1];
+    _currentVersion.stringValue = [NSString stringWithFormat:@"%@.%@", appVersion, buildNumber];
+    self.window.backgroundColor = [NSColor colorWithRed:0.773 green:0.231 blue:0.212 alpha:1]; // title bar color in RGB
 }
 
 - (IBAction)newTab:(id)sender {
