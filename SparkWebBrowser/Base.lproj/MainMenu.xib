@@ -414,7 +414,7 @@ Spark is made possible by the WebKit open source project and other open source s
                         </textFieldCell>
                     </textField>
                     <tabView id="xTX-zj-7wI">
-                        <rect key="frame" x="368" y="390" width="454" height="265"/>
+                        <rect key="frame" x="-7" y="-10" width="1121" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <font key="font" metaFont="system"/>
                         <tabViewItems/>
