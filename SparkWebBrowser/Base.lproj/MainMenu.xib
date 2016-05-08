@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15F31a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="10117"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -20,8 +21,8 @@
                 <outlet property="ntNotSupported" destination="e3k-CE-CDi" id="JB0-P4-EAc"/>
                 <outlet property="securePageIndicator" destination="Xjz-i8-5AY" id="Idw-hn-yDo"/>
                 <outlet property="stillLoading" destination="GpZ-Eb-XLd" id="jHW-NI-Yhx"/>
-                <outlet property="tabView" destination="xTX-zj-7wI" id="PoN-fg-XGT"/>
-                <outlet property="titleStatus" destination="JvK-hQ-Wwq" id="Bnr-Fc-Cti"/>
+                <outlet property="titleStatus" destination="JvK-hQ-Wwq" id="SHO-kH-keU"/>
+                <outlet property="webView" destination="ffM-a6-P1L" id="vO9-FI-Eez"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="FlD-yq-Bjm"/>
             </connections>
         </customObject>
@@ -88,17 +89,17 @@
                             <menuItem isSeparatorItem="YES" id="1H0-1Z-ldi"/>
                             <menuItem title="Cut" keyEquivalent="x" id="bx6-xi-VFX">
                                 <connections>
-                                    <action selector="cut:" target="-1" id="A7q-L3-LVY"/>
+                                    <action selector="cut:" target="ffM-a6-P1L" id="uK6-IC-mS9"/>
                                 </connections>
                             </menuItem>
                             <menuItem title="Copy" keyEquivalent="c" id="B20-v1-62g">
                                 <connections>
-                                    <action selector="copy:" target="-1" id="UEc-kd-BhY"/>
+                                    <action selector="copy:" target="ffM-a6-P1L" id="xSi-Cd-XVU"/>
                                 </connections>
                             </menuItem>
                             <menuItem title="Paste" keyEquivalent="v" id="yOP-aG-qeC">
                                 <connections>
-                                    <action selector="paste:" target="-1" id="JAb-o4-7zx"/>
+                                    <action selector="paste:" target="ffM-a6-P1L" id="VTM-wU-4xj"/>
                                 </connections>
                             </menuItem>
                             <menuItem title="Select All" keyEquivalent="a" id="Xa5-jG-5cK">
@@ -121,9 +122,21 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="bAC-By-dtc"/>
-                            <menuItem title="Text Size +" keyEquivalent="o" id="ZWq-yV-KRx"/>
-                            <menuItem title="Text Size -" keyEquivalent="i" id="2mC-9m-Fag"/>
-                            <menuItem title="Text Size Normal" keyEquivalent="u" id="GJj-Hz-AnA"/>
+                            <menuItem title="Text Size +" keyEquivalent="o" id="ZWq-yV-KRx">
+                                <connections>
+                                    <action selector="makeTextLarger:" target="ffM-a6-P1L" id="ttf-fQ-hv4"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Text Size -" keyEquivalent="i" id="2mC-9m-Fag">
+                                <connections>
+                                    <action selector="makeTextSmaller:" target="ffM-a6-P1L" id="qqG-Bt-0zK"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Text Size Normal" keyEquivalent="u" id="GJj-Hz-AnA">
+                                <connections>
+                                    <action selector="makeTextStandardSize:" target="ffM-a6-P1L" id="0lF-Ul-JQa"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>
@@ -270,6 +283,9 @@ Spark is made possible by the WebKit open source project and other open source s
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="goBack:" target="ffM-a6-P1L" id="GRo-KP-AB9"/>
+                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="wRb-WG-N9I">
                         <rect key="frame" x="29" y="649" width="30" height="31"/>
@@ -278,6 +294,9 @@ Spark is made possible by the WebKit open source project and other open source s
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="goForward:" target="ffM-a6-P1L" id="DA3-yk-DFS"/>
+                        </connections>
                     </button>
                     <textField toolTip="Type the URL of the website you want to go to here. (including http://)" verticalHuggingPriority="750" id="6S4-CW-iwm">
                         <rect key="frame" x="89" y="653" width="1013" height="22"/>
@@ -287,6 +306,9 @@ Spark is made possible by the WebKit open source project and other open source s
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <action selector="takeStringURLFrom:" target="ffM-a6-P1L" id="zlS-2Q-bc3"/>
+                        </connections>
                     </textField>
                     <button verticalHuggingPriority="750" id="gZC-HQ-A14">
                         <rect key="frame" x="55" y="649" width="30" height="29"/>
@@ -295,6 +317,9 @@ Spark is made possible by the WebKit open source project and other open source s
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="reload:" target="ffM-a6-P1L" id="Lda-nl-TcN"/>
+                        </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="JvK-hQ-Wwq">
                         <rect key="frame" x="111" y="684" width="143" height="19"/>
@@ -353,25 +378,16 @@ Spark is made possible by the WebKit open source project and other open source s
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <tabView id="xTX-zj-7wI">
-                        <rect key="frame" x="-16" y="-21" width="1139" height="672"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <font key="font" metaFont="system"/>
-                        <tabViewItems>
-                            <tabViewItem label="Item 0" identifier="" id="Djg-mR-ALe">
-                                <view key="view" id="g53-Yk-dU6">
-                                    <rect key="frame" x="10" y="33" width="1119" height="626"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                            </tabViewItem>
-                        </tabViewItems>
-                        <connections>
-                            <outlet property="delegate" destination="Voe-Tx-rLC" id="n8V-Wo-Wjl"/>
-                        </connections>
-                    </tabView>
+                    <webView id="ffM-a6-P1L">
+                        <rect key="frame" x="0.0" y="0.0" width="1107" height="649"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <webPreferences key="preferences" defaultFontSize="16" defaultFixedFontSize="13" minimumFontSize="0" javaScriptCanOpenWindowsAutomatically="NO">
+                            <nil key="identifier"/>
+                        </webPreferences>
+                    </webView>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="1174.5" y="-119"/>
+            <point key="canvasLocation" x="1172.5" y="96"/>
         </window>
     </objects>
     <resources>

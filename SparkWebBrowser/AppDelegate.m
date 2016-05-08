@@ -5,11 +5,11 @@
 
 #import "AppDelegate.h"
 #import "WebKit/WebKit.h"
-#import "TabViewItem.h"
-#import "ViewController.h"
+// #import "TabViewItem.h"
+// #import "ViewController.h"
 
 @interface AppDelegate () <NSTabViewDelegate>
-@property (readwrite, retain, nonatomic) NSMutableSet *viewControllers;
+// @property (readwrite, retain, nonatomic) NSMutableSet *viewControllers;
 
 @end
 
@@ -17,7 +17,7 @@
 
 @synthesize window;
 
-- (id) init
+/*- (id) init
 {
     if ((self = [super init]))
     {
@@ -30,7 +30,7 @@
 {
     self.viewControllers = nil;
     //[super dealloc]; // Provided by the compiler.
-}
+}*/
 
 -(void)applicationWillFinishLaunching:(NSNotification *)aNotification
 {
@@ -73,7 +73,7 @@
 }
 
 - (IBAction)newTab:(id)sender {
-    /*
+    
     // No support for tabs in Spark -- display a label
     _ntNotSupported.hidden = NO;
     
@@ -82,8 +82,8 @@
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         _ntNotSupported.hidden = YES;
-    });*/
-    NSViewController *viewController = [[NSViewController alloc] initWithNibName: @"WebView" bundle: nil];
+    });
+    /*NSViewController *viewController = [[NSViewController alloc] initWithNibName: @"WebView" bundle: nil];
     [self.viewControllers addObject: viewController];
     
     WebView *webView = viewController.view;
@@ -98,7 +98,7 @@
     webView.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
     [view addSubview: webView];
     
-    [tabView insertTabViewItem: item atIndex: [tabView numberOfTabViewItems]];
+    [tabView insertTabViewItem: item atIndex: [tabView numberOfTabViewItems]];*/
 }
 
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame
@@ -119,7 +119,7 @@
     }
 }
 
-- (void) tabView: (NSTabView *) tabView willSelectTabViewItem: (NSTabViewItem *) tabViewItem
+/*- (void) tabView: (NSTabView *) tabView willSelectTabViewItem: (NSTabViewItem *) tabViewItem
 {
     NSTextField *addressBar = self.addressBar;
     
@@ -128,6 +128,6 @@
     
     addressBar.target = webView;
     addressBar.stringValue = webView.mainFrameURL ?: @"";
-}
+}*/
 
 @end
