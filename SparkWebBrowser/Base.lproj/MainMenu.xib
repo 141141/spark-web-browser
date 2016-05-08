@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9532" systemVersion="15E39d" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15F31a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9532"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="9532"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="10117"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -17,6 +18,7 @@
                 <outlet property="addressBar" destination="6S4-CW-iwm" id="yLL-ye-fyR"/>
                 <outlet property="currentVersion" destination="sbh-Aa-9pH" id="pub-aC-Yo5"/>
                 <outlet property="ntNotSupported" destination="e3k-CE-CDi" id="JB0-P4-EAc"/>
+                <outlet property="securePageIndicator" destination="Xjz-i8-5AY" id="Idw-hn-yDo"/>
                 <outlet property="stillLoading" destination="GpZ-Eb-XLd" id="jHW-NI-Yhx"/>
                 <outlet property="titleStatus" destination="JvK-hQ-Wwq" id="Bnr-Fc-Cti"/>
                 <outlet property="webView" destination="662-Pj-xvd" id="3tl-cM-4Aq"/>
@@ -121,7 +123,7 @@
                             </menuItem>
                             <menuItem title="Select All" keyEquivalent="a" id="Xa5-jG-5cK">
                                 <connections>
-                                    <action selector="selectText:" target="6S4-CW-iwm" id="Bhx-Xv-lfQ"/>
+                                    <action selector="selectText:" target="6S4-CW-iwm" id="jfV-Il-jv4"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="3If-vn-ywh"/>
@@ -175,19 +177,37 @@
                 </menuItem>
             </items>
         </menu>
-        <window title="Spark Web Browser" allowsToolTipsWhenApplicationIsInactive="NO" showsToolbarButton="NO" frameAutosaveName="Spark Web Browser - Saving.." animationBehavior="default" id="QvC-M9-y7g">
+        <window allowsToolTipsWhenApplicationIsInactive="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES"/>
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="149" y="28" width="1107" height="716"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1080"/>
-            <value key="minSize" type="size" width="1107" height="715"/>
+            <rect key="contentRect" x="149" y="28" width="1107" height="708"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <value key="minSize" type="size" width="1107" height="708"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="1107" height="716"/>
+                <rect key="frame" x="0.0" y="0.0" width="1107" height="708"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="bY4-GT-wGb">
+                        <rect key="frame" x="-2" y="649" width="1109" height="31"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="hello" drawsBackground="YES" id="KCo-YH-Bvv">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="7o9-5H-k8C">
+                        <rect key="frame" x="84" y="677" width="192" height="31"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" drawsBackground="YES" id="j3a-rZ-Cwc">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                     <button verticalHuggingPriority="750" id="CSR-Ik-wrT">
-                        <rect key="frame" x="0.0" y="675" width="30" height="21"/>
+                        <rect key="frame" x="0.0" y="649" width="30" height="31"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSGoLeftTemplate" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="VLy-6I-5e9">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -198,7 +218,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="wRb-WG-N9I">
-                        <rect key="frame" x="29" y="675" width="30" height="21"/>
+                        <rect key="frame" x="29" y="649" width="30" height="31"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSGoRightTemplate" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="eND-U0-Xbb">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -209,9 +229,9 @@
                         </connections>
                     </button>
                     <textField toolTip="Type the URL of the website you want to go to here. (including http://)" verticalHuggingPriority="750" id="6S4-CW-iwm">
-                        <rect key="frame" x="89" y="674" width="998" height="22"/>
+                        <rect key="frame" x="89" y="653" width="1013" height="22"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="http://www.google.com" placeholderString="Type the URL of the website you want to go to here (including http:// or https://)" bezelStyle="round" id="MSe-fD-WSx">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="" bezelStyle="round" id="MSe-fD-WSx">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -220,19 +240,8 @@
                             <action selector="takeStringURLFrom:" target="662-Pj-xvd" id="crc-u4-2yz"/>
                         </connections>
                     </textField>
-                    <button verticalHuggingPriority="750" id="pmy-Gn-uac">
-                        <rect key="frame" x="1088" y="675" width="19" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="bx5-yX-Nf2">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" size="14" name="AvenirNext-Regular"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="newTab:" target="Voe-Tx-rLC" id="yOZ-pK-xAy"/>
-                        </connections>
-                    </button>
                     <button verticalHuggingPriority="750" id="gZC-HQ-A14">
-                        <rect key="frame" x="55" y="674" width="30" height="21"/>
+                        <rect key="frame" x="55" y="649" width="30" height="29"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRefreshTemplate" imagePosition="overlaps" alignment="center" state="on" inset="2" id="IwX-sg-PoZ">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -242,27 +251,17 @@
                             <action selector="reload:" target="662-Pj-xvd" id="MRF-6H-yAa"/>
                         </connections>
                     </button>
-                    <webView focusRingType="exterior" id="662-Pj-xvd">
-                        <rect key="frame" x="0.0" y="0.0" width="1107" height="649"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
-                        <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12" javaScriptCanOpenWindowsAutomatically="NO">
-                            <nil key="identifier"/>
-                        </webPreferences>
-                        <connections>
-                            <outlet property="frameLoadDelegate" destination="Voe-Tx-rLC" id="1w1-0b-LT2"/>
-                        </connections>
-                    </webView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="JvK-hQ-Wwq">
-                        <rect key="frame" x="-2" y="651" width="1111" height="19"/>
+                        <rect key="frame" x="111" y="684" width="143" height="19"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" placeholderString="Loading..." id="I9i-cv-n8A">
-                            <font key="font" metaFont="systemLight" size="15"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" placeholderString="Loading..." id="I9i-cv-n8A">
+                            <font key="font" metaFont="systemLight" size="13"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="e3k-CE-CDi">
-                        <rect key="frame" x="828" y="652" width="281" height="17"/>
+                        <rect key="frame" x="828" y="683" width="281" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Tabs are not available in this version of Spark." id="gfc-dE-ICK">
                             <font key="font" metaFont="systemLight" size="13"/>
@@ -270,6 +269,26 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="zxq-kF-Fbg">
+                        <rect key="frame" x="284" y="684" width="21" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" drawsBackground="YES" id="YQV-X6-Y4Z">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" white="1" alpha="0.6159213362068966" colorSpace="deviceWhite"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" id="pmy-Gn-uac">
+                        <rect key="frame" x="284" y="684" width="21" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="bx5-yX-Nf2">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="14" name="AvenirNext-Regular"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="newTab:" target="Voe-Tx-rLC" id="yOZ-pK-xAy"/>
+                        </connections>
+                    </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="GpZ-Eb-XLd">
                         <rect key="frame" x="3" y="3" width="58" height="14"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
@@ -279,9 +298,40 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="t5k-sW-5ra">
+                        <rect key="frame" x="89" y="684" width="19" height="19"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSIconViewTemplate" id="lec-S4-uJt"/>
+                    </imageView>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Xjz-i8-5AY">
+                        <rect key="frame" x="252" y="684" width="19" height="19"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSMenuOnStateTemplate" id="b52-Dm-mT6"/>
+                    </imageView>
+                    <button id="qck-7U-Em5">
+                        <rect key="frame" x="438" y="670" width="48" height="48"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="P6l-3L-W30">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <webView focusRingType="exterior" id="662-Pj-xvd" customClass="WebViewHandler">
+                        <rect key="frame" x="0.0" y="0.0" width="1107" height="649"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                        <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12" javaScriptCanOpenWindowsAutomatically="NO">
+                            <nil key="identifier"/>
+                        </webPreferences>
+                        <connections>
+                            <outlet property="frameLoadDelegate" destination="Voe-Tx-rLC" id="1w1-0b-LT2"/>
+                        </connections>
+                    </webView>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="1154.5" y="-169"/>
+            <connections>
+                <outlet property="initialFirstResponder" destination="662-Pj-xvd" id="PlE-gj-Fmq"/>
+            </connections>
+            <point key="canvasLocation" x="1174.5" y="-119"/>
         </window>
         <window title="About Spark Web Browser" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="oJi-1c-Sb5" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
@@ -325,6 +375,8 @@
         <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSGoLeftTemplate" width="9" height="12"/>
         <image name="NSGoRightTemplate" width="9" height="12"/>
+        <image name="NSIconViewTemplate" width="10" height="10"/>
+        <image name="NSMenuOnStateTemplate" width="12" height="12"/>
         <image name="NSRefreshTemplate" width="11" height="15"/>
     </resources>
 </document>

@@ -16,6 +16,7 @@
 @property (strong) IBOutlet NSTextField *ntNotSupported;
 @property (strong) IBOutlet NSTextField *stillLoading;
 @property (strong) IBOutlet NSTextField *currentVersion;
+@property (strong) IBOutlet NSImageView *securePageIndicator;
 
 // Methods
 - (IBAction)newTab:(id)sender;
