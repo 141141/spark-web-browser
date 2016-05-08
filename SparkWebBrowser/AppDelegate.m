@@ -5,6 +5,8 @@
 
 #import "AppDelegate.h"
 #import "WebKit/WebKit.h"
+#import "TabViewItem.h"
+#import "ViewController.h"
 
 @interface AppDelegate () <NSTabViewDelegate>
 @property (readwrite, retain, nonatomic) NSMutableSet *viewControllers;
@@ -114,6 +116,17 @@
         [self.titleStatus setStringValue:title];
         self.stillLoading.hidden = YES;
     }
+}
+
+- (void) tabView: (NSTabView *) tabView willSelectTabViewItem: (NSTabViewItem *) tabViewItem
+{
+    NSTextField *addressBar = self.addressBar;
+    
+    TabViewItem *item = (TabViewItem *) tabViewItem;
+    WebView *webView = item.webView;
+    
+    addressBar.target = webView;
+    addressBar.stringValue = webView.mainFrameURL ?: @"";
 }
 
 @end

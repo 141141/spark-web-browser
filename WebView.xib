@@ -12,7 +12,7 @@
         <webView id="Ivy-ni-qad">
             <rect key="frame" x="0.0" y="0.0" width="254" height="200"/>
             <autoresizingMask key="autoresizingMask"/>
-            <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12" javaScriptCanOpenWindowsAutomatically="NO">
+            <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12">
                 <nil key="identifier"/>
             </webPreferences>
             <point key="canvasLocation" x="450" y="312"/>

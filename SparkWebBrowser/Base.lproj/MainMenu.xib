@@ -397,7 +397,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     <webView focusRingType="exterior" id="662-Pj-xvd" customClass="WebViewHandler">
                         <rect key="frame" x="0.0" y="0.0" width="1107" height="649"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
-                        <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12" javaScriptCanOpenWindowsAutomatically="NO">
+                        <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12">
                             <nil key="identifier"/>
                         </webPreferences>
                         <connections>
@@ -418,6 +418,9 @@ Spark is made possible by the WebKit open source project and other open source s
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <font key="font" metaFont="system"/>
                         <tabViewItems/>
+                        <connections>
+                            <outlet property="delegate" destination="Voe-Tx-rLC" id="n8V-Wo-Wjl"/>
+                        </connections>
                     </tabView>
                 </subviews>
             </view>
