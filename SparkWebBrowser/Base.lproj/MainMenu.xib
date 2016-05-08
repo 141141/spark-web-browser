@@ -21,6 +21,7 @@
                 <outlet property="ntNotSupported" destination="e3k-CE-CDi" id="JB0-P4-EAc"/>
                 <outlet property="securePageIndicator" destination="Xjz-i8-5AY" id="Idw-hn-yDo"/>
                 <outlet property="stillLoading" destination="GpZ-Eb-XLd" id="jHW-NI-Yhx"/>
+                <outlet property="tabView" destination="xTX-zj-7wI" id="PoN-fg-XGT"/>
                 <outlet property="titleStatus" destination="JvK-hQ-Wwq" id="Bnr-Fc-Cti"/>
                 <outlet property="webView" destination="662-Pj-xvd" id="3tl-cM-4Aq"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="FlD-yq-Bjm"/>
@@ -412,6 +413,12 @@ Spark is made possible by the WebKit open source project and other open source s
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <tabView id="xTX-zj-7wI">
+                        <rect key="frame" x="368" y="390" width="454" height="265"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <tabViewItems/>
+                    </tabView>
                 </subviews>
             </view>
             <connections>

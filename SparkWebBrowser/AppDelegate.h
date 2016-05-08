@@ -9,15 +9,16 @@
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 // Declarations
-@property (assign) IBOutlet NSWindow *window;
-@property (assign) IBOutlet WebView *webView;
-@property (assign) IBOutlet NSTextField *addressBar;
-@property (assign) IBOutlet NSTextField *titleStatus;
-@property (strong) IBOutlet NSTextField *ntNotSupported;
-@property (strong) IBOutlet NSTextField *stillLoading;
-@property (strong) IBOutlet NSTextField *currentVersion;
-@property (strong) IBOutlet NSImageView *securePageIndicator;
-@property (strong) IBOutlet NSPanel *aboutWindow;
+@property (assign, nonatomic) IBOutlet NSWindow *window;
+@property (assign, nonatomic) IBOutlet WebView *webView;
+@property (assign, nonatomic) IBOutlet NSTextField *addressBar;
+@property (assign, nonatomic) IBOutlet NSTextField *titleStatus;
+@property (assign, nonatomic) IBOutlet NSTextField *ntNotSupported;
+@property (assign, nonatomic) IBOutlet NSTextField *stillLoading;
+@property (assign, nonatomic) IBOutlet NSTextField *currentVersion;
+@property (assign, nonatomic) IBOutlet NSImageView *securePageIndicator;
+@property (assign, nonatomic) IBOutlet NSPanel *aboutWindow;
+@property (assign, nonatomic) IBOutlet NSTabView *tabView;
 
 // Methods
 - (IBAction)newTab:(id)sender;

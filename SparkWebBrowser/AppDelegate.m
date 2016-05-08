@@ -6,9 +6,28 @@
 #import "AppDelegate.h"
 #import "WebKit/WebKit.h"
 
+@interface AppDelegate () <NSTabViewDelegate>
+@property (readwrite, retain, nonatomic) NSMutableSet *viewControllers;
+@end
+
 @implementation AppDelegate
 
 @synthesize window;
+
+- (id) init
+{
+    if ((self = [super init]))
+    {
+        self.viewControllers = [NSMutableSet set];
+    }
+    return self;
+}
+
+- (void) dealloc
+{
+    self.viewControllers = nil;
+    //[super dealloc]; // Provided by the compiler.
+}
 
 -(void)applicationWillFinishLaunching:(NSNotification *)aNotification
 {
