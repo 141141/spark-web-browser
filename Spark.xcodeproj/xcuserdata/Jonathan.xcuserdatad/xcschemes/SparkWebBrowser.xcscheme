@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AB83980319817D8E001D31B7"
                BuildableName = "Spark Web Browser.app"
-               BlueprintName = "Spark Web Browser"
-               ReferencedContainer = "container:Spark Web Browser.xcodeproj">
+               BlueprintName = "Spark"
+               ReferencedContainer = "container:Spark.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AB83982419817D8E001D31B7"
-               BuildableName = "Spark Web BrowserTests.xctest"
-               BlueprintName = "Spark Web BrowserTests"
-               ReferencedContainer = "container:Spark Web Browser.xcodeproj">
+               BuildableName = "Spark.xctest"
+               BlueprintName = "SparkTests"
+               ReferencedContainer = "container:Spark.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AB83980319817D8E001D31B7"
             BuildableName = "Spark Web Browser.app"
-            BlueprintName = "Spark Web Browser"
-            ReferencedContainer = "container:Spark Web Browser.xcodeproj">
+            BlueprintName = "Spark"
+            ReferencedContainer = "container:Spark.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -67,8 +67,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AB83980319817D8E001D31B7"
             BuildableName = "Spark Web Browser.app"
-            BlueprintName = "Spark Web Browser"
-            ReferencedContainer = "container:Spark Web Browser.xcodeproj">
+            BlueprintName = "Spark"
+            ReferencedContainer = "container:Spark.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -86,8 +86,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AB83980319817D8E001D31B7"
             BuildableName = "Spark Web Browser.app"
-            BlueprintName = "Spark Web Browser"
-            ReferencedContainer = "container:Spark Web Browser.xcodeproj">
+            BlueprintName = "Spark"
+            ReferencedContainer = "container:Spark.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -10,7 +10,7 @@
 		AB04FD021C712BAD00F08232 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB04FD011C712BAD00F08232 /* Images.xcassets */; };
 		AB04FD051C712BB500F08232 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB04FD041C712BB500F08232 /* AppDelegate.m */; };
 		AB04FD0C1C712BDB00F08232 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB04FD0A1C712BDB00F08232 /* main.m */; };
-		AB04FD0F1C712BE900F08232 /* Spark Web BrowserTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB04FD0D1C712BE900F08232 /* Spark Web BrowserTests-Info.plist */; };
+		AB04FD0F1C712BE900F08232 /* SparkTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB04FD0D1C712BE900F08232 /* SparkTests-Info.plist */; };
 		AB04FD131C712C6000F08232 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB04FD111C712C6000F08232 /* MainMenu.xib */; };
 		AB04FD181C712C7100F08232 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AB04FD141C712C7100F08232 /* Credits.rtf */; };
 		AB04FD191C712C7100F08232 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB04FD161C712C7100F08232 /* InfoPlist.strings */; };
@@ -54,22 +54,22 @@
 		AB04FD011C712BAD00F08232 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SparkWebBrowser/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		AB04FD031C712BB500F08232 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = SparkWebBrowser/AppDelegate.h; sourceTree = SOURCE_ROOT; };
 		AB04FD041C712BB500F08232 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = SparkWebBrowser/AppDelegate.m; sourceTree = SOURCE_ROOT; };
-		AB04FD081C712BD700F08232 /* Spark Web Browser-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Spark Web Browser-Info.plist"; path = "SparkWebBrowser/Spark Web Browser-Info.plist"; sourceTree = SOURCE_ROOT; };
+		AB04FD081C712BD700F08232 /* Spark-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Spark-Info.plist"; path = "SparkWebBrowser/Spark-Info.plist"; sourceTree = SOURCE_ROOT; };
 		AB04FD0A1C712BDB00F08232 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = SparkWebBrowser/main.m; sourceTree = SOURCE_ROOT; };
-		AB04FD0B1C712BDB00F08232 /* Spark Web Browser-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Spark Web Browser-Prefix.pch"; path = "SparkWebBrowser/Spark Web Browser-Prefix.pch"; sourceTree = SOURCE_ROOT; };
-		AB04FD0D1C712BE900F08232 /* Spark Web BrowserTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Spark Web BrowserTests-Info.plist"; path = "SparkWebBrowserTests/Spark Web BrowserTests-Info.plist"; sourceTree = SOURCE_ROOT; };
+		AB04FD0B1C712BDB00F08232 /* Spark-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Spark-Prefix.pch"; path = "SparkWebBrowser/Spark-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		AB04FD0D1C712BE900F08232 /* SparkTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SparkTests-Info.plist"; path = "SparkWebBrowserTests/SparkTests-Info.plist"; sourceTree = SOURCE_ROOT; };
 		AB04FD121C712C6000F08232 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = SparkWebBrowser/Base.lproj/MainMenu.xib; sourceTree = SOURCE_ROOT; };
 		AB04FD151C712C7100F08232 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = SparkWebBrowser/en.lproj/Credits.rtf; sourceTree = SOURCE_ROOT; };
 		AB04FD171C712C7100F08232 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = SparkWebBrowser/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
 		AB124B5E1CDEEA5900BAE438 /* WebViewHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebViewHandler.h; path = SparkWebBrowser/WebViewHandler.h; sourceTree = SOURCE_ROOT; };
 		AB124B5F1CDEEA5900BAE438 /* WebViewHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebViewHandler.m; path = SparkWebBrowser/WebViewHandler.m; sourceTree = SOURCE_ROOT; };
 		AB1E724E1C712ED600699E69 /* SparkWebBrowserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SparkWebBrowserTests.m; path = ../../../../../SparkWebBrowserTests.m; sourceTree = "<group>"; };
-		AB83980419817D8E001D31B7 /* Spark Web Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spark Web Browser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB83980419817D8E001D31B7 /* Spark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB83980719817D8E001D31B7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		AB83980A19817D8E001D31B7 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		AB83980B19817D8E001D31B7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		AB83980C19817D8E001D31B7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		AB83982519817D8E001D31B7 /* Spark Web BrowserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Spark Web BrowserTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB83982519817D8E001D31B7 /* Spark.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Spark.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB83982619817D8E001D31B7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		AB83982F19817D8E001D31B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AB83983B19817E15001D31B7 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -110,8 +110,8 @@
 		AB83980519817D8E001D31B7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AB83980419817D8E001D31B7 /* Spark Web Browser.app */,
-				AB83982519817D8E001D31B7 /* Spark Web BrowserTests.xctest */,
+				AB83980419817D8E001D31B7 /* Spark.app */,
+				AB83982519817D8E001D31B7 /* Spark.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -155,11 +155,11 @@
 		AB83980E19817D8E001D31B7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AB04FD081C712BD700F08232 /* Spark Web Browser-Info.plist */,
+				AB04FD081C712BD700F08232 /* Spark-Info.plist */,
 				AB04FD0A1C712BDB00F08232 /* main.m */,
 				AB04FD141C712C7100F08232 /* Credits.rtf */,
 				AB04FD161C712C7100F08232 /* InfoPlist.strings */,
-				AB04FD0B1C712BDB00F08232 /* Spark Web Browser-Prefix.pch */,
+				AB04FD0B1C712BDB00F08232 /* Spark-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -177,7 +177,7 @@
 		AB83982C19817D8E001D31B7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AB04FD0D1C712BE900F08232 /* Spark Web BrowserTests-Info.plist */,
+				AB04FD0D1C712BE900F08232 /* SparkTests-Info.plist */,
 				AB83982E19817D8E001D31B7 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -186,9 +186,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AB83980319817D8E001D31B7 /* Spark Web Browser */ = {
+		AB83980319817D8E001D31B7 /* Spark */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AB83983519817D8E001D31B7 /* Build configuration list for PBXNativeTarget "Spark Web Browser" */;
+			buildConfigurationList = AB83983519817D8E001D31B7 /* Build configuration list for PBXNativeTarget "Spark" */;
 			buildPhases = (
 				AB83980019817D8E001D31B7 /* Sources */,
 				AB83980119817D8E001D31B7 /* Frameworks */,
@@ -199,14 +199,14 @@
 			);
 			dependencies = (
 			);
-			name = "Spark Web Browser";
+			name = Spark;
 			productName = "Web Browser";
-			productReference = AB83980419817D8E001D31B7 /* Spark Web Browser.app */;
+			productReference = AB83980419817D8E001D31B7 /* Spark.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AB83982419817D8E001D31B7 /* Spark Web BrowserTests */ = {
+		AB83982419817D8E001D31B7 /* SparkTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AB83983819817D8E001D31B7 /* Build configuration list for PBXNativeTarget "Spark Web BrowserTests" */;
+			buildConfigurationList = AB83983819817D8E001D31B7 /* Build configuration list for PBXNativeTarget "SparkTests" */;
 			buildPhases = (
 				AB83982119817D8E001D31B7 /* Sources */,
 				AB83982219817D8E001D31B7 /* Frameworks */,
@@ -217,9 +217,9 @@
 			dependencies = (
 				AB83982A19817D8E001D31B7 /* PBXTargetDependency */,
 			);
-			name = "Spark Web BrowserTests";
+			name = SparkTests;
 			productName = "Web BrowserTests";
-			productReference = AB83982519817D8E001D31B7 /* Spark Web BrowserTests.xctest */;
+			productReference = AB83982519817D8E001D31B7 /* Spark.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -236,7 +236,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AB8397FF19817D8D001D31B7 /* Build configuration list for PBXProject "Spark Web Browser" */;
+			buildConfigurationList = AB8397FF19817D8D001D31B7 /* Build configuration list for PBXProject "Spark" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -249,8 +249,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AB83980319817D8E001D31B7 /* Spark Web Browser */,
-				AB83982419817D8E001D31B7 /* Spark Web BrowserTests */,
+				AB83980319817D8E001D31B7 /* Spark */,
+				AB83982419817D8E001D31B7 /* SparkTests */,
 			);
 		};
 /* End PBXProject section */
@@ -263,7 +263,7 @@
 				AB04FD021C712BAD00F08232 /* Images.xcassets in Resources */,
 				AB04FD191C712C7100F08232 /* InfoPlist.strings in Resources */,
 				AB04FD181C712C7100F08232 /* Credits.rtf in Resources */,
-				AB04FD0F1C712BE900F08232 /* Spark Web BrowserTests-Info.plist in Resources */,
+				AB04FD0F1C712BE900F08232 /* SparkTests-Info.plist in Resources */,
 				AB04FD131C712C6000F08232 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,7 +302,7 @@
 /* Begin PBXTargetDependency section */
 		AB83982A19817D8E001D31B7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AB83980319817D8E001D31B7 /* Spark Web Browser */;
+			target = AB83980319817D8E001D31B7 /* Spark */;
 			targetProxy = AB83982919817D8E001D31B7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -429,12 +429,12 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SparkWebBrowser/Spark Web Browser-Prefix.pch";
-				INFOPLIST_FILE = "SparkWebBrowser/Spark Web Browser-Info.plist";
+				GCC_PREFIX_HEADER = "SparkWebBrowser/Spark-Prefix.pch";
+				INFOPLIST_FILE = "SparkWebBrowser/Spark-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.insleep.Spark-Web-Browser";
-				PRODUCT_NAME = "Spark Web Browser";
+				PRODUCT_NAME = Spark;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -446,12 +446,12 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SparkWebBrowser/Spark Web Browser-Prefix.pch";
-				INFOPLIST_FILE = "SparkWebBrowser/Spark Web Browser-Info.plist";
+				GCC_PREFIX_HEADER = "SparkWebBrowser/Spark-Prefix.pch";
+				INFOPLIST_FILE = "SparkWebBrowser/Spark-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.insleep.Spark-Web-Browser";
-				PRODUCT_NAME = "Spark Web Browser";
+				PRODUCT_NAME = Spark;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -468,9 +468,9 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "SparkWebBrowserTests/Spark Web BrowserTests-Info.plist";
+				INFOPLIST_FILE = "SparkWebBrowserTests/SparkTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.insleep.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "Spark Web BrowserTests";
+				PRODUCT_NAME = Spark;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -484,9 +484,9 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SparkWebBrowser/SparkWebBrowser-Prefix.pch";
-				INFOPLIST_FILE = "SparkWebBrowserTests/Spark Web BrowserTests-Info.plist";
+				INFOPLIST_FILE = "SparkWebBrowserTests/SparkTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.insleep.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "Spark Web BrowserTests";
+				PRODUCT_NAME = Spark;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -495,7 +495,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AB8397FF19817D8D001D31B7 /* Build configuration list for PBXProject "Spark Web Browser" */ = {
+		AB8397FF19817D8D001D31B7 /* Build configuration list for PBXProject "Spark" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AB83983319817D8E001D31B7 /* Debug */,
@@ -504,7 +504,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AB83983519817D8E001D31B7 /* Build configuration list for PBXNativeTarget "Spark Web Browser" */ = {
+		AB83983519817D8E001D31B7 /* Build configuration list for PBXNativeTarget "Spark" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AB83983619817D8E001D31B7 /* Debug */,
@@ -513,7 +513,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AB83983819817D8E001D31B7 /* Build configuration list for PBXNativeTarget "Spark Web BrowserTests" */ = {
+		AB83983819817D8E001D31B7 /* Build configuration list for PBXNativeTarget "SparkTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AB83983919817D8E001D31B7 /* Debug */,
