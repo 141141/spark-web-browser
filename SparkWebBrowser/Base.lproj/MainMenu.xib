@@ -384,6 +384,9 @@ Spark is made possible by the WebKit open source project and other open source s
                         <webPreferences key="preferences" defaultFontSize="16" defaultFixedFontSize="13" minimumFontSize="0" javaScriptCanOpenWindowsAutomatically="NO">
                             <nil key="identifier"/>
                         </webPreferences>
+                        <connections>
+                            <outlet property="frameLoadDelegate" destination="Voe-Tx-rLC" id="KKq-H1-x8k"/>
+                        </connections>
                     </webView>
                 </subviews>
             </view>
