@@ -45,6 +45,7 @@
     _stillLoading.hidden = NO;
     _currentVersion.stringValue = [NSString stringWithFormat:@"%@.%@", appVersion, buildNumber];
     self.window.backgroundColor = [NSColor colorWithRed:0.773 green:0.231 blue:0.212 alpha:1]; // title bar color in RGB
+    _aboutWindow.backgroundColor = [NSColor whiteColor];
 }
 
 - (IBAction)newTab:(id)sender {

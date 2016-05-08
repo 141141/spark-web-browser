@@ -17,6 +17,7 @@
 @property (strong) IBOutlet NSTextField *stillLoading;
 @property (strong) IBOutlet NSTextField *currentVersion;
 @property (strong) IBOutlet NSImageView *securePageIndicator;
+@property (strong) IBOutlet NSPanel *aboutWindow;
 
 // Methods
 - (IBAction)newTab:(id)sender;
