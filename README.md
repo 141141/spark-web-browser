@@ -1,8 +1,6 @@
 # Spark Web Browser
 A minimal web browser for OS X
 
-### Note: Tab support is broken at the moment, and will be fixed soon.
-
 ## About
 Spark is a very simple web browser for OS X. It was not designed for normal use - it was designed for others to learn from. Feel free to fork this project and make improvements!
 

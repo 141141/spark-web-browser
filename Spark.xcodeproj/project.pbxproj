@@ -23,9 +23,9 @@
 		AB83982719817D8E001D31B7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83982619817D8E001D31B7 /* XCTest.framework */; };
 		AB83982819817D8E001D31B7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83980719817D8E001D31B7 /* Cocoa.framework */; };
 		AB83983019817D8E001D31B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB83982E19817D8E001D31B7 /* InfoPlist.strings */; };
+		ABAE15811CDFB6E40000CB9F /* TabViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAE157F1CDFB6E40000CB9F /* TabViewItem.m */; };
+		ABAE15821CDFB6E40000CB9F /* WebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABAE15801CDFB6E40000CB9F /* WebView.xib */; };
 		ABB45AEC1CDF849800E14B54 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB45AEB1CDF849800E14B54 /* ViewController.m */; };
-		ABB45AEF1CDF869D00E14B54 /* TabViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB45AEE1CDF869D00E14B54 /* TabViewItem.m */; };
-		ABD7CCB71CDF8387006263E7 /* WebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABD7CCB61CDF8387006263E7 /* WebView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,11 +76,11 @@
 		AB83982619817D8E001D31B7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		AB83982F19817D8E001D31B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AB83983B19817E15001D31B7 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		ABAE157E1CDFB6E40000CB9F /* TabViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TabViewItem.h; path = SparkWebBrowser/TabViewItem.h; sourceTree = SOURCE_ROOT; };
+		ABAE157F1CDFB6E40000CB9F /* TabViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TabViewItem.m; path = SparkWebBrowser/TabViewItem.m; sourceTree = SOURCE_ROOT; };
+		ABAE15801CDFB6E40000CB9F /* WebView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WebView.xib; path = SparkWebBrowser/WebView.xib; sourceTree = SOURCE_ROOT; };
 		ABB45AEA1CDF849800E14B54 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = SparkWebBrowser/ViewController.h; sourceTree = SOURCE_ROOT; };
 		ABB45AEB1CDF849800E14B54 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = SparkWebBrowser/ViewController.m; sourceTree = SOURCE_ROOT; };
-		ABB45AED1CDF869D00E14B54 /* TabViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabViewItem.h; sourceTree = SOURCE_ROOT; };
-		ABB45AEE1CDF869D00E14B54 /* TabViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewItem.m; sourceTree = SOURCE_ROOT; };
-		ABD7CCB61CDF8387006263E7 /* WebView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebView.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,14 +150,14 @@
 			children = (
 				AB04FD031C712BB500F08232 /* AppDelegate.h */,
 				AB04FD041C712BB500F08232 /* AppDelegate.m */,
-				ABB45AED1CDF869D00E14B54 /* TabViewItem.h */,
-				ABB45AEE1CDF869D00E14B54 /* TabViewItem.m */,
 				ABB45AEA1CDF849800E14B54 /* ViewController.h */,
 				ABB45AEB1CDF849800E14B54 /* ViewController.m */,
 				AB124B5E1CDEEA5900BAE438 /* WebViewHandler.h */,
 				AB124B5F1CDEEA5900BAE438 /* WebViewHandler.m */,
+				ABAE157E1CDFB6E40000CB9F /* TabViewItem.h */,
+				ABAE157F1CDFB6E40000CB9F /* TabViewItem.m */,
+				ABAE15801CDFB6E40000CB9F /* WebView.xib */,
 				AB04FD111C712C6000F08232 /* MainMenu.xib */,
-				ABD7CCB61CDF8387006263E7 /* WebView.xib */,
 				AB04FD011C712BAD00F08232 /* Images.xcassets */,
 				AB83980E19817D8E001D31B7 /* Supporting Files */,
 			);
@@ -278,7 +278,7 @@
 				AB04FD181C712C7100F08232 /* Credits.rtf in Resources */,
 				AB04FD0F1C712BE900F08232 /* SparkTests-Info.plist in Resources */,
 				AB04FD131C712C6000F08232 /* MainMenu.xib in Resources */,
-				ABD7CCB71CDF8387006263E7 /* WebView.xib in Resources */,
+				ABAE15821CDFB6E40000CB9F /* WebView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,7 +299,7 @@
 			files = (
 				AB124B601CDEEA5900BAE438 /* WebViewHandler.m in Sources */,
 				AB04FD0C1C712BDB00F08232 /* main.m in Sources */,
-				ABB45AEF1CDF869D00E14B54 /* TabViewItem.m in Sources */,
+				ABAE15811CDFB6E40000CB9F /* TabViewItem.m in Sources */,
 				ABB45AEC1CDF849800E14B54 /* ViewController.m in Sources */,
 				AB04FD051C712BB500F08232 /* AppDelegate.m in Sources */,
 			);
