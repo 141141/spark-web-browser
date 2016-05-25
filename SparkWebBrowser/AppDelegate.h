@@ -18,7 +18,8 @@
 @property (assign, nonatomic) IBOutlet NSTextField *currentVersion;
 @property (assign, nonatomic) IBOutlet NSImageView *securePageIndicator;
 @property (assign, nonatomic) IBOutlet NSPanel *aboutWindow;
-//@property (assign, nonatomic) IBOutlet NSTabView *tabView;
+@property (assign, nonatomic) IBOutlet NSTextField *userAgentField;
+@property (assign, nonatomic) IBOutlet NSTextField *osVersionField;
 
 // Methods
 - (IBAction)newTab:(id)sender;

@@ -19,9 +19,11 @@
                 <outlet property="addressBar" destination="6S4-CW-iwm" id="yLL-ye-fyR"/>
                 <outlet property="currentVersion" destination="sbh-Aa-9pH" id="pub-aC-Yo5"/>
                 <outlet property="ntNotSupported" destination="e3k-CE-CDi" id="JB0-P4-EAc"/>
+                <outlet property="osVersionField" destination="mdu-F3-Gvc" id="At6-wc-w2v"/>
                 <outlet property="securePageIndicator" destination="Xjz-i8-5AY" id="Idw-hn-yDo"/>
                 <outlet property="stillLoading" destination="GpZ-Eb-XLd" id="jHW-NI-Yhx"/>
                 <outlet property="titleStatus" destination="JvK-hQ-Wwq" id="SHO-kH-keU"/>
+                <outlet property="userAgentField" destination="9o1-qW-hns" id="C28-xd-N7u"/>
                 <outlet property="webView" destination="ffM-a6-P1L" id="vO9-FI-Eez"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="FlD-yq-Bjm"/>
             </connections>
@@ -208,7 +210,7 @@ Spark is made possible by the WebKit open source project and other open source s
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="mdu-F3-Gvc">
-                        <rect key="frame" x="100" y="151" width="67" height="17"/>
+                        <rect key="frame" x="100" y="151" width="207" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Mac OS X" id="Pvk-mL-E4X">
                             <font key="font" metaFont="systemLight" size="13"/>

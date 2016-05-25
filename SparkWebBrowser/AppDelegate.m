@@ -5,32 +5,14 @@
 
 #import "AppDelegate.h"
 #import "WebKit/WebKit.h"
-// #import "TabViewItem.h"
-// #import "ViewController.h"
 
 @interface AppDelegate () <NSTabViewDelegate>
-// @property (readwrite, retain, nonatomic) NSMutableSet *viewControllers;
 
 @end
 
 @implementation AppDelegate
 
 @synthesize window;
-
-/*- (id) init
-{
-    if ((self = [super init]))
-    {
-        self.viewControllers = [NSMutableSet set];
-    }
-    return self;
-}
-
-- (void) dealloc
-{
-    self.viewControllers = nil;
-    //[super dealloc]; // Provided by the compiler.
-}*/
 
 -(void)applicationWillFinishLaunching:(NSNotification *)aNotification
 {
@@ -60,12 +42,18 @@
     NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
     NSString *appVersion = [infoDict objectForKey:@"CFBundleShortVersionString"]; // fetch the version number from info.plist
     NSString *buildNumber = [infoDict objectForKey:@"CFBundleVersion"]; // fetch the build number from info.plist
+    NSString *versionString;
+    NSDictionary * sv = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
+    versionString = [sv objectForKey:@"ProductVersion"];
+    NSString *userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel Mac OS X) SparkWebBrowser/%@.%@ (KHTML, like Gecko)", appVersion, buildNumber];
     
     // Should be dynamic/user-set at some point
     NSString *channelVer = @"dev";
     
     window.titleVisibility = NSWindowTitleHidden; // for future purposes
-    [self.webView setCustomUserAgent: [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel Mac OS X) SparkWebBrowser/%@.%@ (KHTML, like Gecko)", appVersion, buildNumber]]; // static for now, will fix later
+    [self.webView setCustomUserAgent: userAgent];
+    self.userAgentField.stringValue = userAgent;
+    self.osVersionField.stringValue = [NSString stringWithFormat: @"OS X %@", versionString];
     self.ntNotSupported.hidden = YES;
     self.securePageIndicator.hidden = YES;
     self.stillLoading.hidden = NO;
@@ -87,22 +75,6 @@
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         _ntNotSupported.hidden = YES;
     });
-    /*NSViewController *viewController = [[NSViewController alloc] initWithNibName: @"WebView" bundle: nil];
-    [self.viewControllers addObject: viewController];
-    
-    WebView *webView = viewController.view;
-    NSTabView *tabView = self.tabView;
-    TabViewItem *item = [[TabViewItem alloc] initWithIdentifier: nil];
-    
-    [item setLabel: _titleStatus];
-    [item setWebView: webView];
-    
-    NSView *view = item.view;
-    webView.frame = view.bounds;
-    webView.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
-    [view addSubview: webView];
-    
-    [tabView insertTabViewItem: item atIndex: [tabView numberOfTabViewItems]];*/
 }
 
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame
@@ -122,16 +94,5 @@
         self.stillLoading.hidden = YES;
     }
 }
-
-/*- (void) tabView: (NSTabView *) tabView willSelectTabViewItem: (NSTabViewItem *) tabViewItem
-{
-    NSTextField *addressBar = self.addressBar;
-    
-    TabViewItem *item = (TabViewItem *) tabViewItem;
-    WebView *webView = item.webView;
-    
-    addressBar.target = webView;
-    addressBar.stringValue = webView.mainFrameURL ?: @"";
-}*/
 
 @end
