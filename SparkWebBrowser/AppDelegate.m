@@ -60,12 +60,16 @@
     NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
     NSString *appVersion = [infoDict objectForKey:@"CFBundleShortVersionString"]; // fetch the version number from info.plist
     NSString *buildNumber = [infoDict objectForKey:@"CFBundleVersion"]; // fetch the build number from info.plist
+    
+    // Should change to be dynamic/user-set at some point
+    NSString *channelVer = @"dev";
+    
     window.titleVisibility = NSWindowTitleHidden; // for future purposes
-    [self.webView setCustomUserAgent: @"Mozilla/5.0 (Macintosh; Intel Mac OS X) SparkWebBrowser/2.2.0.20806 (KHTML, like Gecko)"]; // static for now, will fix later
+    [self.webView setCustomUserAgent: [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel Mac OS X) SparkWebBrowser/%@.%@ (KHTML, like Gecko)", appVersion, buildNumber]]; // static for now, will fix later
     self.ntNotSupported.hidden = YES;
     self.securePageIndicator.hidden = YES;
     self.stillLoading.hidden = NO;
-    self.currentVersion.stringValue = [NSString stringWithFormat:@"%@.%@", appVersion, buildNumber];
+    self.currentVersion.stringValue = [NSString stringWithFormat:@"%@.%@ (%@ channel) (64-bit)", appVersion, buildNumber, channelVer];
     self.window.backgroundColor = [NSColor colorWithRed:0.773 green:0.231 blue:0.212 alpha:1]; // title bar color in RGB
     self.aboutWindow.backgroundColor = [NSColor whiteColor];
     
