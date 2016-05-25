@@ -61,7 +61,7 @@
     NSString *appVersion = [infoDict objectForKey:@"CFBundleShortVersionString"]; // fetch the version number from info.plist
     NSString *buildNumber = [infoDict objectForKey:@"CFBundleVersion"]; // fetch the build number from info.plist
     
-    // Should change to be dynamic/user-set at some point
+    // Should be dynamic/user-set at some point
     NSString *channelVer = @"dev";
     
     window.titleVisibility = NSWindowTitleHidden; // for future purposes
