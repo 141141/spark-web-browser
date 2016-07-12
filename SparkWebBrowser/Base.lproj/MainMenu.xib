@@ -367,7 +367,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     </imageView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="e3k-CE-CDi">
                         <rect key="frame" x="311" y="687" width="281" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Tabs are not available in this version of Spark." id="gfc-dE-ICK">
                             <font key="font" metaFont="systemLight" size="13"/>
                             <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
