@@ -14,16 +14,14 @@
 
 @synthesize window;
 
--(void)applicationWillFinishLaunching:(NSNotification *)aNotification
-{
+-(void)applicationWillFinishLaunching:(NSNotification *)aNotification {
     NSAppleEventManager *appleEventManager = [NSAppleEventManager sharedAppleEventManager];
     [appleEventManager setEventHandler:self
                            andSelector:@selector(handleGetURLEvent:withReplyEvent:)
                          forEventClass:kInternetEventClass andEventID:kAEGetURL];
 }
 
-- (void)handleGetURLEvent:(NSAppleEventDescriptor *)event withReplyEvent:(NSAppleEventDescriptor *)replyEvent
-{
+- (void)handleGetURLEvent:(NSAppleEventDescriptor *)event withReplyEvent:(NSAppleEventDescriptor *)replyEvent {
     NSURL *url = [NSURL URLWithString:[[event paramDescriptorForKeyword:keyDirectObject] stringValue]];
     NSString *urlToString = [url absoluteString];
     if([urlToString isEqual: @"spark://about"]) {
@@ -35,8 +33,7 @@
     }
 }
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Initialize
     NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
     NSString *appVersion = [infoDict objectForKey:@"CFBundleShortVersionString"]; // Fetch the version number from info.plist
@@ -81,27 +78,33 @@
     });
 }
 
-- (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame
-{
+- (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame {
     // Only report feedback for the main frame.
-    if (frame == [sender mainFrame]){
+    if (frame == [sender mainFrame]) {
         NSString *url = [[[[frame provisionalDataSource] request] URL] absoluteString];
         [self.addressBar setStringValue:url];
         self.loadingIndicator.hidden = NO;
         [self.loadingIndicator startAnimation:self];
         self.faviconImage.hidden = YES;
+        
+        NSString *faviconURLString = [NSString stringWithFormat:@"http://www.google.com/s2/favicons?domain=%@", url];
+        NSURL *faviconURL=[NSURL URLWithString: faviconURLString];
+        NSData *faviconData = [NSData dataWithContentsOfURL:faviconURL];
+        NSImage *websiteFavicon = [[NSImage alloc] initWithData:faviconData];
+        self.faviconImage.image = websiteFavicon;
     }
 }
 
-- (void)webView:(WebView *)sender didReceiveTitle:(NSString *)title forFrame:(WebFrame *)frame
-{
+- (void)webView:(WebView *)sender didReceiveTitle:(NSString *)title forFrame:(WebFrame *)frame {
     // Only report feedback for the main frame.
-    if (frame == [sender mainFrame]){
+    if (frame == [sender mainFrame]) {
+        
         [self.titleStatus setStringValue:title];
         self.titleStatus.toolTip = title;
         [self.loadingIndicator stopAnimation:self];
         self.loadingIndicator.hidden = YES;
         self.faviconImage.hidden = NO;
+        
     }
 }
 
