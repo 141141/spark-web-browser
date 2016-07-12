@@ -357,7 +357,7 @@ Spark is made possible by the WebKit open source project and other open source s
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSIconViewTemplate" id="lec-S4-uJt"/>
                     </imageView>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="e3k-CE-CDi">
+                    <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="e3k-CE-CDi">
                         <rect key="frame" x="311" y="687" width="281" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Tabs are not available in this version of Spark." id="gfc-dE-ICK">
@@ -376,7 +376,7 @@ Spark is made possible by the WebKit open source project and other open source s
                             <outlet property="frameLoadDelegate" destination="Voe-Tx-rLC" id="KKq-H1-x8k"/>
                         </connections>
                     </webView>
-                    <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="1qB-mY-4UE">
+                    <progressIndicator hidden="YES" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="1qB-mY-4UE">
                         <rect key="frame" x="92" y="685" width="16" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </progressIndicator>
