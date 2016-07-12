@@ -69,7 +69,7 @@
     self.aboutWindow.backgroundColor = [NSColor whiteColor];
     
     self.addressBar.action = @selector(takeStringURLFrom:);
-    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"spark://about"]]];
+    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.google.com"]]];
 }
 
 - (IBAction)newTab:(id)sender {
