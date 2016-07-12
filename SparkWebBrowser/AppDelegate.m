@@ -101,6 +101,7 @@
         self.titleStatus.toolTip = title;
         [self.loadingIndicator stopAnimation:self];
         self.loadingIndicator.hidden = YES;
+        self.faviconImage.hidden = NO;
     }
 }
 
