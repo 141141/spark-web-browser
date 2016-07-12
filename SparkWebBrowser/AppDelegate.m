@@ -89,6 +89,8 @@
     if (frame == [sender mainFrame]){
         NSString *url = [[[[frame provisionalDataSource] request] URL] absoluteString];
         [self.addressBar setStringValue:url];
+        self.loadingIndicator.hidden = NO;
+        [self.loadingIndicator startAnimation:self];
     }
 }
 
@@ -98,7 +100,7 @@
     if (frame == [sender mainFrame]){
         [self.titleStatus setStringValue:title];
         self.titleStatus.toolTip = title;
-        //self.loadingIndicator.hidden = YES;
+        self.loadingIndicator.hidden = YES;
         [self.loadingIndicator stopAnimation:self];
         self.stillLoading.hidden = YES;
     }
