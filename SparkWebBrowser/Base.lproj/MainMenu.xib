@@ -20,7 +20,6 @@
                 <outlet property="currentVersion" destination="sbh-Aa-9pH" id="pub-aC-Yo5"/>
                 <outlet property="ntNotSupported" destination="e3k-CE-CDi" id="JB0-P4-EAc"/>
                 <outlet property="osVersionField" destination="mdu-F3-Gvc" id="At6-wc-w2v"/>
-                <outlet property="securePageIndicator" destination="Xjz-i8-5AY" id="Idw-hn-yDo"/>
                 <outlet property="stillLoading" destination="GpZ-Eb-XLd" id="jHW-NI-Yhx"/>
                 <outlet property="titleStatus" destination="JvK-hQ-Wwq" id="SHO-kH-keU"/>
                 <outlet property="userAgentField" destination="9o1-qW-hns" id="C28-xd-N7u"/>
@@ -324,7 +323,7 @@ Spark is made possible by the WebKit open source project and other open source s
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="JvK-hQ-Wwq">
-                        <rect key="frame" x="111" y="683" width="143" height="20"/>
+                        <rect key="frame" x="111" y="683" width="162" height="20"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" placeholderString="Loading..." id="I9i-cv-n8A">
                             <font key="font" metaFont="systemLight" size="13"/>
@@ -366,11 +365,6 @@ Spark is made possible by the WebKit open source project and other open source s
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSIconViewTemplate" id="lec-S4-uJt"/>
                     </imageView>
-                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Xjz-i8-5AY">
-                        <rect key="frame" x="252" y="684" width="19" height="19"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSMenuOnStateTemplate" id="b52-Dm-mT6"/>
-                    </imageView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="e3k-CE-CDi">
                         <rect key="frame" x="311" y="687" width="281" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
@@ -401,7 +395,6 @@ Spark is made possible by the WebKit open source project and other open source s
         <image name="NSGoLeftTemplate" width="9" height="12"/>
         <image name="NSGoRightTemplate" width="9" height="12"/>
         <image name="NSIconViewTemplate" width="10" height="10"/>
-        <image name="NSMenuOnStateTemplate" width="12" height="12"/>
         <image name="NSRefreshTemplate" width="11" height="15"/>
     </resources>
 </document>
