@@ -200,15 +200,6 @@ Spark is made possible by the WebKit open source project and other open source s
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="IJ8-Wb-oLm">
-                        <rect key="frame" x="18" y="176" width="43" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Spark:" id="Q9p-jq-bT1">
-                            <font key="font" metaFont="systemMedium" size="13"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="mdu-F3-Gvc">
                         <rect key="frame" x="100" y="151" width="207" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -241,6 +232,15 @@ Spark is made possible by the WebKit open source project and other open source s
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Mozilla/5.0 (Macintosh; Intel Mac OS X) SparkWebBrowser/0.2.2.0.931 (KHTML, like Gecko)" id="PS7-Pn-omo">
                             <font key="font" metaFont="systemLight" size="13"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="IJ8-Wb-oLm">
+                        <rect key="frame" x="18" y="176" width="43" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Spark:" id="Q9p-jq-bT1">
+                            <font key="font" metaFont="systemMedium" size="13"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>

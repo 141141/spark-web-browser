@@ -29,7 +29,6 @@
     if([urlToString isEqual: @"spark://about"]) {
         NSLog(@"spark://about loaded");
         [self.titleStatus setStringValue:@"About Spark"];
-        self.stillLoading.hidden = YES;
         
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-about" ofType:@"html"] isDirectory:NO]]];
         self.addressBar.stringValue = @"spark://about";
@@ -100,9 +99,8 @@
     if (frame == [sender mainFrame]){
         [self.titleStatus setStringValue:title];
         self.titleStatus.toolTip = title;
-        self.loadingIndicator.hidden = YES;
         [self.loadingIndicator stopAnimation:self];
-        self.stillLoading.hidden = YES;
+        self.loadingIndicator.hidden = YES;
     }
 }
 
