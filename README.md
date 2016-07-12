@@ -7,7 +7,7 @@ Spark is a very simple web browser for OS X. It was not designed for normal use 
 Spark was created with Xcode 5 on OS X 10.9. Since then, support for OS X 10.9 and 10.10 has been dropped. Currently, Spark supports all versions of OS X 10.11 El Capitan.
 
 ## Install
-Installation is easy. Click [here](https://github.com/insleep/spark-web-browser/releases/tag/0.2.2.1) to view instructions to install the latest pre-release version of Spark.
+Installation is easy. Click [here](https://github.com/insleep/spark-web-browser/releases/) to view instructions to install the latest pre-release version of Spark.
 
 ## License
 
