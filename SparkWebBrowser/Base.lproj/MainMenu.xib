@@ -340,15 +340,17 @@ Spark is made possible by the WebKit open source project and other open source s
                             <color key="backgroundColor" white="1" alpha="0.74579077113840353" colorSpace="deviceWhite"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="GpZ-Eb-XLd">
-                        <rect key="frame" x="3" y="3" width="58" height="14"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Loading..." id="iHE-ua-GJq">
-                            <font key="font" metaFont="smallSystem"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
+                    <button verticalHuggingPriority="750" id="pmy-Gn-uac">
+                        <rect key="frame" x="284" y="684" width="21" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="bx5-yX-Nf2">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="14" name="AvenirNext-Regular"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="newTab:" target="Voe-Tx-rLC" id="yOZ-pK-xAy"/>
+                        </connections>
+                    </button>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="t5k-sW-5ra">
                         <rect key="frame" x="89" y="684" width="19" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -373,17 +375,19 @@ Spark is made possible by the WebKit open source project and other open source s
                             <outlet property="frameLoadDelegate" destination="Voe-Tx-rLC" id="KKq-H1-x8k"/>
                         </connections>
                     </webView>
-                    <button verticalHuggingPriority="750" id="pmy-Gn-uac">
-                        <rect key="frame" x="284" y="684" width="21" height="21"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="GpZ-Eb-XLd">
+                        <rect key="frame" x="3" y="3" width="58" height="14"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Loading..." id="iHE-ua-GJq">
+                            <font key="font" metaFont="smallSystem"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="1qB-mY-4UE">
+                        <rect key="frame" x="255" y="685" width="16" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="bx5-yX-Nf2">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" size="14" name="AvenirNext-Regular"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="newTab:" target="Voe-Tx-rLC" id="yOZ-pK-xAy"/>
-                        </connections>
-                    </button>
+                    </progressIndicator>
                 </subviews>
             </view>
             <point key="canvasLocation" x="1172.5" y="96"/>
