@@ -59,7 +59,6 @@
         self.osVersionField.stringValue = [NSString stringWithFormat: @"OS X %@", versionString];
     }
     self.ntNotSupported.hidden = YES;
-    self.stillLoading.hidden = NO;
     self.loadingIndicator.hidden = NO;
     [self.loadingIndicator startAnimation:self];
     self.currentVersion.stringValue = [NSString stringWithFormat:@"%@.%@ (%@ channel) (64-bit)", appVersion, buildNumber, channelVer];
@@ -104,7 +103,6 @@
         self.loadingIndicator.hidden = YES;
         [self.loadingIndicator stopAnimation:self];
         self.stillLoading.hidden = YES;
-        self.faviconImage.hidden = NO;
     }
 }
 
