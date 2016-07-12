@@ -44,7 +44,7 @@
     NSString *versionString;
     NSDictionary *sv = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
     versionString = [sv objectForKey:@"ProductVersion"];
-    NSString *userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel Mac OS X) SparkWebBrowser/%@.%@ (KHTML, like Gecko)", appVersion, buildNumber];
+    NSString *userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36"];
     
     // Should be dynamic/user-set at some point
     NSString *channelVer = @"dev";
