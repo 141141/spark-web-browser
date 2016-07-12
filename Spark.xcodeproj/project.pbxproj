@@ -22,8 +22,8 @@
 		AB83982719817D8E001D31B7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83982619817D8E001D31B7 /* XCTest.framework */; };
 		AB83982819817D8E001D31B7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83980719817D8E001D31B7 /* Cocoa.framework */; };
 		AB83983019817D8E001D31B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB83982E19817D8E001D31B7 /* InfoPlist.strings */; };
-		ABF5BF801D356EDA00F715A9 /* spark-about.html in Resources */ = {isa = PBXBuildFile; fileRef = ABF5BF7F1D356EDA00F715A9 /* spark-about.html */; };
-		ABF5BF821D356FCB00F715A9 /* spark-styles.css in Resources */ = {isa = PBXBuildFile; fileRef = ABF5BF811D356FCB00F715A9 /* spark-styles.css */; };
+		ABF5BF851D3571CB00F715A9 /* spark-about.html in Resources */ = {isa = PBXBuildFile; fileRef = ABF5BF831D3571CB00F715A9 /* spark-about.html */; };
+		ABF5BF861D3571CB00F715A9 /* spark-styles.css in Resources */ = {isa = PBXBuildFile; fileRef = ABF5BF841D3571CB00F715A9 /* spark-styles.css */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,8 +72,8 @@
 		AB83982619817D8E001D31B7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		AB83982F19817D8E001D31B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AB83983B19817E15001D31B7 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		ABF5BF7F1D356EDA00F715A9 /* spark-about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "spark-about.html"; sourceTree = SOURCE_ROOT; };
-		ABF5BF811D356FCB00F715A9 /* spark-styles.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "spark-styles.css"; sourceTree = SOURCE_ROOT; };
+		ABF5BF831D3571CB00F715A9 /* spark-about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "spark-about.html"; path = "SparkWebBrowser/spark-about.html"; sourceTree = SOURCE_ROOT; };
+		ABF5BF841D3571CB00F715A9 /* spark-styles.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = "spark-styles.css"; path = "SparkWebBrowser/spark-styles.css"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,8 +154,8 @@
 		AB83980E19817D8E001D31B7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				ABF5BF7F1D356EDA00F715A9 /* spark-about.html */,
-				ABF5BF811D356FCB00F715A9 /* spark-styles.css */,
+				ABF5BF831D3571CB00F715A9 /* spark-about.html */,
+				ABF5BF841D3571CB00F715A9 /* spark-styles.css */,
 				AB04FD081C712BD700F08232 /* Spark-Info.plist */,
 				AB04FD0A1C712BDB00F08232 /* main.m */,
 				AB04FD141C712C7100F08232 /* Credits.rtf */,
@@ -261,12 +261,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABF5BF821D356FCB00F715A9 /* spark-styles.css in Resources */,
 				AB04FD021C712BAD00F08232 /* Images.xcassets in Resources */,
 				AB04FD191C712C7100F08232 /* InfoPlist.strings in Resources */,
 				AB04FD181C712C7100F08232 /* Credits.rtf in Resources */,
 				AB04FD0F1C712BE900F08232 /* SparkTests-Info.plist in Resources */,
-				ABF5BF801D356EDA00F715A9 /* spark-about.html in Resources */,
+				ABF5BF851D3571CB00F715A9 /* spark-about.html in Resources */,
+				ABF5BF861D3571CB00F715A9 /* spark-styles.css in Resources */,
 				AB04FD131C712C6000F08232 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
