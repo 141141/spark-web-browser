@@ -20,6 +20,7 @@
 @property (assign, nonatomic) IBOutlet NSTextField *userAgentField;
 @property (assign, nonatomic) IBOutlet NSTextField *osVersionField;
 @property (assign, nonatomic) IBOutlet NSProgressIndicator *loadingIndicator;
+@property (assign, nonatomic) IBOutlet NSImageView *faviconImage;
 
 // Methods
 - (IBAction)newTab:(id)sender;

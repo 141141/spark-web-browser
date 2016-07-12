@@ -18,6 +18,7 @@
                 <outlet property="aboutWindow" destination="oJi-1c-Sb5" id="bgk-nR-Kh0"/>
                 <outlet property="addressBar" destination="6S4-CW-iwm" id="yLL-ye-fyR"/>
                 <outlet property="currentVersion" destination="sbh-Aa-9pH" id="pub-aC-Yo5"/>
+                <outlet property="faviconImage" destination="t5k-sW-5ra" id="bKl-he-loz"/>
                 <outlet property="loadingIndicator" destination="1qB-mY-4UE" id="EYD-he-pSG"/>
                 <outlet property="ntNotSupported" destination="e3k-CE-CDi" id="JB0-P4-EAc"/>
                 <outlet property="osVersionField" destination="mdu-F3-Gvc" id="At6-wc-w2v"/>
@@ -386,7 +387,7 @@ Spark is made possible by the WebKit open source project and other open source s
                         </textFieldCell>
                     </textField>
                     <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="1qB-mY-4UE">
-                        <rect key="frame" x="255" y="685" width="16" height="16"/>
+                        <rect key="frame" x="92" y="685" width="16" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </progressIndicator>
                 </subviews>

@@ -91,6 +91,7 @@
         [self.addressBar setStringValue:url];
         self.loadingIndicator.hidden = NO;
         [self.loadingIndicator startAnimation:self];
+        self.faviconImage.hidden = YES;
     }
 }
 
@@ -103,6 +104,7 @@
         self.loadingIndicator.hidden = YES;
         [self.loadingIndicator stopAnimation:self];
         self.stillLoading.hidden = YES;
+        self.faviconImage.hidden = NO;
     }
 }
 
