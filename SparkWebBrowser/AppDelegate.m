@@ -33,6 +33,9 @@
         self.securePageIndicator.toolTip = @"You are viewing a secure Spark page.";
         [self.titleStatus setStringValue:@"About Spark"];
         self.stillLoading.hidden = YES;
+        
+        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-about" ofType:@"html"] isDirectory:NO]]];
+        self.addressBar.stringValue = @"spark://about";
     }
 }
 
@@ -66,6 +69,7 @@
     self.aboutWindow.backgroundColor = [NSColor whiteColor];
     
     self.addressBar.action = @selector(takeStringURLFrom:);
+    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"spark://about"]]];
 }
 
 - (IBAction)newTab:(id)sender {
