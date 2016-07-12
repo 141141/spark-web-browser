@@ -19,6 +19,7 @@
 @property (assign, nonatomic) IBOutlet NSPanel *aboutWindow;
 @property (assign, nonatomic) IBOutlet NSTextField *userAgentField;
 @property (assign, nonatomic) IBOutlet NSTextField *osVersionField;
+@property (assign, nonatomic) IBOutlet NSProgressIndicator *loadingIndicator;
 
 // Methods
 - (IBAction)newTab:(id)sender;
