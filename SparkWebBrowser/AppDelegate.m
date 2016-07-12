@@ -40,25 +40,29 @@
 {
     // Initialize
     NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
-    NSString *appVersion = [infoDict objectForKey:@"CFBundleShortVersionString"]; // fetch the version number from info.plist
-    NSString *buildNumber = [infoDict objectForKey:@"CFBundleVersion"]; // fetch the build number from info.plist
+    NSString *appVersion = [infoDict objectForKey:@"CFBundleShortVersionString"]; // Fetch the version number from info.plist
+    NSString *buildNumber = [infoDict objectForKey:@"CFBundleVersion"]; // Fetch the build number from info.plist
     NSString *versionString;
-    NSDictionary * sv = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
+    NSDictionary *sv = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
     versionString = [sv objectForKey:@"ProductVersion"];
     NSString *userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel Mac OS X) SparkWebBrowser/%@.%@ (KHTML, like Gecko)", appVersion, buildNumber];
     
     // Should be dynamic/user-set at some point
     NSString *channelVer = @"dev";
     
-    window.titleVisibility = NSWindowTitleHidden; // for future purposes
+    window.titleVisibility = NSWindowTitleHidden; // For future purposes
     [self.webView setCustomUserAgent: userAgent];
     self.userAgentField.stringValue = userAgent;
-    self.osVersionField.stringValue = [NSString stringWithFormat: @"OS X %@", versionString];
+    if(versionString.doubleValue > 10.11) { // Detect whether or not user is running macOS 10.12 or higher
+        self.osVersionField.stringValue = [NSString stringWithFormat: @"macOS %@", versionString];
+    } else {
+        self.osVersionField.stringValue = [NSString stringWithFormat: @"OS X %@", versionString];
+    }
     self.ntNotSupported.hidden = YES;
     self.securePageIndicator.hidden = YES;
     self.stillLoading.hidden = NO;
     self.currentVersion.stringValue = [NSString stringWithFormat:@"%@.%@ (%@ channel) (64-bit)", appVersion, buildNumber, channelVer];
-    self.window.backgroundColor = [NSColor colorWithRed:0.773 green:0.231 blue:0.212 alpha:1]; // title bar color in RGB
+    self.window.backgroundColor = [NSColor colorWithRed:0.773 green:0.231 blue:0.212 alpha:1]; // Title bar color in RGB
     self.aboutWindow.backgroundColor = [NSColor whiteColor];
     
     self.addressBar.action = @selector(takeStringURLFrom:);
