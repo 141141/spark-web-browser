@@ -27,8 +27,7 @@
     NSURL *url = [NSURL URLWithString:[[event paramDescriptorForKeyword:keyDirectObject] stringValue]];
     NSString *urlToString = [url absoluteString];
     if([urlToString isEqual: @"spark://about"]) {
-        // This is not finished -- nothing happens when you visit spark://about (yet)
-        NSLog(@"Secure Spark page loaded");
+        NSLog(@"spark://about loaded");
         [self.titleStatus setStringValue:@"About Spark"];
         self.stillLoading.hidden = YES;
         

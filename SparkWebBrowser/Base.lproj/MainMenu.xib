@@ -324,7 +324,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="JvK-hQ-Wwq">
                         <rect key="frame" x="111" y="683" width="162" height="20"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" placeholderString="Loading..." id="I9i-cv-n8A">
                             <font key="font" metaFont="systemLight" size="13"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
