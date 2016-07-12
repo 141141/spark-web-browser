@@ -382,7 +382,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     </progressIndicator>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="1172.5" y="96"/>
+            <point key="canvasLocation" x="1166.5" y="162"/>
         </window>
     </objects>
     <resources>
