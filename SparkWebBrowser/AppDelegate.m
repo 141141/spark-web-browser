@@ -99,6 +99,7 @@
     // Only report feedback for the main frame.
     if (frame == [sender mainFrame]){
         [self.titleStatus setStringValue:title];
+        self.titleStatus.toolTip = title;
         self.stillLoading.hidden = YES;
     }
 }
