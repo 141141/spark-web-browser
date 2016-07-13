@@ -65,6 +65,7 @@
     self.aboutWindow.backgroundColor = [NSColor whiteColor];
     
     self.addressBar.action = @selector(takeStringURLFrom:);
+    self.homepageTextField.delegate = self;
     
     // Homepage -- this should be user-set at some point
     if([defaults objectForKey:@"userHomepage"] == nil) {
