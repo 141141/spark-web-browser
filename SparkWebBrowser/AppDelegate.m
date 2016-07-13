@@ -35,6 +35,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Initialize
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
     NSString *appVersion = [infoDict objectForKey:@"CFBundleShortVersionString"]; // Fetch the version number from info.plist
