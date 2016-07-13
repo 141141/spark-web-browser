@@ -85,7 +85,7 @@
 
 - (IBAction)setReleaseChannel:(id)sender {
     
-    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
 }
 
