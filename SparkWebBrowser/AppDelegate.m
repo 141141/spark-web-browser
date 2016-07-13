@@ -14,11 +14,29 @@
 
 @synthesize window;
 
+- (void)getUrl:(NSAppleEventDescriptor *)event
+withReplyEvent:(NSAppleEventDescriptor *)replyEvent
+{
+    // Get the URL
+    NSString *urlStr = [[event paramDescriptorForKeyword:keyDirectObject]
+                        stringValue];
+    
+    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSString stringWithFormat:@"%@", urlStr]]];
+    self.addressBar.stringValue = [NSString stringWithFormat:@"%@", urlStr];
+}
+
 -(void)applicationWillFinishLaunching:(NSNotification *)aNotification {
     NSAppleEventManager *appleEventManager = [NSAppleEventManager sharedAppleEventManager];
     [appleEventManager setEventHandler:self
                            andSelector:@selector(handleGetURLEvent:withReplyEvent:)
                          forEventClass:kInternetEventClass andEventID:kAEGetURL];
+    
+    NSAppleEventManager *em = [NSAppleEventManager sharedAppleEventManager];
+    [em
+     setEventHandler:self
+     andSelector:@selector(getUrl:withReplyEvent:)
+     forEventClass:kInternetEventClass
+     andEventID:kAEGetURL];
 }
 
 - (void)handleGetURLEvent:(NSAppleEventDescriptor *)event withReplyEvent:(NSAppleEventDescriptor *)replyEvent {
