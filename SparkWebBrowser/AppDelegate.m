@@ -88,19 +88,11 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    if([self.homepageTextField.stringValue isEqual: @""]) {
-        // Set homepage to default
-        [defaults setObject:@"http://www.google.com" forKey:@"userHomepage"];
-        self.homepageTextField.stringValue = @"http://www.google.com";
-    } else {
-        // OK to set homepage
-        
-        NSLog(@"Setting homepage...");
-        
-        NSString *homepageString = self.homepageTextField.stringValue;
-        
-        [defaults setObject:[NSString stringWithFormat:@"%@", homepageString] forKey:@"userHomepage"];
-    }
+    NSLog(@"Setting homepage...");
+    
+    NSString *homepageString = self.homepageTextField.stringValue;
+    
+    [defaults setObject:[NSString stringWithFormat:@"%@", homepageString] forKey:@"userHomepage"];
 }
 
 - (IBAction)newTab:(id)sender {
