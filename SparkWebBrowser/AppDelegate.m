@@ -71,8 +71,8 @@
         // Homepage is not set
         
         // Default homepage
-        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.google.com/"]]];
-        self.homepageTextField.stringValue = [NSString stringWithFormat:@"http://www.google.com/"];
+        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.google.com/?gws_rd=ssl"]]];
+        self.homepageTextField.stringValue = [NSString stringWithFormat:@"https://www.google.com/?gws_rd=ssl"];
     } else {
         // Homepage is set
         
@@ -89,8 +89,8 @@
     if(self.homepageTextField.stringValue == nil || [self.homepageTextField.stringValue isEqual:@""]) {
         // Homepage is not set -- revert to default
         
-        [defaults setObject:@"http://www.google.com/" forKey:@"userHomepage"];
-        self.homepageTextField.stringValue = @"http://www.google.com/";
+        [defaults setObject:@"https://www.google.com/?gws_rd=ssl" forKey:@"userHomepage"];
+        self.homepageTextField.stringValue = @"https://www.google.com/";
     } else {
         
         NSLog(@"Setting homepage...");
