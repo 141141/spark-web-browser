@@ -347,7 +347,7 @@ Spark is made possible by the WebKit open source project and other open source s
                                 <items>
                                     <menuItem title="Stable" id="4YV-0A-Ncg"/>
                                     <menuItem title="Beta" id="zYs-HB-zYL"/>
-                                    <menuItem title="Developer" id="Po8-8f-tys"/>
+                                    <menuItem title="Dev" id="Po8-8f-tys"/>
                                 </items>
                             </menu>
                         </popUpButtonCell>
@@ -360,6 +360,15 @@ Spark is made possible by the WebKit open source project and other open source s
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Preferences" id="SYn-GM-8JT">
                             <font key="font" metaFont="system" size="19"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="euH-0L-OJY">
+                        <rect key="frame" x="133" y="14" width="37" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="z9V-BM-6S4">
+                            <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>

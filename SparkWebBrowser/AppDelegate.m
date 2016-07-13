@@ -47,7 +47,7 @@
     NSString *userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36"];
     
     // Should be dynamic/user-set at some point
-    NSString *channelVer = @"dev";
+    NSString *channelVer = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"currentReleaseChannel"]];
     
     window.titleVisibility = NSWindowTitleHidden; // For future purposes
     [self.webView setCustomUserAgent: userAgent];
@@ -87,12 +87,11 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    NSString *releaseChannel1 = [NSString stringWithFormat:@"%@", self.releaseChannelPicker.titleOfSelectedItem];
+    NSString *capitalizedReleaseChannel = [NSString stringWithFormat:@"%@", self.releaseChannelPicker.titleOfSelectedItem];
     
-    NSString *noCaps = [releaseChannel1 lowercaseString];
-    NSLog([NSString stringWithFormat:@"%@", noCaps]);
+    NSString *uncapitalizedReleaseChannel = [capitalizedReleaseChannel lowercaseString];
     
-    [defaults setObject:[NSString stringWithFormat:@"%@", [sender selectedItem]] forKey:@"currentReleaseChannel"];
+    [defaults setObject:[NSString stringWithFormat:@"%@", uncapitalizedReleaseChannel] forKey:@"currentReleaseChannel"];
     //NSLog([NSString stringWithFormat:@"%@", [defaults valueForKey:@"currentReleaseChannel"]]);
     
 }
