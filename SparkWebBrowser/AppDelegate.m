@@ -140,6 +140,11 @@
         self.ntNotSupported.hidden = YES;
     });
 }
+- (IBAction)startReloading:(id)sender {
+    
+    
+    
+}
 
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame {
     // Only report feedback for the main frame.
@@ -155,6 +160,7 @@
         NSData *faviconData = [NSData dataWithContentsOfURL:faviconURL];
         NSImage *websiteFavicon = [[NSImage alloc] initWithData:faviconData];
         self.faviconImage.image = websiteFavicon;
+        
     }
 }
 
@@ -167,7 +173,6 @@
         [self.loadingIndicator stopAnimation:self];
         self.loadingIndicator.hidden = YES;
         self.faviconImage.hidden = NO;
-        
     }
 }
 

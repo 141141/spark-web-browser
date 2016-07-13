@@ -24,6 +24,7 @@
                 <outlet property="ntNotSupported" destination="e3k-CE-CDi" id="JB0-P4-EAc"/>
                 <outlet property="osVersionField" destination="mdu-F3-Gvc" id="At6-wc-w2v"/>
                 <outlet property="releaseChannelPicker" destination="DBB-e5-yay" id="faC-8w-Olv"/>
+                <outlet property="reloadBtn" destination="gZC-HQ-A14" id="jGE-yL-ojT"/>
                 <outlet property="setHomepageBtn" destination="UmC-Hu-U0Q" id="W7C-5d-ciQ"/>
                 <outlet property="settingsWindow" destination="MMA-4M-Pa4" id="6F0-cu-izG"/>
                 <outlet property="titleStatus" destination="JvK-hQ-Wwq" id="SHO-kH-keU"/>
@@ -309,8 +310,16 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="View" id="rKx-c4-g9e">
                         <items>
-                            <menuItem title="Reload This Page" keyEquivalent="r" id="kBd-Ld-2GK"/>
-                            <menuItem title="Stop Loading" keyEquivalent="s" id="esy-oT-tAi"/>
+                            <menuItem title="Reload This Page" keyEquivalent="r" id="kBd-Ld-2GK">
+                                <connections>
+                                    <action selector="reload:" target="ffM-a6-P1L" id="l80-02-gHg"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Stop Loading" keyEquivalent="s" id="esy-oT-tAi">
+                                <connections>
+                                    <action selector="stopLoading:" target="ffM-a6-P1L" id="TGq-Dq-Iam"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="Zhc-qH-XXW"/>
                             <menuItem title="Full Screen" keyEquivalent="F" id="4c1-Hi-hgt">
                                 <connections>
@@ -623,7 +632,7 @@ Spark is made possible by the WebKit open source project and other open source s
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="reload:" target="ffM-a6-P1L" id="Lda-nl-TcN"/>
+                            <action selector="startReloading:" target="Voe-Tx-rLC" id="Phh-PJ-AaX"/>
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="JvK-hQ-Wwq">

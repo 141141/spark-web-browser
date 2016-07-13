@@ -24,6 +24,7 @@
 @property (assign, nonatomic) IBOutlet NSButton *setHomepageBtn;
 @property (assign, nonatomic) IBOutlet NSPopUpButton *releaseChannelPicker;
 @property (assign, nonatomic) IBOutlet NSPanel *settingsWindow;
+@property (assign, nonatomic) IBOutlet NSButton *reloadBtn;
 
 // Methods
 - (IBAction)newTab:(id)sender;
