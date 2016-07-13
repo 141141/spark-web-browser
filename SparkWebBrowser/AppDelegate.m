@@ -38,14 +38,15 @@
     // Initialize
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
-    NSString *appVersion = [infoDict objectForKey:@"CFBundleShortVersionString"]; // Fetch the version number from info.plist
-    NSString *buildNumber = [infoDict objectForKey:@"CFBundleVersion"]; // Fetch the build number from info.plist
-    NSString *versionString;
+    NSString *appVersion = [infoDict objectForKey:@"CFBundleShortVersionString"]; // Fetch the version number from Info.plist
+    NSString *buildNumber = [infoDict objectForKey:@"CFBundleVersion"]; // Fetch the build number from Info.plist
     NSDictionary *sv = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
-    versionString = [sv objectForKey:@"ProductVersion"];
+    NSString *versionString = [sv objectForKey:@"ProductVersion"];
+    NSString *buildString = [sv objectForKey:@"ProductBuildVersion"];
+    NSString *productName = [sv objectForKey:@"ProductName"];
     
     // Should be dynamic/user-set at some point
-    NSString *userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36"];
+    NSString *userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel %@ 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36", productName];
     
     NSString *channelVer = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"currentReleaseChannel"]];
     
@@ -65,9 +66,9 @@
     [self.webView setCustomUserAgent: userAgent];
     self.userAgentField.stringValue = userAgent;
     if(versionString.doubleValue > 10.11) { // Detect whether or not user is running macOS 10.12 or higher
-        self.osVersionField.stringValue = [NSString stringWithFormat: @"macOS %@", versionString];
+        self.osVersionField.stringValue = [NSString stringWithFormat: @"macOS %@ (%@)", versionString, buildString];
     } else {
-        self.osVersionField.stringValue = [NSString stringWithFormat: @"OS X %@", versionString];
+        self.osVersionField.stringValue = [NSString stringWithFormat: @"OS X %@ (%@)", versionString, buildString];
     }
     self.ntNotSupported.hidden = YES;
     self.faviconImage.hidden = YES;
