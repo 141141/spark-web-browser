@@ -82,6 +82,13 @@
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", [defaults valueForKey:@"userHomepage"]]]]];
     }
 }
+
+- (IBAction)setReleaseChannel:(id)sender {
+    
+    
+    
+}
+
 - (IBAction)setHomepage:(id)sender {
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

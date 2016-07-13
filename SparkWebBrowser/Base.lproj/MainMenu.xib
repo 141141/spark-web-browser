@@ -351,6 +351,9 @@ Spark is made possible by the WebKit open source project and other open source s
                                 </items>
                             </menu>
                         </popUpButtonCell>
+                        <connections>
+                            <action selector="setReleaseChannel:" target="Voe-Tx-rLC" id="BAJ-Ij-Q1P"/>
+                        </connections>
                     </popUpButton>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="8jo-1g-mt3">
                         <rect key="frame" x="145" y="121" width="111" height="23"/>
