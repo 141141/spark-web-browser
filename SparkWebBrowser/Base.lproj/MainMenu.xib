@@ -43,7 +43,7 @@
                             </menuItem>
                             <menuItem title="Preferences..." keyEquivalent="," id="kCe-Bt-VbN">
                                 <connections>
-                                    <action selector="makeKeyAndOrderFront:" target="oJi-1c-Sb5" id="vPR-SI-Yxy"/>
+                                    <action selector="makeKeyAndOrderFront:" target="MMA-4M-Pa4" id="yJZ-N0-Tlf"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
