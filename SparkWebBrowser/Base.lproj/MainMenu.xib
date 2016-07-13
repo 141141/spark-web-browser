@@ -79,13 +79,19 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="File" id="bib-Uj-vzu">
                         <items>
+                            <menuItem title="Close Window" keyEquivalent="w" id="DYv-oB-8gt">
+                                <connections>
+                                    <action selector="performClose:" target="-1" id="YkB-EU-n4x"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="AAC-cI-AQY"/>
                             <menuItem title="Back" keyEquivalent="" id="Was-JA-tGl"/>
                             <menuItem title="Forward" keyEquivalent="" id="IAo-SY-fd9"/>
                             <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
                             <menuItem title="Reload" keyEquivalent="r" id="DVo-aG-piG"/>
                             <menuItem title="Stop Loading" keyEquivalent="s" id="pxx-59-PXV"/>
                             <menuItem isSeparatorItem="YES" id="8GF-dM-pAl"/>
-                            <menuItem title="Print" keyEquivalent="p" id="aTl-1u-JFS"/>
+                            <menuItem title="Print..." keyEquivalent="p" id="aTl-1u-JFS"/>
                         </items>
                     </menu>
                 </menuItem>
@@ -121,9 +127,9 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Preferences" id="qCf-VY-KAh">
+                <menuItem title="View" id="qCf-VY-KAh">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Preferences" id="rKx-c4-g9e">
+                    <menu key="submenu" title="View" id="rKx-c4-g9e">
                         <items>
                             <menuItem title="Full Screen" keyEquivalent="F" id="4c1-Hi-hgt">
                                 <connections>
@@ -131,29 +137,48 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="bAC-By-dtc"/>
-                            <menuItem title="Text Size +" keyEquivalent="o" id="ZWq-yV-KRx">
+                            <menuItem title="Actual Size" keyEquivalent="o" id="GJj-Hz-AnA">
+                                <connections>
+                                    <action selector="makeTextStandardSize:" target="ffM-a6-P1L" id="0lF-Ul-JQa"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Zoom In" keyEquivalent="=" id="ZWq-yV-KRx">
                                 <connections>
                                     <action selector="makeTextLarger:" target="ffM-a6-P1L" id="ttf-fQ-hv4"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Text Size -" keyEquivalent="i" id="2mC-9m-Fag">
+                            <menuItem title="Zoom Out" keyEquivalent="-" id="2mC-9m-Fag">
                                 <connections>
                                     <action selector="makeTextSmaller:" target="ffM-a6-P1L" id="qqG-Bt-0zK"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Text Size Normal" keyEquivalent="u" id="GJj-Hz-AnA">
-                                <connections>
-                                    <action selector="makeTextStandardSize:" target="ffM-a6-P1L" id="0lF-Ul-JQa"/>
                                 </connections>
                             </menuItem>
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="View" id="H8h-7b-M4v">
+                <menuItem title="View" id="H8h-7b-M4v" userLabel="Window">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                </menuItem>
-                <menuItem title="Window" id="aUF-d1-5bR">
-                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Window" systemMenu="window" id="Dxw-62-3Rz">
+                        <items>
+                            <menuItem title="Minimize" keyEquivalent="m" id="WwU-M0-xkD">
+                                <connections>
+                                    <action selector="performMiniaturize:" target="-1" id="1sl-CS-UfV"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Zoom" id="w7v-94-Q7p">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="performZoom:" target="-1" id="9QC-XT-KAw"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="XPA-fq-Ga5"/>
+                            <menuItem title="Bring All to Front" id="Ptv-wc-ehk">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="arrangeInFront:" target="-1" id="4sP-qe-kcs"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
                 </menuItem>
                 <menuItem title="Format" id="jxT-CU-nIS">
                     <modifierMask key="keyEquivalentModifierMask"/>
