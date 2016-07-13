@@ -79,8 +79,6 @@
         // User-set homepage
         self.homepageTextField.stringValue = [NSString stringWithFormat:@"%@", [defaults valueForKey:@"userHomepage"]];
         
-        // [defaults setObject:nil forKey:@"userHomepage"];
-        
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", [defaults valueForKey:@"userHomepage"]]]]];
     }
 }
