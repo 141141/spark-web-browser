@@ -63,6 +63,7 @@
     self.currentVersion.stringValue = [NSString stringWithFormat:@"%@.%@ (%@ channel) (64-bit)", appVersion, buildNumber, channelVer];
     self.window.backgroundColor = [NSColor colorWithRed:0.773 green:0.231 blue:0.212 alpha:1]; // Title bar color in RGB
     self.aboutWindow.backgroundColor = [NSColor whiteColor];
+    self.settingsWindow.backgroundColor = [NSColor whiteColor];
     
     self.addressBar.action = @selector(takeStringURLFrom:);
     
