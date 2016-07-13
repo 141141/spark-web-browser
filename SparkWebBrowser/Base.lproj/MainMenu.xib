@@ -336,15 +336,6 @@ Spark is made possible by the WebKit open source project and other open source s
                             <action selector="performClick:" target="UmC-Hu-U0Q" id="Gwb-qC-9TH"/>
                         </connections>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="8jo-1g-mt3">
-                        <rect key="frame" x="162" y="121" width="111" height="23"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Preferences" id="SYn-GM-8JT">
-                            <font key="font" metaFont="system" size="19"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                     <popUpButton verticalHuggingPriority="750" id="DBB-e5-yay">
                         <rect key="frame" x="131" y="36" width="210" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -360,6 +351,15 @@ Spark is made possible by the WebKit open source project and other open source s
                             </menu>
                         </popUpButtonCell>
                     </popUpButton>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="8jo-1g-mt3">
+                        <rect key="frame" x="145" y="121" width="111" height="23"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Preferences" id="SYn-GM-8JT">
+                            <font key="font" metaFont="system" size="19"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
             <point key="canvasLocation" x="1984.5" y="50"/>
