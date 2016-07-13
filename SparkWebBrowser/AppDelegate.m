@@ -31,17 +31,17 @@
         
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-about" ofType:@"html"] isDirectory:NO]]];
         self.addressBar.stringValue = @"spark://about";
+    } else if([urlToString isEqual: @"spark://updates"]) {
+        NSLog(@"spark://updates loaded");
+        [self.titleStatus setStringValue:@"Updates"];
+        
+        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-about" ofType:@"html"] isDirectory:NO]]];
+        self.addressBar.stringValue = @"spark://updates";
     }
+
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    
-    NSAppleEventManager *em = [NSAppleEventManager sharedAppleEventManager];
-    [em
-     setEventHandler:self
-     andSelector:@selector(getUrl:withReplyEvent:)
-     forEventClass:kInternetEventClass
-     andEventID:kAEGetURL];
     
     // Initialize
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
