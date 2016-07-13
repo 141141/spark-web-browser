@@ -41,6 +41,11 @@
                                     <action selector="makeKeyAndOrderFront:" target="oJi-1c-Sb5" id="1Jq-nI-LrI"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Preferences..." keyEquivalent="," id="kCe-Bt-VbN">
+                                <connections>
+                                    <action selector="makeKeyAndOrderFront:" target="oJi-1c-Sb5" id="vPR-SI-Yxy"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
                             <menuItem title="Hide Spark" keyEquivalent="h" id="Olw-nP-bQN">
                                 <connections>
