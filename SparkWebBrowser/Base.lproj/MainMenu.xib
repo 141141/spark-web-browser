@@ -674,15 +674,6 @@ Spark is made possible by the WebKit open source project and other open source s
                         <rect key="frame" x="92" y="685" width="16" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </progressIndicator>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="VRX-Sp-sir">
-                        <rect key="frame" x="283" y="684" width="21" height="22"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" drawsBackground="YES" id="Igf-fF-DKK">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" white="1" alpha="0.65847067636986301" colorSpace="deviceWhite"/>
-                        </textFieldCell>
-                    </textField>
                     <button verticalHuggingPriority="750" id="Nsh-fL-8Ic">
                         <rect key="frame" x="1082" y="654" width="21" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
@@ -694,8 +685,17 @@ Spark is made possible by the WebKit open source project and other open source s
                             <action selector="makeKeyAndOrderFront:" target="MMA-4M-Pa4" id="5Dc-vx-1Lh"/>
                         </connections>
                     </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="VRX-Sp-sir">
+                        <rect key="frame" x="282" y="684" width="18" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" drawsBackground="YES" id="Igf-fF-DKK">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" white="1" alpha="0.80367080479452058" colorSpace="deviceWhite"/>
+                        </textFieldCell>
+                    </textField>
                     <button verticalHuggingPriority="750" id="pmy-Gn-uac">
-                        <rect key="frame" x="283" y="684" width="21" height="22"/>
+                        <rect key="frame" x="281" y="684" width="21" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="only" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="bx5-yX-Nf2">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
