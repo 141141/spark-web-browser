@@ -140,16 +140,12 @@
         self.ntNotSupported.hidden = YES;
     });
 }
-- (IBAction)startReloading:(id)sender {
-    
-    
-    
-}
 
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame {
     // Only report feedback for the main frame.
     if (frame == [sender mainFrame]) {
         NSString *url = [[[[frame provisionalDataSource] request] URL] absoluteString];
+        self.reloadBtn.image = [NSImage imageNamed: NSImageNameStopProgressTemplate];
         [self.addressBar setStringValue:url];
         self.loadingIndicator.hidden = NO;
         [self.loadingIndicator startAnimation:self];
@@ -171,8 +167,10 @@
         [self.titleStatus setStringValue:title];
         self.titleStatus.toolTip = title;
         [self.loadingIndicator stopAnimation:self];
+        self.reloadBtn.image = [NSImage imageNamed: NSImageNameRefreshTemplate];
         self.loadingIndicator.hidden = YES;
         self.faviconImage.hidden = NO;
+        
     }
 }
 

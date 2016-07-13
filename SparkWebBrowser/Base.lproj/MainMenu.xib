@@ -632,7 +632,7 @@ Spark is made possible by the WebKit open source project and other open source s
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="startReloading:" target="Voe-Tx-rLC" id="Phh-PJ-AaX"/>
+                            <action selector="reload:" target="ffM-a6-P1L" id="WKU-c5-Vk8"/>
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="JvK-hQ-Wwq">
