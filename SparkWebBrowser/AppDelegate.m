@@ -14,14 +14,6 @@
 
 @synthesize window;
 
-- (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag {
-    if (flag) {
-        return NO;
-    } else {
-        [window makeKeyAndOrderFront:self];
-        return YES;
-    }
-}
 -(void)applicationWillFinishLaunching:(NSNotification *)aNotification {
     NSAppleEventManager *appleEventManager = [NSAppleEventManager sharedAppleEventManager];
     [appleEventManager setEventHandler:self
