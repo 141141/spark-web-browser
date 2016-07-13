@@ -71,8 +71,8 @@
         // Homepage is not set
         
         // Default homepage
-        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.google.com"]]];
-        self.homepageTextField.stringValue = [NSString stringWithFormat:@"http://www.google.com"];
+        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.google.com/"]]];
+        self.homepageTextField.stringValue = [NSString stringWithFormat:@"http://www.google.com/"];
     } else {
         // Homepage is set
         
@@ -89,8 +89,8 @@
     if(self.homepageTextField.stringValue == nil || [self.homepageTextField.stringValue isEqual:@""]) {
         // Homepage is not set -- revert to default
         
-        [defaults setObject:@"http://www.google.com" forKey:@"userHomepage"];
-        self.homepageTextField.stringValue = @"http://www.google.com";
+        [defaults setObject:@"http://www.google.com/" forKey:@"userHomepage"];
+        self.homepageTextField.stringValue = @"http://www.google.com/";
     } else {
         
         NSLog(@"Setting homepage...");
@@ -104,13 +104,13 @@
 - (IBAction)newTab:(id)sender {
     
     // No support for tabs in Spark -- display a label
-    _ntNotSupported.hidden = NO;
+    self.ntNotSupported.hidden = NO;
     
     // Timer to only display the label for 2 seconds
     int64_t delayInSeconds = 2.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        _ntNotSupported.hidden = YES;
+        self.ntNotSupported.hidden = YES;
     });
 }
 
@@ -122,7 +122,6 @@
         self.loadingIndicator.hidden = NO;
         [self.loadingIndicator startAnimation:self];
         self.faviconImage.hidden = YES;
-        
         
         NSString *faviconURLString = [NSString stringWithFormat:@"http://www.google.com/s2/favicons?domain=%@", url];
         NSURL *faviconURL=[NSURL URLWithString: faviconURLString];
