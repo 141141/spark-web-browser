@@ -41,6 +41,8 @@
     NSString *versionString;
     NSDictionary *sv = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
     versionString = [sv objectForKey:@"ProductVersion"];
+    
+    // Should be dynamic/user-set at some point
     NSString *userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36"];
     
     // Should be dynamic/user-set at some point
@@ -62,6 +64,8 @@
     self.aboutWindow.backgroundColor = [NSColor whiteColor];
     
     self.addressBar.action = @selector(takeStringURLFrom:);
+    
+    // Homepage -- this should be user-set at some point
     [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.google.com"]]];
 }
 
@@ -86,6 +90,7 @@
         self.loadingIndicator.hidden = NO;
         [self.loadingIndicator startAnimation:self];
         self.faviconImage.hidden = YES;
+        
         
         NSString *faviconURLString = [NSString stringWithFormat:@"http://www.google.com/s2/favicons?domain=%@", url];
         NSURL *faviconURL=[NSURL URLWithString: faviconURLString];
