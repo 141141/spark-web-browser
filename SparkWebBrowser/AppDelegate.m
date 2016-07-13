@@ -14,6 +14,10 @@
 
 @synthesize window;
 
+- (void)selectItemAtIndex:(NSInteger)index {
+    
+}
+
 -(void)applicationWillFinishLaunching:(NSNotification *)aNotification {
     NSAppleEventManager *appleEventManager = [NSAppleEventManager sharedAppleEventManager];
     [appleEventManager setEventHandler:self
@@ -47,6 +51,7 @@
     NSString *userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36"];
 
     NSString *channelVer = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"currentReleaseChannel"]];
+    [self.releaseChannelPicker selectItemAtIndex:[defaults integerForKey:@"releaseChannelIndex"]];
     //self.releaseChannelPicker.selectedCell = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"currentReleaseChannel"]];
     
     window.titleVisibility = NSWindowTitleHidden; // For future purposes
@@ -93,6 +98,7 @@
     NSString *uncapitalizedReleaseChannel = [capitalizedReleaseChannel lowercaseString];
     
     [defaults setObject:[NSString stringWithFormat:@"%@", uncapitalizedReleaseChannel] forKey:@"currentReleaseChannel"];
+    [defaults setInteger:self.releaseChannelPicker.indexOfSelectedItem forKey:@"releaseChannelIndex"];
     //NSLog([NSString stringWithFormat:@"%@", [defaults valueForKey:@"currentReleaseChannel"]]);
     
 }
