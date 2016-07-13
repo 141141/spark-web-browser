@@ -90,9 +90,6 @@
                             <menuItem title="Back" keyEquivalent="" id="Was-JA-tGl"/>
                             <menuItem title="Forward" keyEquivalent="" id="IAo-SY-fd9"/>
                             <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
-                            <menuItem title="Reload" keyEquivalent="r" id="DVo-aG-piG"/>
-                            <menuItem title="Stop Loading" keyEquivalent="s" id="pxx-59-PXV"/>
-                            <menuItem isSeparatorItem="YES" id="8GF-dM-pAl"/>
                             <menuItem title="Print..." keyEquivalent="p" id="aTl-1u-JFS"/>
                         </items>
                     </menu>
@@ -312,6 +309,9 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="View" id="rKx-c4-g9e">
                         <items>
+                            <menuItem title="Reload This Page" keyEquivalent="r" id="kBd-Ld-2GK"/>
+                            <menuItem title="Stop Loading" keyEquivalent="s" id="esy-oT-tAi"/>
+                            <menuItem isSeparatorItem="YES" id="Zhc-qH-XXW"/>
                             <menuItem title="Full Screen" keyEquivalent="F" id="4c1-Hi-hgt">
                                 <connections>
                                     <action selector="toggleFullScreen:" target="QvC-M9-y7g" id="JeK-UD-Da4"/>
