@@ -19,9 +19,11 @@
                 <outlet property="addressBar" destination="6S4-CW-iwm" id="yLL-ye-fyR"/>
                 <outlet property="currentVersion" destination="sbh-Aa-9pH" id="pub-aC-Yo5"/>
                 <outlet property="faviconImage" destination="t5k-sW-5ra" id="bKl-he-loz"/>
+                <outlet property="homepageTextField" destination="wPk-qF-HnV" id="sfR-SW-cWa"/>
                 <outlet property="loadingIndicator" destination="1qB-mY-4UE" id="EYD-he-pSG"/>
                 <outlet property="ntNotSupported" destination="e3k-CE-CDi" id="JB0-P4-EAc"/>
                 <outlet property="osVersionField" destination="mdu-F3-Gvc" id="At6-wc-w2v"/>
+                <outlet property="setHomepageBtn" destination="UmC-Hu-U0Q" id="W7C-5d-ciQ"/>
                 <outlet property="titleStatus" destination="JvK-hQ-Wwq" id="SHO-kH-keU"/>
                 <outlet property="userAgentField" destination="9o1-qW-hns" id="C28-xd-N7u"/>
                 <outlet property="webView" destination="ffM-a6-P1L" id="vO9-FI-Eez"/>
