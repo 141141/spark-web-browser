@@ -14,10 +14,6 @@
 
 @synthesize window;
 
-- (void)selectItemAtIndex:(NSInteger)index {
-    
-}
-
 -(void)applicationWillFinishLaunching:(NSNotification *)aNotification {
     NSAppleEventManager *appleEventManager = [NSAppleEventManager sharedAppleEventManager];
     [appleEventManager setEventHandler:self
@@ -49,10 +45,20 @@
     
     // Should be dynamic/user-set at some point
     NSString *userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36"];
-
+    
     NSString *channelVer = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"currentReleaseChannel"]];
+    
+    if([defaults objectForKey:@"currentReleaseChannel"] == nil) {
+        // No release channel is set -- revert to default
+        [defaults setObject:@"stable" forKey:@"currentReleaseChannel"];
+    }
+    
+    if([defaults integerForKey:@"releaseChannelIndex"] == nil) {
+        // No release channel index is set -- revert to default
+        [defaults setInteger:0 forKey:@"releaseChannelIndex"];
+    }
+    
     [self.releaseChannelPicker selectItemAtIndex:[defaults integerForKey:@"releaseChannelIndex"]];
-    //self.releaseChannelPicker.selectedCell = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"currentReleaseChannel"]];
     
     window.titleVisibility = NSWindowTitleHidden; // For future purposes
     [self.webView setCustomUserAgent: userAgent];
@@ -99,7 +105,6 @@
     
     [defaults setObject:[NSString stringWithFormat:@"%@", uncapitalizedReleaseChannel] forKey:@"currentReleaseChannel"];
     [defaults setInteger:self.releaseChannelPicker.indexOfSelectedItem forKey:@"releaseChannelIndex"];
-    //NSLog([NSString stringWithFormat:@"%@", [defaults valueForKey:@"currentReleaseChannel"]]);
     
 }
 
