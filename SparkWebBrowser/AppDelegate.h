@@ -25,6 +25,7 @@
 @property (assign, nonatomic) IBOutlet NSPopUpButton *releaseChannelPicker;
 @property (assign, nonatomic) IBOutlet NSPanel *settingsWindow;
 @property (assign, nonatomic) IBOutlet NSButton *reloadBtn;
+@property (assign, nonatomic) IBOutlet NSTextField *ntBtnBackground;
 
 // Methods
 - (IBAction)newTab:(id)sender;

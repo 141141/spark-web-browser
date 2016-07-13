@@ -21,6 +21,7 @@
                 <outlet property="faviconImage" destination="t5k-sW-5ra" id="bKl-he-loz"/>
                 <outlet property="homepageTextField" destination="wPk-qF-HnV" id="sfR-SW-cWa"/>
                 <outlet property="loadingIndicator" destination="1qB-mY-4UE" id="EYD-he-pSG"/>
+                <outlet property="ntBtnBackground" destination="zxq-kF-Fbg" id="cOG-7E-VcW"/>
                 <outlet property="ntNotSupported" destination="e3k-CE-CDi" id="JB0-P4-EAc"/>
                 <outlet property="osVersionField" destination="mdu-F3-Gvc" id="At6-wc-w2v"/>
                 <outlet property="releaseChannelPicker" destination="DBB-e5-yay" id="faC-8w-Olv"/>
