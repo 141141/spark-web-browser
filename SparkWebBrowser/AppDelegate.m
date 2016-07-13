@@ -70,6 +70,7 @@
         self.osVersionField.stringValue = [NSString stringWithFormat: @"OS X %@", versionString];
     }
     self.ntNotSupported.hidden = YES;
+    self.faviconImage.hidden = YES;
     self.loadingIndicator.hidden = NO;
     [self.loadingIndicator startAnimation:self];
     self.currentVersion.stringValue = [NSString stringWithFormat:@"%@.%@ (%@ channel) (64-bit)", appVersion, buildNumber, channelVer];
@@ -147,9 +148,9 @@
         NSString *url = [[[[frame provisionalDataSource] request] URL] absoluteString];
         self.reloadBtn.image = [NSImage imageNamed: NSImageNameStopProgressTemplate];
         [self.addressBar setStringValue:url];
+        self.faviconImage.hidden = YES;
         self.loadingIndicator.hidden = NO;
         [self.loadingIndicator startAnimation:self];
-        self.faviconImage.hidden = YES;
         
         NSString *faviconURLString = [NSString stringWithFormat:@"http://www.google.com/s2/favicons?domain=%@", url];
         NSURL *faviconURL=[NSURL URLWithString: faviconURLString];
