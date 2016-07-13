@@ -14,14 +14,12 @@
 		AB04FD131C712C6000F08232 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB04FD111C712C6000F08232 /* MainMenu.xib */; };
 		AB04FD181C712C7100F08232 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AB04FD141C712C7100F08232 /* Credits.rtf */; };
 		AB04FD191C712C7100F08232 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB04FD161C712C7100F08232 /* InfoPlist.strings */; };
-		AB04FD2F1C712D2D00F08232 /* WebKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB83983B19817E15001D31B7 /* WebKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AB04FD311C712D2D00F08232 /* Cocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB83980719817D8E001D31B7 /* Cocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AB04FD331C712D5200F08232 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83980719817D8E001D31B7 /* Cocoa.framework */; };
-		AB04FD341C712D5600F08232 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83983B19817E15001D31B7 /* WebKit.framework */; };
 		AB1E724F1C712ED600699E69 /* SparkWebBrowserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB1E724E1C712ED600699E69 /* SparkWebBrowserTests.m */; };
 		AB83982719817D8E001D31B7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83982619817D8E001D31B7 /* XCTest.framework */; };
 		AB83982819817D8E001D31B7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83980719817D8E001D31B7 /* Cocoa.framework */; };
 		AB83983019817D8E001D31B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB83982E19817D8E001D31B7 /* InfoPlist.strings */; };
+		AB91379F1D36F35100F5A3A9 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83983B19817E15001D31B7 /* WebKit.framework */; };
+		AB9137A01D36F35500F5A3A9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83980719817D8E001D31B7 /* Cocoa.framework */; };
 		ABF5BF851D3571CB00F715A9 /* spark-about.html in Resources */ = {isa = PBXBuildFile; fileRef = ABF5BF831D3571CB00F715A9 /* spark-about.html */; };
 		ABF5BF861D3571CB00F715A9 /* spark-styles.css in Resources */ = {isa = PBXBuildFile; fileRef = ABF5BF841D3571CB00F715A9 /* spark-styles.css */; };
 /* End PBXBuildFile section */
@@ -35,21 +33,6 @@
 			remoteInfo = "Web Browser";
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		AB04FD321C712D2D00F08232 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				AB04FD311C712D2D00F08232 /* Cocoa.framework in Embed Frameworks */,
-				AB04FD2F1C712D2D00F08232 /* WebKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		AB04FD011C712BAD00F08232 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SparkWebBrowser/Images.xcassets; sourceTree = SOURCE_ROOT; };
@@ -81,8 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB04FD341C712D5600F08232 /* WebKit.framework in Frameworks */,
-				AB04FD331C712D5200F08232 /* Cocoa.framework in Frameworks */,
+				AB9137A01D36F35500F5A3A9 /* Cocoa.framework in Frameworks */,
+				AB91379F1D36F35100F5A3A9 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,7 +177,6 @@
 				AB83980019817D8E001D31B7 /* Sources */,
 				AB83980119817D8E001D31B7 /* Frameworks */,
 				AB83980219817D8E001D31B7 /* Resources */,
-				AB04FD321C712D2D00F08232 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -435,6 +417,7 @@
 				INFOPLIST_FILE = "SparkWebBrowser/Spark-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				OTHER_CODE_SIGN_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.insleep.Spark-Web-Browser";
 				PRODUCT_NAME = Spark;
 				WRAPPER_EXTENSION = app;
@@ -452,6 +435,7 @@
 				INFOPLIST_FILE = "SparkWebBrowser/Spark-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				OTHER_CODE_SIGN_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.insleep.Spark-Web-Browser";
 				PRODUCT_NAME = Spark;
 				WRAPPER_EXTENSION = app;
