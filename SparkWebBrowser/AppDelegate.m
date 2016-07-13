@@ -87,6 +87,11 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
+    NSLog([NSString stringWithFormat:@"%@", self.releaseChannelPicker.titleOfSelectedItem]);
+    
+    [defaults setObject:[NSString stringWithFormat:@"%@", [sender selectedItem]] forKey:@"currentReleaseChannel"];
+    //NSLog([NSString stringWithFormat:@"%@", [defaults valueForKey:@"currentReleaseChannel"]]);
+    
 }
 
 - (IBAction)setHomepage:(id)sender {
