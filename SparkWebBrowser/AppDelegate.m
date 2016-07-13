@@ -68,6 +68,9 @@
     // Homepage -- this should be user-set at some point
     [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.google.com"]]];
 }
+- (IBAction)setHomepage:(id)sender {
+    NSLog(@"Setting homepage...");
+}
 
 - (IBAction)newTab:(id)sender {
     
