@@ -87,7 +87,10 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    NSLog([NSString stringWithFormat:@"%@", self.releaseChannelPicker.titleOfSelectedItem]);
+    NSString *releaseChannel1 = [NSString stringWithFormat:@"%@", self.releaseChannelPicker.titleOfSelectedItem];
+    
+    NSString *noCaps = [releaseChannel1 lowercaseString];
+    NSLog([NSString stringWithFormat:@"%@", noCaps]);
     
     [defaults setObject:[NSString stringWithFormat:@"%@", [sender selectedItem]] forKey:@"currentReleaseChannel"];
     //NSLog([NSString stringWithFormat:@"%@", [defaults valueForKey:@"currentReleaseChannel"]]);
