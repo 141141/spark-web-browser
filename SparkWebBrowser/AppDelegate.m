@@ -34,8 +34,8 @@
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    // Initialize
     
+    // Initialize
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
     NSString *appVersion = [infoDict objectForKey:@"CFBundleShortVersionString"]; // Fetch the version number from info.plist
@@ -71,6 +71,8 @@
     }
     self.ntNotSupported.hidden = YES;
     self.loadingIndicator.hidden = NO;
+    [self.ntBtnBackground setWantsLayer:YES];
+    [self.ntBtnBackground.layer setCornerRadius:5.0f];
     [self.loadingIndicator startAnimation:self];
     self.currentVersion.stringValue = [NSString stringWithFormat:@"%@.%@ (%@ channel) (64-bit)", appVersion, buildNumber, channelVer];
     self.window.backgroundColor = [NSColor colorWithRed:0.773 green:0.231 blue:0.212 alpha:1]; // Title bar color in RGB
