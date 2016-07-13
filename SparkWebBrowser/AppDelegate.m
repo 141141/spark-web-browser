@@ -69,9 +69,18 @@
     // Homepage -- this should be user-set at some point
     if([defaults objectForKey:@"userHomepage"] == nil) {
         NSLog(@"Object = nil");
+        
+        // Default homepage
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.google.com"]]];
+        self.homepageTextField.stringValue = [NSString stringWithFormat:@"http://www.google.com"];
     } else {
         NSLog(@"Not nil");
+        
+        // User-set homepage
+        self.homepageTextField.stringValue = [NSString stringWithFormat:@"%@", [defaults valueForKey:@"userHomepage"]];
+        
+        [defaults setObject:nil forKey:@"userHomepage"];
+        
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", [defaults valueForKey:@"userHomepage"]]]]];
     }
 }
@@ -80,7 +89,7 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    NSString *stringTest = self.homepageTextField.stringValue;
+    NSString *homepageString = self.homepageTextField.stringValue;
     
     [defaults setObject:[NSString stringWithFormat:@"%@", stringTest] forKey:@"userHomepage"];
 }
