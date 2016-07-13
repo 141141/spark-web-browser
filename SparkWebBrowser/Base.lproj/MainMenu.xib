@@ -114,7 +114,12 @@
                             </menuItem>
                             <menuItem title="Paste" keyEquivalent="v" id="yOP-aG-qeC">
                                 <connections>
-                                    <action selector="paste:" target="ffM-a6-P1L" id="VTM-wU-4xj"/>
+                                    <action selector="pasteAsPlainText:" target="ffM-a6-P1L" id="MCq-lN-kgN"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Paste and Match Style" keyEquivalent="V" id="ud7-9e-ANc">
+                                <connections>
+                                    <action selector="pasteAsRichText:" target="ffM-a6-P1L" id="zgG-d8-eFt"/>
                                 </connections>
                             </menuItem>
                             <menuItem title="Select All" keyEquivalent="a" id="Xa5-jG-5cK">

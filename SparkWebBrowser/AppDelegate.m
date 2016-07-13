@@ -14,11 +14,14 @@
 
 @synthesize window;
 
-- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)app
-{
-    return YES;
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag {
+    if (flag) {
+        return NO;
+    } else {
+        [window makeKeyAndOrderFront:self];
+        return YES;
+    }
 }
-
 -(void)applicationWillFinishLaunching:(NSNotification *)aNotification {
     NSAppleEventManager *appleEventManager = [NSAppleEventManager sharedAppleEventManager];
     [appleEventManager setEventHandler:self
@@ -73,13 +76,13 @@
     
     // Homepage -- this should be user-set at some point
     if([defaults objectForKey:@"userHomepage"] == nil) {
-        NSLog(@"Object = nil");
+        // Homepage is not set
         
         // Default homepage
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.google.com"]]];
         self.homepageTextField.stringValue = [NSString stringWithFormat:@"http://www.google.com"];
     } else {
-        NSLog(@"Not nil");
+        // Homepage is set
         
         // User-set homepage
         self.homepageTextField.stringValue = [NSString stringWithFormat:@"%@", [defaults valueForKey:@"userHomepage"]];
@@ -92,7 +95,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     if(self.homepageTextField.stringValue == nil || [self.homepageTextField.stringValue isEqual:@""]) {
-        NSLog(@"Reverting to default");
+        // Homepage is not set -- revert to default
         
         [defaults setObject:@"http://www.google.com" forKey:@"userHomepage"];
         self.homepageTextField.stringValue = @"http://www.google.com";
