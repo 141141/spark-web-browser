@@ -35,6 +35,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Initialize
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
     NSString *appVersion = [infoDict objectForKey:@"CFBundleShortVersionString"]; // Fetch the version number from info.plist
     NSString *buildNumber = [infoDict objectForKey:@"CFBundleVersion"]; // Fetch the build number from info.plist
@@ -66,10 +67,25 @@
     self.addressBar.action = @selector(takeStringURLFrom:);
     
     // Homepage -- this should be user-set at some point
+    if([defaults objectForKey:@"userHomepage"] == nil) {
+        NSLog(@"Object = nil");
+    } else {
+        NSLog(@"Not nil");
+    }
+    
     [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.google.com"]]];
 }
 - (IBAction)setHomepage:(id)sender {
     NSLog(@"Setting homepage...");
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+    
+    NSString *stringTest = self.homepageTextField.stringValue;
+    
+    [defaults setObject:[NSString stringWithFormat:@"%@", stringTest] forKey:@"userHomepage"];
+
+    NSLog([defaults valueForKey:@"userHomepage"]);
 }
 
 - (IBAction)newTab:(id)sender {
