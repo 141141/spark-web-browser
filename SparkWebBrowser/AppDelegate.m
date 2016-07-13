@@ -91,7 +91,7 @@
     
     NSString *homepageString = self.homepageTextField.stringValue;
     
-    [defaults setObject:[NSString stringWithFormat:@"%@", stringTest] forKey:@"userHomepage"];
+    [defaults setObject:[NSString stringWithFormat:@"%@", homepageString] forKey:@"userHomepage"];
 }
 
 - (IBAction)newTab:(id)sender {
