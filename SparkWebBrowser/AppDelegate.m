@@ -47,7 +47,7 @@
     NSString *userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36"];
 
     NSString *channelVer = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"currentReleaseChannel"]];
-    self.releaseChannelPicker.selectedCell = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"currentReleaseChannel"]];
+    //self.releaseChannelPicker.selectedCell = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"currentReleaseChannel"]];
     
     window.titleVisibility = NSWindowTitleHidden; // For future purposes
     [self.webView setCustomUserAgent: userAgent];
