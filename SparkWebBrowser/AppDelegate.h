@@ -23,6 +23,7 @@
 @property (assign, nonatomic) IBOutlet NSTextField *homepageTextField;
 @property (assign, nonatomic) IBOutlet NSButton *setHomepageBtn;
 @property (assign, nonatomic) IBOutlet NSPopUpButton *releaseChannelPicker;
+@property (assign, nonatomic) IBOutlet NSPanel *settingsWindow;
 
 // Methods
 - (IBAction)newTab:(id)sender;
