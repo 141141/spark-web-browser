@@ -86,13 +86,21 @@
 }
 - (IBAction)setHomepage:(id)sender {
     
-    NSLog(@"Setting homepage...");
-    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    NSString *homepageString = self.homepageTextField.stringValue;
-    
-    [defaults setObject:[NSString stringWithFormat:@"%@", homepageString] forKey:@"userHomepage"];
+    if(self.homepageTextField.stringValue == nil || [self.homepageTextField.stringValue isEqual:@""]) {
+        NSLog(@"Reverting to default");
+        
+        [defaults setObject:@"http://www.google.com" forKey:@"userHomepage"];
+        self.homepageTextField.stringValue = @"http://www.google.com";
+    } else {
+        
+        NSLog(@"Setting homepage...");
+        
+        NSString *homepageString = self.homepageTextField.stringValue;
+        
+        [defaults setObject:[NSString stringWithFormat:@"%@", homepageString] forKey:@"userHomepage"];
+    }
 }
 
 - (IBAction)newTab:(id)sender {
