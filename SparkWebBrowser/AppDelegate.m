@@ -79,16 +79,16 @@
         // User-set homepage
         self.homepageTextField.stringValue = [NSString stringWithFormat:@"%@", [defaults valueForKey:@"userHomepage"]];
         
-        [defaults setObject:nil forKey:@"userHomepage"];
+        // [defaults setObject:nil forKey:@"userHomepage"];
         
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", [defaults valueForKey:@"userHomepage"]]]]];
     }
 }
 - (IBAction)setHomepage:(id)sender {
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
     NSLog(@"Setting homepage...");
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     NSString *homepageString = self.homepageTextField.stringValue;
     
