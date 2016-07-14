@@ -115,7 +115,24 @@
     
     NSLog([NSString stringWithFormat:@"%@", [searchString substringToIndex:5]]);
     
-    if([[searchString substringToIndex:5] isEqual: @"https"]) {
+    if([searchString hasPrefix:@"https"]) {
+        NSLog(@"HTTPS webpage loaded.");
+    } else if([searchString hasPrefix:@"http"]) {
+        NSLog(@"HTTP webpage loaded.");
+    } else if([searchString hasPrefix:@"file"]) {
+        NSLog(@"file:// prefix");
+    } else {
+        NSLog(@"User has initiated a Google search.");
+        NSString *searchString = self.addressBar.stringValue;
+        
+        NSString *urlAddress = [NSString stringWithFormat:@"https://www.google.com/search?q=%@&gws_rd=ssl", searchString];
+        NSString *editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+        
+        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
+        self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedUrlString];
+    }
+    
+    /*if([[searchString substringToIndex:5] isEqual: @"https"]) {
         NSLog(@"Using HTTPS");
     } else if([[searchString substringToIndex:4] isEqual: @"http"]) {
         NSLog(@"HTTP only");
@@ -128,7 +145,7 @@
         
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
         self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedUrlString];
-    }
+    }*/
 
 }
 
