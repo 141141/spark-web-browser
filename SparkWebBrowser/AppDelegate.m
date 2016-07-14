@@ -19,7 +19,7 @@
     [appleEventManager setEventHandler:self
                            andSelector:@selector(handleGetURLEvent:withReplyEvent:)
                          forEventClass:kInternetEventClass andEventID:kAEGetURL];
-
+    
 }
 
 - (void)handleGetURLEvent:(NSAppleEventDescriptor *)event withReplyEvent:(NSAppleEventDescriptor *)replyEvent {
@@ -38,7 +38,7 @@
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-about" ofType:@"html"] isDirectory:NO]]];
         self.addressBar.stringValue = @"spark://updates";
     }
-
+    
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
@@ -123,6 +123,24 @@
     [defaults setObject:[NSString stringWithFormat:@"%@", searchEngineChosen] forKey:@"currentSearchEngine"];
     [defaults setInteger:self.searchEnginePicker.indexOfSelectedItem forKey:@"searchEngineIndex"];
     
+    
+    if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Google"]) {
+        
+        [self setHomepageFunc:@"https://www.google.com/?gws_rd=ssl"];
+        self.homepageTextField.stringValue = @"https://www.google.com/?gws_rd=ssl";
+        
+    } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Bing"]) {
+        
+        [self setHomepageFunc:@"https://www.bing.com/"];
+        self.homepageTextField.stringValue = @"https://www.bing.com/";
+        
+    } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Yahoo!"]) {
+        
+        [self setHomepageFunc:@"https://www.yahoo.com/"];
+        self.homepageTextField.stringValue = @"https://www.yahoo.com/";
+        
+    }
+    
 }
 
 - (IBAction)initWebpageLoad:(id)sender {
@@ -130,7 +148,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     NSString *searchString = self.addressBar.stringValue;
-
+    
     [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:searchString]]];
     self.addressBar.stringValue = [NSString stringWithFormat:@"%@", searchString];
     
@@ -195,19 +213,9 @@
 - (void)setHomepageFunc:(NSString *)homepageToSet {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    if(self.homepageTextField.stringValue == nil || [self.homepageTextField.stringValue isEqual:@""]) {
-        // Homepage is not set -- revert to default
-        
-        [defaults setObject:@"https://www.google.com/?gws_rd=ssl" forKey:@"userHomepage"];
-        self.homepageTextField.stringValue = @"https://www.google.com/";
-    } else {
-        
-        NSLog(@"Setting homepage...");
-        
-        NSString *homepageString = self.homepageTextField.stringValue;
-        
-        [defaults setObject:[NSString stringWithFormat:@"%@", homepageString] forKey:@"userHomepage"];
-    }
+    NSLog(@"Setting homepage...");
+    
+    [defaults setObject:[NSString stringWithFormat:@"%@", homepageToSet] forKey:@"userHomepage"];
 }
 
 - (IBAction)setHomepage:(id)sender {
