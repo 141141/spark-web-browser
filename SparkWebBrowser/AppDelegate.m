@@ -136,6 +136,8 @@
 
 - (IBAction)initWebpageLoad:(id)sender {
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
     NSString *searchString = self.addressBar.stringValue;
 
     [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:searchString]]];
@@ -148,14 +150,37 @@
     } else if([searchString hasPrefix:@"file"]) {
         NSLog(@"file:// prefix");
     } else {
-        NSLog(@"User has initiated a Google search.");
+        NSLog(@"User has initiated a search. Finding search engine...");
+        
         NSString *searchString = self.addressBar.stringValue;
         
-        NSString *urlAddress = [NSString stringWithFormat:@"https://www.google.com/search?q=%@&gws_rd=ssl", searchString];
-        NSString *editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+        if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Google"]) {
+            
+            NSLog(@"User has initiated a Google search.");
+            
+            NSString *urlAddress = [NSString stringWithFormat:@"https://www.google.com/search?q=%@&gws_rd=ssl", searchString];
+            NSString *editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            
+            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
+            self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedUrlString];
+            
+        } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Bing"]) {
+            
+            NSLog(@"User has initiated a Bing search.");
+            
+            NSString *urlAddress = [NSString stringWithFormat:@"https://www.bing.com/search?q=%@", searchString];
+            NSString *editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            
+            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
+            self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedUrlString];
+            
+        } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Yahoo!"]) {
+            
+            NSLog(@"User has initiated a Yahoo! search.");
+            
+        }
         
-        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
-        self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedUrlString];
+        
     }
 
 }
