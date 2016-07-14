@@ -27,7 +27,6 @@
 @property (assign, nonatomic) IBOutlet NSButton *reloadBtn;
 @property (assign, nonatomic) IBOutlet NSTextField *ntBtnBackground;
 @property (assign, nonatomic) IBOutlet NSButton *ntBtn;
-@property (assign, nonatomic) IBOutlet NSTextField *googleSearchField;
 
 // Methods
 - (IBAction)newTab:(id)sender;
