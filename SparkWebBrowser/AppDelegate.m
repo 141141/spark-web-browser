@@ -70,6 +70,18 @@
     
     [self.releaseChannelPicker selectItemAtIndex:[defaults integerForKey:@"releaseChannelIndex"]];
     
+    if([defaults objectForKey:@"currentSearchEngine"] == nil) {
+        // No release channel is set -- revert to default
+        [defaults setObject:@"Google" forKey:@"currentSearchEngine"];
+    }
+    
+    if([defaults integerForKey:@"searchEngineIndex"] == nil) {
+        // No release channel index is set -- revert to default
+        [defaults setInteger:0 forKey:@"searchEngineIndex"];
+    }
+    
+    [self.searchEnginePicker selectItemAtIndex:[defaults integerForKey:@"searchEngineIndex"]];
+    
     window.titleVisibility = NSWindowTitleHidden; // For future purposes
     [self.webView setCustomUserAgent: userAgent];
     self.userAgentField.stringValue = userAgent;
@@ -106,6 +118,14 @@
     }
 }
 - (IBAction)setSearchEngine:(id)sender {
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString *searchEngineChosen = [NSString stringWithFormat:@"%@", self.searchEnginePicker.titleOfSelectedItem];
+    
+    [defaults setObject:[NSString stringWithFormat:@"%@", searchEngineChosen] forKey:@"currentSearchEngine"];
+    [defaults setInteger:self.searchEnginePicker.indexOfSelectedItem forKey:@"searchEngineIndex"];
+    
 }
 
 - (IBAction)initWebpageLoad:(id)sender {
