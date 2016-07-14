@@ -131,35 +131,7 @@
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
         self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedUrlString];
     }
-    
-    /*if([[searchString substringToIndex:5] isEqual: @"https"]) {
-        NSLog(@"Using HTTPS");
-    } else if([[searchString substringToIndex:4] isEqual: @"http"]) {
-        NSLog(@"HTTP only");
-    } else {
-        NSLog(@"Google search?");
-        NSString *searchString = self.addressBar.stringValue;
-        
-        NSString *urlAddress = [NSString stringWithFormat:@"https://www.google.com/search?q=%@&gws_rd=ssl", searchString];
-        NSString *editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-        
-        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
-        self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedUrlString];
-    }*/
 
-}
-
-
-- (IBAction)initSearch:(id)sender {
-    
-    NSString *searchString = self.googleSearchField.stringValue;
-    
-    NSString *urlAddress = [NSString stringWithFormat:@"https://www.google.com/search?q=%@&gws_rd=ssl", searchString];
-    NSString *editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-    
-    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
-    self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedUrlString];
-    
 }
 
 - (IBAction)setReleaseChannel:(id)sender {
