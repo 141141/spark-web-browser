@@ -105,6 +105,17 @@
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", [defaults valueForKey:@"userHomepage"]]]]];
     }
 }
+
+- (IBAction)initWebpageLoad:(id)sender {
+    
+    NSString *searchString = self.addressBar.stringValue;
+
+    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", searchString]]]];
+    self.addressBar.stringValue = [NSString stringWithFormat:@"%@", searchString];
+
+}
+
+
 - (IBAction)initSearch:(id)sender {
     
     NSString *searchString = self.googleSearchField.stringValue;

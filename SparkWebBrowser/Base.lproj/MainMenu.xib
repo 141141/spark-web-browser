@@ -624,7 +624,7 @@ Spark is made possible by the WebKit open source project and other open source s
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <action selector="takeStringURLFrom:" target="ffM-a6-P1L" id="zlS-2Q-bc3"/>
+                            <action selector="takeStringURLFrom:" target="ffM-a6-P1L" id="9p8-sP-cGE"/>
                         </connections>
                     </textField>
                     <button verticalHuggingPriority="750" id="gZC-HQ-A14">
