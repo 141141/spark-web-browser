@@ -99,7 +99,6 @@
     self.aboutWindow.backgroundColor = [NSColor whiteColor];
     self.settingsWindow.backgroundColor = [NSColor whiteColor];
     
-    // Homepage -- this should be user-set at some point
     if([defaults objectForKey:@"userHomepage"] == nil) {
         // Homepage is not set
         
@@ -177,10 +176,7 @@
             self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedUrlString];
             
         }
-        
-        
     }
-
 }
 
 - (IBAction)setReleaseChannel:(id)sender {
@@ -194,6 +190,24 @@
     [defaults setObject:[NSString stringWithFormat:@"%@", uncapitalizedReleaseChannel] forKey:@"currentReleaseChannel"];
     [defaults setInteger:self.releaseChannelPicker.indexOfSelectedItem forKey:@"releaseChannelIndex"];
     
+}
+
+- (void)setHomepageFunc:(NSString *)homepageToSet {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if(self.homepageTextField.stringValue == nil || [self.homepageTextField.stringValue isEqual:@""]) {
+        // Homepage is not set -- revert to default
+        
+        [defaults setObject:@"https://www.google.com/?gws_rd=ssl" forKey:@"userHomepage"];
+        self.homepageTextField.stringValue = @"https://www.google.com/";
+    } else {
+        
+        NSLog(@"Setting homepage...");
+        
+        NSString *homepageString = self.homepageTextField.stringValue;
+        
+        [defaults setObject:[NSString stringWithFormat:@"%@", homepageString] forKey:@"userHomepage"];
+    }
 }
 
 - (IBAction)setHomepage:(id)sender {

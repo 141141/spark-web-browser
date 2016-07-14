@@ -33,5 +33,6 @@
 - (IBAction)newTab:(id)sender;
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame;
 - (void)webView:(WebView *)sender didReceiveTitle:(NSString *)title forFrame:(WebFrame *)frame;
+- (void)setHomepageFunc:(NSString *)homepageToSet;
 
 @end
