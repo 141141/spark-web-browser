@@ -95,7 +95,7 @@
         [defaults setInteger:0 forKey:@"colorIndex"];
     }
     
-    [self.searchEnginePicker selectItemAtIndex:[defaults integerForKey:@"searchEngineIndex"]];
+    [self.topBarColorPicker selectItemAtIndex:[defaults integerForKey:@"colorIndex"]];
     
     window.titleVisibility = NSWindowTitleHidden; // For future purposes
     [self.webView setCustomUserAgent: userAgent];
@@ -110,9 +110,10 @@
     self.loadingIndicator.hidden = NO;
     [self.loadingIndicator startAnimation:self];
     self.currentVersion.stringValue = [NSString stringWithFormat:@"%@-%@ (%@ channel) (64-bit)", appVersion, buildNumber, channelVer];
-    // self.window.backgroundColor = [NSColor colorWithRed:0.773 green:0.231 blue:0.212 alpha:1]; // Title bar color in RGB
     self.aboutWindow.backgroundColor = [NSColor whiteColor];
     self.settingsWindow.backgroundColor = [NSColor whiteColor];
+    
+    
     
     if([defaults objectForKey:@"userHomepage"] == nil) {
         // Homepage is not set
@@ -138,29 +139,24 @@
     [defaults setObject:[NSString stringWithFormat:@"%@", colorChosen] forKey:@"currentColor"];
     [defaults setInteger:self.topBarColorPicker.indexOfSelectedItem forKey:@"colorIndex"];
     
-    if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Google"]) {
+    if([[defaults objectForKey:@"currentColor"] isEqual: @"Default"]) {
         
-        // Set homepage to Google
-        [self setHomepageFunc:@"https://www.google.com/?gws_rd=ssl"];
-        self.homepageTextField.stringValue = @"https://www.google.com/?gws_rd=ssl";
+        // Set top bar color to default
         
-    } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Bing"]) {
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Red"]) {
         
-        // Set homepage to Bing
-        [self setHomepageFunc:@"https://www.bing.com/"];
-        self.homepageTextField.stringValue = @"https://www.bing.com/";
+        // Set top bar color to red
+        self.window.backgroundColor = [NSColor colorWithRed:0.773f green:0.231f blue:0.212f alpha:1.0f]; // Title bar color in RGB
         
-    } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Yahoo!"]) {
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Blue"]) {
         
-        // Set homepage to Yahoo!
-        [self setHomepageFunc:@"https://www.yahoo.com/"];
-        self.homepageTextField.stringValue = @"https://www.yahoo.com/";
+        // Set top bar color to blue
+        self.window.backgroundColor = [NSColor colorWithRed:0.0f/255.0f green:155.0f/255.0f blue:218.0f/255.0f alpha:1.0f]; // Title bar color in RGB
         
-    } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"DuckDuckGo"]) {
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Orange"]) {
         
-        // Set homepage to DuckDuckGo
-        [self setHomepageFunc:@"https://www.duckduckgo.com/"];
-        self.homepageTextField.stringValue = @"https://www.duckduckgo.com/";
+        // Set top bar color to orange
+        //self.window.backgroundColor = [NSColor colorWithRed:0.773 green:0.231 blue:0.212 alpha:1]; // Title bar color in RGB
         
     }
 
