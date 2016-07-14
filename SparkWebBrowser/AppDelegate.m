@@ -124,14 +124,6 @@
     [defaults setObject:[NSString stringWithFormat:@"%@", searchEngineChosen] forKey:@"currentSearchEngine"];
     [defaults setInteger:self.searchEnginePicker.indexOfSelectedItem forKey:@"searchEngineIndex"];
     
-    if([searchEngineChosen isEqual: @"Google"]) {
-        NSLog(@"Google");
-    } else if([searchEngineChosen isEqual: @"Bing"]) {
-        NSLog(@"Bing");
-    } else if([searchEngineChosen isEqual: @"Yahoo!"]) {
-        NSLog(@"Yahoo!");
-    }
-    
 }
 
 - (IBAction)initWebpageLoad:(id)sender {
@@ -177,6 +169,12 @@
         } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Yahoo!"]) {
             
             NSLog(@"User has initiated a Yahoo! search.");
+            
+            NSString *urlAddress = [NSString stringWithFormat:@"https://search.yahoo.com/search?p=%@", searchString];
+            NSString *editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            
+            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
+            self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedUrlString];
             
         }
         
