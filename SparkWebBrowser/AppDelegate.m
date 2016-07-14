@@ -15,6 +15,7 @@
 @synthesize window;
 
 -(void)applicationWillFinishLaunching:(NSNotification *)aNotification {
+    
     NSAppleEventManager *appleEventManager = [NSAppleEventManager sharedAppleEventManager];
     [appleEventManager setEventHandler:self
                            andSelector:@selector(handleGetURLEvent:withReplyEvent:)
@@ -23,6 +24,9 @@
 }
 
 - (void)handleGetURLEvent:(NSAppleEventDescriptor *)event withReplyEvent:(NSAppleEventDescriptor *)replyEvent {
+    
+    // Handle spark:// URL events
+    
     NSURL *url = [NSURL URLWithString:[[event paramDescriptorForKeyword:keyDirectObject] stringValue]];
     NSString *urlToString = [url absoluteString];
     if([urlToString isEqual: @"spark://about"]) {
@@ -44,19 +48,18 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     
     // Initialize
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults]; // Shortcut for later
+    NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary]; // Load Info.plist
     NSString *appVersion = [infoDict objectForKey:@"CFBundleShortVersionString"]; // Fetch the version number from Info.plist
     NSString *buildNumber = [infoDict objectForKey:@"CFBundleVersion"]; // Fetch the build number from Info.plist
-    NSDictionary *sv = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
-    NSString *versionString = [sv objectForKey:@"ProductVersion"];
-    NSString *buildString = [sv objectForKey:@"ProductBuildVersion"];
-    NSString *productName = [sv objectForKey:@"ProductName"];
+    NSDictionary *sv = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"]; // Load SystemVersion.plist
+    NSString *versionString = [sv objectForKey:@"ProductVersion"]; // Get macOS version
+    NSString *buildString = [sv objectForKey:@"ProductBuildVersion"]; // Get macOS build number
+    NSString *productName = [sv objectForKey:@"ProductName"]; // Get macOS product name (OS X / macOS)
+    NSString *channelVer = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"currentReleaseChannel"]]; // Get current release channel
     
     // Should be dynamic/user-set at some point
     NSString *userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel %@ 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36", productName];
-    
-    NSString *channelVer = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"currentReleaseChannel"]];
     
     if([defaults objectForKey:@"currentReleaseChannel"] == nil) {
         // No release channel is set -- revert to default
@@ -125,21 +128,25 @@
     
     if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Google"]) {
         
+        // Set homepage to Google
         [self setHomepageFunc:@"https://www.google.com/?gws_rd=ssl"];
         self.homepageTextField.stringValue = @"https://www.google.com/?gws_rd=ssl";
         
     } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Bing"]) {
         
+        // Set homepage to Bing
         [self setHomepageFunc:@"https://www.bing.com/"];
         self.homepageTextField.stringValue = @"https://www.bing.com/";
         
     } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Yahoo!"]) {
         
+        // Set homepage to Yahoo!
         [self setHomepageFunc:@"https://www.yahoo.com/"];
         self.homepageTextField.stringValue = @"https://www.yahoo.com/";
         
     } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"DuckDuckGo"]) {
         
+        // Set homepage to DuckDuckGo
         [self setHomepageFunc:@"https://www.duckduckgo.com/"];
         self.homepageTextField.stringValue = @"https://www.duckduckgo.com/";
         
@@ -169,6 +176,8 @@
         
         if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Google"]) {
             
+            // Google search initiated
+            
             NSLog(@"User has initiated a Google search.");
             
             NSString *urlAddress = [NSString stringWithFormat:@"https://www.google.com/search?q=%@&gws_rd=ssl", searchString];
@@ -178,6 +187,8 @@
             self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedUrlString];
             
         } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Bing"]) {
+            
+            // Bing search initiated
             
             NSLog(@"User has initiated a Bing search.");
             
@@ -189,6 +200,8 @@
             
         } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Yahoo!"]) {
             
+            // Yahoo! search initiated
+            
             NSLog(@"User has initiated a Yahoo! search.");
             
             NSString *urlAddress = [NSString stringWithFormat:@"https://search.yahoo.com/search?p=%@", searchString];
@@ -198,6 +211,8 @@
             self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedUrlString];
             
         } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"DuckDuckGo"]) {
+            
+            // DuckDuckGo search initiated
             
             NSLog(@"User has initiated a DuckDuckGo search.");
             
