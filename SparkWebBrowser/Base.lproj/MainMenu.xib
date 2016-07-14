@@ -472,7 +472,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     </textField>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="2108.5" y="-254"/>
+            <point key="canvasLocation" x="2042.5" y="-177"/>
         </window>
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="MMA-4M-Pa4" userLabel="Preferences Window" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
@@ -590,7 +590,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     </textField>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="1436.5" y="-224.5"/>
+            <point key="canvasLocation" x="1492.5" y="-371.5"/>
         </window>
         <window allowsToolTipsWhenApplicationIsInactive="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES"/>
