@@ -118,6 +118,14 @@
     }
 }
 
+- (IBAction)viewReleaseNotes:(id)sender {
+    
+    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.github.com/insleep/spark-web-browser/releases/"]]];
+    self.addressBar.stringValue = @"https://www.github.com/insleep/spark-web-browser/releases/";
+    
+}
+
+
 - (IBAction)reportIssue:(id)sender {
     
     [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.github.com/insleep/spark-web-browser/issues/"]]];

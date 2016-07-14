@@ -395,6 +395,13 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Help" systemMenu="help" id="04H-Qk-c6j">
                         <items>
+                            <menuItem title="Release Notes" id="ip6-pa-MyW">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="viewReleaseNotes:" target="Voe-Tx-rLC" id="y8M-W9-SIy"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="yX2-xh-ELo"/>
                             <menuItem title="Report an Issue..." id="1IG-TP-NUB">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
