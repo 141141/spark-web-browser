@@ -106,6 +106,15 @@
     }
 }
 - (IBAction)initSearch:(id)sender {
+    
+    NSString *searchString = self.googleSearchField.stringValue;
+    
+    NSString *urlAddress = [NSString stringWithFormat:@"https://www.google.com/search?q=%@", searchString];
+    NSString *editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+    
+    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
+    self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedUrlString];
+    
 }
 
 - (IBAction)setReleaseChannel:(id)sender {
