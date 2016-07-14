@@ -135,8 +135,6 @@
     [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:searchString]]];
     self.addressBar.stringValue = [NSString stringWithFormat:@"%@", searchString];
     
-    NSLog([NSString stringWithFormat:@"%@", [searchString substringToIndex:5]]);
-    
     if([searchString hasPrefix:@"https"]) {
         NSLog(@"HTTPS webpage loaded.");
     } else if([searchString hasPrefix:@"http"]) {
