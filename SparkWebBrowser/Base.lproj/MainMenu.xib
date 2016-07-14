@@ -538,6 +538,9 @@ Spark is made possible by the WebKit open source project and other open source s
                                 </items>
                             </menu>
                         </popUpButtonCell>
+                        <connections>
+                            <action selector="setSearchEngine:" target="Voe-Tx-rLC" id="j17-4T-LAr"/>
+                        </connections>
                     </popUpButton>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="8jo-1g-mt3">
                         <rect key="frame" x="160" y="142" width="135" height="29"/>

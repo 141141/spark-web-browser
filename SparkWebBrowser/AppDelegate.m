@@ -105,6 +105,8 @@
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", [defaults valueForKey:@"userHomepage"]]]]];
     }
 }
+- (IBAction)setSearchEngine:(id)sender {
+}
 
 - (IBAction)initWebpageLoad:(id)sender {
     
