@@ -17,18 +17,14 @@
             <connections>
                 <outlet property="aboutWindow" destination="oJi-1c-Sb5" id="bgk-nR-Kh0"/>
                 <outlet property="addressBar" destination="6S4-CW-iwm" id="yLL-ye-fyR"/>
-                <outlet property="blueColorWell" destination="VYW-le-CS9" id="g7B-f3-fwf"/>
                 <outlet property="currentVersion" destination="sbh-Aa-9pH" id="pub-aC-Yo5"/>
-                <outlet property="defaultColorWell" destination="dqW-7b-J2q" id="aSN-cV-HcP"/>
                 <outlet property="faviconImage" destination="t5k-sW-5ra" id="bKl-he-loz"/>
                 <outlet property="homepageTextField" destination="wPk-qF-HnV" id="sfR-SW-cWa"/>
                 <outlet property="loadingIndicator" destination="1qB-mY-4UE" id="EYD-he-pSG"/>
                 <outlet property="ntBtn" destination="pmy-Gn-uac" id="eJG-ga-1rU"/>
                 <outlet property="ntBtnBackground" destination="VRX-Sp-sir" id="uAL-Ad-2Pe"/>
                 <outlet property="ntNotSupported" destination="e3k-CE-CDi" id="JB0-P4-EAc"/>
-                <outlet property="orangeColorWell" destination="bqr-D9-tzj" id="Rmn-1C-D13"/>
                 <outlet property="osVersionField" destination="mdu-F3-Gvc" id="At6-wc-w2v"/>
-                <outlet property="redColorWell" destination="bqr-D9-tzj" id="LhC-NO-k0O"/>
                 <outlet property="releaseChannelPicker" destination="DBB-e5-yay" id="faC-8w-Olv"/>
                 <outlet property="reloadBtn" destination="gZC-HQ-A14" id="jGE-yL-ojT"/>
                 <outlet property="searchEnginePicker" destination="GYw-Eq-qx7" id="whS-kR-ROu"/>
@@ -648,26 +644,6 @@ Spark is made possible by the WebKit open source project and other open source s
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <colorWell hidden="YES" bordered="NO" id="VYW-le-CS9" userLabel="BlueColorWell">
-                        <rect key="frame" x="403" y="35" width="27" height="23"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <color key="color" red="0.13118489583333334" green="0.2568630642361111" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </colorWell>
-                    <colorWell hidden="YES" bordered="NO" id="9oG-yD-6mZ" userLabel="RedColorWell">
-                        <rect key="frame" x="403" y="35" width="27" height="23"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <color key="color" red="0.71372549019999998" green="0.1529411765" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
-                    </colorWell>
-                    <colorWell hidden="YES" bordered="NO" id="bqr-D9-tzj" userLabel="OrangeColorWell">
-                        <rect key="frame" x="403" y="35" width="27" height="23"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <color key="color" red="0.88009982638888884" green="0.4123263888888889" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    </colorWell>
-                    <colorWell hidden="YES" bordered="NO" id="dqW-7b-J2q" userLabel="DefaultColorWell">
-                        <rect key="frame" x="403" y="35" width="27" height="23"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <color key="color" red="0.84705882352941175" green="0.84705882352941175" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </colorWell>
                     <popUpButton verticalHuggingPriority="750" id="XHo-Io-iG9">
                         <rect key="frame" x="133" y="33" width="259" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>

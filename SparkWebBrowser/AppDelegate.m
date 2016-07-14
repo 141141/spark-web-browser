@@ -117,7 +117,7 @@
     if([[defaults objectForKey:@"currentColor"] isEqual: @"Default"]) {
         
         // Set top bar color to default
-        self.window.backgroundColor = [NSColor colorWithRed:216.0f/255.0f green:216.0f/255.0f blue:216.0f/255.0f alpha:1.0f];
+        self.window.backgroundColor = [NSColor colorWithRed:216.0f/255.0f green:216.0f/255.0f blue:216.0f/255.0f alpha:1.0f]; // Title bar color in RGB
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Red"]) {
         
@@ -169,7 +169,7 @@
     if([[defaults objectForKey:@"currentColor"] isEqual: @"Default"]) {
         
         // Set top bar color to default
-        self.window.backgroundColor = [NSColor colorWithRed:216.0f/255.0f green:216.0f/255.0f blue:216.0f/255.0f alpha:1.0f];
+        self.window.backgroundColor = [NSColor colorWithRed:216.0f/255.0f green:216.0f/255.0f blue:216.0f/255.0f alpha:1.0f]; // Title bar color in RGB
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Red"]) {
         

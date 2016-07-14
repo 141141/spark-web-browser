@@ -29,10 +29,6 @@
 @property (assign, nonatomic) IBOutlet NSButton *ntBtn;
 @property (assign, nonatomic) IBOutlet NSPopUpButton *searchEnginePicker;
 @property (assign, nonatomic) IBOutlet NSPopUpButton *topBarColorPicker;
-@property (assign, nonatomic) IBOutlet NSColorWell *blueColorWell;
-@property (assign, nonatomic) IBOutlet NSColorWell *redColorWell;
-@property (assign, nonatomic) IBOutlet NSColorWell *orangeColorWell;
-@property (assign, nonatomic) IBOutlet NSColorWell *defaultColorWell;
 
 // Methods
 - (IBAction)newTab:(id)sender;
