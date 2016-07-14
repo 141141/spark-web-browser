@@ -123,7 +123,6 @@
     [defaults setObject:[NSString stringWithFormat:@"%@", searchEngineChosen] forKey:@"currentSearchEngine"];
     [defaults setInteger:self.searchEnginePicker.indexOfSelectedItem forKey:@"searchEngineIndex"];
     
-    
     if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Google"]) {
         
         [self setHomepageFunc:@"https://www.google.com/?gws_rd=ssl"];
@@ -138,6 +137,11 @@
         
         [self setHomepageFunc:@"https://www.yahoo.com/"];
         self.homepageTextField.stringValue = @"https://www.yahoo.com/";
+        
+    } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"DuckDuckGo"]) {
+        
+        [self setHomepageFunc:@"https://www.duckduckgo.com/"];
+        self.homepageTextField.stringValue = @"https://www.duckduckgo.com/";
         
     }
     
@@ -193,6 +197,16 @@
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
             self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedUrlString];
             
+        } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"DuckDuckGo"]) {
+            
+            NSLog(@"User has initiated a DuckDuckGo search.");
+            
+            NSString *urlAddress = [NSString stringWithFormat:@"https://www.duckduckgo.com/%@", searchString];
+            NSString *editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            
+            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
+            self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedUrlString];
+            
         }
     }
 }
@@ -226,7 +240,7 @@
         // Homepage is not set -- revert to default
         
         [defaults setObject:@"https://www.google.com/?gws_rd=ssl" forKey:@"userHomepage"];
-        self.homepageTextField.stringValue = @"https://www.google.com/";
+        self.homepageTextField.stringValue = @"https://www.google.com/?gws_rd=ssl";
     } else {
         
         NSLog(@"Setting homepage...");

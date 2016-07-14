@@ -527,14 +527,15 @@ Spark is made possible by the WebKit open source project and other open source s
                     <popUpButton verticalHuggingPriority="750" id="GYw-Eq-qx7">
                         <rect key="frame" x="133" y="61" width="259" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="push" title="Yahoo!" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="RpJ-j3-k0A" id="PFJ-rh-BaU">
+                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="PFJ-rh-BaU">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" id="ESd-DK-qb0">
                                 <items>
-                                    <menuItem title="Google" state="on" id="M4t-1k-gwL"/>
+                                    <menuItem title="Google" id="M4t-1k-gwL"/>
                                     <menuItem title="Bing" id="iHg-JP-TzF"/>
-                                    <menuItem title="Yahoo!" state="on" id="RpJ-j3-k0A"/>
+                                    <menuItem title="Yahoo!" id="RpJ-j3-k0A"/>
+                                    <menuItem title="DuckDuckGo" id="nq3-GM-uav"/>
                                 </items>
                             </menu>
                         </popUpButtonCell>
