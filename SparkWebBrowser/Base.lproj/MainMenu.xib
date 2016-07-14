@@ -31,6 +31,7 @@
                 <outlet property="setHomepageBtn" destination="UmC-Hu-U0Q" id="W7C-5d-ciQ"/>
                 <outlet property="settingsWindow" destination="MMA-4M-Pa4" id="6F0-cu-izG"/>
                 <outlet property="titleStatus" destination="JvK-hQ-Wwq" id="SHO-kH-keU"/>
+                <outlet property="topBarColorPicker" destination="XHo-Io-iG9" id="A34-iL-EJS"/>
                 <outlet property="userAgentField" destination="9o1-qW-hns" id="C28-xd-N7u"/>
                 <outlet property="webView" destination="ffM-a6-P1L" id="vO9-FI-Eez"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="FlD-yq-Bjm"/>
@@ -688,7 +689,7 @@ Spark is made possible by the WebKit open source project and other open source s
                             </menu>
                         </popUpButtonCell>
                         <connections>
-                            <action selector="setReleaseChannel:" target="Voe-Tx-rLC" id="AQ0-U4-tdT"/>
+                            <action selector="setTopBarColor:" target="Voe-Tx-rLC" id="l4a-8q-oOU"/>
                         </connections>
                     </popUpButton>
                 </subviews>

@@ -117,6 +117,10 @@
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", [defaults valueForKey:@"userHomepage"]]]]];
     }
 }
+- (IBAction)setTopBarColor:(id)sender {
+    
+    
+}
 
 - (IBAction)viewReleaseNotes:(id)sender {
     
