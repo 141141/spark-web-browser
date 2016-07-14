@@ -102,9 +102,17 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Edit" id="7Xw-0A-Fc6">
                         <items>
-                            <menuItem title="Undo" enabled="NO" keyEquivalent="z" id="eiv-BF-QxD"/>
-                            <menuItem title="Redo" enabled="NO" keyEquivalent="Z" id="qfb-Ov-Chp"/>
-                            <menuItem isSeparatorItem="YES" id="1H0-1Z-ldi"/>
+                            <menuItem title="Undo" keyEquivalent="z" id="i1d-km-WXb">
+                                <connections>
+                                    <action selector="undo:" target="-1" id="Uz9-Ub-7e7"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Redo" keyEquivalent="Z" id="gYn-8Q-sdE">
+                                <connections>
+                                    <action selector="redo:" target="-1" id="dlq-cR-Y0k"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="psA-90-WXL"/>
                             <menuItem title="Cut" keyEquivalent="x" id="SyL-3M-a2q">
                                 <connections>
                                     <action selector="cut:" target="-1" id="arQ-Cr-B23"/>
