@@ -289,6 +289,7 @@
         self.loadingIndicator.hidden = NO;
         [self.loadingIndicator startAnimation:self];
         
+        // Use Google to get website favicons
         NSString *faviconURLString = [NSString stringWithFormat:@"http://www.google.com/s2/favicons?domain=%@", url];
         NSURL *faviconURL=[NSURL URLWithString: faviconURLString];
         NSData *faviconData = [NSData dataWithContentsOfURL:faviconURL];
