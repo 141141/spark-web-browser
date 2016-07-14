@@ -98,7 +98,7 @@
     self.loadingIndicator.hidden = NO;
     [self.loadingIndicator startAnimation:self];
     self.currentVersion.stringValue = [NSString stringWithFormat:@"%@-%@ (%@ channel) (64-bit)", appVersion, buildNumber, channelVer];
-    self.window.backgroundColor = [NSColor colorWithRed:0.773 green:0.231 blue:0.212 alpha:1]; // Title bar color in RGB
+    // self.window.backgroundColor = [NSColor colorWithRed:0.773 green:0.231 blue:0.212 alpha:1]; // Title bar color in RGB
     self.aboutWindow.backgroundColor = [NSColor whiteColor];
     self.settingsWindow.backgroundColor = [NSColor whiteColor];
     
@@ -120,8 +120,8 @@
 
 - (IBAction)viewReleaseNotes:(id)sender {
     
-    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.github.com/insleep/spark-web-browser/releases/"]]];
-    self.addressBar.stringValue = @"https://www.github.com/insleep/spark-web-browser/releases/";
+    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.github.com/insleep/spark-web-browser/releases/tag/0.3"]]];
+    self.addressBar.stringValue = @"https://www.github.com/insleep/spark-web-browser/releases/tag/0.3";
     
 }
 
