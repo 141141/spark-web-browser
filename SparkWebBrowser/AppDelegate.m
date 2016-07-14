@@ -87,7 +87,7 @@
     self.aboutWindow.backgroundColor = [NSColor whiteColor];
     self.settingsWindow.backgroundColor = [NSColor whiteColor];
     
-    self.addressBar.action = @selector(takeStringURLFrom:);
+    //self.addressBar.action = @selector(takeStringURLFrom:);
     
     // Homepage -- this should be user-set at some point
     if([defaults objectForKey:@"userHomepage"] == nil) {
@@ -110,8 +110,25 @@
     
     NSString *searchString = self.addressBar.stringValue;
 
-    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", searchString]]]];
+    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:searchString]]];
     self.addressBar.stringValue = [NSString stringWithFormat:@"%@", searchString];
+    
+    NSLog([NSString stringWithFormat:@"%@", [searchString substringToIndex:5]]);
+    
+    if([[searchString substringToIndex:5] isEqual: @"https"]) {
+        NSLog(@"Using HTTPS");
+    } else if([[searchString substringToIndex:4] isEqual: @"http"]) {
+        NSLog(@"HTTP only");
+    } else {
+        NSLog(@"Google search?");
+        NSString *searchString = self.addressBar.stringValue;
+        
+        NSString *urlAddress = [NSString stringWithFormat:@"https://www.google.com/search?q=%@&gws_rd=ssl", searchString];
+        NSString *editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+        
+        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
+        self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedUrlString];
+    }
 
 }
 
