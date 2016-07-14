@@ -99,8 +99,6 @@
     self.aboutWindow.backgroundColor = [NSColor whiteColor];
     self.settingsWindow.backgroundColor = [NSColor whiteColor];
     
-    //self.addressBar.action = @selector(takeStringURLFrom:);
-    
     // Homepage -- this should be user-set at some point
     if([defaults objectForKey:@"userHomepage"] == nil) {
         // Homepage is not set
