@@ -74,13 +74,25 @@
     [self.releaseChannelPicker selectItemAtIndex:[defaults integerForKey:@"releaseChannelIndex"]];
     
     if([defaults objectForKey:@"currentSearchEngine"] == nil) {
-        // No release channel is set -- revert to default
+        // No search index is set -- revert to default
         [defaults setObject:@"Google" forKey:@"currentSearchEngine"];
     }
     
     if([defaults integerForKey:@"searchEngineIndex"] == nil) {
-        // No release channel index is set -- revert to default
+        // No search engine index is set -- revert to default
         [defaults setInteger:0 forKey:@"searchEngineIndex"];
+    }
+    
+    [self.searchEnginePicker selectItemAtIndex:[defaults integerForKey:@"searchEngineIndex"]];
+    
+    if([defaults objectForKey:@"currentColor"] == nil) {
+        // No top bar color is set -- revert to default
+        [defaults setObject:@"Google" forKey:@"currentColor"];
+    }
+    
+    if([defaults integerForKey:@"colorIndex"] == nil) {
+        // No top bar color index is set -- revert to default
+        [defaults setInteger:0 forKey:@"colorIndex"];
     }
     
     [self.searchEnginePicker selectItemAtIndex:[defaults integerForKey:@"searchEngineIndex"]];
@@ -119,22 +131,51 @@
 }
 - (IBAction)setTopBarColor:(id)sender {
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString *colorChosen = [NSString stringWithFormat:@"%@", self.topBarColorPicker.titleOfSelectedItem];
+    
+    [defaults setObject:[NSString stringWithFormat:@"%@", colorChosen] forKey:@"currentColor"];
+    [defaults setInteger:self.topBarColorPicker.indexOfSelectedItem forKey:@"colorIndex"];
+    
+    if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Google"]) {
+        
+        // Set homepage to Google
+        [self setHomepageFunc:@"https://www.google.com/?gws_rd=ssl"];
+        self.homepageTextField.stringValue = @"https://www.google.com/?gws_rd=ssl";
+        
+    } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Bing"]) {
+        
+        // Set homepage to Bing
+        [self setHomepageFunc:@"https://www.bing.com/"];
+        self.homepageTextField.stringValue = @"https://www.bing.com/";
+        
+    } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Yahoo!"]) {
+        
+        // Set homepage to Yahoo!
+        [self setHomepageFunc:@"https://www.yahoo.com/"];
+        self.homepageTextField.stringValue = @"https://www.yahoo.com/";
+        
+    } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"DuckDuckGo"]) {
+        
+        // Set homepage to DuckDuckGo
+        [self setHomepageFunc:@"https://www.duckduckgo.com/"];
+        self.homepageTextField.stringValue = @"https://www.duckduckgo.com/";
+        
+    }
+
     
 }
 
 - (IBAction)viewReleaseNotes:(id)sender {
-    
     [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.github.com/insleep/spark-web-browser/releases/tag/0.3"]]];
     self.addressBar.stringValue = @"https://www.github.com/insleep/spark-web-browser/releases/tag/0.3";
-    
 }
 
 
 - (IBAction)reportIssue:(id)sender {
-    
     [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.github.com/insleep/spark-web-browser/issues/"]]];
     self.addressBar.stringValue = @"https://www.github.com/insleep/spark-web-browser/issues/";
-    
 }
 
 - (IBAction)setSearchEngine:(id)sender {
