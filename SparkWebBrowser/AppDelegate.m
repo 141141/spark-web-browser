@@ -124,6 +124,14 @@
     [defaults setObject:[NSString stringWithFormat:@"%@", searchEngineChosen] forKey:@"currentSearchEngine"];
     [defaults setInteger:self.searchEnginePicker.indexOfSelectedItem forKey:@"searchEngineIndex"];
     
+    if([searchEngineChosen isEqual: @"Google"]) {
+        NSLog(@"Google");
+    } else if([searchEngineChosen isEqual: @"Bing"]) {
+        NSLog(@"Bing");
+    } else if([searchEngineChosen isEqual: @"Yahoo!"]) {
+        NSLog(@"Yahoo!");
+    }
+    
 }
 
 - (IBAction)initWebpageLoad:(id)sender {
