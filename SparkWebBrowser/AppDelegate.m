@@ -48,6 +48,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     
     // Initialize
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults]; // Shortcut for later
     NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary]; // Load Info.plist
     NSString *appVersion = [infoDict objectForKey:@"CFBundleShortVersionString"]; // Fetch the version number from Info.plist
@@ -143,6 +144,7 @@
         
         // Set top bar color to default
         
+        
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Red"]) {
         
         // Set top bar color to red
@@ -151,12 +153,17 @@
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Blue"]) {
         
         // Set top bar color to blue
-        self.window.backgroundColor = [NSColor colorWithRed:0.0f/255.0f green:155.0f/255.0f blue:218.0f/255.0f alpha:1.0f]; // Title bar color in RGB
+        self.window.backgroundColor = [NSColor colorWithRed:46.0f/255.0f green:133.0f/255.0f blue:162.0f/255.0f alpha:1.0f]; // Title bar color in RGB
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Orange"]) {
         
         // Set top bar color to orange
-        //self.window.backgroundColor = [NSColor colorWithRed:0.773 green:0.231 blue:0.212 alpha:1]; // Title bar color in RGB
+        self.window.backgroundColor = [NSColor colorWithRed:200.0f/255.0f green:80.0f/255.0f blue:1.0f/255.0f alpha:1.0f]; // Title bar color in RGB
+        
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Dark Gray"]) {
+        
+        // Set top bar color to dark gray
+        self.window.backgroundColor = [NSColor colorWithRed:81.0f/255.0f green:81.0f/255.0f blue:81.0f/255.0f alpha:1.0f]; // Title bar color in RGB
         
     }
 

@@ -590,15 +590,6 @@ Spark is made possible by the WebKit open source project and other open source s
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="w6z-Ej-Zm6">
-                        <rect key="frame" x="192" y="228" width="71" height="22"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="General" id="9AV-Il-cij">
-                            <font key="font" metaFont="system" size="18"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="zfr-aS-5qC">
                         <rect key="frame" x="162" y="77" width="131" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -676,7 +667,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     <popUpButton verticalHuggingPriority="750" id="XHo-Io-iG9">
                         <rect key="frame" x="133" y="33" width="259" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="VVQ-9h-rPw">
+                        <popUpButtonCell key="cell" type="push" title="Dark Gray" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Nd6-9K-LI2" id="VVQ-9h-rPw">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" id="Nwt-Jy-HYO">
@@ -685,6 +676,7 @@ Spark is made possible by the WebKit open source project and other open source s
                                     <menuItem title="Blue" id="AFh-tY-AoJ"/>
                                     <menuItem title="Red" id="dKq-HZ-PsH"/>
                                     <menuItem title="Orange" id="CAI-8i-CQY"/>
+                                    <menuItem title="Dark Gray" state="on" id="Nd6-9K-LI2"/>
                                 </items>
                             </menu>
                         </popUpButtonCell>
@@ -692,6 +684,15 @@ Spark is made possible by the WebKit open source project and other open source s
                             <action selector="setTopBarColor:" target="Voe-Tx-rLC" id="l4a-8q-oOU"/>
                         </connections>
                     </popUpButton>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="w6z-Ej-Zm6">
+                        <rect key="frame" x="192" y="228" width="71" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="General" id="9AV-Il-cij">
+                            <font key="font" metaFont="system" size="18"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
             <point key="canvasLocation" x="1492.5" y="-344"/>
