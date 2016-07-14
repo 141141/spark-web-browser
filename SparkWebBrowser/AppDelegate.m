@@ -117,6 +117,14 @@
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", [defaults valueForKey:@"userHomepage"]]]]];
     }
 }
+
+- (IBAction)reportIssue:(id)sender {
+    
+    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.github.com/insleep/spark-web-browser/issues/"]]];
+    self.addressBar.stringValue = @"https://www.github.com/insleep/spark-web-browser/issues/";
+    
+}
+
 - (IBAction)setSearchEngine:(id)sender {
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

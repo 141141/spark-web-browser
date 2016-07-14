@@ -391,11 +391,23 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Format" id="jxT-CU-nIS">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                </menuItem>
                 <menuItem title="Help" id="wpr-3q-Mcd">
                     <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Help" systemMenu="help" id="04H-Qk-c6j">
+                        <items>
+                            <menuItem title="Report an Issue..." id="1IG-TP-NUB">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="reportIssue:" target="Voe-Tx-rLC" id="n0Q-py-vaY"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Spark Help" keyEquivalent="?" id="vUW-Uo-h2P">
+                                <connections>
+                                    <action selector="showHelp:" target="-1" id="OKF-cq-Vhp"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
                 </menuItem>
             </items>
         </menu>
