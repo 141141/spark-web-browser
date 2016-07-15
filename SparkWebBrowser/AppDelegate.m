@@ -114,7 +114,7 @@
     self.settingsWindow.backgroundColor = [NSColor whiteColor];
     
     // Get key from NSUserDefaults and set top bar color
-    if([[defaults objectForKey:@"currentColor"] isEqual: @"Default"]) {
+    if([[defaults objectForKey:@"currentColor"] isEqual: @"Default"] || [defaults objectForKey:@"currentColor"] == nil) {
         
         // Set top bar color to default
         self.window.backgroundColor = [NSColor colorWithRed:216.0f/255.0f green:216.0f/255.0f blue:216.0f/255.0f alpha:1.0f]; // Title bar color in RGB
@@ -137,7 +137,7 @@
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Dark Gray"]) {
         
         // Set top bar color to dark gray
-        self.window.backgroundColor = [NSColor colorWithRed:81.0f/255.0f green:81.0f/255.0f blue:81.0f/255.0f alpha:1.0f]; // Title bar color in RGB
+        self.window.backgroundColor = [NSColor colorWithRed:44.0f/255.0f green:44.0f/255.0f blue:44.0f/255.0f alpha:1.0f]; // Title bar color in RGB
         
     }
     
@@ -189,7 +189,7 @@
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Dark Gray"]) {
         
         // Set top bar color to dark gray
-        self.window.backgroundColor = [NSColor colorWithRed:81.0f/255.0f green:81.0f/255.0f blue:81.0f/255.0f alpha:1.0f]; // Title bar color in RGB
+        self.window.backgroundColor = [NSColor colorWithRed:44.0f/255.0f green:44.0f/255.0f blue:44.0f/255.0f alpha:1.0f]; // Title bar color in RGB
         
     }
 }
