@@ -1,7 +1,7 @@
 # Spark Web Browser
 
 ## About
-Spark is a simple, lightweight browser for OS X that is built with the [WebKit](https://webkit.org) browser engine.
+Spark is a simple, lightweight browser for OS X built with the [WebKit](https://webkit.org) browser engine.
 
 Although being lightweight and easy-to-use, Spark is fast and powerful, and can load webpages in *seconds*.
 
