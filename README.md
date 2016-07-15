@@ -1,14 +1,16 @@
 # Spark Web Browser
-A minimal web browser for OS X
 
 ## About
-Spark is a very simple web browser for OS X. It was not designed for normal use - it was designed for others to learn from. Feel free to fork this project and make improvements!
+Spark is a simple, lightweight browser for OS X that is built with the [WebKit](https://webkit.org) browser engine.
 
-Spark was created with Xcode 5 on OS X 10.9. Since then, support for OS X 10.9 and 10.10 has been dropped. Currently, Spark supports all versions of OS X 10.11 El Capitan.
+Although being lightweight and easy-to-use, Spark is fast and powerful, and can load webpages in *seconds*.
+
+Spark is compatible with all versions of OS X 10.11 El Capitan, as well as all versions of macOS 10.12 Sierra.
 
 ## Install
-Installation is easy. Click [here](https://github.com/insleep/spark-web-browser/releases/) to view instructions to install the latest pre-release version of Spark.
+Installation is easy. Click [here](https://github.com/insleep/spark-web-browser/releases/) to download the latest version of Spark.
 
-## License
+## Known Issues
+There are no known issues at the moment.
 
-See the [license](https://github.com/insleep/spark-web-browser/blob/master/LICENSE) for more details.
+## [License](https://github.com/insleep/spark-web-browser/blob/master/LICENSE)

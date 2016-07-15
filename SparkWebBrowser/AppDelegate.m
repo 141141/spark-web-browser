@@ -195,8 +195,8 @@
 }
 
 - (IBAction)viewReleaseNotes:(id)sender {
-    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.github.com/insleep/spark-web-browser/releases/tag/0.3"]]];
-    self.addressBar.stringValue = @"https://www.github.com/insleep/spark-web-browser/releases/tag/0.3";
+    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.github.com/insleep/spark-web-browser/releases/tag/0.2.3/"]]];
+    self.addressBar.stringValue = @"https://www.github.com/insleep/spark-web-browser/releases/tag/0.2.3/";
 }
 
 
