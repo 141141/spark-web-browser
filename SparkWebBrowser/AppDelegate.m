@@ -109,7 +109,7 @@
     self.faviconImage.hidden = YES;
     self.loadingIndicator.hidden = NO;
     [self.loadingIndicator startAnimation:self];
-    self.currentVersion.stringValue = [NSString stringWithFormat:@"%@-%@ (%@ channel) (64-bit)", appVersion, buildNumber, channelVer];
+    self.currentVersion.stringValue = [NSString stringWithFormat:@"%@.%@ (%@ channel) (64-bit)", appVersion, buildNumber, channelVer];
     self.aboutWindow.backgroundColor = [NSColor whiteColor];
     self.settingsWindow.backgroundColor = [NSColor whiteColor];
     
