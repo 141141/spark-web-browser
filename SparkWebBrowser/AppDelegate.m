@@ -55,10 +55,10 @@
     NSDictionary *sv = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"]; // Load SystemVersion.plist
     NSString *versionString = [sv objectForKey:@"ProductVersion"]; // Get macOS version
     NSString *buildString = [sv objectForKey:@"ProductBuildVersion"]; // Get macOS build number
-    NSString *productName = [sv objectForKey:@"ProductName"]; // Get macOS product name (OS X / macOS)
+    NSString *productName = [sv objectForKey:@"ProductName"]; // Get macOS product name (either OS X / macOS)
     NSString *channelVer = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"currentReleaseChannel"]]; // Get current release channel
     
-    NSString *editedVersionString = [versionString stringByReplacingOccurrencesOfString:@"." withString:@"_"]; // Replace periods in version string with underscores
+    NSString *editedVersionString = [versionString stringByReplacingOccurrencesOfString:@"." withString:@"_"]; // Replace dots in version string with underscores
     NSString *userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel %@ %@) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36", productName, editedVersionString]; // Set user agent respective to the version of OS X / macOS the user is running
     
     if([defaults objectForKey:@"currentReleaseChannel"] == nil) {
@@ -74,7 +74,7 @@
     [self.releaseChannelPicker selectItemAtIndex:[defaults integerForKey:@"releaseChannelIndex"]];
     
     if([defaults objectForKey:@"currentSearchEngine"] == nil) {
-        // No search index is set -- revert to default
+        // No search engine is set -- revert to default
         [defaults setObject:@"Google" forKey:@"currentSearchEngine"];
     }
     
@@ -361,7 +361,7 @@
     // No support for tabs in Spark -- display a label
     self.ntNotSupported.hidden = NO;
     
-    // Timer to only display the label for 2 seconds
+    // Timer to display the label for 2 seconds
     int64_t delayInSeconds = 2.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
