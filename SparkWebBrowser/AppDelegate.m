@@ -195,8 +195,10 @@
 }
 
 - (IBAction)viewReleaseNotes:(id)sender {
-    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.github.com/insleep/spark-web-browser/releases/tag/0.2.3/"]]];
-    self.addressBar.stringValue = @"https://www.github.com/insleep/spark-web-browser/releases/tag/0.2.3/";
+    NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary]; // Load Info.plist
+    NSString *appVersion = [infoDict objectForKey:@"CFBundleShortVersionString"]; // Fetch the version number from Info.plist
+    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://www.github.com/insleep/spark-web-browser/releases/tag/%@/", appVersion]]]];
+    self.addressBar.stringValue = [NSString stringWithFormat:@"https://www.github.com/insleep/spark-web-browser/releases/tag/%@/", appVersion];
 }
 
 
