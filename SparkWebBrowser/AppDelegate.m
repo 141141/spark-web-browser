@@ -260,7 +260,7 @@
     } else if([searchString hasPrefix:@"file"]) {
         NSLog(@"file:// prefix");
     } else {
-        NSLog(@"User has initiated a search. Finding search engine...");
+        NSLog(@"User has initiated a search. Fetching search engine...");
         
         NSString *searchString = self.addressBar.stringValue;
         
@@ -268,7 +268,7 @@
             
             // Google search initiated
             
-            NSLog(@"User has initiated a Google search.");
+            NSLog(@"Search engine found: Google");
             
             NSString *urlAddress = [NSString stringWithFormat:@"https://www.google.com/search?q=%@&gws_rd=ssl", searchString];
             NSString *editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
@@ -280,7 +280,7 @@
             
             // Bing search initiated
             
-            NSLog(@"User has initiated a Bing search.");
+            NSLog(@"Search engine found: Bing");
             
             NSString *urlAddress = [NSString stringWithFormat:@"https://www.bing.com/search?q=%@", searchString];
             NSString *editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
@@ -292,7 +292,7 @@
             
             // Yahoo! search initiated
             
-            NSLog(@"User has initiated a Yahoo! search.");
+            NSLog(@"Search engine found: Yahoo!");
             
             NSString *urlAddress = [NSString stringWithFormat:@"https://search.yahoo.com/search?p=%@", searchString];
             NSString *editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
@@ -304,7 +304,7 @@
             
             // DuckDuckGo search initiated
             
-            NSLog(@"User has initiated a DuckDuckGo search.");
+            NSLog(@"Search engine found: DuckDuckGo");
             
             NSString *urlAddress = [NSString stringWithFormat:@"https://www.duckduckgo.com/%@", searchString];
             NSString *editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
