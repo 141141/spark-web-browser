@@ -11,7 +11,7 @@ The OS X version of Spark is compatible with OS X 10.11 El Capitan and later, wh
 Installation is easy. Click [here](https://github.com/insleep/spark-web-browser/releases/) to download the latest version of Spark for OS X.<br /><br />
 Need the Windows version instead? [Download it here.](https://github.com/insleep/SparkWebBrowser-Windows/releases/)
 
-## Known Issues within Spark for OS X
+## Known issues within Spark for OS X
 There are no known issues at the moment.
 
 ## [License](https://github.com/insleep/SparkWebBrowser-Windows/blob/master/LICENSE)
