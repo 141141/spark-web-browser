@@ -8,6 +8,10 @@ Although being lightweight and easy-to-use, Spark is fast and powerful, and can 
 
 Spark for OS X is compatible with OS X 10.11 El Capitan and later. Earlier versions of OS X might work, but are not supported.
 
+## Install
+
+Installation is easy. Click [here](https://github.com/insleep/spark-web-browser/releases/) to download the latest version of Spark for OS X.
+
 ## Custom Builds
 
 In order to build Spark for OS X, you need to have Xcode 7 and git 1.7 or later. Earlier versions might work, but are not supported.
@@ -27,10 +31,6 @@ Open `Spark.xcodeproj`, located in the `SparkWebBrowser` directory of Spark for 
 Make any necessary changes and compile Spark within Xcode.
 
 The compiled version of Spark will be put in the `build/` subdirectory, along with other required files.
-
-## Install
-
-Installation is easy. Click [here](https://github.com/insleep/spark-web-browser/releases/) to download the latest version of Spark for OS X.
 
 ## Known Issues
 There are no known issues at the moment.
