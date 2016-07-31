@@ -35,6 +35,6 @@ Installation is easy. Click [here](https://github.com/insleep/spark-web-browser/
 ## Known Issues
 There are no known issues at the moment.
 
-### [Looking for Spark for Windows? Click here!](https://github.com/insleep/SparkWebBrowser-Windows/)
+### [Looking for Spark for Windows? Click here.](https://github.com/insleep/SparkWebBrowser-Windows/)
 
 ## [License](https://github.com/insleep/spark-web-browser/blob/master/LICENSE)
