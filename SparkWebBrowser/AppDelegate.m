@@ -66,7 +66,7 @@
         [defaults setObject:@"stable" forKey:@"currentReleaseChannel"];
     }
     
-    if([defaults integerForKey:@"releaseChannelIndex"] == nil) {
+    if([defaults integerForKey:@"releaseChannelIndex"] == (int)nil) {
         // No release channel index is set -- revert to default
         [defaults setInteger:0 forKey:@"releaseChannelIndex"];
     }
@@ -78,7 +78,7 @@
         [defaults setObject:@"Google" forKey:@"currentSearchEngine"];
     }
     
-    if([defaults integerForKey:@"searchEngineIndex"] == nil) {
+    if([defaults integerForKey:@"searchEngineIndex"] == (int)nil) {
         // No search engine index is set -- revert to default
         [defaults setInteger:0 forKey:@"searchEngineIndex"];
     }
@@ -90,7 +90,7 @@
         [defaults setObject:@"Google" forKey:@"currentColor"];
     }
     
-    if([defaults integerForKey:@"colorIndex"] == nil) {
+    if([defaults integerForKey:@"colorIndex"] == (int)nil) {
         // No top bar color index is set -- revert to default
         [defaults setInteger:0 forKey:@"colorIndex"];
     }
