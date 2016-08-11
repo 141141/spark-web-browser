@@ -14,6 +14,10 @@
 
 @synthesize window;
 
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
+    return YES;
+}
+
 -(void)applicationWillFinishLaunching:(NSNotification *)aNotification {
     
     NSAppleEventManager *appleEventManager = [NSAppleEventManager sharedAppleEventManager];
