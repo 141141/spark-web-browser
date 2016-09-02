@@ -1,4 +1,11 @@
 body {
+    font-family: 'Lato';
     padding: 40px 15px;
     text-align: center;
+}
+h1 {
+    font-weight: 400;
+}
+p {
+    font-weight: 300;
 }
