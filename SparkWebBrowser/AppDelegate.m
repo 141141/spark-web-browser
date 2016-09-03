@@ -244,32 +244,34 @@
     [defaults setObject:[NSString stringWithFormat:@"%@", searchEngineChosen] forKey:@"currentSearchEngine"];
     [defaults setInteger:self.searchEnginePicker.indexOfSelectedItem forKey:@"searchEngineIndex"];
     
-    if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Google"]) {
+    if([defaults boolForKey:@"setHomepageEngine"] == YES) {
         
-        // Set homepage to Google
-        [self setHomepageFunc:@"https://www.google.com/?gws_rd=ssl"];
-        self.homepageTextField.stringValue = @"https://www.google.com/?gws_rd=ssl";
-        
-    } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Bing"]) {
-        
-        // Set homepage to Bing
-        [self setHomepageFunc:@"https://www.bing.com/"];
-        self.homepageTextField.stringValue = @"https://www.bing.com/";
-        
-    } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Yahoo!"]) {
-        
-        // Set homepage to Yahoo!
-        [self setHomepageFunc:@"https://www.yahoo.com/"];
-        self.homepageTextField.stringValue = @"https://www.yahoo.com/";
-        
-    } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"DuckDuckGo"]) {
-        
-        // Set homepage to DuckDuckGo
-        [self setHomepageFunc:@"https://www.duckduckgo.com/"];
-        self.homepageTextField.stringValue = @"https://www.duckduckgo.com/";
-        
+        if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Google"]) {
+            
+            // Set homepage to Google
+            [self setHomepageFunc:@"https://www.google.com/?gws_rd=ssl"];
+            self.homepageTextField.stringValue = @"https://www.google.com/?gws_rd=ssl";
+            
+        } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Bing"]) {
+            
+            // Set homepage to Bing
+            [self setHomepageFunc:@"https://www.bing.com/"];
+            self.homepageTextField.stringValue = @"https://www.bing.com/";
+            
+        } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Yahoo!"]) {
+            
+            // Set homepage to Yahoo!
+            [self setHomepageFunc:@"https://www.yahoo.com/"];
+            self.homepageTextField.stringValue = @"https://www.yahoo.com/";
+            
+        } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"DuckDuckGo"]) {
+            
+            // Set homepage to DuckDuckGo
+            [self setHomepageFunc:@"https://www.duckduckgo.com/"];
+            self.homepageTextField.stringValue = @"https://www.duckduckgo.com/";
+            
+        }
     }
-    
 }
 
 - (IBAction)initWebpageLoad:(id)sender {
