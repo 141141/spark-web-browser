@@ -29,6 +29,7 @@
 @property (assign, nonatomic) IBOutlet NSButton *ntBtn;
 @property (assign, nonatomic) IBOutlet NSPopUpButton *searchEnginePicker;
 @property (assign, nonatomic) IBOutlet NSPopUpButton *topBarColorPicker;
+@property (assign, nonatomic) IBOutlet NSButton *basedOnEngineBtn;
 
 // Methods
 - (IBAction)newTab:(id)sender;
