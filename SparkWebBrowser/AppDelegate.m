@@ -246,6 +246,8 @@
     
     if([defaults boolForKey:@"setHomepageEngine"] == YES) {
         
+        NSLog(@"Setting homepage based on search engine");
+        
         if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Google"]) {
             
             // Set homepage to Google
