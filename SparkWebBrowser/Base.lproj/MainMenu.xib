@@ -556,7 +556,7 @@ Spark is made possible by the WebKit open source project and other open source s
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="6ju-f9-ztb">
-                        <rect key="frame" x="32" y="178" width="97" height="17"/>
+                        <rect key="frame" x="32" y="156" width="97" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Search engine:" id="lxu-8O-tru">
                             <font key="font" metaFont="systemMedium" size="13"/>
@@ -565,7 +565,7 @@ Spark is made possible by the WebKit open source project and other open source s
                         </textFieldCell>
                     </textField>
                     <popUpButton verticalHuggingPriority="750" id="GYw-Eq-qx7">
-                        <rect key="frame" x="133" y="173" width="259" height="26"/>
+                        <rect key="frame" x="133" y="151" width="259" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="PFJ-rh-BaU">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -584,7 +584,7 @@ Spark is made possible by the WebKit open source project and other open source s
                         </connections>
                     </popUpButton>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="RI9-it-Jxv">
-                        <rect key="frame" x="20" y="151" width="109" height="17"/>
+                        <rect key="frame" x="20" y="129" width="109" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Release channel:" id="wgH-I9-vzk">
                             <font key="font" metaFont="systemMedium" size="13"/>
@@ -602,7 +602,7 @@ Spark is made possible by the WebKit open source project and other open source s
                         </textFieldCell>
                     </textField>
                     <popUpButton verticalHuggingPriority="750" id="DBB-e5-yay">
-                        <rect key="frame" x="133" y="146" width="259" height="26"/>
+                        <rect key="frame" x="133" y="124" width="259" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="5vz-Ww-6jw">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -620,7 +620,7 @@ Spark is made possible by the WebKit open source project and other open source s
                         </connections>
                     </popUpButton>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="euH-0L-OJY">
-                        <rect key="frame" x="225" y="132" width="166" height="13"/>
+                        <rect key="frame" x="225" y="110" width="166" height="13"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="(takes effect after Spark restarts)" id="z9V-BM-6S4">
                             <font key="font" metaFont="system" size="10"/>
@@ -666,17 +666,6 @@ Spark is made possible by the WebKit open source project and other open source s
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button id="5Uw-Fh-cJ1">
-                        <rect key="frame" x="18" y="108" width="258" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="check" title="Set homepage based on search engine" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="elQ-PV-V5H">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="setHomepageEngine:" target="Voe-Tx-rLC" id="Dx8-bT-QIJ"/>
-                        </connections>
-                    </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="8jo-1g-mt3">
                         <rect key="frame" x="142" y="286" width="171" height="38"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -686,6 +675,17 @@ Spark is made possible by the WebKit open source project and other open source s
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <button id="5Uw-Fh-cJ1">
+                        <rect key="frame" x="133" y="181" width="258" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Set homepage based on search engine" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="elQ-PV-V5H">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="setHomepageEngine:" target="Voe-Tx-rLC" id="Dx8-bT-QIJ"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <point key="canvasLocation" x="1308.5" y="-440"/>
