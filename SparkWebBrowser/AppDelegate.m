@@ -160,6 +160,13 @@
         
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", [defaults valueForKey:@"userHomepage"]]]]];
     }
+    
+    // Check if checkbox is checked
+    if([defaults boolForKey:@"setHomepageEngine"] == YES) {
+        self.basedOnEngineBtn.state = NSOnState;
+    } else {
+        self.basedOnEngineBtn.state = NSOffState;
+    }
 }
 - (IBAction)setTopBarColor:(id)sender {
     
@@ -197,6 +204,23 @@
         
     }
 }
+
+- (IBAction)setHomepageEngine:(id)sender {
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if([self.basedOnEngineBtn state] == NSOnState) {
+        // On
+        
+        [defaults setBool:YES forKey:@"setHomepageEngine"];
+        
+    } else if([self.basedOnEngineBtn state] == NSOffState) {
+        // Off
+        
+        [defaults setBool:NO forKey:@"setHomepageEngine"];
+    }
+}
+
 
 - (IBAction)viewReleaseNotes:(id)sender {
     NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary]; // Load Info.plist
