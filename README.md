@@ -8,6 +8,12 @@ Although being lightweight and easy-to-use, Spark is fast and powerful, and can 
 
 Spark for macOS is compatible with macOS/OS X 10.11 El Capitan and later. Earlier versions of macOS/OS X might work, but are not supported.
 
+## Screenshots
+
+<img src="./Screenshots/Screenshot1.png" alt="Screenshot1" width="200" />
+<img src="./Screenshots/Screenshot2.png" alt="Screenshot2" width="200" />
+<img src="./Screenshots/Screenshot3.png" alt="Screenshot3" width="200" />
+
 ## Install
 
 Installation is easy. Click [here](https://github.com/insleep/spark-web-browser/releases/) to download the latest version of Spark for macOS.
