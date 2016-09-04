@@ -1,4 +1,5 @@
 # Spark Web Browser for macOS
+[![Build Status](https://travis-ci.org/insleep/spark-web-browser.svg?branch=master)](https://travis-ci.org/insleep/spark-web-browser)
 
 ## About
 
