@@ -389,6 +389,14 @@
 
 - (IBAction)newTab:(id)sender {
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if([[defaults objectForKey:@"currentColor"] isEqual: @"Default"]) {
+        self.ntNotSupported.textColor = [NSColor blackColor];
+    } else {
+        self.ntNotSupported.textColor = [NSColor whiteColor];
+    }
+    
     // No support for tabs in Spark -- display a label
     self.ntNotSupported.hidden = NO;
     
