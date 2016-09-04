@@ -8,7 +8,7 @@ Spark is a simple, lightweight browser for Windows and macOS built with the [Web
 
 Although being lightweight and easy-to-use, Spark is fast and powerful, and can load webpages in *seconds*.
 
-Spark for macOS is compatible with macOS/OS X 10.11 El Capitan and later. Earlier versions of macOS/OS X might work, but are not supported.
+Spark for macOS is compatible with macOS 10.11 El Capitan and later. Earlier versions of macOS might work, but are not supported.
 
 ## Screenshots
 
