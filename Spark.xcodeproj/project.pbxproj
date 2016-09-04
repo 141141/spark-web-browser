@@ -13,7 +13,6 @@
 		AB04FD0F1C712BE900F08232 /* SparkTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB04FD0D1C712BE900F08232 /* SparkTests-Info.plist */; };
 		AB04FD131C712C6000F08232 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB04FD111C712C6000F08232 /* MainMenu.xib */; };
 		AB04FD181C712C7100F08232 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AB04FD141C712C7100F08232 /* Credits.rtf */; };
-		AB04FD191C712C7100F08232 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB04FD161C712C7100F08232 /* InfoPlist.strings */; };
 		AB3EA9451D7BADC4003C4D35 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = AB3EA9441D7BADC4003C4D35 /* .travis.yml */; };
 		AB83982719817D8E001D31B7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83982619817D8E001D31B7 /* XCTest.framework */; };
 		AB83982819817D8E001D31B7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83980719817D8E001D31B7 /* Cocoa.framework */; };
@@ -286,7 +285,6 @@
 				ABAC55B31D7B596400CF393B /* Screenshot2.png in Resources */,
 				AB04FD021C712BAD00F08232 /* Images.xcassets in Resources */,
 				ABAC55B21D7B596400CF393B /* Screenshot1.png in Resources */,
-				AB04FD191C712C7100F08232 /* InfoPlist.strings in Resources */,
 				AB04FD181C712C7100F08232 /* Credits.rtf in Resources */,
 				AB3EA9451D7BADC4003C4D35 /* .travis.yml in Resources */,
 				AB04FD0F1C712BE900F08232 /* SparkTests-Info.plist in Resources */,
