@@ -87,6 +87,12 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="File" id="bib-Uj-vzu">
                         <items>
+                            <menuItem title="Open Location..." keyEquivalent="l" id="lHF-cs-NH9">
+                                <connections>
+                                    <action selector="selectText:" target="6S4-CW-iwm" id="fBQ-2z-qOH"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="fkg-7Z-xqX"/>
                             <menuItem title="Close Window" keyEquivalent="w" id="DYv-oB-8gt">
                                 <connections>
                                     <action selector="performClose:" target="-1" id="YkB-EU-n4x"/>
