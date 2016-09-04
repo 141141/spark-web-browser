@@ -3,57 +3,61 @@
     {
       "size" : "16x16",
       "idiom" : "mac",
-      "filename" : "AppIcon16.png",
+      "filename" : "SparkIcon16.png",
       "scale" : "1x"
     },
     {
       "size" : "16x16",
       "idiom" : "mac",
-      "filename" : "AppIcon32.png",
+      "filename" : "SparkIcon32-1.png",
       "scale" : "2x"
     },
     {
       "size" : "32x32",
       "idiom" : "mac",
-      "filename" : "AppIcon32-1.png",
+      "filename" : "SparkIcon32.png",
       "scale" : "1x"
     },
     {
       "size" : "32x32",
       "idiom" : "mac",
-      "filename" : "AppIcon64.png",
+      "filename" : "SparkIcon64.png",
       "scale" : "2x"
     },
     {
       "size" : "128x128",
       "idiom" : "mac",
-      "filename" : "AppIcon128.png",
+      "filename" : "SparkIcon128.png",
       "scale" : "1x"
     },
     {
       "size" : "128x128",
       "idiom" : "mac",
-      "filename" : "AppIcon256.png",
+      "filename" : "SparkIcon256-1.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "mac",
       "size" : "256x256",
+      "idiom" : "mac",
+      "filename" : "SparkIcon256.png",
       "scale" : "1x"
     },
     {
-      "idiom" : "mac",
       "size" : "256x256",
+      "idiom" : "mac",
+      "filename" : "SparkIcon512-1.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "mac",
       "size" : "512x512",
+      "idiom" : "mac",
+      "filename" : "SparkIcon512.png",
       "scale" : "1x"
     },
     {
-      "idiom" : "mac",
       "size" : "512x512",
+      "idiom" : "mac",
+      "filename" : "SparkIconLarge.png",
       "scale" : "2x"
     }
   ],
