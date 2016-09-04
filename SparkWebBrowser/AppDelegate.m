@@ -424,6 +424,12 @@
     // Only report feedback for the main frame.
     if (frame == [sender mainFrame]) {
         
+        const int clipLength = 25;
+        if([title length] > clipLength)
+        {
+            title = [NSString stringWithFormat:@"%@...", [title substringToIndex:clipLength]];
+        }
+        
         [self.titleStatus setStringValue:title];
         self.titleStatus.toolTip = title;
         [self.loadingIndicator stopAnimation:self];
