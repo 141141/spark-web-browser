@@ -344,7 +344,7 @@
                                     <action selector="reload:" target="ffM-a6-P1L" id="l80-02-gHg"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Stop Loading" keyEquivalent="s" id="esy-oT-tAi">
+                            <menuItem title="Stop Loading" keyEquivalent="." id="esy-oT-tAi">
                                 <connections>
                                     <action selector="stopLoading:" target="ffM-a6-P1L" id="TGq-Dq-Iam"/>
                                 </connections>
@@ -466,7 +466,7 @@
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="9o1-qW-hns">
                         <rect key="frame" x="100" y="58" width="207" height="85"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36" id="PS7-Pn-omo">
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Loading..." id="PS7-Pn-omo">
                             <font key="font" metaFont="systemLight" size="13"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
