@@ -14,7 +14,6 @@
 		AB04FD131C712C6000F08232 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB04FD111C712C6000F08232 /* MainMenu.xib */; };
 		AB04FD181C712C7100F08232 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AB04FD141C712C7100F08232 /* Credits.rtf */; };
 		AB3EA9451D7BADC4003C4D35 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = AB3EA9441D7BADC4003C4D35 /* .travis.yml */; };
-		AB3EA9461D7BB1D1003C4D35 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB04FD161C712C7100F08232 /* InfoPlist.strings */; };
 		AB83982719817D8E001D31B7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83982619817D8E001D31B7 /* XCTest.framework */; };
 		AB83982819817D8E001D31B7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83980719817D8E001D31B7 /* Cocoa.framework */; };
 		AB83983019817D8E001D31B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB83982E19817D8E001D31B7 /* InfoPlist.strings */; };
@@ -64,7 +63,6 @@
 		AB04FD0D1C712BE900F08232 /* SparkTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SparkTests-Info.plist"; path = "SparkWebBrowserTests/SparkTests-Info.plist"; sourceTree = SOURCE_ROOT; };
 		AB04FD121C712C6000F08232 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = SparkWebBrowser/Base.lproj/MainMenu.xib; sourceTree = SOURCE_ROOT; };
 		AB04FD151C712C7100F08232 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = SparkWebBrowser/en.lproj/Credits.rtf; sourceTree = SOURCE_ROOT; };
-		AB04FD171C712C7100F08232 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = SparkWebBrowser/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
 		AB3EA9441D7BADC4003C4D35 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		AB83980419817D8E001D31B7 /* Spark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB83980719817D8E001D31B7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -169,7 +167,6 @@
 				AB04FD081C712BD700F08232 /* Spark-Info.plist */,
 				AB04FD0A1C712BDB00F08232 /* main.m */,
 				AB04FD141C712C7100F08232 /* Credits.rtf */,
-				AB04FD161C712C7100F08232 /* InfoPlist.strings */,
 				AB04FD0B1C712BDB00F08232 /* Spark-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -292,7 +289,6 @@
 				ABF5BF851D3571CB00F715A9 /* spark-about.html in Resources */,
 				ABF5BF861D3571CB00F715A9 /* stylesheet.css in Resources */,
 				AB04FD131C712C6000F08232 /* MainMenu.xib in Resources */,
-				AB3EA9461D7BB1D1003C4D35 /* InfoPlist.strings in Resources */,
 				ABAC55B41D7B596400CF393B /* Screenshot3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,14 +345,6 @@
 				AB04FD151C712C7100F08232 /* en */,
 			);
 			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-		AB04FD161C712C7100F08232 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AB04FD171C712C7100F08232 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		AB83982E19817D8E001D31B7 /* InfoPlist.strings */ = {
