@@ -1,4 +1,6 @@
-# Spark Web Browser for macOS&nbsp;&nbsp;[![Build Status](https://travis-ci.org/insleep/spark-web-browser.svg?branch=master)](https://travis-ci.org/insleep/spark-web-browser)
+[![Spark Logo](banner.png)](https://github.com/insleep/spark-web-browser/ "Spark - a minimal web browser for macOS")
+
+[![Build Status](https://travis-ci.org/insleep/spark-web-browser.svg?branch=master)](https://travis-ci.org/insleep/spark-web-browser)
 
 ## About
 
