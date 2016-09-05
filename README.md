@@ -1,4 +1,4 @@
-[![Spark Logo](banner.png)](https://github.com/insleep/spark-web-browser/ "Spark - a minimal web browser for macOS")
+[![Spark Logo](spark-banner.png)](https://github.com/insleep/spark-web-browser/ "Spark - a minimal web browser for macOS")
 
 [![Build Status](https://travis-ci.org/insleep/spark-web-browser.svg?branch=master)](https://travis-ci.org/insleep/spark-web-browser)
 
