@@ -1,6 +1,6 @@
 [![Spark Logo](spark-banner.png)](https://github.com/insleep/spark-web-browser/ "Spark - a minimal web browser for macOS")
 
-[![Version](https://img.shields.io/github/release/insleep/spark-web-browser.svg)](https://github.com/insleep/spark-web-browser/releases/)&nbsp;&nbsp;[![Build Status](https://travis-ci.org/insleep/spark-web-browser.svg?branch=master)](https://travis-ci.org/insleep/spark-web-browser)&nbsp;&nbsp;[![Language](https://img.shields.io/badge/language-Objective--C-red.svg)](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html)
+[![Version](https://img.shields.io/github/release/insleep/spark-web-browser.svg)](https://github.com/insleep/spark-web-browser/releases/)&nbsp;[![Build Status](https://travis-ci.org/insleep/spark-web-browser.svg?branch=master)](https://travis-ci.org/insleep/spark-web-browser)&nbsp;[![Language](https://img.shields.io/badge/language-Objective--C-red.svg)](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html)
 
 ## About
 
