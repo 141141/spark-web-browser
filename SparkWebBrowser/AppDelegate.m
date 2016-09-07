@@ -27,6 +27,7 @@ NSString *duckDuckGoSearchString = @"https://www.duckduckgo.com/%@";
 NSString *askSearchString = @"http://www.ask.com/web?q=%@";
 NSString *aolSearchString = @"http://search.aol.com/aol/search?q=%@";
 
+// Search engine default homepages
 NSString *googleDefaultURL = @"https://www.google.com/?gws_rd=ssl";
 NSString *bingDefaultURL = @"https://www.bing.com/";
 NSString *yahooDefaultURL = @"https://www.yahoo.com/";
@@ -34,7 +35,9 @@ NSString *duckDuckGoDefaultURL = @"https://www.duckduckgo.com";
 NSString *askDefaultURL = @"http://www.ask.com";
 NSString *aolDefaultURL = @"http://www.aol.com";
 
+// Strings for "Help" menu bar item
 NSString *appIssuesURL = @"https://www.github.com/insleep/spark-web-browser/issues/";
+NSString *appReleasesURL = @"https://www.github.com/insleep/spark-web-browser/releases/tag/%@/";
 
 // Colors
 NSColor *defaultColor = nil;
@@ -115,7 +118,7 @@ NSString *userAgent = nil;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     
-    // Initialize
+    // Finish initializing
     
     if([defaults objectForKey:@"currentReleaseChannel"] == nil) {
         // No release channel is set -- revert to default
@@ -271,10 +274,8 @@ NSString *userAgent = nil;
 
 
 - (IBAction)viewReleaseNotes:(id)sender {
-    NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary]; // Load Info.plist
-    NSString *appVersion = [infoDict objectForKey:@"CFBundleShortVersionString"]; // Fetch the version number from Info.plist
-    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://www.github.com/insleep/spark-web-browser/releases/tag/%@/", appVersion]]]];
-    self.addressBar.stringValue = [NSString stringWithFormat:@"https://www.github.com/insleep/spark-web-browser/releases/tag/%@/", appVersion];
+    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:appReleasesURL, appVersion]]]];
+    self.addressBar.stringValue = [NSString stringWithFormat:appReleasesURL, appVersion];
 }
 
 
@@ -450,15 +451,15 @@ NSString *userAgent = nil;
     if(self.homepageTextField.stringValue == nil || [self.homepageTextField.stringValue isEqual:@""]) {
         // Homepage is not set -- revert to default
         
-        [defaults setObject:googleDefaultURL forKey:@"userHomepage"];
-        self.homepageTextField.stringValue = googleDefaultURL;
+        [self setHomepageFunc:googleDefaultURL];
+        self.homepageTextField.stringValue = [defaults objectForKey:@"userHomepage"];
     } else {
         
         NSLog(@"Setting homepage...");
         
         NSString *homepageString = self.homepageTextField.stringValue;
         
-        [defaults setObject:[NSString stringWithFormat:@"%@", homepageString] forKey:@"userHomepage"];
+        [self setHomepageFunc:homepageString];
     }
 }
 
