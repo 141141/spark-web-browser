@@ -582,6 +582,8 @@ Spark is made possible by the WebKit open source project and other open source s
                                     <menuItem title="Bing" id="iHg-JP-TzF"/>
                                     <menuItem title="Yahoo!" id="RpJ-j3-k0A"/>
                                     <menuItem title="DuckDuckGo" id="nq3-GM-uav"/>
+                                    <menuItem title="Ask" id="sIf-t4-D9y"/>
+                                    <menuItem title="AOL" id="zAg-Ww-56y"/>
                                 </items>
                             </menu>
                         </popUpButtonCell>

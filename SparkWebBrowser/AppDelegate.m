@@ -279,6 +279,11 @@
             // Set homepage to Ask
             [self setHomepageFunc:@"https://ask.com/"];
             self.homepageTextField.stringValue = @"https://ask.com/";
+        } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"AOL"]) {
+            
+            // Set homepage to AOL
+            [self setHomepageFunc:@"https://aol.com/"];
+            self.homepageTextField.stringValue = @"https://aol.com/";
         }
     }
 }
@@ -358,6 +363,18 @@
             NSLog(@"Search engine found: Ask");
             
             NSString *urlAddress = [NSString stringWithFormat:@"http://www.ask.com/web?q=%@", searchString];
+            NSString *editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            
+            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
+            self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedUrlString];
+            
+        } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"AOL"]) {
+            
+            // AOL search initiated
+            
+            NSLog(@"Search engine found: AOL");
+            
+            NSString *urlAddress = [NSString stringWithFormat:@"http://search.aol.com/aol/search?q=%@", searchString];
             NSString *editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
