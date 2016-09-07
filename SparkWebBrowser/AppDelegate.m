@@ -19,9 +19,7 @@
 
 // Declarations -- defined within the class for easy changes / scalability in the future
 
-NSUserDefaults *defaults = nil;
-
-// Search engine string declarations
+// Search engine query strings
 NSString *googleSearchString = @"https://www.google.com/search?q=%@&gws_rd=ssl";
 NSString *bingSearchString = @"https://www.bing.com/search?q=%@";
 NSString *yahooSearchString = @"https://search.yahoo.com/search?p=%@";
@@ -36,7 +34,8 @@ NSColor *aquaColor = nil;
 NSColor *orangeColor = nil;
 NSColor *darkGrayColor = nil;
 
-// App setup items
+// App setup
+NSUserDefaults *defaults = nil;
 NSDictionary *infoDict = nil;
 NSDictionary *sv = nil;
 NSString *appVersion = nil;
@@ -75,6 +74,8 @@ NSString *userAgent = nil;
 }
 
 -(void)applicationWillFinishLaunching:(NSNotification *)aNotification {
+    
+    // Register for URL events
     
     NSAppleEventManager *appleEventManager = [NSAppleEventManager sharedAppleEventManager];
     [appleEventManager setEventHandler:self
@@ -481,7 +482,7 @@ NSString *userAgent = nil;
         [self.loadingIndicator startAnimation:self];
         
         // Use Google to get website favicons
-        NSString *faviconURLString = [NSString stringWithFormat:@"http://www.google.com/s2/favicons?domain=%@", url];
+        NSString *faviconURLString = [NSString stringWithFormat:@"https://www.google.com/s2/favicons?domain=%@", url];
         NSURL *faviconURL=[NSURL URLWithString: faviconURLString];
         NSData *faviconData = [NSData dataWithContentsOfURL:faviconURL];
         NSImage *websiteFavicon = [[NSImage alloc] initWithData:faviconData];
