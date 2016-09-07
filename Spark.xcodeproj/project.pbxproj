@@ -12,10 +12,10 @@
 		AB04FD0C1C712BDB00F08232 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB04FD0A1C712BDB00F08232 /* main.m */; };
 		AB04FD131C712C6000F08232 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB04FD111C712C6000F08232 /* MainMenu.xib */; };
 		AB04FD181C712C7100F08232 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AB04FD141C712C7100F08232 /* Credits.rtf */; };
-		AB3EA9451D7BADC4003C4D35 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = AB3EA9441D7BADC4003C4D35 /* .travis.yml */; };
 		AB8587B71D7C9DFE0073515C /* SparkIcon256.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8587B61D7C9DFE0073515C /* SparkIcon256.png */; };
 		AB98DDDC1D370CD100ABCF16 /* WebKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB83983B19817E15001D31B7 /* WebKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AB98DDDE1D370CD400ABCF16 /* Cocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB83980719817D8E001D31B7 /* Cocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ABA872E21D7FA4140062EC6C /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = ABA872E11D7FA4140062EC6C /* .travis.yml */; };
 		ABAC55B21D7B596400CF393B /* Screenshot1.png in Resources */ = {isa = PBXBuildFile; fileRef = ABAC55AF1D7B596400CF393B /* Screenshot1.png */; };
 		ABAC55B31D7B596400CF393B /* Screenshot2.png in Resources */ = {isa = PBXBuildFile; fileRef = ABAC55B01D7B596400CF393B /* Screenshot2.png */; };
 		ABAC55B41D7B596400CF393B /* Screenshot3.png in Resources */ = {isa = PBXBuildFile; fileRef = ABAC55B11D7B596400CF393B /* Screenshot3.png */; };
@@ -49,7 +49,6 @@
 		AB04FD0B1C712BDB00F08232 /* Spark-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Spark-Prefix.pch"; path = "SparkWebBrowser/Spark-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		AB04FD121C712C6000F08232 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = SparkWebBrowser/Base.lproj/MainMenu.xib; sourceTree = SOURCE_ROOT; };
 		AB04FD151C712C7100F08232 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = SparkWebBrowser/en.lproj/Credits.rtf; sourceTree = SOURCE_ROOT; };
-		AB3EA9441D7BADC4003C4D35 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		AB83980419817D8E001D31B7 /* Spark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB83980719817D8E001D31B7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		AB83980A19817D8E001D31B7 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -58,6 +57,7 @@
 		AB83982619817D8E001D31B7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		AB83983B19817E15001D31B7 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		AB8587B61D7C9DFE0073515C /* SparkIcon256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SparkIcon256.png; path = SparkWebBrowser/Images.xcassets/AppIcon256.imageset/SparkIcon256.png; sourceTree = SOURCE_ROOT; };
+		ABA872E11D7FA4140062EC6C /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		ABAC55AF1D7B596400CF393B /* Screenshot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot1.png; sourceTree = "<group>"; };
 		ABAC55B01D7B596400CF393B /* Screenshot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot2.png; sourceTree = "<group>"; };
 		ABAC55B11D7B596400CF393B /* Screenshot3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot3.png; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 		AB8397FB19817D8D001D31B7 = {
 			isa = PBXGroup;
 			children = (
-				AB3EA9441D7BADC4003C4D35 /* .travis.yml */,
+				ABA872E11D7FA4140062EC6C /* .travis.yml */,
 				ABAC55AE1D7B596400CF393B /* Screenshots */,
 				AB83980D19817D8E001D31B7 /* SparkWebBrowser */,
 				AB83980619817D8E001D31B7 /* Frameworks */,
@@ -215,12 +215,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABA872E21D7FA4140062EC6C /* .travis.yml in Resources */,
 				ABAC55B31D7B596400CF393B /* Screenshot2.png in Resources */,
 				AB04FD021C712BAD00F08232 /* Images.xcassets in Resources */,
 				ABAC55B21D7B596400CF393B /* Screenshot1.png in Resources */,
 				AB04FD181C712C7100F08232 /* Credits.rtf in Resources */,
 				AB8587B71D7C9DFE0073515C /* SparkIcon256.png in Resources */,
-				AB3EA9451D7BADC4003C4D35 /* .travis.yml in Resources */,
 				ABF5BF851D3571CB00F715A9 /* spark-about.html in Resources */,
 				ABF5BF861D3571CB00F715A9 /* stylesheet.css in Resources */,
 				AB04FD131C712C6000F08232 /* MainMenu.xib in Resources */,
