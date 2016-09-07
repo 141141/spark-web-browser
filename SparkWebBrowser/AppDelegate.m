@@ -17,6 +17,32 @@
 
 @synthesize window;
 
+// Declarations -- defined within the class for easy changes / scalability in the future
+
+NSUserDefaults *defaults = nil;
+
+// Search engine string declarations
+NSString *googleSearchString = @"https://www.google.com/search?q=%@&gws_rd=ssl";
+NSString *bingSearchString = @"https://www.bing.com/search?q=%@";
+NSString *yahooSearchString = @"https://search.yahoo.com/search?p=%@";
+NSString *duckDuckGoSearchString = @"https://www.duckduckgo.com/%@";
+NSString *askSearchString = @"http://www.ask.com/web?q=%@";
+NSString *aolSearchString = @"http://search.aol.com/aol/search?q=%@";
+
+NSColor *defaultColor = nil;
+NSColor *redColor = nil;
+NSColor *aquaColor = nil;
+NSColor *orangeColor = nil;
+NSColor *darkGrayColor = nil;
+
++ (void)initialize {
+    defaultColor = [NSColor colorWithRed:216.0f/255.0f green:216.0f/255.0f blue:216.0f/255.0f alpha:1.0f];
+    redColor = [NSColor colorWithRed:0.773f green:0.231f blue:0.212f alpha:1.0f];
+    aquaColor = [NSColor colorWithRed:46.0f/255.0f green:133.0f/255.0f blue:162.0f/255.0f alpha:1.0f];
+    orangeColor = [NSColor colorWithRed:200.0f/255.0f green:80.0f/255.0f blue:1.0f/255.0f alpha:1.0f];
+    darkGrayColor = [NSColor colorWithRed:44.0f/255.0f green:44.0f/255.0f blue:44.0f/255.0f alpha:1.0f];
+}
+
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
     return YES;
 }
@@ -53,7 +79,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     
     // Initialize
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults]; // Shortcut for later
+     // Shortcut for later
     NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary]; // Load Info.plist
     NSString *appVersion = [infoDict objectForKey:@"CFBundleShortVersionString"]; // Fetch the version number from Info.plist
     NSString *buildNumber = [infoDict objectForKey:@"CFBundleVersion"]; // Fetch the build number from Info.plist
@@ -122,27 +148,27 @@
     if([[defaults objectForKey:@"currentColor"] isEqual: @"Default"] || [defaults objectForKey:@"currentColor"] == nil) {
         
         // Set top bar color to default
-        self.window.backgroundColor = [NSColor colorWithRed:216.0f/255.0f green:216.0f/255.0f blue:216.0f/255.0f alpha:1.0f]; // Title bar color in RGB
+        self.window.backgroundColor = defaultColor;
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Red"]) {
         
         // Set top bar color to red
-        self.window.backgroundColor = [NSColor colorWithRed:0.773f green:0.231f blue:0.212f alpha:1.0f]; // Title bar color in RGB
+        self.window.backgroundColor = redColor;
         
-    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Blue"]) {
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Aqua"]) {
         
-        // Set top bar color to blue
-        self.window.backgroundColor = [NSColor colorWithRed:46.0f/255.0f green:133.0f/255.0f blue:162.0f/255.0f alpha:1.0f]; // Title bar color in RGB
+        // Set top bar color to aqua
+        self.window.backgroundColor = aquaColor;
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Orange"]) {
         
         // Set top bar color to orange
-        self.window.backgroundColor = [NSColor colorWithRed:200.0f/255.0f green:80.0f/255.0f blue:1.0f/255.0f alpha:1.0f]; // Title bar color in RGB
+        self.window.backgroundColor = orangeColor;
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Dark Gray"]) {
         
         // Set top bar color to dark gray
-        self.window.backgroundColor = [NSColor colorWithRed:44.0f/255.0f green:44.0f/255.0f blue:44.0f/255.0f alpha:1.0f]; // Title bar color in RGB
+        self.window.backgroundColor = darkGrayColor;
         
     }
     
@@ -182,27 +208,27 @@
     if([[defaults objectForKey:@"currentColor"] isEqual: @"Default"]) {
         
         // Set top bar color to default
-        self.window.backgroundColor = [NSColor colorWithRed:216.0f/255.0f green:216.0f/255.0f blue:216.0f/255.0f alpha:1.0f]; // Title bar color in RGB
+        self.window.backgroundColor = defaultColor;
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Red"]) {
         
         // Set top bar color to red
-        self.window.backgroundColor = [NSColor colorWithRed:0.773f green:0.231f blue:0.212f alpha:1.0f]; // Title bar color in RGB
+        self.window.backgroundColor = redColor;
         
-    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Blue"]) {
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Aqua"]) {
         
-        // Set top bar color to blue
-        self.window.backgroundColor = [NSColor colorWithRed:46.0f/255.0f green:133.0f/255.0f blue:162.0f/255.0f alpha:1.0f]; // Title bar color in RGB
+        // Set top bar color to aqua
+        self.window.backgroundColor = aquaColor;
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Orange"]) {
         
         // Set top bar color to orange
-        self.window.backgroundColor = [NSColor colorWithRed:200.0f/255.0f green:80.0f/255.0f blue:1.0f/255.0f alpha:1.0f]; // Title bar color in RGB
+        self.window.backgroundColor = orangeColor;
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Dark Gray"]) {
         
         // Set top bar color to dark gray
-        self.window.backgroundColor = [NSColor colorWithRed:44.0f/255.0f green:44.0f/255.0f blue:44.0f/255.0f alpha:1.0f]; // Title bar color in RGB
+        self.window.backgroundColor = darkGrayColor;
         
     }
 }
@@ -277,13 +303,13 @@
         } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Ask"]) {
             
             // Set homepage to Ask
-            [self setHomepageFunc:@"https://ask.com/"];
-            self.homepageTextField.stringValue = @"https://ask.com/";
+            [self setHomepageFunc:@"http://ask.com/"];
+            self.homepageTextField.stringValue = @"http://ask.com/";
         } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"AOL"]) {
             
             // Set homepage to AOL
-            [self setHomepageFunc:@"https://aol.com/"];
-            self.homepageTextField.stringValue = @"https://aol.com/";
+            [self setHomepageFunc:@"http://aol.com/"];
+            self.homepageTextField.stringValue = @"http://aol.com/";
         }
     }
 }
@@ -314,7 +340,7 @@
             
             NSLog(@"Search engine found: Google");
             
-            NSString *urlAddress = [NSString stringWithFormat:@"https://www.google.com/search?q=%@&gws_rd=ssl", searchString];
+            NSString *urlAddress = [NSString stringWithFormat:googleSearchString, searchString];
             NSString *editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
@@ -326,7 +352,7 @@
             
             NSLog(@"Search engine found: Bing");
             
-            NSString *urlAddress = [NSString stringWithFormat:@"https://www.bing.com/search?q=%@", searchString];
+            NSString *urlAddress = [NSString stringWithFormat:bingSearchString, searchString];
             NSString *editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
@@ -338,7 +364,7 @@
             
             NSLog(@"Search engine found: Yahoo!");
             
-            NSString *urlAddress = [NSString stringWithFormat:@"https://search.yahoo.com/search?p=%@", searchString];
+            NSString *urlAddress = [NSString stringWithFormat:yahooSearchString, searchString];
             NSString *editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
@@ -350,7 +376,7 @@
             
             NSLog(@"Search engine found: DuckDuckGo");
             
-            NSString *urlAddress = [NSString stringWithFormat:@"https://www.duckduckgo.com/%@", searchString];
+            NSString *urlAddress = [NSString stringWithFormat:duckDuckGoSearchString, searchString];
             NSString *editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
@@ -362,7 +388,7 @@
             
             NSLog(@"Search engine found: Ask");
             
-            NSString *urlAddress = [NSString stringWithFormat:@"http://www.ask.com/web?q=%@", searchString];
+            NSString *urlAddress = [NSString stringWithFormat:askSearchString, searchString];
             NSString *editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
@@ -374,7 +400,7 @@
             
             NSLog(@"Search engine found: AOL");
             
-            NSString *urlAddress = [NSString stringWithFormat:@"http://search.aol.com/aol/search?q=%@", searchString];
+            NSString *urlAddress = [NSString stringWithFormat:aolSearchString, searchString];
             NSString *editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
