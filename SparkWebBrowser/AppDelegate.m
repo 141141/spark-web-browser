@@ -29,18 +29,45 @@ NSString *duckDuckGoSearchString = @"https://www.duckduckgo.com/%@";
 NSString *askSearchString = @"http://www.ask.com/web?q=%@";
 NSString *aolSearchString = @"http://search.aol.com/aol/search?q=%@";
 
+// Colors
 NSColor *defaultColor = nil;
 NSColor *redColor = nil;
 NSColor *aquaColor = nil;
 NSColor *orangeColor = nil;
 NSColor *darkGrayColor = nil;
 
+// App setup items
+NSDictionary *infoDict = nil;
+NSDictionary *sv = nil;
+NSString *appVersion = nil;
+NSString *buildNumber = nil;
+NSString *versionString = nil;
+NSString *buildString = nil;
+NSString *productName = nil;
+NSString *channelVer = nil;
+NSString *editedVersionString = nil;
+NSString *userAgent = nil;
+
 + (void)initialize {
+    defaults = [NSUserDefaults standardUserDefaults]; // Set up NSUserDefaults
+    
+    // Set up colors
     defaultColor = [NSColor colorWithRed:216.0f/255.0f green:216.0f/255.0f blue:216.0f/255.0f alpha:1.0f];
     redColor = [NSColor colorWithRed:0.773f green:0.231f blue:0.212f alpha:1.0f];
     aquaColor = [NSColor colorWithRed:46.0f/255.0f green:133.0f/255.0f blue:162.0f/255.0f alpha:1.0f];
     orangeColor = [NSColor colorWithRed:200.0f/255.0f green:80.0f/255.0f blue:1.0f/255.0f alpha:1.0f];
     darkGrayColor = [NSColor colorWithRed:44.0f/255.0f green:44.0f/255.0f blue:44.0f/255.0f alpha:1.0f];
+    
+    infoDict = [[NSBundle mainBundle] infoDictionary]; // Load Info.plist
+    appVersion = [infoDict objectForKey:@"CFBundleShortVersionString"]; // Fetch the version number from Info.plist
+    buildNumber = [infoDict objectForKey:@"CFBundleVersion"]; // Fetch the build number from Info.plist
+    sv = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"]; // Load SystemVersion.plist
+    versionString = [sv objectForKey:@"ProductVersion"]; // Get macOS version
+    buildString = [sv objectForKey:@"ProductBuildVersion"]; // Get macOS build number
+    productName = [sv objectForKey:@"ProductName"]; // Get macOS product name (either OS X / macOS)
+    channelVer = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"currentReleaseChannel"]]; // Get current release channel
+    editedVersionString = [versionString stringByReplacingOccurrencesOfString:@"." withString:@"_"]; // Replace dots in version string with underscores
+    userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel %@ %@) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.89 Safari/537.36", productName, editedVersionString]; // Set user agent respective to the version of OS X / macOS the user is running
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
@@ -79,18 +106,6 @@ NSColor *darkGrayColor = nil;
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     
     // Initialize
-     // Shortcut for later
-    NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary]; // Load Info.plist
-    NSString *appVersion = [infoDict objectForKey:@"CFBundleShortVersionString"]; // Fetch the version number from Info.plist
-    NSString *buildNumber = [infoDict objectForKey:@"CFBundleVersion"]; // Fetch the build number from Info.plist
-    NSDictionary *sv = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"]; // Load SystemVersion.plist
-    NSString *versionString = [sv objectForKey:@"ProductVersion"]; // Get macOS version
-    NSString *buildString = [sv objectForKey:@"ProductBuildVersion"]; // Get macOS build number
-    NSString *productName = [sv objectForKey:@"ProductName"]; // Get macOS product name (either OS X / macOS)
-    NSString *channelVer = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"currentReleaseChannel"]]; // Get current release channel
-    
-    NSString *editedVersionString = [versionString stringByReplacingOccurrencesOfString:@"." withString:@"_"]; // Replace dots in version string with underscores
-    NSString *userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel %@ %@) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.89 Safari/537.36", productName, editedVersionString]; // Set user agent respective to the version of OS X / macOS the user is running
     
     if([defaults objectForKey:@"currentReleaseChannel"] == nil) {
         // No release channel is set -- revert to default
@@ -198,8 +213,6 @@ NSColor *darkGrayColor = nil;
 
 - (IBAction)setTopBarColor:(id)sender {
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
     NSString *colorChosen = [NSString stringWithFormat:@"%@", self.topBarColorPicker.titleOfSelectedItem];
     
     [defaults setObject:[NSString stringWithFormat:@"%@", colorChosen] forKey:@"currentColor"];
@@ -235,8 +248,6 @@ NSColor *darkGrayColor = nil;
 
 - (IBAction)setHomepageEngine:(id)sender {
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
     if([self.basedOnEngineBtn state] == NSOnState) {
         // On
         
@@ -264,8 +275,6 @@ NSColor *darkGrayColor = nil;
 }
 
 - (IBAction)setSearchEngine:(id)sender {
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     NSString *searchEngineChosen = [NSString stringWithFormat:@"%@", self.searchEnginePicker.titleOfSelectedItem];
     
@@ -315,8 +324,6 @@ NSColor *darkGrayColor = nil;
 }
 
 - (IBAction)initWebpageLoad:(id)sender {
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     NSString *searchString = self.addressBar.stringValue;
     
@@ -412,8 +419,6 @@ NSColor *darkGrayColor = nil;
 
 - (IBAction)setReleaseChannel:(id)sender {
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
     NSString *capitalizedReleaseChannel = [NSString stringWithFormat:@"%@", self.releaseChannelPicker.titleOfSelectedItem];
     NSString *uncapitalizedReleaseChannel = [capitalizedReleaseChannel lowercaseString];
     
@@ -423,16 +428,13 @@ NSColor *darkGrayColor = nil;
 }
 
 - (void)setHomepageFunc:(NSString *)homepageToSet {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
+
     NSLog(@"Setting homepage...");
     
     [defaults setObject:[NSString stringWithFormat:@"%@", homepageToSet] forKey:@"userHomepage"];
 }
 
 - (IBAction)setHomepage:(id)sender {
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     if(self.homepageTextField.stringValue == nil || [self.homepageTextField.stringValue isEqual:@""]) {
         // Homepage is not set -- revert to default
@@ -450,8 +452,6 @@ NSColor *darkGrayColor = nil;
 }
 
 - (IBAction)newTab:(id)sender {
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     if([[defaults objectForKey:@"currentColor"] isEqual: @"Default"]) {
         self.ntNotSupported.textColor = [NSColor blackColor];

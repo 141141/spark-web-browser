@@ -639,16 +639,16 @@ Spark is made possible by the WebKit open source project and other open source s
                     <popUpButton verticalHuggingPriority="750" id="XHo-Io-iG9">
                         <rect key="frame" x="133" y="15" width="259" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="push" title="Dark Gray" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Nd6-9K-LI2" id="VVQ-9h-rPw">
+                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="VVQ-9h-rPw">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" id="Nwt-Jy-HYO">
                                 <items>
                                     <menuItem title="Default" id="WqL-EJ-PSp"/>
-                                    <menuItem title="Blue" id="AFh-tY-AoJ"/>
                                     <menuItem title="Red" id="dKq-HZ-PsH"/>
+                                    <menuItem title="Aqua" id="AFh-tY-AoJ"/>
                                     <menuItem title="Orange" id="CAI-8i-CQY"/>
-                                    <menuItem title="Dark Gray" state="on" id="Nd6-9K-LI2"/>
+                                    <menuItem title="Dark Gray" id="Nd6-9K-LI2"/>
                                 </items>
                             </menu>
                         </popUpButtonCell>
