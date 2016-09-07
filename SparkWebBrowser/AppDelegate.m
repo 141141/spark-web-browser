@@ -31,9 +31,9 @@ NSString *aolSearchString = @"http://search.aol.com/aol/search?q=%@";
 NSString *googleDefaultURL = @"https://www.google.com/?gws_rd=ssl";
 NSString *bingDefaultURL = @"https://www.bing.com/";
 NSString *yahooDefaultURL = @"https://www.yahoo.com/";
-NSString *duckDuckGoDefaultURL = @"https://www.duckduckgo.com";
-NSString *askDefaultURL = @"http://www.ask.com";
-NSString *aolDefaultURL = @"http://www.aol.com";
+NSString *duckDuckGoDefaultURL = @"https://www.duckduckgo.com/";
+NSString *askDefaultURL = @"http://www.ask.com/";
+NSString *aolDefaultURL = @"http://www.aol.com/";
 
 // Strings for "Help" menu bar item
 NSString *appIssuesURL = @"https://www.github.com/insleep/spark-web-browser/issues/";
@@ -63,15 +63,15 @@ NSString *userAgent = nil;
 NSString *searchString = nil;
 NSString *homepageString = nil;
 NSString *urlAddress = nil;
-NSString *editedUrlString = nil;
+NSString *editedURLString = nil;
 NSString *capitalizedReleaseChannel = nil;
 NSString *uncapitalizedReleaseChannel = nil;
 NSString *searchEngineChosen = nil;
 NSString *colorChosen = nil;
 NSString *urlToString = nil;
-NSString *websiteUrl = nil;
+NSString *websiteURL = nil;
 NSString *faviconURLString = nil;
-NSURL *eventUrl = nil;
+NSURL *eventURL = nil;
 NSURL *faviconURL = nil;
 NSData *faviconData = nil;
 NSImage *websiteFavicon = nil;
@@ -117,8 +117,8 @@ NSImage *websiteFavicon = nil;
     
     // Handle spark:// URL events
     
-    eventUrl = [NSURL URLWithString:[[event paramDescriptorForKeyword:keyDirectObject] stringValue]];
-    urlToString = [eventUrl absoluteString];
+    eventURL = [NSURL URLWithString:[[event paramDescriptorForKeyword:keyDirectObject] stringValue]];
+    urlToString = [eventURL absoluteString];
     if([urlToString isEqual: @"spark://about"]) {
         NSLog(@"spark://about loaded");
         [self.titleStatus setStringValue:@"About Spark"];
@@ -369,10 +369,10 @@ NSImage *websiteFavicon = nil;
             NSLog(@"Search engine found: Google");
             
             urlAddress = [NSString stringWithFormat:googleSearchString, searchString];
-            editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            editedURLString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             
-            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
-            self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedUrlString];
+            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
+            self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
             
         } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Bing"]) {
             
@@ -381,10 +381,10 @@ NSImage *websiteFavicon = nil;
             NSLog(@"Search engine found: Bing");
             
             urlAddress = [NSString stringWithFormat:bingSearchString, searchString];
-            editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            editedURLString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             
-            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
-            self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedUrlString];
+            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
+            self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
             
         } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Yahoo!"]) {
             
@@ -393,10 +393,10 @@ NSImage *websiteFavicon = nil;
             NSLog(@"Search engine found: Yahoo!");
             
             urlAddress = [NSString stringWithFormat:yahooSearchString, searchString];
-            editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            editedURLString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             
-            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
-            self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedUrlString];
+            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
+            self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
             
         } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"DuckDuckGo"]) {
             
@@ -405,10 +405,10 @@ NSImage *websiteFavicon = nil;
             NSLog(@"Search engine found: DuckDuckGo");
             
             urlAddress = [NSString stringWithFormat:duckDuckGoSearchString, searchString];
-            editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            editedURLString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             
-            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
-            self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedUrlString];
+            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
+            self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
             
         } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Ask"]) {
             
@@ -417,10 +417,10 @@ NSImage *websiteFavicon = nil;
             NSLog(@"Search engine found: Ask");
             
             urlAddress = [NSString stringWithFormat:askSearchString, searchString];
-            editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            editedURLString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             
-            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
-            self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedUrlString];
+            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
+            self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
             
         } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"AOL"]) {
             
@@ -429,10 +429,10 @@ NSImage *websiteFavicon = nil;
             NSLog(@"Search engine found: AOL");
             
             urlAddress = [NSString stringWithFormat:aolSearchString, searchString];
-            editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            editedURLString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             
-            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
-            self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedUrlString];
+            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
+            self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
             
         }
     }
@@ -494,15 +494,15 @@ NSImage *websiteFavicon = nil;
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame {
     // Only report feedback for the main frame.
     if (frame == [sender mainFrame]) {
-        websiteUrl = [[[[frame provisionalDataSource] request] URL] absoluteString];
+        websiteURL = [[[[frame provisionalDataSource] request] URL] absoluteString];
         self.reloadBtn.image = [NSImage imageNamed: NSImageNameStopProgressTemplate];
-        [self.addressBar setStringValue:websiteUrl];
+        [self.addressBar setStringValue:websiteURL];
         self.faviconImage.hidden = YES;
         self.loadingIndicator.hidden = NO;
         [self.loadingIndicator startAnimation:self];
         
         // Use Google to get website favicons
-        faviconURLString = [NSString stringWithFormat:@"https://www.google.com/s2/favicons?domain=%@", websiteUrl];
+        faviconURLString = [NSString stringWithFormat:@"https://www.google.com/s2/favicons?domain=%@", websiteURL];
         faviconURL = [NSURL URLWithString: faviconURLString];
         faviconData = [NSData dataWithContentsOfURL:faviconURL];
         websiteFavicon = [[NSImage alloc] initWithData:faviconData];
