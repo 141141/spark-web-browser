@@ -46,7 +46,7 @@ NSColor *aquaColor = nil;
 NSColor *orangeColor = nil;
 NSColor *darkGrayColor = nil;
 
-// App setup
+// General app setup
 NSUserDefaults *defaults = nil;
 NSDictionary *infoDict = nil;
 NSDictionary *sv = nil;
@@ -58,6 +58,9 @@ NSString *productName = nil;
 NSString *channelVer = nil;
 NSString *editedVersionString = nil;
 NSString *userAgent = nil;
+
+NSString *urlAddress = nil;
+NSString *editedUrlString = nil;
 
 + (void)initialize {
     defaults = [NSUserDefaults standardUserDefaults]; // Set up NSUserDefaults
@@ -343,16 +346,14 @@ NSString *userAgent = nil;
     } else {
         NSLog(@"User has initiated a search. Fetching search engine...");
         
-        NSString *searchString = self.addressBar.stringValue;
-        
         if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Google"]) {
             
             // Google search initiated
             
             NSLog(@"Search engine found: Google");
             
-            NSString *urlAddress = [NSString stringWithFormat:googleSearchString, searchString];
-            NSString *editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            urlAddress = [NSString stringWithFormat:googleSearchString, searchString];
+            editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
             self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedUrlString];
@@ -363,8 +364,8 @@ NSString *userAgent = nil;
             
             NSLog(@"Search engine found: Bing");
             
-            NSString *urlAddress = [NSString stringWithFormat:bingSearchString, searchString];
-            NSString *editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            urlAddress = [NSString stringWithFormat:bingSearchString, searchString];
+            editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
             self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedUrlString];
@@ -375,8 +376,8 @@ NSString *userAgent = nil;
             
             NSLog(@"Search engine found: Yahoo!");
             
-            NSString *urlAddress = [NSString stringWithFormat:yahooSearchString, searchString];
-            NSString *editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            urlAddress = [NSString stringWithFormat:yahooSearchString, searchString];
+            editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
             self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedUrlString];
@@ -387,8 +388,8 @@ NSString *userAgent = nil;
             
             NSLog(@"Search engine found: DuckDuckGo");
             
-            NSString *urlAddress = [NSString stringWithFormat:duckDuckGoSearchString, searchString];
-            NSString *editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            urlAddress = [NSString stringWithFormat:duckDuckGoSearchString, searchString];
+            editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
             self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedUrlString];
@@ -399,8 +400,8 @@ NSString *userAgent = nil;
             
             NSLog(@"Search engine found: Ask");
             
-            NSString *urlAddress = [NSString stringWithFormat:askSearchString, searchString];
-            NSString *editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            urlAddress = [NSString stringWithFormat:askSearchString, searchString];
+            editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
             self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedUrlString];
@@ -411,8 +412,8 @@ NSString *userAgent = nil;
             
             NSLog(@"Search engine found: AOL");
             
-            NSString *urlAddress = [NSString stringWithFormat:aolSearchString, searchString];
-            NSString *editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            urlAddress = [NSString stringWithFormat:aolSearchString, searchString];
+            editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
             self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedUrlString];
