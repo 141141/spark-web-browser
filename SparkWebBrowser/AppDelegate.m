@@ -102,7 +102,7 @@
     
     [self.topBarColorPicker selectItemAtIndex:[defaults integerForKey:@"colorIndex"]];
     
-    window.titleVisibility = NSWindowTitleHidden; // For future purposes
+    // Interface setup
     [self.webView setCustomUserAgent: userAgent];
     self.userAgentField.stringValue = userAgent;
     if(versionString.doubleValue > 10.11) { // Detect whether or not user is running macOS 10.12 or higher
@@ -169,6 +169,7 @@
         self.basedOnEngineBtn.state = NSOffState;
     }
 }
+
 - (IBAction)setTopBarColor:(id)sender {
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -273,6 +274,11 @@
             [self setHomepageFunc:@"https://www.duckduckgo.com/"];
             self.homepageTextField.stringValue = @"https://www.duckduckgo.com/";
             
+        } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Ask"]) {
+            
+            // Set homepage to Ask
+            [self setHomepageFunc:@"https://ask.com/"];
+            self.homepageTextField.stringValue = @"https://ask.com/";
         }
     }
 }
@@ -340,6 +346,18 @@
             NSLog(@"Search engine found: DuckDuckGo");
             
             NSString *urlAddress = [NSString stringWithFormat:@"https://www.duckduckgo.com/%@", searchString];
+            NSString *editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            
+            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
+            self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedUrlString];
+            
+        } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Ask"]) {
+            
+            // Ask search initiated
+            
+            NSLog(@"Search engine found: Ask");
+            
+            NSString *urlAddress = [NSString stringWithFormat:@"http://www.ask.com/web?q=%@", searchString];
             NSString *editedUrlString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedUrlString]]]];
