@@ -299,36 +299,30 @@ NSString *userAgent = nil;
             
             // Set homepage to Google
             [self setHomepageFunc:googleDefaultURL];
-            self.homepageTextField.stringValue = googleDefaultURL;
             
         } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Bing"]) {
             
             // Set homepage to Bing
             [self setHomepageFunc:bingDefaultURL];
-            self.homepageTextField.stringValue = bingDefaultURL;
             
         } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Yahoo!"]) {
             
             // Set homepage to Yahoo!
             [self setHomepageFunc:yahooDefaultURL];
-            self.homepageTextField.stringValue = yahooDefaultURL;
             
         } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"DuckDuckGo"]) {
             
             // Set homepage to DuckDuckGo
             [self setHomepageFunc:duckDuckGoDefaultURL];
-            self.homepageTextField.stringValue = duckDuckGoDefaultURL;
             
         } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Ask"]) {
             
             // Set homepage to Ask
             [self setHomepageFunc:askDefaultURL];
-            self.homepageTextField.stringValue = askDefaultURL;
         } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"AOL"]) {
             
             // Set homepage to AOL
             [self setHomepageFunc:aolDefaultURL];
-            self.homepageTextField.stringValue = aolDefaultURL;
         }
     }
 }
@@ -444,6 +438,7 @@ NSString *userAgent = nil;
     NSLog(@"Setting homepage...");
     
     [defaults setObject:[NSString stringWithFormat:@"%@", homepageToSet] forKey:@"userHomepage"];
+    self.homepageTextField.stringValue = [defaults objectForKey:@"userHomepage"];
 }
 
 - (IBAction)setHomepage:(id)sender {
@@ -452,10 +447,7 @@ NSString *userAgent = nil;
         // Homepage is not set -- revert to default
         
         [self setHomepageFunc:googleDefaultURL];
-        self.homepageTextField.stringValue = [defaults objectForKey:@"userHomepage"];
     } else {
-        
-        NSLog(@"Setting homepage...");
         
         NSString *homepageString = self.homepageTextField.stringValue;
         
