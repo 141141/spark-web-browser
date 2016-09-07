@@ -17,7 +17,7 @@
 
 @synthesize window;
 
-// Declarations -- defined within the class for easy changes / scalability in the future
+// Declarations -- defined within the entire class for easy changes / scalability in the future
 
 // Search engine query strings
 NSString *googleSearchString = @"https://www.google.com/search?q=%@&gws_rd=ssl";
@@ -26,6 +26,15 @@ NSString *yahooSearchString = @"https://search.yahoo.com/search?p=%@";
 NSString *duckDuckGoSearchString = @"https://www.duckduckgo.com/%@";
 NSString *askSearchString = @"http://www.ask.com/web?q=%@";
 NSString *aolSearchString = @"http://search.aol.com/aol/search?q=%@";
+
+NSString *googleDefaultURL = @"https://www.google.com/?gws_rd=ssl";
+NSString *bingDefaultURL = @"https://www.bing.com/";
+NSString *yahooDefaultURL = @"https://www.yahoo.com/";
+NSString *duckDuckGoDefaultURL = @"https://www.duckduckgo.com";
+NSString *askDefaultURL = @"http://www.ask.com";
+NSString *aolDefaultURL = @"http://www.aol.com";
+
+NSString *appIssuesURL = @"https://www.github.com/insleep/spark-web-browser/issues/";
 
 // Colors
 NSColor *defaultColor = nil;
@@ -185,7 +194,6 @@ NSString *userAgent = nil;
         
         // Set top bar color to dark gray
         self.window.backgroundColor = darkGrayColor;
-        
     }
     
     // Homepage checking
@@ -193,8 +201,8 @@ NSString *userAgent = nil;
         // Homepage is not set
         
         // Default homepage
-        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.google.com/?gws_rd=ssl"]]];
-        self.homepageTextField.stringValue = [NSString stringWithFormat:@"https://www.google.com/?gws_rd=ssl"];
+        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:googleDefaultURL]]];
+        self.homepageTextField.stringValue = [NSString stringWithFormat:@"%@", googleDefaultURL];
     } else {
         // Homepage is set
         
@@ -271,8 +279,8 @@ NSString *userAgent = nil;
 
 
 - (IBAction)reportIssue:(id)sender {
-    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.github.com/insleep/spark-web-browser/issues/"]]];
-    self.addressBar.stringValue = @"https://www.github.com/insleep/spark-web-browser/issues/";
+    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:appIssuesURL]]];
+    self.addressBar.stringValue = appIssuesURL;
 }
 
 - (IBAction)setSearchEngine:(id)sender {
@@ -289,37 +297,37 @@ NSString *userAgent = nil;
         if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Google"]) {
             
             // Set homepage to Google
-            [self setHomepageFunc:@"https://www.google.com/?gws_rd=ssl"];
-            self.homepageTextField.stringValue = @"https://www.google.com/?gws_rd=ssl";
+            [self setHomepageFunc:googleDefaultURL];
+            self.homepageTextField.stringValue = googleDefaultURL;
             
         } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Bing"]) {
             
             // Set homepage to Bing
-            [self setHomepageFunc:@"https://www.bing.com/"];
-            self.homepageTextField.stringValue = @"https://www.bing.com/";
+            [self setHomepageFunc:bingDefaultURL];
+            self.homepageTextField.stringValue = bingDefaultURL;
             
         } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Yahoo!"]) {
             
             // Set homepage to Yahoo!
-            [self setHomepageFunc:@"https://www.yahoo.com/"];
-            self.homepageTextField.stringValue = @"https://www.yahoo.com/";
+            [self setHomepageFunc:yahooDefaultURL];
+            self.homepageTextField.stringValue = yahooDefaultURL;
             
         } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"DuckDuckGo"]) {
             
             // Set homepage to DuckDuckGo
-            [self setHomepageFunc:@"https://www.duckduckgo.com/"];
-            self.homepageTextField.stringValue = @"https://www.duckduckgo.com/";
+            [self setHomepageFunc:duckDuckGoDefaultURL];
+            self.homepageTextField.stringValue = duckDuckGoDefaultURL;
             
         } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Ask"]) {
             
             // Set homepage to Ask
-            [self setHomepageFunc:@"http://ask.com/"];
-            self.homepageTextField.stringValue = @"http://ask.com/";
+            [self setHomepageFunc:askDefaultURL];
+            self.homepageTextField.stringValue = askDefaultURL;
         } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"AOL"]) {
             
             // Set homepage to AOL
-            [self setHomepageFunc:@"http://aol.com/"];
-            self.homepageTextField.stringValue = @"http://aol.com/";
+            [self setHomepageFunc:aolDefaultURL];
+            self.homepageTextField.stringValue = aolDefaultURL;
         }
     }
 }
@@ -420,6 +428,8 @@ NSString *userAgent = nil;
 
 - (IBAction)setReleaseChannel:(id)sender {
     
+    NSLog(@"Setting release channel...");
+    
     NSString *capitalizedReleaseChannel = [NSString stringWithFormat:@"%@", self.releaseChannelPicker.titleOfSelectedItem];
     NSString *uncapitalizedReleaseChannel = [capitalizedReleaseChannel lowercaseString];
     
@@ -429,7 +439,7 @@ NSString *userAgent = nil;
 }
 
 - (void)setHomepageFunc:(NSString *)homepageToSet {
-
+    
     NSLog(@"Setting homepage...");
     
     [defaults setObject:[NSString stringWithFormat:@"%@", homepageToSet] forKey:@"userHomepage"];
@@ -440,8 +450,8 @@ NSString *userAgent = nil;
     if(self.homepageTextField.stringValue == nil || [self.homepageTextField.stringValue isEqual:@""]) {
         // Homepage is not set -- revert to default
         
-        [defaults setObject:@"https://www.google.com/?gws_rd=ssl" forKey:@"userHomepage"];
-        self.homepageTextField.stringValue = @"https://www.google.com/?gws_rd=ssl";
+        [defaults setObject:googleDefaultURL forKey:@"userHomepage"];
+        self.homepageTextField.stringValue = googleDefaultURL;
     } else {
         
         NSLog(@"Setting homepage...");
@@ -496,8 +506,7 @@ NSString *userAgent = nil;
     if (frame == [sender mainFrame]) {
         
         const int clipLength = 25;
-        if([title length] > clipLength)
-        {
+        if([title length] > clipLength) {
             title = [NSString stringWithFormat:@"%@...", [title substringToIndex:clipLength]];
         }
         
