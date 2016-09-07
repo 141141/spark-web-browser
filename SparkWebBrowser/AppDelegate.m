@@ -59,8 +59,23 @@ NSString *channelVer = nil;
 NSString *editedVersionString = nil;
 NSString *userAgent = nil;
 
+// Objects related (somewhat) to loading webpages
+NSString *searchString = nil;
+NSString *homepageString = nil;
 NSString *urlAddress = nil;
 NSString *editedUrlString = nil;
+NSString *capitalizedReleaseChannel = nil;
+NSString *uncapitalizedReleaseChannel = nil;
+NSString *searchEngineChosen = nil;
+NSString *colorChosen = nil;
+NSString *urlToString = nil;
+NSString *websiteUrl = nil;
+NSString *faviconURLString = nil;
+NSURL *eventUrl = nil;
+NSURL *faviconURL = nil;
+NSData *faviconData = nil;
+NSImage *websiteFavicon = nil;
+
 
 + (void)initialize {
     defaults = [NSUserDefaults standardUserDefaults]; // Set up NSUserDefaults
@@ -102,8 +117,8 @@ NSString *editedUrlString = nil;
     
     // Handle spark:// URL events
     
-    NSURL *url = [NSURL URLWithString:[[event paramDescriptorForKeyword:keyDirectObject] stringValue]];
-    NSString *urlToString = [url absoluteString];
+    eventUrl = [NSURL URLWithString:[[event paramDescriptorForKeyword:keyDirectObject] stringValue]];
+    urlToString = [eventUrl absoluteString];
     if([urlToString isEqual: @"spark://about"]) {
         NSLog(@"spark://about loaded");
         [self.titleStatus setStringValue:@"About Spark"];
@@ -228,7 +243,7 @@ NSString *editedUrlString = nil;
 
 - (IBAction)setTopBarColor:(id)sender {
     
-    NSString *colorChosen = [NSString stringWithFormat:@"%@", self.topBarColorPicker.titleOfSelectedItem];
+    colorChosen = [NSString stringWithFormat:@"%@", self.topBarColorPicker.titleOfSelectedItem];
     
     [defaults setObject:[NSString stringWithFormat:@"%@", colorChosen] forKey:@"currentColor"];
     [defaults setInteger:self.topBarColorPicker.indexOfSelectedItem forKey:@"colorIndex"];
@@ -289,11 +304,12 @@ NSString *editedUrlString = nil;
 
 - (IBAction)setSearchEngine:(id)sender {
     
-    NSString *searchEngineChosen = [NSString stringWithFormat:@"%@", self.searchEnginePicker.titleOfSelectedItem];
+    searchEngineChosen = [NSString stringWithFormat:@"%@", self.searchEnginePicker.titleOfSelectedItem];
     
     [defaults setObject:[NSString stringWithFormat:@"%@", searchEngineChosen] forKey:@"currentSearchEngine"];
     [defaults setInteger:self.searchEnginePicker.indexOfSelectedItem forKey:@"searchEngineIndex"];
     
+    // Check whether or not to override homepage
     if([defaults boolForKey:@"setHomepageEngine"] == YES) {
         
         NSLog(@"Setting homepage based on search engine");
@@ -332,7 +348,7 @@ NSString *editedUrlString = nil;
 
 - (IBAction)initWebpageLoad:(id)sender {
     
-    NSString *searchString = self.addressBar.stringValue;
+    searchString = self.addressBar.stringValue;
     
     [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:searchString]]];
     self.addressBar.stringValue = [NSString stringWithFormat:@"%@", searchString];
@@ -426,8 +442,8 @@ NSString *editedUrlString = nil;
     
     NSLog(@"Setting release channel...");
     
-    NSString *capitalizedReleaseChannel = [NSString stringWithFormat:@"%@", self.releaseChannelPicker.titleOfSelectedItem];
-    NSString *uncapitalizedReleaseChannel = [capitalizedReleaseChannel lowercaseString];
+    capitalizedReleaseChannel = [NSString stringWithFormat:@"%@", self.releaseChannelPicker.titleOfSelectedItem];
+    uncapitalizedReleaseChannel = [capitalizedReleaseChannel lowercaseString];
     
     [defaults setObject:[NSString stringWithFormat:@"%@", uncapitalizedReleaseChannel] forKey:@"currentReleaseChannel"];
     [defaults setInteger:self.releaseChannelPicker.indexOfSelectedItem forKey:@"releaseChannelIndex"];
@@ -450,7 +466,7 @@ NSString *editedUrlString = nil;
         [self setHomepageFunc:googleDefaultURL];
     } else {
         
-        NSString *homepageString = self.homepageTextField.stringValue;
+        homepageString = self.homepageTextField.stringValue;
         
         [self setHomepageFunc:homepageString];
     }
@@ -478,18 +494,18 @@ NSString *editedUrlString = nil;
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame {
     // Only report feedback for the main frame.
     if (frame == [sender mainFrame]) {
-        NSString *url = [[[[frame provisionalDataSource] request] URL] absoluteString];
+        websiteUrl = [[[[frame provisionalDataSource] request] URL] absoluteString];
         self.reloadBtn.image = [NSImage imageNamed: NSImageNameStopProgressTemplate];
-        [self.addressBar setStringValue:url];
+        [self.addressBar setStringValue:websiteUrl];
         self.faviconImage.hidden = YES;
         self.loadingIndicator.hidden = NO;
         [self.loadingIndicator startAnimation:self];
         
         // Use Google to get website favicons
-        NSString *faviconURLString = [NSString stringWithFormat:@"https://www.google.com/s2/favicons?domain=%@", url];
-        NSURL *faviconURL=[NSURL URLWithString: faviconURLString];
-        NSData *faviconData = [NSData dataWithContentsOfURL:faviconURL];
-        NSImage *websiteFavicon = [[NSImage alloc] initWithData:faviconData];
+        faviconURLString = [NSString stringWithFormat:@"https://www.google.com/s2/favicons?domain=%@", websiteUrl];
+        faviconURL = [NSURL URLWithString: faviconURLString];
+        faviconData = [NSData dataWithContentsOfURL:faviconURL];
+        websiteFavicon = [[NSImage alloc] initWithData:faviconData];
         self.faviconImage.image = websiteFavicon;
         
     }
