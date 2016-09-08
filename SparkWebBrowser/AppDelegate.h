@@ -35,6 +35,9 @@
 @property (assign, nonatomic) IBOutlet NSButton *basedOnEngineBtn;
 @property (assign, nonatomic) IBOutlet NSTextField *tabBg;
 @property (assign, nonatomic) IBOutlet NSTextField *topBarBg;
+@property (assign, nonatomic) IBOutlet NSButton *backBtn;
+@property (assign, nonatomic) IBOutlet NSButton *forwardBtn;
+@property (assign, nonatomic) IBOutlet NSButton *settingsBtn;
 
 
 // Methods

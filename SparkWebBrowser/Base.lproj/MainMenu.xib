@@ -18,9 +18,11 @@
             <connections>
                 <outlet property="aboutWindow" destination="oJi-1c-Sb5" id="bgk-nR-Kh0"/>
                 <outlet property="addressBar" destination="6S4-CW-iwm" id="yLL-ye-fyR"/>
+                <outlet property="backBtn" destination="CSR-Ik-wrT" id="9ar-Ai-zKp"/>
                 <outlet property="basedOnEngineBtn" destination="5Uw-Fh-cJ1" id="mDs-jK-Vv7"/>
                 <outlet property="currentVersion" destination="sbh-Aa-9pH" id="pub-aC-Yo5"/>
                 <outlet property="faviconImage" destination="t5k-sW-5ra" id="bKl-he-loz"/>
+                <outlet property="forwardBtn" destination="wRb-WG-N9I" id="G2y-ac-Zki"/>
                 <outlet property="homepageTextField" destination="wPk-qF-HnV" id="sfR-SW-cWa"/>
                 <outlet property="loadingIndicator" destination="1qB-mY-4UE" id="EYD-he-pSG"/>
                 <outlet property="ntBtn" destination="pmy-Gn-uac" id="eJG-ga-1rU"/>
@@ -31,6 +33,7 @@
                 <outlet property="reloadBtn" destination="gZC-HQ-A14" id="jGE-yL-ojT"/>
                 <outlet property="searchEnginePicker" destination="GYw-Eq-qx7" id="whS-kR-ROu"/>
                 <outlet property="setHomepageBtn" destination="UmC-Hu-U0Q" id="W7C-5d-ciQ"/>
+                <outlet property="settingsBtn" destination="Nsh-fL-8Ic" id="c7u-0x-cPE"/>
                 <outlet property="settingsWindow" destination="MMA-4M-Pa4" id="6F0-cu-izG"/>
                 <outlet property="tabBg" destination="7o9-5H-k8C" id="eFO-J4-FaZ"/>
                 <outlet property="titleStatus" destination="JvK-hQ-Wwq" id="SHO-kH-keU"/>
@@ -450,7 +453,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="xov-8m-vae">
-                        <rect key="frame" x="18" y="151" width="43" height="17"/>
+                        <rect key="frame" x="18" y="151" width="27" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="OS:" id="hug-Xg-Er8">
                             <font key="font" metaFont="systemMedium" size="13"/>
@@ -477,7 +480,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="IJ8-Wb-oLm">
-                        <rect key="frame" x="18" y="176" width="43" height="17"/>
+                        <rect key="frame" x="18" y="176" width="45" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Spark:" id="Q9p-jq-bT1">
                             <font key="font" metaFont="systemMedium" size="13"/>
