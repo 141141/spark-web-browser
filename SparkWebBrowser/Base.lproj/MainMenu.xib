@@ -599,7 +599,7 @@ Spark is made possible by the WebKit open source project and other open source s
                         </connections>
                     </popUpButton>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="RI9-it-Jxv">
-                        <rect key="frame" x="296" y="347" width="107" height="17"/>
+                        <rect key="frame" x="296" y="347" width="109" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Release Channel" id="wgH-I9-vzk">
                             <font key="font" metaFont="systemSemibold" size="13"/>
@@ -684,15 +684,6 @@ Spark is made possible by the WebKit open source project and other open source s
                             <action selector="setReleaseChannel:" target="Voe-Tx-rLC" id="BAJ-Ij-Q1P"/>
                         </connections>
                     </popUpButton>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="8jo-1g-mt3">
-                        <rect key="frame" x="186" y="432" width="140" height="29"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Preferences" id="SYn-GM-8JT">
-                            <font key="font" metaFont="systemMedium" size="24"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" id="doz-wZ-1Ow">
                         <rect key="frame" x="18" y="49" width="189" height="13"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -724,6 +715,15 @@ Spark is made possible by the WebKit open source project and other open source s
                             <action selector="setTopBarColor:" target="Voe-Tx-rLC" id="l4a-8q-oOU"/>
                         </connections>
                     </popUpButton>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="8jo-1g-mt3">
+                        <rect key="frame" x="176" y="427" width="161" height="34"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Preferences" id="SYn-GM-8JT">
+                            <font key="font" metaFont="systemMedium" size="28"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
             <point key="canvasLocation" x="1283.5" y="-374.5"/>

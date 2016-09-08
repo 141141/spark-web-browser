@@ -236,7 +236,6 @@ NSImage *websiteFavicon = nil;
         
     }
     
-    
     // Homepage checking
     if([defaults objectForKey:@"userHomepage"] == nil) {
         // Homepage is not set
@@ -262,6 +261,51 @@ NSImage *websiteFavicon = nil;
         self.basedOnEngineBtn.state = NSOffState;
         self.homepageTextField.enabled = YES;
         self.setHomepageBtn.enabled = YES;
+    }
+}
+
+- (void)setHomepageBasedOnSearchEngine:(id)sender {
+    if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Google"]) {
+        
+        // Set homepage to Google
+        [self setHomepageFunc:googleDefaultURL];
+        
+    } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Bing"]) {
+        
+        // Set homepage to Bing
+        [self setHomepageFunc:bingDefaultURL];
+        
+    } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Yahoo!"]) {
+        
+        // Set homepage to Yahoo!
+        [self setHomepageFunc:yahooDefaultURL];
+        
+    } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"DuckDuckGo"]) {
+        
+        // Set homepage to DuckDuckGo
+        [self setHomepageFunc:duckDuckGoDefaultURL];
+        
+    } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Ask"]) {
+        
+        // Set homepage to Ask
+        [self setHomepageFunc:askDefaultURL];
+    } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"AOL"]) {
+        
+        // Set homepage to AOL
+        [self setHomepageFunc:aolDefaultURL];
+    }
+}
+
+- (void)setHomepageFunc:(NSString *)homepageToSet {
+    
+    
+    if([homepageToSet hasPrefix:@"https://"] || [homepageToSet hasPrefix:@"http://"]) {
+        NSLog(@"Setting homepage...");
+        [defaults setObject:[NSString stringWithFormat:@"%@", homepageToSet] forKey:@"userHomepage"];
+        self.homepageTextField.stringValue = [defaults objectForKey:@"userHomepage"];
+    } else {
+        NSLog(@"Homepage not set: invalid web address.");
+        [self setHomepageFunc:googleDefaultURL];
     }
 }
 
@@ -318,6 +362,7 @@ NSImage *websiteFavicon = nil;
         [defaults setBool:YES forKey:@"setHomepageEngine"];
         self.homepageTextField.enabled = NO;
         self.setHomepageBtn.enabled = NO;
+        [self setHomepageBasedOnSearchEngine:self];
         
     } else if([self.basedOnEngineBtn state] == NSOffState) {
         // Off
@@ -352,35 +397,7 @@ NSImage *websiteFavicon = nil;
         
         NSLog(@"Setting homepage based on search engine");
         
-        if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Google"]) {
-            
-            // Set homepage to Google
-            [self setHomepageFunc:googleDefaultURL];
-            
-        } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Bing"]) {
-            
-            // Set homepage to Bing
-            [self setHomepageFunc:bingDefaultURL];
-            
-        } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Yahoo!"]) {
-            
-            // Set homepage to Yahoo!
-            [self setHomepageFunc:yahooDefaultURL];
-            
-        } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"DuckDuckGo"]) {
-            
-            // Set homepage to DuckDuckGo
-            [self setHomepageFunc:duckDuckGoDefaultURL];
-            
-        } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Ask"]) {
-            
-            // Set homepage to Ask
-            [self setHomepageFunc:askDefaultURL];
-        } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"AOL"]) {
-            
-            // Set homepage to AOL
-            [self setHomepageFunc:aolDefaultURL];
-        }
+        [self setHomepageBasedOnSearchEngine:self];
     }
 }
 
@@ -509,19 +526,6 @@ NSImage *websiteFavicon = nil;
     }
 
 
-}
-
-- (void)setHomepageFunc:(NSString *)homepageToSet {
-    
-    
-    if([homepageToSet hasPrefix:@"https://"] || [homepageToSet hasPrefix:@"http://"]) {
-        NSLog(@"Setting homepage...");
-        [defaults setObject:[NSString stringWithFormat:@"%@", homepageToSet] forKey:@"userHomepage"];
-        self.homepageTextField.stringValue = [defaults objectForKey:@"userHomepage"];
-    } else {
-        NSLog(@"Homepage not set: invalid web address.");
-        [self setHomepageFunc:googleDefaultURL];
-    }
 }
 
 - (IBAction)setHomepage:(id)sender {
