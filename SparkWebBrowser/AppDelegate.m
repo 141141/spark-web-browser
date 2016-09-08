@@ -44,10 +44,11 @@ NSString *appReleasesURL = @"https://www.github.com/insleep/spark-web-browser/re
 
 // Theme Colors
 NSColor *defaultColor = nil;
-NSColor *redColor = nil;
-NSColor *aquaColor = nil;
-NSColor *blueColor = nil;
-NSColor *orangeColor = nil;
+NSColor *rubyRedColor = nil;
+NSColor *deepAquaColor = nil;
+NSColor *redmondBlueColor = nil;
+NSColor *leafGreenColor = nil;
+NSColor *alloyOrangeColor = nil;
 NSColor *darkGrayColor = nil;
 
 // General app setup
@@ -86,10 +87,11 @@ NSImage *websiteFavicon = nil;
     
     // Set up theme colors
     defaultColor = [NSColor colorWithRed:192.0f/255.0f green:192.0f/255.0f blue:192.0f/255.0f alpha:1.0f];
-    redColor = [NSColor colorWithRed:0.773f green:0.231f blue:0.212f alpha:1.0f];
-    aquaColor = [NSColor colorWithRed:46.0f/255.0f green:133.0f/255.0f blue:162.0f/255.0f alpha:1.0f];
-    blueColor = [NSColor colorWithRed:16.0f/255.0f green:101.0f/255.0f blue:207.0f/255.0f alpha:1.0f];
-    orangeColor = [NSColor colorWithRed:200.0f/255.0f green:80.0f/255.0f blue:1.0f/255.0f alpha:1.0f];
+    rubyRedColor = [NSColor colorWithRed:0.773f green:0.231f blue:0.212f alpha:1.0f];
+    deepAquaColor = [NSColor colorWithRed:46.0f/255.0f green:133.0f/255.0f blue:162.0f/255.0f alpha:1.0f];
+    redmondBlueColor = [NSColor colorWithRed:16.0f/255.0f green:101.0f/255.0f blue:207.0f/255.0f alpha:1.0f];
+    leafGreenColor = [NSColor colorWithRed:8.0f/255.0f green:157.0f/255.0f blue:0.0f/255.0f alpha:1.0f];
+    alloyOrangeColor = [NSColor colorWithRed:200.0f/255.0f green:80.0f/255.0f blue:1.0f/255.0f alpha:1.0f];
     darkGrayColor = [NSColor colorWithRed:44.0f/255.0f green:44.0f/255.0f blue:44.0f/255.0f alpha:1.0f];
     
     infoDict = [[NSBundle mainBundle] infoDictionary]; // Load Info.plist
@@ -201,25 +203,30 @@ NSImage *websiteFavicon = nil;
         // Set window color to default color
         self.window.backgroundColor = defaultColor;
         
-    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Red"]) {
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Ruby Red"]) {
         
-        // Set window color to red
-        self.window.backgroundColor = redColor;
+        // Set window color to Ruby Red
+        self.window.backgroundColor = rubyRedColor;
         
-    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Aqua"]) {
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Deep Aqua"]) {
         
-        // Set window color to aqua
-        self.window.backgroundColor = aquaColor;
+        // Set window color to Deep Aqua
+        self.window.backgroundColor = deepAquaColor;
         
-    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Blue"]) {
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Redmond Blue"]) {
         
-        // Set window color to blue
-        self.window.backgroundColor = blueColor;
+        // Set window color to Redmond Blue
+        self.window.backgroundColor = redmondBlueColor;
         
-    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Orange"]) {
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Leaf Green"]) {
         
-        // Set window color to orange
-        self.window.backgroundColor = orangeColor;
+        // Set window color to Leaf Green
+        self.window.backgroundColor = leafGreenColor;
+        
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Alloy Orange"]) {
+        
+        // Set window color to Alloy Orange
+        self.window.backgroundColor = alloyOrangeColor;
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Dark Gray"]) {
         
@@ -265,25 +272,30 @@ NSImage *websiteFavicon = nil;
         // Set window color to default color
         self.window.backgroundColor = defaultColor;
         
-    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Red"]) {
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Ruby Red"]) {
         
-        // Set window color to red
-        self.window.backgroundColor = redColor;
+        // Set window color to Ruby Red
+        self.window.backgroundColor = rubyRedColor;
         
-    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Aqua"]) {
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Deep Aqua"]) {
         
-        // Set window color to aqua
-        self.window.backgroundColor = aquaColor;
+        // Set window color to Deep Aqua
+        self.window.backgroundColor = deepAquaColor;
         
-    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Blue"]) {
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Redmond Blue"]) {
         
-        // Set window color to blue
-        self.window.backgroundColor = blueColor;
+        // Set window color to Redmond Blue
+        self.window.backgroundColor = redmondBlueColor;
         
-    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Orange"]) {
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Leaf Green"]) {
         
-        // Set window color to orange
-        self.window.backgroundColor = orangeColor;
+        // Set window color to Leaf Green
+        self.window.backgroundColor = leafGreenColor;
+        
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Alloy Orange"]) {
+        
+        // Set window color to Alloy Orange
+        self.window.backgroundColor = alloyOrangeColor;
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Dark Gray"]) {
         
