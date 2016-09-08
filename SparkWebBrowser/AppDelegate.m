@@ -49,8 +49,6 @@ NSColor *aquaColor = nil;
 NSColor *blueColor = nil;
 NSColor *orangeColor = nil;
 NSColor *darkGrayColor = nil;
-NSColor *whiteColor = nil;
-NSColor *blackColor = nil;
 
 // General app setup
 NSUserDefaults *defaults = nil;
@@ -93,8 +91,6 @@ NSImage *websiteFavicon = nil;
     blueColor = [NSColor colorWithRed:16.0f/255.0f green:101.0f/255.0f blue:207.0f/255.0f alpha:1.0f];
     orangeColor = [NSColor colorWithRed:200.0f/255.0f green:80.0f/255.0f blue:1.0f/255.0f alpha:1.0f];
     darkGrayColor = [NSColor colorWithRed:44.0f/255.0f green:44.0f/255.0f blue:44.0f/255.0f alpha:1.0f];
-    whiteColor = [NSColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:1.0f];
-    blackColor = [NSColor colorWithRed:0.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:1.0f];
     
     infoDict = [[NSBundle mainBundle] infoDictionary]; // Load Info.plist
     appVersion = [infoDict objectForKey:@"CFBundleShortVersionString"]; // Fetch the version number from Info.plist
@@ -463,12 +459,18 @@ NSImage *websiteFavicon = nil;
     
     NSLog(@"Setting release channel...");
     
-    capitalizedReleaseChannel = [NSString stringWithFormat:@"%@", self.releaseChannelPicker.titleOfSelectedItem];
+    if([self.releaseChannelPicker.titleOfSelectedItem isEqual: @"Developer"]) {
+        capitalizedReleaseChannel = @"Dev";
+    } else {
+        capitalizedReleaseChannel = [NSString stringWithFormat:@"%@", self.releaseChannelPicker.titleOfSelectedItem];
+    }
+    
     uncapitalizedReleaseChannel = [capitalizedReleaseChannel lowercaseString];
     
     [defaults setObject:[NSString stringWithFormat:@"%@", uncapitalizedReleaseChannel] forKey:@"currentReleaseChannel"];
     [defaults setInteger:self.releaseChannelPicker.indexOfSelectedItem forKey:@"releaseChannelIndex"];
-    
+
+
 }
 
 - (void)setHomepageFunc:(NSString *)homepageToSet {
