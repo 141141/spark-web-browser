@@ -63,6 +63,7 @@ NSString *productName = nil;
 NSString *channelVer = nil;
 NSString *editedVersionString = nil;
 NSString *userAgent = nil;
+NSAlert *alert = nil;
 
 // Objects related (somewhat) to loading webpages
 NSString *searchString = nil;
@@ -482,7 +483,7 @@ NSImage *websiteFavicon = nil;
     [defaults setObject:[NSString stringWithFormat:@"%@", uncapitalizedReleaseChannel] forKey:@"currentReleaseChannel"];
     [defaults setInteger:self.releaseChannelPicker.indexOfSelectedItem forKey:@"releaseChannelIndex"];
     
-    NSAlert *alert = [[NSAlert alloc] init];
+    alert = [[NSAlert alloc] init];
     [alert setMessageText:@"Set Release Channel and Restart?"];
     [alert setInformativeText:[NSString stringWithFormat:@"Spark release channel will be set to: %@.\n\nA browser restart is required for this to take effect.", uncapitalizedReleaseChannel]];
     [alert addButtonWithTitle:@"Cancel"];
@@ -510,13 +511,8 @@ NSImage *websiteFavicon = nil;
         [defaults setObject:[NSString stringWithFormat:@"%@", homepageToSet] forKey:@"userHomepage"];
         self.homepageTextField.stringValue = [defaults objectForKey:@"userHomepage"];
     } else {
-        NSLog(@"An error occurred while setting the homepage: invalid web address.");
-        NSAlert *alert = [[NSAlert alloc] init];
-        [alert setMessageText:@"Invalid Homepage"];
-        [alert setInformativeText:@"The homepage you specified is an invalid web address."];
-        [alert addButtonWithTitle:@"Cancel"];
-        [alert addButtonWithTitle:@"OK"];
-        [alert runModal];
+        NSLog(@"Homepage not set: invalid web address.");
+        [self setHomepageFunc:googleDefaultURL];
     }
 }
 
@@ -588,7 +584,6 @@ NSImage *websiteFavicon = nil;
         self.reloadBtn.image = [NSImage imageNamed: NSImageNameRefreshTemplate];
         self.loadingIndicator.hidden = YES;
         self.faviconImage.hidden = NO;
-        
     }
 }
 
