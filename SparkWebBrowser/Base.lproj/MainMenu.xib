@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="16A313a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="16A313a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="10117"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="11201"/>
+        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -51,12 +52,13 @@
                                     <action selector="makeKeyAndOrderFront:" target="oJi-1c-Sb5" id="1Jq-nI-LrI"/>
                                 </connections>
                             </menuItem>
+                            <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
                             <menuItem title="Preferences..." keyEquivalent="," id="kCe-Bt-VbN">
                                 <connections>
                                     <action selector="makeKeyAndOrderFront:" target="MMA-4M-Pa4" id="yJZ-N0-Tlf"/>
                                 </connections>
                             </menuItem>
-                            <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
+                            <menuItem isSeparatorItem="YES" id="DVR-aL-kRi"/>
                             <menuItem title="Hide Spark" keyEquivalent="h" id="Olw-nP-bQN">
                                 <connections>
                                     <action selector="hide:" target="-1" id="PnN-Uc-m68"/>
@@ -523,25 +525,25 @@ Spark is made possible by the WebKit open source project and other open source s
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="MMA-4M-Pa4" userLabel="Preferences Window" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="83" y="97" width="455" height="344"/>
+            <rect key="contentRect" x="83" y="97" width="513" height="460"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
-            <view key="contentView" id="9sG-7c-hp7">
-                <rect key="frame" x="0.0" y="0.0" width="455" height="344"/>
+            <view key="contentView" misplaced="YES" id="9sG-7c-hp7">
+                <rect key="frame" x="0.0" y="0.0" width="513" height="460"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="kuJ-d6-9c1">
-                        <rect key="frame" x="53" y="207" width="76" height="17"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="kuJ-d6-9c1">
+                        <rect key="frame" x="18" y="326" width="73" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Homepage:" id="O6t-I4-5e6">
-                            <font key="font" metaFont="systemMedium" size="13"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Homepage" id="O6t-I4-5e6">
+                            <font key="font" metaFont="systemSemibold" size="13"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button verticalHuggingPriority="750" id="UmC-Hu-U0Q">
-                        <rect key="frame" x="391" y="198" width="50" height="32"/>
+                    <button verticalHuggingPriority="750" misplaced="YES" id="UmC-Hu-U0Q">
+                        <rect key="frame" x="14" y="260" width="60" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Set" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="beu-qR-DO4">
+                        <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="beu-qR-DO4">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -549,10 +551,10 @@ Spark is made possible by the WebKit open source project and other open source s
                             <action selector="setHomepage:" target="Voe-Tx-rLC" id="91Z-Ei-9oa"/>
                         </connections>
                     </button>
-                    <textField verticalHuggingPriority="750" id="wPk-qF-HnV">
-                        <rect key="frame" x="135" y="205" width="254" height="21"/>
+                    <textField verticalHuggingPriority="750" misplaced="YES" id="wPk-qF-HnV">
+                        <rect key="frame" x="22" y="296" width="254" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" placeholderString="e.g. http://www.google.com" drawsBackground="YES" id="9f4-ku-MaX">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" placeholderString="e.g. https://www.google.com" drawsBackground="YES" id="9f4-ku-MaX">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -561,17 +563,99 @@ Spark is made possible by the WebKit open source project and other open source s
                             <action selector="performClick:" target="UmC-Hu-U0Q" id="Gwb-qC-9TH"/>
                         </connections>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="6ju-f9-ztb">
-                        <rect key="frame" x="32" y="156" width="97" height="17"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="RI9-it-Jxv">
+                        <rect key="frame" x="296" y="326" width="107" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Search engine:" id="lxu-8O-tru">
-                            <font key="font" metaFont="systemMedium" size="13"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Release channel" id="wgH-I9-vzk">
+                            <font key="font" metaFont="systemSemibold" size="13"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <popUpButton verticalHuggingPriority="750" id="GYw-Eq-qx7">
-                        <rect key="frame" x="133" y="151" width="259" height="26"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="w6z-Ej-Zm6">
+                        <rect key="frame" x="18" y="366" width="69" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="GENERAL" id="9AV-Il-cij">
+                            <font key="font" metaFont="systemSemibold" size="14"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="8jo-1g-mt3">
+                        <rect key="frame" x="171" y="402" width="171" height="38"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Preferences" id="SYn-GM-8JT">
+                            <font key="font" metaFont="system" size="31"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button misplaced="YES" id="5Uw-Fh-cJ1">
+                        <rect key="frame" x="18" y="241" width="258" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Set homepage based on search engine" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="elQ-PV-V5H">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="setHomepageEngine:" target="Voe-Tx-rLC" id="Dx8-bT-QIJ"/>
+                        </connections>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="rg3-RE-1iN">
+                        <rect key="frame" x="20" y="189" width="62" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="SEARCH" id="Y5E-6S-dgg">
+                            <font key="font" metaFont="systemSemibold" size="14"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <box verticalHuggingPriority="750" misplaced="YES" boxType="separator" id="trd-Tf-SN1">
+                        <rect key="frame" x="20" y="178" width="481" height="5"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    </box>
+                    <box verticalHuggingPriority="750" misplaced="YES" boxType="separator" id="fwy-v0-S4o">
+                        <rect key="frame" x="20" y="355" width="481" height="5"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    </box>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" id="0Hn-tX-6vb">
+                        <rect key="frame" x="296" y="296" width="186" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="This setting requires a restart to take full effect." id="aCC-eG-e4I">
+                            <font key="font" metaFont="system" size="10"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <popUpButton verticalHuggingPriority="750" misplaced="YES" id="DBB-e5-yay">
+                        <rect key="frame" x="296" y="264" width="161" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="5vz-Ww-6jw">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="mEE-YO-AGn">
+                                <items>
+                                    <menuItem title="Stable" id="4YV-0A-Ncg"/>
+                                    <menuItem title="Beta" id="zYs-HB-zYL"/>
+                                    <menuItem title="Dev" id="Po8-8f-tys"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                        <connections>
+                            <action selector="setReleaseChannel:" target="Voe-Tx-rLC" id="BAJ-Ij-Q1P"/>
+                        </connections>
+                    </popUpButton>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="6ju-f9-ztb">
+                        <rect key="frame" x="20" y="149" width="97" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Search engine" id="lxu-8O-tru">
+                            <font key="font" metaFont="systemSemibold" size="13"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <popUpButton verticalHuggingPriority="750" misplaced="YES" id="GYw-Eq-qx7">
+                        <rect key="frame" x="20" y="116" width="161" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="PFJ-rh-BaU">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -591,17 +675,8 @@ Spark is made possible by the WebKit open source project and other open source s
                             <action selector="setSearchEngine:" target="Voe-Tx-rLC" id="j17-4T-LAr"/>
                         </connections>
                     </popUpButton>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="RI9-it-Jxv">
-                        <rect key="frame" x="20" y="129" width="109" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Release channel:" id="wgH-I9-vzk">
-                            <font key="font" metaFont="systemMedium" size="13"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="67Y-fF-zyT">
-                        <rect key="frame" x="39" y="20" width="90" height="17"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="67Y-fF-zyT">
+                        <rect key="frame" x="20" y="22" width="90" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Top bar color:" id="nXv-gJ-zuJ">
                             <font key="font" metaFont="systemMedium" size="13"/>
@@ -609,35 +684,8 @@ Spark is made possible by the WebKit open source project and other open source s
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <popUpButton verticalHuggingPriority="750" id="DBB-e5-yay">
-                        <rect key="frame" x="133" y="124" width="259" height="26"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="5vz-Ww-6jw">
-                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="menu"/>
-                            <menu key="menu" id="mEE-YO-AGn">
-                                <items>
-                                    <menuItem title="Stable" id="4YV-0A-Ncg"/>
-                                    <menuItem title="Beta" id="zYs-HB-zYL"/>
-                                    <menuItem title="Dev" id="Po8-8f-tys"/>
-                                </items>
-                            </menu>
-                        </popUpButtonCell>
-                        <connections>
-                            <action selector="setReleaseChannel:" target="Voe-Tx-rLC" id="BAJ-Ij-Q1P"/>
-                        </connections>
-                    </popUpButton>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="euH-0L-OJY">
-                        <rect key="frame" x="225" y="110" width="166" height="13"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="(takes effect after Spark restarts)" id="z9V-BM-6S4">
-                            <font key="font" metaFont="system" size="10"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <popUpButton verticalHuggingPriority="750" id="XHo-Io-iG9">
-                        <rect key="frame" x="133" y="15" width="259" height="26"/>
+                    <popUpButton verticalHuggingPriority="750" misplaced="YES" id="XHo-Io-iG9">
+                        <rect key="frame" x="114" y="17" width="259" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="VVQ-9h-rPw">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -656,47 +704,22 @@ Spark is made possible by the WebKit open source project and other open source s
                             <action selector="setTopBarColor:" target="Voe-Tx-rLC" id="l4a-8q-oOU"/>
                         </connections>
                     </popUpButton>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="w6z-Ej-Zm6">
-                        <rect key="frame" x="192" y="244" width="71" height="22"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="zfr-aS-5qC">
+                        <rect key="frame" x="18" y="64" width="99" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="General" id="9AV-Il-cij">
-                            <font key="font" metaFont="system" size="18"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="APPEARANCE" id="oDV-OV-Onu">
+                            <font key="font" metaFont="systemSemibold" size="14"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="zfr-aS-5qC">
-                        <rect key="frame" x="162" y="59" width="131" height="22"/>
+                    <box verticalHuggingPriority="750" misplaced="YES" boxType="separator" id="4Kf-Nt-nNP">
+                        <rect key="frame" x="20" y="53" width="481" height="5"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Personalization" id="oDV-OV-Onu">
-                            <font key="font" metaFont="system" size="18"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="8jo-1g-mt3">
-                        <rect key="frame" x="142" y="286" width="171" height="38"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Preferences" id="SYn-GM-8JT">
-                            <font key="font" metaFont="system" size="31"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <button id="5Uw-Fh-cJ1">
-                        <rect key="frame" x="133" y="181" width="258" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="check" title="Set homepage based on search engine" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="elQ-PV-V5H">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="setHomepageEngine:" target="Voe-Tx-rLC" id="Dx8-bT-QIJ"/>
-                        </connections>
-                    </button>
+                    </box>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="1308.5" y="-440"/>
+            <point key="canvasLocation" x="1283.5" y="-385"/>
         </window>
         <window allowsToolTipsWhenApplicationIsInactive="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES"/>
@@ -845,6 +868,27 @@ Spark is made possible by the WebKit open source project and other open source s
                 </subviews>
             </view>
             <point key="canvasLocation" x="1163.5" y="182"/>
+        </window>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="6Wu-lN-B5u" customClass="WelcomeScreen">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="207" width="480" height="380"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <view key="contentView" misplaced="YES" id="FNR-1H-BQC">
+                <rect key="frame" x="0.0" y="0.0" width="480" height="380"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button verticalHuggingPriority="750" misplaced="YES" id="Y6r-Af-A7h">
+                        <rect key="frame" x="200" y="227" width="81" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zpy-wH-D8M">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                </subviews>
+            </view>
+            <point key="canvasLocation" x="933" y="824"/>
         </window>
     </objects>
     <resources>
