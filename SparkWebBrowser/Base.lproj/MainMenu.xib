@@ -711,14 +711,11 @@ Spark is made possible by the WebKit open source project and other open source s
                             <menu key="menu" id="Nwt-Jy-HYO">
                                 <items>
                                     <menuItem title="Default" state="on" id="WqL-EJ-PSp"/>
-                                    <menuItem title="Red Light" id="dKq-HZ-PsH"/>
-                                    <menuItem title="Aqua Light" id="AFh-tY-AoJ"/>
-                                    <menuItem title="Orange Light" id="CAI-8i-CQY"/>
+                                    <menuItem title="Red" id="dKq-HZ-PsH"/>
+                                    <menuItem title="Aqua" id="AFh-tY-AoJ"/>
+                                    <menuItem title="Blue" id="joZ-Ng-4qb"/>
+                                    <menuItem title="Orange" id="CAI-8i-CQY"/>
                                     <menuItem title="Dark Gray" id="Nd6-9K-LI2"/>
-                                    <menuItem title="Red Dark" id="eIR-NE-CQA"/>
-                                    <menuItem title="Aqua Dark" id="ap4-gB-xDJ"/>
-                                    <menuItem title="Orange Dark" id="CK7-xE-itd"/>
-                                    <menuItem title="Dark Gray Inverted" id="2da-l4-0nL"/>
                                 </items>
                             </menu>
                         </popUpButtonCell>
@@ -858,7 +855,7 @@ Spark is made possible by the WebKit open source project and other open source s
                         <rect key="frame" x="111" y="683" width="162" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" placeholderString="Loading..." id="I9i-cv-n8A">
-                            <font key="font" metaFont="systemLight" size="12"/>
+                            <font key="font" metaFont="system" size="12"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>

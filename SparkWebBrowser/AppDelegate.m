@@ -46,6 +46,7 @@ NSString *appReleasesURL = @"https://www.github.com/insleep/spark-web-browser/re
 NSColor *defaultColor = nil;
 NSColor *redColor = nil;
 NSColor *aquaColor = nil;
+NSColor *blueColor = nil;
 NSColor *orangeColor = nil;
 NSColor *darkGrayColor = nil;
 NSColor *whiteColor = nil;
@@ -86,9 +87,10 @@ NSImage *websiteFavicon = nil;
     defaults = [NSUserDefaults standardUserDefaults]; // Set up NSUserDefaults
     
     // Set up theme colors
-    defaultColor = [NSColor colorWithRed:216.0f/255.0f green:216.0f/255.0f blue:216.0f/255.0f alpha:1.0f];
+    defaultColor = [NSColor colorWithRed:192.0f/255.0f green:192.0f/255.0f blue:192.0f/255.0f alpha:1.0f];
     redColor = [NSColor colorWithRed:0.773f green:0.231f blue:0.212f alpha:1.0f];
     aquaColor = [NSColor colorWithRed:46.0f/255.0f green:133.0f/255.0f blue:162.0f/255.0f alpha:1.0f];
+    blueColor = [NSColor colorWithRed:16.0f/255.0f green:101.0f/255.0f blue:207.0f/255.0f alpha:1.0f];
     orangeColor = [NSColor colorWithRed:200.0f/255.0f green:80.0f/255.0f blue:1.0f/255.0f alpha:1.0f];
     darkGrayColor = [NSColor colorWithRed:44.0f/255.0f green:44.0f/255.0f blue:44.0f/255.0f alpha:1.0f];
     whiteColor = [NSColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:1.0f];
@@ -200,29 +202,36 @@ NSImage *websiteFavicon = nil;
     // Get key value from NSUserDefaults and set top bar color
     if([[defaults objectForKey:@"currentColor"] isEqual: @"Default"] || [defaults objectForKey:@"currentColor"] == nil) {
         
-        // Set top bar color to default
+        // Set window color to default color
         self.window.backgroundColor = defaultColor;
         
-    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Red Light"]) {
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Red"]) {
         
-        // Set top bar color to red
+        // Set window color to red
         self.window.backgroundColor = redColor;
         
-    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Aqua Light"]) {
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Aqua"]) {
         
-        // Set top bar color to aqua
+        // Set window color to aqua
         self.window.backgroundColor = aquaColor;
         
-    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Orange Light"]) {
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Blue"]) {
         
-        // Set top bar color to orange
+        // Set window color to blue
+        self.window.backgroundColor = blueColor;
+        
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Orange"]) {
+        
+        // Set window color to orange
         self.window.backgroundColor = orangeColor;
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Dark Gray"]) {
         
-        // Set top bar color to dark gray
+        // Set window color to dark gray
         self.window.backgroundColor = darkGrayColor;
+        
     }
+    
     
     // Homepage checking
     if([defaults objectForKey:@"userHomepage"] == nil) {
@@ -257,94 +266,33 @@ NSImage *websiteFavicon = nil;
     
     if([[defaults objectForKey:@"currentColor"] isEqual: @"Default"]) {
         
-        // Set window color to default color + tab bar color to white
+        // Set window color to default color
         self.window.backgroundColor = defaultColor;
-        self.tabBg.backgroundColor = whiteColor;
-        self.topBarBg.backgroundColor = whiteColor;
         
-        // Set label + button colors
-        self.titleStatus.textColor = blackColor;
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Red"]) {
         
-    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Red Light"]) {
-        
-        // Set window color to red + tab bar color to white
+        // Set window color to red
         self.window.backgroundColor = redColor;
-        self.tabBg.backgroundColor = whiteColor;
-        self.topBarBg.backgroundColor = whiteColor;
         
-        // Set label + button colors
-        self.titleStatus.textColor = blackColor;
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Aqua"]) {
         
-    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Aqua Light"]) {
-        
-        // Set window color to aqua + tab bar color to white
+        // Set window color to aqua
         self.window.backgroundColor = aquaColor;
-        self.tabBg.backgroundColor = whiteColor;
-        self.topBarBg.backgroundColor = whiteColor;
         
-        // Set label + button colors
-        self.titleStatus.textColor = blackColor;
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Blue"]) {
         
-    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Orange Light"]) {
+        // Set window color to blue
+        self.window.backgroundColor = blueColor;
         
-        // Set window color to orange + tab bar color to white
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Orange"]) {
+        
+        // Set window color to orange
         self.window.backgroundColor = orangeColor;
-        self.tabBg.backgroundColor = whiteColor;
-        self.topBarBg.backgroundColor = whiteColor;
-        
-        // Set label + button colors
-        self.titleStatus.textColor = blackColor;
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Dark Gray"]) {
         
-        // Set window color to dark gray + tab bar color to white
+        // Set window color to dark gray
         self.window.backgroundColor = darkGrayColor;
-        self.tabBg.backgroundColor = whiteColor;
-        self.topBarBg.backgroundColor = whiteColor;
-        
-        // Set label + button colors
-        self.titleStatus.textColor = blackColor;
-        
-    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Red Dark"]) {
-        
-        // Set window color to red + tab bar color to gray
-        self.window.backgroundColor = redColor;
-        self.tabBg.backgroundColor = darkGrayColor;
-        self.topBarBg.backgroundColor = darkGrayColor;
-        
-        // Set label + button colors
-        self.titleStatus.textColor = whiteColor;
-        
-    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Aqua Dark"]) {
-        
-        // Set window color to aqua + tab bar color to gray
-        self.window.backgroundColor = aquaColor;
-        self.tabBg.backgroundColor = darkGrayColor;
-        self.topBarBg.backgroundColor = darkGrayColor;
-        
-        // Set label + button colors
-        self.titleStatus.textColor = whiteColor;
-        
-    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Orange Dark"]) {
-        
-        // Set window color to orange + tab bar color to gray
-        self.window.backgroundColor = orangeColor;
-        self.tabBg.backgroundColor = darkGrayColor;
-        self.topBarBg.backgroundColor = darkGrayColor;
-        
-        // Set label + button colors
-        self.titleStatus.textColor = whiteColor;
-        
-    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Dark Gray Inverted"]) {
-        
-        // Set window color to dark gray + tab bar color to white
-        self.window.backgroundColor = defaultColor;
-        self.tabBg.backgroundColor = darkGrayColor;
-        self.topBarBg.backgroundColor = darkGrayColor;
-        
-        // Set label + button colors
-        self.titleStatus.textColor = whiteColor;
-        
         
     }
 }
