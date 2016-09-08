@@ -20,7 +20,7 @@
 // Declarations -- defined within the entire class for easy changes / scalability in the future
 
 // Search engine query strings
-NSString *googleSearchString = @"https://www.google.com/search?q=%@&gws_rd=ssl";
+NSString *googleSearchString = @"https://www.google.com/search?q=%@";
 NSString *bingSearchString = @"https://www.bing.com/search?q=%@";
 NSString *yahooSearchString = @"https://search.yahoo.com/search?p=%@";
 NSString *duckDuckGoSearchString = @"https://www.duckduckgo.com/%@";
@@ -31,7 +31,7 @@ NSString *aolSearchString = @"http://search.aol.com/aol/search?q=%@";
 NSString *customSearchString = nil;
 
 // Search engine default homepages
-NSString *googleDefaultURL = @"https://www.google.com/?gws_rd=ssl";
+NSString *googleDefaultURL = @"https://www.google.com/";
 NSString *bingDefaultURL = @"https://www.bing.com/";
 NSString *yahooDefaultURL = @"https://www.yahoo.com/";
 NSString *duckDuckGoDefaultURL = @"https://www.duckduckgo.com/";
@@ -253,11 +253,15 @@ NSImage *websiteFavicon = nil;
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", [defaults valueForKey:@"userHomepage"]]]]];
     }
     
-    // Check if checkbox is checked
+    // Check if checkbox should be checked
     if([defaults boolForKey:@"setHomepageEngine"] == YES) {
         self.basedOnEngineBtn.state = NSOnState;
+        self.homepageTextField.enabled = NO;
+        self.setHomepageBtn.enabled = NO;
     } else {
         self.basedOnEngineBtn.state = NSOffState;
+        self.homepageTextField.enabled = YES;
+        self.setHomepageBtn.enabled = YES;
     }
 }
 
@@ -312,11 +316,15 @@ NSImage *websiteFavicon = nil;
         // On
         
         [defaults setBool:YES forKey:@"setHomepageEngine"];
+        self.homepageTextField.enabled = NO;
+        self.setHomepageBtn.enabled = NO;
         
     } else if([self.basedOnEngineBtn state] == NSOffState) {
         // Off
         
         [defaults setBool:NO forKey:@"setHomepageEngine"];
+        self.homepageTextField.enabled = YES;
+        self.setHomepageBtn.enabled = YES;
     }
 }
 
