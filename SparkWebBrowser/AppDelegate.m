@@ -481,16 +481,43 @@ NSImage *websiteFavicon = nil;
     
     [defaults setObject:[NSString stringWithFormat:@"%@", uncapitalizedReleaseChannel] forKey:@"currentReleaseChannel"];
     [defaults setInteger:self.releaseChannelPicker.indexOfSelectedItem forKey:@"releaseChannelIndex"];
+    
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert setMessageText:@"Set Release Channel and Restart?"];
+    [alert setInformativeText:[NSString stringWithFormat:@"Spark release channel will be set to: %@.\n\nA browser restart is required for this to take effect.", uncapitalizedReleaseChannel]];
+    [alert addButtonWithTitle:@"Cancel"];
+    [alert addButtonWithTitle:@"Set Release Channel"];
+    if(alert.runModal == NSAlertSecondButtonReturn) {
+        NSTask *task = [[NSTask alloc] init];
+        NSMutableArray *args = [NSMutableArray array];
+        [args addObject:@"-c"];
+        [args addObject:[NSString stringWithFormat:@"sleep %d; open \"%@\"", 0, [[NSBundle mainBundle] bundlePath]]];
+        [task setLaunchPath:@"/bin/sh"];
+        [task setArguments:args];
+        [task launch];
+        
+        [[NSApplication sharedApplication] terminate:nil];
+    }
 
 
 }
 
 - (void)setHomepageFunc:(NSString *)homepageToSet {
     
-    NSLog(@"Setting homepage...");
     
-    [defaults setObject:[NSString stringWithFormat:@"%@", homepageToSet] forKey:@"userHomepage"];
-    self.homepageTextField.stringValue = [defaults objectForKey:@"userHomepage"];
+    if([homepageToSet hasPrefix:@"https://"] || [homepageToSet hasPrefix:@"http://"]) {
+        NSLog(@"Setting homepage...");
+        [defaults setObject:[NSString stringWithFormat:@"%@", homepageToSet] forKey:@"userHomepage"];
+        self.homepageTextField.stringValue = [defaults objectForKey:@"userHomepage"];
+    } else {
+        NSLog(@"An error occurred while setting the homepage: invalid web address.");
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert setMessageText:@"Invalid Homepage"];
+        [alert setInformativeText:@"The homepage you specified is an invalid web address."];
+        [alert addButtonWithTitle:@"Cancel"];
+        [alert addButtonWithTitle:@"OK"];
+        [alert runModal];
+    }
 }
 
 - (IBAction)setHomepage:(id)sender {
