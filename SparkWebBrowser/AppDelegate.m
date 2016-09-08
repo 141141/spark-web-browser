@@ -27,6 +27,9 @@ NSString *duckDuckGoSearchString = @"https://www.duckduckgo.com/%@";
 NSString *askSearchString = @"http://www.ask.com/web?q=%@";
 NSString *aolSearchString = @"http://search.aol.com/aol/search?q=%@";
 
+// Custom search string -- set via NSUserDefaults later on
+NSString *customSearchString = nil;
+
 // Search engine default homepages
 NSString *googleDefaultURL = @"https://www.google.com/?gws_rd=ssl";
 NSString *bingDefaultURL = @"https://www.bing.com/";
@@ -39,7 +42,7 @@ NSString *aolDefaultURL = @"http://www.aol.com/";
 NSString *appIssuesURL = @"https://www.github.com/insleep/spark-web-browser/issues/";
 NSString *appReleasesURL = @"https://www.github.com/insleep/spark-web-browser/releases/tag/%@/";
 
-// Colors
+// Theme Colors
 NSColor *defaultColor = nil;
 NSColor *redColor = nil;
 NSColor *aquaColor = nil;
@@ -196,17 +199,17 @@ NSImage *websiteFavicon = nil;
         // Set top bar color to default
         self.window.backgroundColor = defaultColor;
         
-    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Red"]) {
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Red Light"]) {
         
         // Set top bar color to red
         self.window.backgroundColor = redColor;
         
-    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Aqua"]) {
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Aqua Light"]) {
         
         // Set top bar color to aqua
         self.window.backgroundColor = aquaColor;
         
-    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Orange"]) {
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Orange Light"]) {
         
         // Set top bar color to orange
         self.window.backgroundColor = orangeColor;
@@ -250,27 +253,47 @@ NSImage *websiteFavicon = nil;
     
     if([[defaults objectForKey:@"currentColor"] isEqual: @"Default"]) {
         
-        // Set top bar color to default
+        // Set window color to default color + tab bar color to white
         self.window.backgroundColor = defaultColor;
         
-    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Red"]) {
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Red Light"]) {
         
-        // Set top bar color to red
+        // Set window color to red + tab bar color to white
         self.window.backgroundColor = redColor;
         
-    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Aqua"]) {
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Aqua Light"]) {
         
-        // Set top bar color to aqua
+        // Set window color to aqua + tab bar color to white
         self.window.backgroundColor = aquaColor;
         
-    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Orange"]) {
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Orange Light"]) {
         
-        // Set top bar color to orange
+        // Set window color to orange + tab bar color to white
         self.window.backgroundColor = orangeColor;
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Dark Gray"]) {
         
-        // Set top bar color to dark gray
+        // Set window color to dark gray + tab bar color to white
+        self.window.backgroundColor = darkGrayColor;
+        
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Red Dark"]) {
+        
+        // Set window color to red + tab bar color to gray
+        self.window.backgroundColor = darkGrayColor;
+        
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Aqua Dark"]) {
+        
+        // Set window color to aqua + tab bar color to gray
+        self.window.backgroundColor = darkGrayColor;
+        
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Orange Dark"]) {
+        
+        // Set window color to orange + tab bar color to gray
+        self.window.backgroundColor = darkGrayColor;
+        
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Dark Gray Inverted"]) {
+        
+        // Set window color to dark gray + tab bar color to white
         self.window.backgroundColor = darkGrayColor;
         
     }
