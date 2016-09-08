@@ -48,6 +48,8 @@ NSColor *redColor = nil;
 NSColor *aquaColor = nil;
 NSColor *orangeColor = nil;
 NSColor *darkGrayColor = nil;
+NSColor *whiteColor = nil;
+NSColor *grayColor = nil;
 
 // General app setup
 NSUserDefaults *defaults = nil;
@@ -83,7 +85,7 @@ NSImage *websiteFavicon = nil;
 + (void)initialize {
     defaults = [NSUserDefaults standardUserDefaults]; // Set up NSUserDefaults
     
-    // Set up colors
+    // Set up theme colors
     defaultColor = [NSColor colorWithRed:216.0f/255.0f green:216.0f/255.0f blue:216.0f/255.0f alpha:1.0f];
     redColor = [NSColor colorWithRed:0.773f green:0.231f blue:0.212f alpha:1.0f];
     aquaColor = [NSColor colorWithRed:46.0f/255.0f green:133.0f/255.0f blue:162.0f/255.0f alpha:1.0f];
@@ -279,22 +281,22 @@ NSImage *websiteFavicon = nil;
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Red Dark"]) {
         
         // Set window color to red + tab bar color to gray
-        self.window.backgroundColor = darkGrayColor;
+        self.window.backgroundColor = redColor;
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Aqua Dark"]) {
         
         // Set window color to aqua + tab bar color to gray
-        self.window.backgroundColor = darkGrayColor;
+        self.window.backgroundColor = aquaColor;
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Orange Dark"]) {
         
         // Set window color to orange + tab bar color to gray
-        self.window.backgroundColor = darkGrayColor;
+        self.window.backgroundColor = orangeColor;
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Dark Gray Inverted"]) {
         
         // Set window color to dark gray + tab bar color to white
-        self.window.backgroundColor = darkGrayColor;
+        self.window.backgroundColor = whiteColor;
         
     }
 }

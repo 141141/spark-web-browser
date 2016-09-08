@@ -33,6 +33,9 @@
 @property (assign, nonatomic) IBOutlet NSPopUpButton *searchEnginePicker;
 @property (assign, nonatomic) IBOutlet NSPopUpButton *topBarColorPicker;
 @property (assign, nonatomic) IBOutlet NSButton *basedOnEngineBtn;
+@property (assign, nonatomic) IBOutlet NSTextField *tabBg;
+@property (assign, nonatomic) IBOutlet NSTextField *topBarBg;
+
 
 // Methods
 - (IBAction)newTab:(id)sender;
