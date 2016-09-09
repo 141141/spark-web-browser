@@ -20,7 +20,7 @@
 // Declarations -- defined within the entire class for easy changes / scalability in the future
 
 // Search engine query strings
-NSString *googleSearchString = @"https://www.google.com/webhp?hl=en#q=%@";
+NSString *googleSearchString = @"https://www.google.com/search#q=%@";
 NSString *bingSearchString = @"https://www.bing.com/search?q=%@";
 NSString *yahooSearchString = @"https://search.yahoo.com/search?p=%@";
 NSString *duckDuckGoSearchString = @"https://www.duckduckgo.com/%@";
