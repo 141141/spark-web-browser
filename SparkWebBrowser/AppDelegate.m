@@ -39,7 +39,7 @@ NSString *aolDefaultURL = @"http://www.aol.com/";
 NSString *appIssuesURL = @"https://www.github.com/insleep/spark-web-browser/issues/";
 NSString *appReleasesURL = @"https://www.github.com/insleep/spark-web-browser/releases/tag/%@/";
 
-// Theme Colors
+// Theme colors
 NSColor *defaultColor = nil;
 NSColor *rubyRedColor = nil;
 NSColor *deepAquaColor = nil;

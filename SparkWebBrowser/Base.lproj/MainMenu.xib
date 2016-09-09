@@ -782,7 +782,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     <textField toolTip="Type the URL of the website you want to go to here. (including http://)" verticalHuggingPriority="750" id="6S4-CW-iwm">
                         <rect key="frame" x="89" y="656" width="991" height="22"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" title="http://google.com" placeholderString="" bezelStyle="round" id="MSe-fD-WSx">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" title="https://" placeholderString="" bezelStyle="round" id="MSe-fD-WSx">
                             <font key="font" metaFont="cellTitle"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
