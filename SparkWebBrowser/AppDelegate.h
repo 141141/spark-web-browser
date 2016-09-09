@@ -38,6 +38,7 @@
 @property (assign, nonatomic) IBOutlet NSButton *backBtn;
 @property (assign, nonatomic) IBOutlet NSButton *forwardBtn;
 @property (assign, nonatomic) IBOutlet NSButton *settingsBtn;
+@property (assign, nonatomic) IBOutlet NSPopUpButton *settingsPopupBtn;
 
 
 // Methods

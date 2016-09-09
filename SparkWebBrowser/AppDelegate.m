@@ -308,6 +308,9 @@ NSImage *websiteFavicon = nil;
         [self setHomepageFunc:googleDefaultURL];
     }
 }
+- (IBAction)settingsMenuClicked:(id)sender {
+    [[self.settingsPopupBtn cell] performClickWithFrame:[sender frame] inView:[sender superview]];
+}
 
 - (IBAction)setTopBarColor:(id)sender {
     
@@ -378,7 +381,6 @@ NSImage *websiteFavicon = nil;
     [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:appReleasesURL, appVersion]]]];
     self.addressBar.stringValue = [NSString stringWithFormat:appReleasesURL, appVersion];
 }
-
 
 - (IBAction)reportIssue:(id)sender {
     [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:appIssuesURL]]];

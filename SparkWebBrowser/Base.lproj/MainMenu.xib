@@ -34,6 +34,7 @@
                 <outlet property="searchEnginePicker" destination="GYw-Eq-qx7" id="whS-kR-ROu"/>
                 <outlet property="setHomepageBtn" destination="UmC-Hu-U0Q" id="W7C-5d-ciQ"/>
                 <outlet property="settingsBtn" destination="Nsh-fL-8Ic" id="c7u-0x-cPE"/>
+                <outlet property="settingsPopupBtn" destination="vH7-Li-e10" id="uXS-4j-fNl"/>
                 <outlet property="settingsWindow" destination="MMA-4M-Pa4" id="6F0-cu-izG"/>
                 <outlet property="tabBg" destination="7o9-5H-k8C" id="eFO-J4-FaZ"/>
                 <outlet property="titleStatus" destination="JvK-hQ-Wwq" id="SHO-kH-keU"/>
@@ -362,13 +363,12 @@
                                     <action selector="toggleFullScreen:" target="QvC-M9-y7g" id="JeK-UD-Da4"/>
                                 </connections>
                             </menuItem>
-                            <menuItem isSeparatorItem="YES" id="bAC-By-dtc"/>
-                            <menuItem title="Actual Size" keyEquivalent="o" id="GJj-Hz-AnA">
+                            <menuItem title="Actual Size" keyEquivalent="0" id="GJj-Hz-AnA">
                                 <connections>
-                                    <action selector="makeTextStandardSize:" target="ffM-a6-P1L" id="0lF-Ul-JQa"/>
+                                    <action selector="makeTextStandardSize:" target="ffM-a6-P1L" id="74G-jM-eje"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Zoom In" keyEquivalent="=" id="ZWq-yV-KRx">
+                            <menuItem title="Zoom In" keyEquivalent="+" id="ZWq-yV-KRx">
                                 <connections>
                                     <action selector="makeTextLarger:" target="ffM-a6-P1L" id="ttf-fQ-hv4"/>
                                 </connections>
@@ -432,7 +432,7 @@
                     </menu>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="1143.5" y="-723"/>
+            <point key="canvasLocation" x="783" y="-505"/>
         </menu>
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="oJi-1c-Sb5" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
@@ -726,21 +726,21 @@ Spark is made possible by the WebKit open source project and other open source s
                     </textField>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="1283.5" y="-374.5"/>
+            <point key="canvasLocation" x="1378" y="-505"/>
         </window>
         <window allowsToolTipsWhenApplicationIsInactive="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES"/>
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="149" y="28" width="1107" height="708"/>
+            <rect key="contentRect" x="149" y="28" width="1107" height="711"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <value key="minSize" type="size" width="1107" height="708"/>
-            <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="1107" height="708"/>
+            <view key="contentView" misplaced="YES" id="EiT-Mj-1SZ">
+                <rect key="frame" x="0.0" y="0.0" width="1107" height="711"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="bY4-GT-wGb" userLabel="Label">
-                        <rect key="frame" x="-2" y="649" width="1109" height="31"/>
+                        <rect key="frame" x="-2" y="652" width="1109" height="31"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" drawsBackground="YES" id="KCo-YH-Bvv">
                             <font key="font" metaFont="system"/>
@@ -749,7 +749,7 @@ Spark is made possible by the WebKit open source project and other open source s
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="7o9-5H-k8C">
-                        <rect key="frame" x="84" y="677" width="192" height="31"/>
+                        <rect key="frame" x="84" y="680" width="192" height="31"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" drawsBackground="YES" id="j3a-rZ-Cwc">
                             <font key="font" metaFont="system"/>
@@ -758,7 +758,7 @@ Spark is made possible by the WebKit open source project and other open source s
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" id="CSR-Ik-wrT">
-                        <rect key="frame" x="3" y="653" width="23" height="22"/>
+                        <rect key="frame" x="3" y="656" width="23" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSGoLeftTemplate" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="VLy-6I-5e9">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -769,7 +769,7 @@ Spark is made possible by the WebKit open source project and other open source s
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="wRb-WG-N9I">
-                        <rect key="frame" x="31" y="653" width="23" height="22"/>
+                        <rect key="frame" x="31" y="656" width="23" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSGoRightTemplate" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="eND-U0-Xbb">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -780,7 +780,7 @@ Spark is made possible by the WebKit open source project and other open source s
                         </connections>
                     </button>
                     <textField toolTip="Type the URL of the website you want to go to here. (including http://)" verticalHuggingPriority="750" id="6S4-CW-iwm">
-                        <rect key="frame" x="89" y="653" width="991" height="22"/>
+                        <rect key="frame" x="89" y="656" width="991" height="22"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" title="http://google.com" placeholderString="" bezelStyle="round" id="MSe-fD-WSx">
                             <font key="font" metaFont="cellTitle"/>
@@ -792,7 +792,7 @@ Spark is made possible by the WebKit open source project and other open source s
                         </connections>
                     </textField>
                     <button verticalHuggingPriority="750" id="gZC-HQ-A14">
-                        <rect key="frame" x="58" y="653" width="23" height="22"/>
+                        <rect key="frame" x="58" y="656" width="23" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRefreshTemplate" imagePosition="overlaps" alignment="center" state="on" inset="2" id="IwX-sg-PoZ">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -803,12 +803,12 @@ Spark is made possible by the WebKit open source project and other open source s
                         </connections>
                     </button>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="t5k-sW-5ra">
-                        <rect key="frame" x="89" y="684" width="19" height="19"/>
+                        <rect key="frame" x="89" y="687" width="19" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSIconViewTemplate" id="lec-S4-uJt"/>
                     </imageView>
                     <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="e3k-CE-CDi">
-                        <rect key="frame" x="308" y="685" width="263" height="16"/>
+                        <rect key="frame" x="308" y="688" width="263" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Tabs are not available in this version of Spark." id="gfc-dE-ICK">
                             <font key="font" metaFont="systemLight" size="12"/>
@@ -817,7 +817,7 @@ Spark is made possible by the WebKit open source project and other open source s
                         </textFieldCell>
                     </textField>
                     <webView id="ffM-a6-P1L">
-                        <rect key="frame" x="0.0" y="0.0" width="1107" height="649"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1107" height="652"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12">
                             <nil key="identifier"/>
@@ -827,11 +827,11 @@ Spark is made possible by the WebKit open source project and other open source s
                         </connections>
                     </webView>
                     <progressIndicator hidden="YES" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="1qB-mY-4UE">
-                        <rect key="frame" x="92" y="685" width="16" height="16"/>
+                        <rect key="frame" x="92" y="688" width="16" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </progressIndicator>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="VRX-Sp-sir">
-                        <rect key="frame" x="282" y="684" width="18" height="18"/>
+                        <rect key="frame" x="282" y="687" width="18" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" drawsBackground="YES" id="Igf-fF-DKK">
                             <font key="font" metaFont="system"/>
@@ -840,7 +840,7 @@ Spark is made possible by the WebKit open source project and other open source s
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" id="pmy-Gn-uac">
-                        <rect key="frame" x="281" y="684" width="21" height="19"/>
+                        <rect key="frame" x="281" y="687" width="21" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="only" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="bx5-yX-Nf2">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -852,8 +852,105 @@ Spark is made possible by the WebKit open source project and other open source s
                             <action selector="newTab:" target="Voe-Tx-rLC" id="yOZ-pK-xAy"/>
                         </connections>
                     </button>
+                    <popUpButton hidden="YES" verticalHuggingPriority="750" misplaced="YES" id="vH7-Li-e10">
+                        <rect key="frame" x="1078" y="653" width="24" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                        <popUpButtonCell key="cell" type="push" title="Spark Settings Menu" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" transparent="YES" imageScaling="proportionallyDown" inset="2" pullsDown="YES" id="8Pm-Kt-Ofz">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="K2k-qd-8ea">
+                                <items>
+                                    <menuItem title="Spark Settings Menu" hidden="YES" id="fom-no-FU9">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="Full Screen" keyEquivalent="F" id="dBJ-ep-v0Y">
+                                        <connections>
+                                            <action selector="toggleFullScreen:" target="QvC-M9-y7g" id="Z5y-TM-zNL"/>
+                                        </connections>
+                                    </menuItem>
+                                    <menuItem title="Actual Size" keyEquivalent="0" id="D5N-lt-ult">
+                                        <connections>
+                                            <action selector="makeTextStandardSize:" target="ffM-a6-P1L" id="OlH-uf-mqI"/>
+                                        </connections>
+                                    </menuItem>
+                                    <menuItem title="Zoom In" keyEquivalent="+" id="K0v-jB-avu">
+                                        <connections>
+                                            <action selector="makeTextLarger:" target="ffM-a6-P1L" id="fau-4T-bht"/>
+                                        </connections>
+                                    </menuItem>
+                                    <menuItem title="Zoom Out" keyEquivalent="-" id="yMm-iE-kOb">
+                                        <connections>
+                                            <action selector="makeTextSmaller:" target="ffM-a6-P1L" id="Jzw-bL-9UH"/>
+                                        </connections>
+                                    </menuItem>
+                                    <menuItem isSeparatorItem="YES" id="imP-R9-0zd"/>
+                                    <menuItem title="Print..." keyEquivalent="p" id="RjU-aa-qiY">
+                                        <connections>
+                                            <action selector="print:" target="-1" id="PO0-Fx-n4h"/>
+                                        </connections>
+                                    </menuItem>
+                                    <menuItem isSeparatorItem="YES" id="f3M-b5-m5O"/>
+                                    <menuItem title="Cut" id="Sx7-IY-WuM">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <connections>
+                                            <action selector="cut:" target="-1" id="ww5-VA-0QD"/>
+                                        </connections>
+                                    </menuItem>
+                                    <menuItem title="Copy" id="uch-x8-Z0H">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <connections>
+                                            <action selector="copy:" target="-1" id="Ruf-ck-UkE"/>
+                                        </connections>
+                                    </menuItem>
+                                    <menuItem title="Paste" id="G7j-yp-Wmo">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <connections>
+                                            <action selector="paste:" target="-1" id="lMd-2x-Wr0"/>
+                                        </connections>
+                                    </menuItem>
+                                    <menuItem isSeparatorItem="YES" id="lDq-aV-x0V"/>
+                                    <menuItem title="Preferences" id="grB-IH-7h9">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <connections>
+                                            <action selector="makeKeyAndOrderFront:" target="MMA-4M-Pa4" id="RHl-tB-dsr"/>
+                                        </connections>
+                                    </menuItem>
+                                    <menuItem title="Help" id="cBA-6d-wMa">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <menu key="submenu" title="Help" id="9Bd-9T-507">
+                                            <items>
+                                                <menuItem title="About Spark" id="lHH-QS-cRn">
+                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                    <connections>
+                                                        <action selector="makeKeyAndOrderFront:" target="oJi-1c-Sb5" id="i2Z-wl-nig"/>
+                                                    </connections>
+                                                </menuItem>
+                                                <menuItem title="Report an Issue..." id="j8G-fZ-OfB">
+                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                    <connections>
+                                                        <action selector="reportIssue:" target="Voe-Tx-rLC" id="3j7-s3-Bu5"/>
+                                                    </connections>
+                                                </menuItem>
+                                            </items>
+                                        </menu>
+                                    </menuItem>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
+                    <button verticalHuggingPriority="750" id="Nsh-fL-8Ic">
+                        <rect key="frame" x="1083" y="657" width="21" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSActionTemplate" imagePosition="overlaps" alignment="center" state="on" inset="2" id="pgV-8x-Z2I">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="settingsMenuClicked:" target="Voe-Tx-rLC" id="fPF-HU-aMA"/>
+                        </connections>
+                    </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="JvK-hQ-Wwq">
-                        <rect key="frame" x="111" y="683" width="162" height="19"/>
+                        <rect key="frame" x="111" y="686" width="162" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" placeholderString="Loading..." id="I9i-cv-n8A">
                             <font key="font" metaFont="cellTitle"/>
@@ -861,20 +958,9 @@ Spark is made possible by the WebKit open source project and other open source s
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button verticalHuggingPriority="750" id="Nsh-fL-8Ic">
-                        <rect key="frame" x="1083" y="654" width="21" height="22"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSActionTemplate" imagePosition="overlaps" alignment="center" state="on" inset="2" id="pgV-8x-Z2I">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="makeKeyAndOrderFront:" target="MMA-4M-Pa4" id="5Dc-vx-1Lh"/>
-                        </connections>
-                    </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="1163.5" y="182"/>
+            <point key="canvasLocation" x="1163.5" y="180.5"/>
         </window>
     </objects>
     <resources>
