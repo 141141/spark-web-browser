@@ -27,9 +27,6 @@ NSString *duckDuckGoSearchString = @"https://www.duckduckgo.com/%@";
 NSString *askSearchString = @"http://www.ask.com/web?q=%@";
 NSString *aolSearchString = @"http://search.aol.com/aol/search?q=%@";
 
-// Custom search string -- set via NSUserDefaults later on
-NSString *customSearchString = nil;
-
 // Search engine default homepages
 NSString *googleDefaultURL = @"https://www.google.com/";
 NSString *bingDefaultURL = @"https://www.bing.com/";
@@ -298,7 +295,6 @@ NSImage *websiteFavicon = nil;
 
 - (void)setHomepageFunc:(NSString *)homepageToSet {
     
-    
     if([homepageToSet hasPrefix:@"https://"] || [homepageToSet hasPrefix:@"http://"]) {
         NSLog(@"Setting homepage...");
         [defaults setObject:[NSString stringWithFormat:@"%@", homepageToSet] forKey:@"userHomepage"];
@@ -308,7 +304,8 @@ NSImage *websiteFavicon = nil;
         [self setHomepageFunc:googleDefaultURL];
     }
 }
-- (IBAction)settingsMenuClicked:(id)sender {
+
+- (void)settingsMenuClicked:(id)sender {
     [[self.settingsPopupBtn cell] performClickWithFrame:[sender frame] inView:[sender superview]];
 }
 
@@ -390,17 +387,17 @@ NSImage *websiteFavicon = nil;
 - (IBAction)setSearchEngine:(id)sender {
     
     searchEngineChosen = [NSString stringWithFormat:@"%@", self.searchEnginePicker.titleOfSelectedItem];
-    
-    [defaults setObject:[NSString stringWithFormat:@"%@", searchEngineChosen] forKey:@"currentSearchEngine"];
-    [defaults setInteger:self.searchEnginePicker.indexOfSelectedItem forKey:@"searchEngineIndex"];
-    
-    // Check whether or not to override homepage
-    if([defaults boolForKey:@"setHomepageEngine"] == YES) {
+
+        [defaults setObject:[NSString stringWithFormat:@"%@", searchEngineChosen] forKey:@"currentSearchEngine"];
+        [defaults setInteger:self.searchEnginePicker.indexOfSelectedItem forKey:@"searchEngineIndex"];
         
-        NSLog(@"Setting homepage based on search engine");
-        
-        [self setHomepageBasedOnSearchEngine:self];
-    }
+        // Check whether or not to override homepage
+        if([defaults boolForKey:@"setHomepageEngine"] == YES) {
+            
+            NSLog(@"Setting homepage based on search engine");
+            
+            [self setHomepageBasedOnSearchEngine:self];
+        }
 }
 
 - (IBAction)initWebpageLoad:(id)sender {
@@ -526,8 +523,8 @@ NSImage *websiteFavicon = nil;
         
         [[NSApplication sharedApplication] terminate:nil];
     }
-
-
+    
+    
 }
 
 - (IBAction)setHomepage:(id)sender {

@@ -580,12 +580,12 @@ Spark is made possible by the WebKit open source project and other open source s
                     <popUpButton verticalHuggingPriority="750" misplaced="YES" id="GYw-Eq-qx7">
                         <rect key="frame" x="18" y="137" width="161" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="PFJ-rh-BaU">
+                        <popUpButtonCell key="cell" type="push" title="Google" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="M4t-1k-gwL" id="PFJ-rh-BaU">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" id="ESd-DK-qb0">
                                 <items>
-                                    <menuItem title="Google" id="M4t-1k-gwL"/>
+                                    <menuItem title="Google" state="on" id="M4t-1k-gwL"/>
                                     <menuItem title="Bing" id="iHg-JP-TzF"/>
                                     <menuItem title="Yahoo!" id="RpJ-j3-k0A"/>
                                     <menuItem title="DuckDuckGo" id="nq3-GM-uav"/>
@@ -726,7 +726,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     </textField>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="1378" y="-505"/>
+            <point key="canvasLocation" x="1377.5" y="-505.5"/>
         </window>
         <window allowsToolTipsWhenApplicationIsInactive="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES"/>
