@@ -18,6 +18,10 @@
 		ABAC55B21D7B596400CF393B /* Screenshot1.png in Resources */ = {isa = PBXBuildFile; fileRef = ABAC55AF1D7B596400CF393B /* Screenshot1.png */; };
 		ABAC55B31D7B596400CF393B /* Screenshot2.png in Resources */ = {isa = PBXBuildFile; fileRef = ABAC55B01D7B596400CF393B /* Screenshot2.png */; };
 		ABAC55B41D7B596400CF393B /* Screenshot3.png in Resources */ = {isa = PBXBuildFile; fileRef = ABAC55B11D7B596400CF393B /* Screenshot3.png */; };
+		ABB4435F1D846195001D55C7 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB4435E1D846194001D55C7 /* Sparkle.framework */; };
+		ABB443601D8461C5001D55C7 /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ABB4435E1D846194001D55C7 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ABB443611D8461CA001D55C7 /* Sparkle.framework in Resources */ = {isa = PBXBuildFile; fileRef = ABB4435E1D846194001D55C7 /* Sparkle.framework */; };
+		ABB443631D84634C001D55C7 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = ABB443621D84634C001D55C7 /* dsa_pub.pem */; };
 		ABBD6C201D3707B900C48592 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83980719817D8E001D31B7 /* Cocoa.framework */; };
 		ABBD6C211D3707C600C48592 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83983B19817E15001D31B7 /* WebKit.framework */; };
 		ABF5BF851D3571CB00F715A9 /* spark-about.html in Resources */ = {isa = PBXBuildFile; fileRef = ABF5BF831D3571CB00F715A9 /* spark-about.html */; };
@@ -33,6 +37,7 @@
 			files = (
 				AB98DDDE1D370CD400ABCF16 /* Cocoa.framework in Embed Frameworks */,
 				AB98DDDC1D370CD100ABCF16 /* WebKit.framework in Embed Frameworks */,
+				ABB443601D8461C5001D55C7 /* Sparkle.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,6 +64,8 @@
 		ABAC55AF1D7B596400CF393B /* Screenshot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot1.png; sourceTree = "<group>"; };
 		ABAC55B01D7B596400CF393B /* Screenshot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot2.png; sourceTree = "<group>"; };
 		ABAC55B11D7B596400CF393B /* Screenshot3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot3.png; sourceTree = "<group>"; };
+		ABB4435E1D846194001D55C7 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = SparkWebBrowser/Sparkle.framework; sourceTree = SOURCE_ROOT; };
+		ABB443621D84634C001D55C7 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = SOURCE_ROOT; };
 		ABBD6C101D3706B500C48592 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = "../../../../../Downloads/Sparkle-1.14.0/Sparkle.framework"; sourceTree = "<group>"; };
 		ABF5BF831D3571CB00F715A9 /* spark-about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "spark-about.html"; path = "SparkWebBrowser/spark-about.html"; sourceTree = SOURCE_ROOT; };
 		ABF5BF841D3571CB00F715A9 /* stylesheet.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = stylesheet.css; path = SparkWebBrowser/stylesheet.css; sourceTree = SOURCE_ROOT; };
@@ -70,6 +77,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABBD6C211D3707C600C48592 /* WebKit.framework in Frameworks */,
+				ABB4435F1D846195001D55C7 /* Sparkle.framework in Frameworks */,
 				ABBD6C201D3707B900C48592 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,6 +129,7 @@
 		AB83980D19817D8E001D31B7 /* SparkWebBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				ABB4435E1D846194001D55C7 /* Sparkle.framework */,
 				AB04FD031C712BB500F08232 /* AppDelegate.h */,
 				AB04FD041C712BB500F08232 /* AppDelegate.m */,
 				AB04FD111C712C6000F08232 /* MainMenu.xib */,
@@ -140,6 +149,7 @@
 				AB04FD081C712BD700F08232 /* Spark-Info.plist */,
 				AB04FD0A1C712BDB00F08232 /* main.m */,
 				AB04FD0B1C712BDB00F08232 /* Spark-Prefix.pch */,
+				ABB443621D84634C001D55C7 /* dsa_pub.pem */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -220,7 +230,9 @@
 				ABF5BF851D3571CB00F715A9 /* spark-about.html in Resources */,
 				ABF5BF861D3571CB00F715A9 /* stylesheet.css in Resources */,
 				AB04FD131C712C6000F08232 /* MainMenu.xib in Resources */,
+				ABB443631D84634C001D55C7 /* dsa_pub.pem in Resources */,
 				ABAC55B41D7B596400CF393B /* Screenshot3.png in Resources */,
+				ABB443611D8461CA001D55C7 /* Sparkle.framework in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,7 +360,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SparkWebBrowser/Spark-Prefix.pch";
 				INFOPLIST_FILE = "SparkWebBrowser/Spark-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				OTHER_CODE_SIGN_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.insleep.SparkWebBrowser;
@@ -366,7 +378,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SparkWebBrowser/Spark-Prefix.pch";
 				INFOPLIST_FILE = "SparkWebBrowser/Spark-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				OTHER_CODE_SIGN_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.insleep.SparkWebBrowser;
