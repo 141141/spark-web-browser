@@ -60,6 +60,7 @@ NSString *productName = nil;
 NSString *channelVer = nil;
 NSString *editedVersionString = nil;
 NSString *userAgent = nil;
+NSString *clippedTitle = nil;
 NSAlert *alert = nil;
 
 // Objects related (somewhat) to loading webpages
@@ -581,15 +582,18 @@ NSImage *websiteFavicon = nil;
 }
 
 - (void)webView:(WebView *)sender didReceiveTitle:(NSString *)title forFrame:(WebFrame *)frame {
+    
+    clippedTitle = title;
+    
     // Only report feedback for the main frame.
     if (frame == [sender mainFrame]) {
         
         const int clipLength = 25;
         if([title length] > clipLength) {
-            title = [NSString stringWithFormat:@"%@...", [title substringToIndex:clipLength]];
+            clippedTitle = [NSString stringWithFormat:@"%@...", [title substringToIndex:clipLength]];
         }
         
-        [self.titleStatus setStringValue:title];
+        [self.titleStatus setStringValue:clippedTitle];
         self.titleStatus.toolTip = title;
         [self.loadingIndicator stopAnimation:self];
         self.reloadBtn.image = [NSImage imageNamed: NSImageNameRefreshTemplate];
