@@ -32,7 +32,7 @@
 @property (assign, nonatomic) IBOutlet NSButton *ntBtn;
 @property (assign, nonatomic) IBOutlet NSPopUpButton *searchEnginePicker;
 @property (assign, nonatomic) IBOutlet NSPopUpButton *topBarColorPicker;
-@property (assign, nonatomic) IBOutlet NSButton *basedOnEngineBtn;
+@property (assign, nonatomic) IBOutlet NSButton *homepageBasedOnSearchEngineBtn;
 @property (assign, nonatomic) IBOutlet NSTextField *tabBg;
 @property (assign, nonatomic) IBOutlet NSTextField *topBarBg;
 @property (assign, nonatomic) IBOutlet NSButton *backBtn;
@@ -45,7 +45,7 @@
 - (IBAction)newTab:(id)sender;
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame;
 - (void)webView:(WebView *)sender didReceiveTitle:(NSString *)title forFrame:(WebFrame *)frame;
-- (void)setHomepageFunc:(NSString *)homepageToSet;
+- (void)setHomepageWithString:(NSString *)homepageToSet;
 - (void)settingsMenuClicked:(id)sender;
 - (void)setHomepageBasedOnSearchEngine:(id)sender;
 

@@ -62,11 +62,13 @@ NSString *editedVersionString = nil;
 NSString *userAgent = nil;
 NSString *clippedTitle = nil;
 NSAlert *alert = nil;
+NSTask *task = nil;
+NSMutableArray *args = nil;
 
 // Objects related (somewhat) to loading webpages
 NSString *searchString = nil;
 NSString *homepageString = nil;
-NSString *urlAddress = nil;
+NSString *urlString = nil;
 NSString *editedURLString = nil;
 NSString *capitalizedReleaseChannel = nil;
 NSString *uncapitalizedReleaseChannel = nil;
@@ -252,11 +254,11 @@ NSImage *websiteFavicon = nil;
     
     // Check if checkbox should be checked
     if([defaults boolForKey:@"setHomepageEngine"] == YES) {
-        self.basedOnEngineBtn.state = NSOnState;
+        self.homepageBasedOnSearchEngineBtn.state = NSOnState;
         self.homepageTextField.enabled = NO;
         self.setHomepageBtn.enabled = NO;
     } else {
-        self.basedOnEngineBtn.state = NSOffState;
+        self.homepageBasedOnSearchEngineBtn.state = NSOffState;
         self.homepageTextField.enabled = YES;
         self.setHomepageBtn.enabled = YES;
     }
@@ -266,35 +268,35 @@ NSImage *websiteFavicon = nil;
     if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Google"]) {
         
         // Set homepage to Google
-        [self setHomepageFunc:googleDefaultURL];
+        [self setHomepageWithString:googleDefaultURL];
         
     } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Bing"]) {
         
         // Set homepage to Bing
-        [self setHomepageFunc:bingDefaultURL];
+        [self setHomepageWithString:bingDefaultURL];
         
     } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Yahoo!"]) {
         
         // Set homepage to Yahoo!
-        [self setHomepageFunc:yahooDefaultURL];
+        [self setHomepageWithString:yahooDefaultURL];
         
     } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"DuckDuckGo"]) {
         
         // Set homepage to DuckDuckGo
-        [self setHomepageFunc:duckDuckGoDefaultURL];
+        [self setHomepageWithString:duckDuckGoDefaultURL];
         
     } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Ask"]) {
         
         // Set homepage to Ask
-        [self setHomepageFunc:askDefaultURL];
+        [self setHomepageWithString:askDefaultURL];
     } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"AOL"]) {
         
         // Set homepage to AOL
-        [self setHomepageFunc:aolDefaultURL];
+        [self setHomepageWithString:aolDefaultURL];
     }
 }
 
-- (void)setHomepageFunc:(NSString *)homepageToSet {
+- (void)setHomepageWithString:(NSString *)homepageToSet {
     
     if([homepageToSet hasPrefix:@"https://"] || [homepageToSet hasPrefix:@"http://"]) {
         NSLog(@"Setting homepage...");
@@ -302,7 +304,7 @@ NSImage *websiteFavicon = nil;
         self.homepageTextField.stringValue = [defaults objectForKey:@"userHomepage"];
     } else {
         NSLog(@"Homepage not set: invalid web address.");
-        [self setHomepageFunc:googleDefaultURL];
+        [self setHomepageWithString:googleDefaultURL];
     }
 }
 
@@ -355,9 +357,9 @@ NSImage *websiteFavicon = nil;
     }
 }
 
-- (IBAction)setHomepageEngine:(id)sender {
+- (IBAction)startSettingHomepageBasedOnSearchEngine:(id)sender {
     
-    if([self.basedOnEngineBtn state] == NSOnState) {
+    if([self.homepageBasedOnSearchEngineBtn state] == NSOnState) {
         // On
         
         [defaults setBool:YES forKey:@"setHomepageEngine"];
@@ -365,7 +367,7 @@ NSImage *websiteFavicon = nil;
         self.setHomepageBtn.enabled = NO;
         [self setHomepageBasedOnSearchEngine:self];
         
-    } else if([self.basedOnEngineBtn state] == NSOffState) {
+    } else if([self.homepageBasedOnSearchEngineBtn state] == NSOffState) {
         // Off
         
         [defaults setBool:NO forKey:@"setHomepageEngine"];
@@ -423,8 +425,8 @@ NSImage *websiteFavicon = nil;
             
             NSLog(@"Search engine found: Google");
             
-            urlAddress = [NSString stringWithFormat:googleSearchString, searchString];
-            editedURLString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            urlString = [NSString stringWithFormat:googleSearchString, searchString];
+            editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
             self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
@@ -435,8 +437,8 @@ NSImage *websiteFavicon = nil;
             
             NSLog(@"Search engine found: Bing");
             
-            urlAddress = [NSString stringWithFormat:bingSearchString, searchString];
-            editedURLString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            urlString = [NSString stringWithFormat:bingSearchString, searchString];
+            editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
             self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
@@ -447,8 +449,8 @@ NSImage *websiteFavicon = nil;
             
             NSLog(@"Search engine found: Yahoo!");
             
-            urlAddress = [NSString stringWithFormat:yahooSearchString, searchString];
-            editedURLString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            urlString = [NSString stringWithFormat:yahooSearchString, searchString];
+            editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
             self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
@@ -459,8 +461,8 @@ NSImage *websiteFavicon = nil;
             
             NSLog(@"Search engine found: DuckDuckGo");
             
-            urlAddress = [NSString stringWithFormat:duckDuckGoSearchString, searchString];
-            editedURLString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            urlString = [NSString stringWithFormat:duckDuckGoSearchString, searchString];
+            editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
             self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
@@ -471,8 +473,8 @@ NSImage *websiteFavicon = nil;
             
             NSLog(@"Search engine found: Ask");
             
-            urlAddress = [NSString stringWithFormat:askSearchString, searchString];
-            editedURLString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            urlString = [NSString stringWithFormat:askSearchString, searchString];
+            editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
             self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
@@ -483,8 +485,8 @@ NSImage *websiteFavicon = nil;
             
             NSLog(@"Search engine found: AOL");
             
-            urlAddress = [NSString stringWithFormat:aolSearchString, searchString];
-            editedURLString = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            urlString = [NSString stringWithFormat:aolSearchString, searchString];
+            editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
             self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
@@ -511,11 +513,11 @@ NSImage *websiteFavicon = nil;
     alert = [[NSAlert alloc] init];
     [alert setMessageText:@"Set Release Channel and Restart?"];
     [alert setInformativeText:[NSString stringWithFormat:@"Spark release channel will be set to: %@.\n\nA browser restart is required for this to take effect.", uncapitalizedReleaseChannel]];
-    [alert addButtonWithTitle:@"Cancel"];
+    [alert addButtonWithTitle:@"Restart Later"];
     [alert addButtonWithTitle:@"Set Release Channel"];
     if(alert.runModal == NSAlertSecondButtonReturn) {
-        NSTask *task = [[NSTask alloc] init];
-        NSMutableArray *args = [NSMutableArray array];
+        task = [[NSTask alloc] init];
+        args = [NSMutableArray array];
         [args addObject:@"-c"];
         [args addObject:[NSString stringWithFormat:@"sleep %d; open \"%@\"", 0, [[NSBundle mainBundle] bundlePath]]];
         [task setLaunchPath:@"/bin/sh"];
@@ -524,8 +526,6 @@ NSImage *websiteFavicon = nil;
         
         [[NSApplication sharedApplication] terminate:nil];
     }
-    
-    
 }
 
 - (IBAction)setHomepage:(id)sender {
@@ -533,12 +533,12 @@ NSImage *websiteFavicon = nil;
     if(self.homepageTextField.stringValue == nil || [self.homepageTextField.stringValue isEqual:@""]) {
         // Homepage is not set -- revert to default
         
-        [self setHomepageFunc:googleDefaultURL];
+        [self setHomepageWithString:googleDefaultURL];
     } else {
         
         homepageString = self.homepageTextField.stringValue;
         
-        [self setHomepageFunc:homepageString];
+        [self setHomepageWithString:homepageString];
     }
 }
 

@@ -20,10 +20,10 @@
                 <outlet property="aboutWindow" destination="oJi-1c-Sb5" id="bgk-nR-Kh0"/>
                 <outlet property="addressBar" destination="6S4-CW-iwm" id="yLL-ye-fyR"/>
                 <outlet property="backBtn" destination="CSR-Ik-wrT" id="9ar-Ai-zKp"/>
-                <outlet property="basedOnEngineBtn" destination="5Uw-Fh-cJ1" id="mDs-jK-Vv7"/>
                 <outlet property="currentVersion" destination="sbh-Aa-9pH" id="pub-aC-Yo5"/>
                 <outlet property="faviconImage" destination="t5k-sW-5ra" id="bKl-he-loz"/>
                 <outlet property="forwardBtn" destination="wRb-WG-N9I" id="G2y-ac-Zki"/>
+                <outlet property="homepageBasedOnSearchEngineBtn" destination="5Uw-Fh-cJ1" id="CNY-RK-NbX"/>
                 <outlet property="homepageTextField" destination="wPk-qF-HnV" id="sfR-SW-cWa"/>
                 <outlet property="loadingIndicator" destination="1qB-mY-4UE" id="EYD-he-pSG"/>
                 <outlet property="ntBtn" destination="pmy-Gn-uac" id="eJG-ga-1rU"/>
@@ -439,7 +439,7 @@
                     </menu>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="783" y="-505"/>
+            <point key="canvasLocation" x="898" y="-744"/>
         </menu>
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="oJi-1c-Sb5" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
@@ -477,8 +477,8 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="9o1-qW-hns">
-                        <rect key="frame" x="100" y="58" width="207" height="85"/>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" id="9o1-qW-hns">
+                        <rect key="frame" x="100" y="72" width="207" height="71"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Loading..." id="PS7-Pn-omo">
                             <font key="font" metaFont="systemLight" size="13"/>
@@ -532,7 +532,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     </textField>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="2036.5" y="-230"/>
+            <point key="canvasLocation" x="804" y="-454"/>
         </window>
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="MMA-4M-Pa4" userLabel="Preferences Window" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
@@ -640,7 +640,7 @@ Spark is made possible by the WebKit open source project and other open source s
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="setHomepageEngine:" target="Voe-Tx-rLC" id="Dx8-bT-QIJ"/>
+                            <action selector="startSettingHomepageBasedOnSearchEngine:" target="Voe-Tx-rLC" id="4ZG-XK-rSt"/>
                         </connections>
                     </button>
                     <box verticalHuggingPriority="750" misplaced="YES" boxType="separator" id="4Kf-Nt-nNP">
@@ -849,7 +849,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     <button verticalHuggingPriority="750" id="pmy-Gn-uac">
                         <rect key="frame" x="281" y="687" width="21" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="only" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="bx5-yX-Nf2">
+                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="bx5-yX-Nf2">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                             <string key="keyEquivalent">t</string>
@@ -930,6 +930,12 @@ Spark is made possible by the WebKit open source project and other open source s
                                                     <modifierMask key="keyEquivalentModifierMask"/>
                                                     <connections>
                                                         <action selector="makeKeyAndOrderFront:" target="oJi-1c-Sb5" id="i2Z-wl-nig"/>
+                                                    </connections>
+                                                </menuItem>
+                                                <menuItem title="Check for Updates..." id="ldt-Zm-wUS">
+                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                    <connections>
+                                                        <action selector="checkForUpdates:" target="Knx-RJ-zJs" id="IBL-NV-22X"/>
                                                     </connections>
                                                 </menuItem>
                                                 <menuItem title="Report an Issue..." id="j8G-fZ-OfB">
