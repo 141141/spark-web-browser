@@ -410,11 +410,11 @@ NSImage *websiteFavicon = nil;
     [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:searchString]]];
     self.addressBar.stringValue = [NSString stringWithFormat:@"%@", searchString];
     
-    if([searchString hasPrefix:@"https"]) {
-        NSLog(@"HTTPS webpage loaded.");
-    } else if([searchString hasPrefix:@"http"]) {
-        NSLog(@"HTTP webpage loaded.");
-    } else if([searchString hasPrefix:@"file"]) {
+    if([searchString hasPrefix:@"https://"]) {
+        NSLog(@"Loading HTTPS webpage...");
+    } else if([searchString hasPrefix:@"http://"]) {
+        NSLog(@"Loading HTTP webpage...");
+    } else if([searchString hasPrefix:@"file://"]) {
         NSLog(@"file:// prefix");
     } else {
         NSLog(@"User has initiated a search. Fetching search engine...");
