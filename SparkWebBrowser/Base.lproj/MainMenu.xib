@@ -735,7 +735,7 @@ Spark is made possible by the WebKit open source project and other open source s
                         </textFieldCell>
                     </textField>
                     <colorWell misplaced="YES" id="uuu-yL-LqP">
-                        <rect key="frame" x="190" y="19" width="44" height="23"/>
+                        <rect key="frame" x="184" y="19" width="44" height="23"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <connections>

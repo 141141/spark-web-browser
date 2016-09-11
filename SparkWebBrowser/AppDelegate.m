@@ -208,12 +208,18 @@ NSImage *websiteFavicon = nil;
         // Set window color to default color
         self.window.backgroundColor = defaultColor;
         
+        // Still set color in color well in case user wants it later
+        self.customColorWell.color = [defaults colorForKey:@"customColor"];
+        
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Ruby Red"]) {
         
         self.customColorWell.hidden = YES;
         
         // Set window color to Ruby Red
         self.window.backgroundColor = rubyRedColor;
+        
+        // Still set color in color well in case user wants it later
+        self.customColorWell.color = [defaults colorForKey:@"customColor"];
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Deep Aqua"]) {
         
@@ -222,12 +228,18 @@ NSImage *websiteFavicon = nil;
         // Set window color to Deep Aqua
         self.window.backgroundColor = deepAquaColor;
         
+        // Still set color in color well in case user wants it later
+        self.customColorWell.color = [defaults colorForKey:@"customColor"];
+        
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Redmond Blue"]) {
         
         self.customColorWell.hidden = YES;
         
         // Set window color to Redmond Blue
         self.window.backgroundColor = redmondBlueColor;
+        
+        // Still set color in color well in case user wants it later
+        self.customColorWell.color = [defaults colorForKey:@"customColor"];
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Leaf Green"]) {
         
@@ -236,6 +248,9 @@ NSImage *websiteFavicon = nil;
         // Set window color to Leaf Green
         self.window.backgroundColor = leafGreenColor;
         
+        // Still set color in color well in case user wants it later
+        self.customColorWell.color = [defaults colorForKey:@"customColor"];
+        
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Alloy Orange"]) {
         
         self.customColorWell.hidden = YES;
@@ -243,12 +258,18 @@ NSImage *websiteFavicon = nil;
         // Set window color to Alloy Orange
         self.window.backgroundColor = alloyOrangeColor;
         
+        // Still set color in color well in case user wants it later
+        self.customColorWell.color = [defaults colorForKey:@"customColor"];
+        
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Dark Gray"]) {
         
         self.customColorWell.hidden = YES;
         
         // Set window color to dark gray
         self.window.backgroundColor = darkGrayColor;
+        
+        // Still set color in color well in case user wants it later
+        self.customColorWell.color = [defaults colorForKey:@"customColor"];
         
     } else if([defaults objectForKey:@"customColor"] != nil) {
         
@@ -356,12 +377,18 @@ NSImage *websiteFavicon = nil;
         // Set window color to default color
         self.window.backgroundColor = defaultColor;
         
+        // Still store color in color well in case user wants it later
+        [defaults setColor:self.customColorWell.color forKey:@"customColor"];
+        
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Ruby Red"]) {
         
         self.customColorWell.hidden = YES;
         
         // Set window color to Ruby Red
         self.window.backgroundColor = rubyRedColor;
+        
+        // Still store color in color well in case user wants it later
+        [defaults setColor:self.customColorWell.color forKey:@"customColor"];
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Deep Aqua"]) {
         
@@ -370,12 +397,18 @@ NSImage *websiteFavicon = nil;
         // Set window color to Deep Aqua
         self.window.backgroundColor = deepAquaColor;
         
+        // Still store color in color well in case user wants it later
+        [defaults setColor:self.customColorWell.color forKey:@"customColor"];
+        
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Redmond Blue"]) {
         
         self.customColorWell.hidden = YES;
         
         // Set window color to Redmond Blue
         self.window.backgroundColor = redmondBlueColor;
+        
+        // Still store color in color well in case user wants it later
+        [defaults setColor:self.customColorWell.color forKey:@"customColor"];
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Leaf Green"]) {
         
@@ -384,6 +417,9 @@ NSImage *websiteFavicon = nil;
         // Set window color to Leaf Green
         self.window.backgroundColor = leafGreenColor;
         
+        // Still store color in color well in case user wants it later
+        [defaults setColor:self.customColorWell.color forKey:@"customColor"];
+        
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Alloy Orange"]) {
         
         self.customColorWell.hidden = YES;
@@ -391,12 +427,18 @@ NSImage *websiteFavicon = nil;
         // Set window color to Alloy Orange
         self.window.backgroundColor = alloyOrangeColor;
         
+        // Still store color in color well in case user wants it later
+        [defaults setColor:self.customColorWell.color forKey:@"customColor"];
+        
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Dark Gray"]) {
         
         self.customColorWell.hidden = YES;
         
         // Set window color to dark gray
         self.window.backgroundColor = darkGrayColor;
+        
+        // Still store color in color well in case user wants it later
+        [defaults setColor:self.customColorWell.color forKey:@"customColor"];
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Custom"]) {
         
