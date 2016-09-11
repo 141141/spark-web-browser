@@ -130,17 +130,12 @@ NSImage *websiteFavicon = nil;
     eventURL = [NSURL URLWithString:[[event paramDescriptorForKeyword:keyDirectObject] stringValue]];
     urlToString = [eventURL absoluteString];
     if([urlToString isEqual: @"spark://about"]) {
-        NSLog(@"spark://about loaded");
-        [self.titleStatus setStringValue:@"About Spark"];
+        
+        // spark://about loaded
         
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-about" ofType:@"html"] isDirectory:NO]]];
+        
         self.addressBar.stringValue = @"spark://about";
-    } else if([urlToString isEqual: @"spark://updates"]) {
-        NSLog(@"spark://updates loaded");
-        [self.titleStatus setStringValue:@"Updates"];
-        
-        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-about" ofType:@"html"] isDirectory:NO]]];
-        self.addressBar.stringValue = @"spark://updates";
     }
 }
 
@@ -355,6 +350,7 @@ NSImage *websiteFavicon = nil;
 - (void)settingsMenuClicked:(id)sender {
     [[self.settingsPopupBtn cell] performClickWithFrame:[sender frame] inView:[sender superview]];
 }
+
 - (IBAction)setCustomColor:(id)sender {
     
     // Set window color to a custom color
@@ -671,7 +667,6 @@ NSImage *websiteFavicon = nil;
         faviconData = [NSData dataWithContentsOfURL:faviconURL];
         websiteFavicon = [[NSImage alloc] initWithData:faviconData];
         self.faviconImage.image = websiteFavicon;
-        
     }
 }
 
@@ -693,6 +688,10 @@ NSImage *websiteFavicon = nil;
         self.reloadBtn.image = [NSImage imageNamed: NSImageNameRefreshTemplate];
         self.loadingIndicator.hidden = YES;
         self.faviconImage.hidden = NO;
+        
+        if([self.addressBar.stringValue isEqual: @"spark://about"]) {
+            self.faviconImage.image = [NSImage imageNamed:@"favicon.ico"];
+        }
     }
 }
 
