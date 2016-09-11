@@ -44,6 +44,14 @@
 
 // Methods
 - (IBAction)newTab:(id)sender;
+- (IBAction)setHomepage:(id)sender;
+- (IBAction)setReleaseChannel:(id)sender;
+- (IBAction)initWebpageLoad:(id)sender;
+- (IBAction)setSearchEngine:(id)sender;
+- (IBAction)viewReleaseNotes:(id)sender;
+- (IBAction)startSettingHomepageBasedOnSearchEngine:(id)sender;
+- (IBAction)setTopBarColor:(id)sender;
+- (IBAction)setCustomColor:(id)sender;
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame;
 - (void)webView:(WebView *)sender didReceiveTitle:(NSString *)title forFrame:(WebFrame *)frame;
 - (void)setHomepageWithString:(NSString *)homepageToSet;
