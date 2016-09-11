@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "WebKit/WebKit.h"
 #import "NSUserDefaults+ColorSupport.m"
+#import "Sparkle.framework/Headers/SUUpdater.h"
 
 @interface AppDelegate () <NSTabViewDelegate>
 
@@ -103,7 +104,7 @@ NSImage *websiteFavicon = nil;
     sv = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"]; // Load SystemVersion.plist
     versionString = [sv objectForKey:@"ProductVersion"]; // Get macOS version
     buildString = [sv objectForKey:@"ProductBuildVersion"]; // Get macOS build number
-    productName = [sv objectForKey:@"ProductName"]; // Get macOS product name (either OS X / macOS)
+    productName = [sv objectForKey:@"ProductName"]; // Get macOS product name
     channelVer = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"currentReleaseChannel"]]; // Get current release channel
     editedVersionString = [versionString stringByReplacingOccurrencesOfString:@"." withString:@"_"]; // Replace dots in version string with underscores
     userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel %@ %@) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.101 Safari/537.36", productName, editedVersionString]; // Set user agent respective to the version of OS X / macOS the user is running
@@ -178,6 +179,14 @@ NSImage *websiteFavicon = nil;
     }
     
     [self.topBarColorPicker selectItemAtIndex:[defaults integerForKey:@"colorIndex"]];
+    
+    if([[defaults objectForKey:@"currentReleaseChannel"] isEqual: @"stable"]) {
+        [[SUUpdater sharedUpdater] setFeedURL:[NSURL URLWithString:@"https://insleep.tech/spark/appcast.xml"]];
+    } else if([[defaults objectForKey:@"currentReleaseChannel"] isEqual: @"beta"]) {
+        [[SUUpdater sharedUpdater] setFeedURL:[NSURL URLWithString:@"https://insleep.tech/spark/appcast-beta.xml"]];
+    } else if([[defaults objectForKey:@"currentReleaseChannel"] isEqual: @"dev"]) {
+        [[SUUpdater sharedUpdater] setFeedURL:[NSURL URLWithString:@"https://insleep.tech/spark/appcast-dev.xml"]];
+    }
     
     // Interface setup
     [self.webView setCustomUserAgent: userAgent];

@@ -149,20 +149,12 @@
 			isa = PBXGroup;
 			children = (
 				AB8587B61D7C9DFE0073515C /* SparkIcon256.png */,
-				ABA3CB121D85DFB200CA713C /* spark://about Resources */,
 				AB04FD081C712BD700F08232 /* Spark-Info.plist */,
 				AB04FD0A1C712BDB00F08232 /* main.m */,
 				AB04FD0B1C712BDB00F08232 /* Spark-Prefix.pch */,
 				ABB443621D84634C001D55C7 /* dsa_pub.pem */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		ABA3CB121D85DFB200CA713C /* spark://about Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "spark://about Resources";
 			sourceTree = "<group>";
 		};
 		ABA41DA51D84E40600F01B90 /* Frameworks */ = {
