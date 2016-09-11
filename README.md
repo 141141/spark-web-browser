@@ -40,8 +40,7 @@ Make any necessary changes and compile Spark within Xcode.
 
 The compiled version of Spark will be put in the `build/` subdirectory, along with other required files.
 
-## Known Issues
-There are no known issues at the moment.
+## [Known Issues](https://github.com/insleep/spark-web-browser/issues/)
 
 ### [Looking for Spark for Windows? Click here.](https://github.com/insleep/SparkWebBrowser-Windows/)
 
