@@ -170,7 +170,7 @@ NSImage *websiteFavicon = nil;
     
     if([defaults objectForKey:@"currentColor"] == nil) {
         // No top bar color is set -- revert to default
-        [defaults setObject:@"Google" forKey:@"currentColor"];
+        [defaults setObject:@"Default" forKey:@"currentColor"];
     }
     
     if([defaults integerForKey:@"colorIndex"] == (int)nil) {
@@ -205,7 +205,7 @@ NSImage *websiteFavicon = nil;
     self.settingsWindow.backgroundColor = [NSColor whiteColor];
     
     // Get key value from NSUserDefaults and set top bar color
-    if([[defaults objectForKey:@"currentColor"] isEqual: @"Default"] || [defaults objectForKey:@"currentColor"] == nil) {
+    if([[defaults objectForKey:@"currentColor"] isEqual: @"Default"]) {
         
         self.customColorWell.hidden = YES;
         
