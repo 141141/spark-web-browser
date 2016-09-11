@@ -21,6 +21,7 @@
                 <outlet property="addressBar" destination="6S4-CW-iwm" id="yLL-ye-fyR"/>
                 <outlet property="backBtn" destination="CSR-Ik-wrT" id="9ar-Ai-zKp"/>
                 <outlet property="currentVersion" destination="sbh-Aa-9pH" id="pub-aC-Yo5"/>
+                <outlet property="customColorWell" destination="uuu-yL-LqP" id="rPJ-sf-qXT"/>
                 <outlet property="faviconImage" destination="t5k-sW-5ra" id="bKl-he-loz"/>
                 <outlet property="forwardBtn" destination="wRb-WG-N9I" id="G2y-ac-Zki"/>
                 <outlet property="homepageBasedOnSearchEngineBtn" destination="5Uw-Fh-cJ1" id="CNY-RK-NbX"/>
@@ -715,6 +716,8 @@ Spark is made possible by the WebKit open source project and other open source s
                                     <menuItem title="Leaf Green" id="fKJ-1s-2Se"/>
                                     <menuItem title="Alloy Orange" id="CAI-8i-CQY"/>
                                     <menuItem title="Dark Gray" id="Nd6-9K-LI2"/>
+                                    <menuItem isSeparatorItem="YES" id="axc-JB-fcf"/>
+                                    <menuItem title="Custom" id="Uxr-7V-3BE"/>
                                 </items>
                             </menu>
                         </popUpButtonCell>
@@ -731,6 +734,14 @@ Spark is made possible by the WebKit open source project and other open source s
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <colorWell misplaced="YES" id="uuu-yL-LqP">
+                        <rect key="frame" x="190" y="19" width="44" height="23"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <action selector="setCustomColor:" target="Voe-Tx-rLC" id="MyM-g9-wUk"/>
+                        </connections>
+                    </colorWell>
                 </subviews>
             </view>
             <point key="canvasLocation" x="1377.5" y="-505.5"/>

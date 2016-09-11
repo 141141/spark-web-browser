@@ -39,6 +39,7 @@
 @property (assign, nonatomic) IBOutlet NSButton *forwardBtn;
 @property (assign, nonatomic) IBOutlet NSButton *settingsBtn;
 @property (assign, nonatomic) IBOutlet NSPopUpButton *settingsPopupBtn;
+@property (assign, nonatomic) IBOutlet NSColorWell *customColorWell;
 
 
 // Methods

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "WebKit/WebKit.h"
+#import "NSUserDefaults+ColorSupport.m"
 
 @interface AppDelegate () <NSTabViewDelegate>
 
@@ -47,6 +48,7 @@ NSColor *redmondBlueColor = nil;
 NSColor *leafGreenColor = nil;
 NSColor *alloyOrangeColor = nil;
 NSColor *darkGrayColor = nil;
+NSData *customColorData = nil;
 
 // General app setup
 NSUserDefaults *defaults = nil;
@@ -201,39 +203,60 @@ NSImage *websiteFavicon = nil;
     // Get key value from NSUserDefaults and set top bar color
     if([[defaults objectForKey:@"currentColor"] isEqual: @"Default"] || [defaults objectForKey:@"currentColor"] == nil) {
         
+        self.customColorWell.hidden = YES;
+        
         // Set window color to default color
         self.window.backgroundColor = defaultColor;
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Ruby Red"]) {
+        
+        self.customColorWell.hidden = YES;
         
         // Set window color to Ruby Red
         self.window.backgroundColor = rubyRedColor;
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Deep Aqua"]) {
         
+        self.customColorWell.hidden = YES;
+        
         // Set window color to Deep Aqua
         self.window.backgroundColor = deepAquaColor;
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Redmond Blue"]) {
+        
+        self.customColorWell.hidden = YES;
         
         // Set window color to Redmond Blue
         self.window.backgroundColor = redmondBlueColor;
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Leaf Green"]) {
         
+        self.customColorWell.hidden = YES;
+        
         // Set window color to Leaf Green
         self.window.backgroundColor = leafGreenColor;
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Alloy Orange"]) {
+        
+        self.customColorWell.hidden = YES;
         
         // Set window color to Alloy Orange
         self.window.backgroundColor = alloyOrangeColor;
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Dark Gray"]) {
         
+        self.customColorWell.hidden = YES;
+        
         // Set window color to dark gray
         self.window.backgroundColor = darkGrayColor;
         
+    } else if([defaults objectForKey:@"customColor"] != nil) {
+        
+        self.customColorWell.hidden = NO;
+        self.customColorWell.color = [defaults colorForKey:@"customColor"];
+        
+        // Set window color to a custom color
+        self.window.backgroundColor = [defaults colorForKey:@"customColor"];
     }
     
     // Homepage checking
@@ -311,6 +334,13 @@ NSImage *websiteFavicon = nil;
 - (void)settingsMenuClicked:(id)sender {
     [[self.settingsPopupBtn cell] performClickWithFrame:[sender frame] inView:[sender superview]];
 }
+- (IBAction)setCustomColor:(id)sender {
+    
+    // Set window color to a custom color
+    self.window.backgroundColor = self.customColorWell.color;
+    
+    [defaults setColor:self.customColorWell.color forKey:@"customColor"];
+}
 
 - (IBAction)setTopBarColor:(id)sender {
     
@@ -321,39 +351,61 @@ NSImage *websiteFavicon = nil;
     
     if([[defaults objectForKey:@"currentColor"] isEqual: @"Default"]) {
         
+        self.customColorWell.hidden = YES;
+        
         // Set window color to default color
         self.window.backgroundColor = defaultColor;
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Ruby Red"]) {
+        
+        self.customColorWell.hidden = YES;
         
         // Set window color to Ruby Red
         self.window.backgroundColor = rubyRedColor;
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Deep Aqua"]) {
         
+        self.customColorWell.hidden = YES;
+        
         // Set window color to Deep Aqua
         self.window.backgroundColor = deepAquaColor;
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Redmond Blue"]) {
+        
+        self.customColorWell.hidden = YES;
         
         // Set window color to Redmond Blue
         self.window.backgroundColor = redmondBlueColor;
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Leaf Green"]) {
         
+        self.customColorWell.hidden = YES;
+        
         // Set window color to Leaf Green
         self.window.backgroundColor = leafGreenColor;
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Alloy Orange"]) {
+        
+        self.customColorWell.hidden = YES;
         
         // Set window color to Alloy Orange
         self.window.backgroundColor = alloyOrangeColor;
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Dark Gray"]) {
         
+        self.customColorWell.hidden = YES;
+        
         // Set window color to dark gray
         self.window.backgroundColor = darkGrayColor;
         
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Custom"]) {
+        
+        self.customColorWell.hidden = NO;
+        
+        // Set window color to a custom color
+        self.window.backgroundColor = self.customColorWell.color;
+        
+        [defaults setColor:self.customColorWell.color forKey:@"customColor"];
     }
 }
 
