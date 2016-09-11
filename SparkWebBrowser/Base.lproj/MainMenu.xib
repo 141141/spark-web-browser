@@ -499,7 +499,7 @@
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="sbh-Aa-9pH">
                         <rect key="frame" x="100" y="176" width="212" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="0.0.0.0.00 (stable channel) (64-bit)" id="sH9-de-kgl">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="0.0.0.0.00 (stable channel)" id="sH9-de-kgl">
                             <font key="font" metaFont="systemLight" size="13"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
