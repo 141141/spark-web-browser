@@ -40,6 +40,10 @@ Make any necessary changes and compile Spark within Xcode.
 
 The compiled version of Spark will be put in the `build/` subdirectory, along with other required files.
 
+## Nightly Builds
+
+Interested in testing out the latest Spark releases before they're available to the general public? You can enroll in the nightly release channel by installing Spark, clicking the settings gear, then selecting "Preferences," and clicking "Nightly" under the "Release Channel" section.
+
 ## [Known Issues](https://github.com/insleep/spark-web-browser/issues/)
 
 ### [Looking for Spark for Windows? Click here.](https://github.com/insleep/SparkWebBrowser-Windows/)
