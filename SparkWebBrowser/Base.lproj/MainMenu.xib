@@ -684,7 +684,7 @@ Spark is made possible by the WebKit open source project and other open source s
                                 <items>
                                     <menuItem title="Stable" id="4YV-0A-Ncg"/>
                                     <menuItem title="Beta" id="zYs-HB-zYL"/>
-                                    <menuItem title="Developer" id="Po8-8f-tys"/>
+                                    <menuItem title="Nightly" id="Po8-8f-tys"/>
                                 </items>
                             </menu>
                         </popUpButtonCell>

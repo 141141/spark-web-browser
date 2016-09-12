@@ -184,7 +184,12 @@ NSImage *websiteFavicon = nil;
         [[SUUpdater sharedUpdater] setFeedURL:[NSURL URLWithString:@"https://insleep.tech/spark/appcast.xml"]];
     } else if([[defaults objectForKey:@"currentReleaseChannel"] isEqual: @"beta"]) {
         [[SUUpdater sharedUpdater] setFeedURL:[NSURL URLWithString:@"https://insleep.tech/spark/appcast-beta.xml"]];
-    } else if([[defaults objectForKey:@"currentReleaseChannel"] isEqual: @"dev"]) {
+    } else if([[defaults objectForKey:@"currentReleaseChannel"] isEqual: @"nightly"]) {
+        [[SUUpdater sharedUpdater] setFeedURL:[NSURL URLWithString:@"https://insleep.tech/spark/appcast-dev.xml"]];
+    }
+    
+    if([[defaults objectForKey:@"currentReleaseChannel"] isEqual: @"dev"]) { // Create fallback for those migrating from previous versions
+        [defaults setObject:@"nightly" forKey:@"currentReleaseChannel"];
         [[SUUpdater sharedUpdater] setFeedURL:[NSURL URLWithString:@"https://insleep.tech/spark/appcast-dev.xml"]];
     }
     
@@ -597,13 +602,8 @@ NSImage *websiteFavicon = nil;
 - (IBAction)setReleaseChannel:(id)sender {
     
     NSLog(@"Setting release channel...");
-    
-    if([self.releaseChannelPicker.titleOfSelectedItem isEqual: @"Developer"]) {
-        capitalizedReleaseChannel = @"Dev";
-    } else {
-        capitalizedReleaseChannel = [NSString stringWithFormat:@"%@", self.releaseChannelPicker.titleOfSelectedItem];
-    }
-    
+
+    capitalizedReleaseChannel = [NSString stringWithFormat:@"%@", self.releaseChannelPicker.titleOfSelectedItem];
     uncapitalizedReleaseChannel = [capitalizedReleaseChannel lowercaseString];
     
     [defaults setObject:[NSString stringWithFormat:@"%@", uncapitalizedReleaseChannel] forKey:@"currentReleaseChannel"];
