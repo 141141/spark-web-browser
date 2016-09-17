@@ -55,6 +55,9 @@ NSData *customColorData = nil;
 NSUserDefaults *defaults = nil;
 NSDictionary *infoDict = nil;
 NSDictionary *sv = nil;
+NSAlert *alert = nil;
+NSTask *task = nil;
+NSMutableArray *args = nil;
 NSString *appVersion = nil;
 NSString *buildNumber = nil;
 NSString *versionString = nil;
@@ -64,9 +67,6 @@ NSString *channelVer = nil;
 NSString *editedVersionString = nil;
 NSString *userAgent = nil;
 NSString *clippedTitle = nil;
-NSAlert *alert = nil;
-NSTask *task = nil;
-NSMutableArray *args = nil;
 
 // Objects related (somewhat) to loading webpages
 NSString *searchString = nil;
@@ -84,7 +84,6 @@ NSURL *eventURL = nil;
 NSURL *faviconURL = nil;
 NSData *faviconData = nil;
 NSImage *websiteFavicon = nil;
-
 
 + (void)initialize {
     defaults = [NSUserDefaults standardUserDefaults]; // Set up NSUserDefaults
@@ -188,7 +187,7 @@ NSImage *websiteFavicon = nil;
         [[SUUpdater sharedUpdater] setFeedURL:[NSURL URLWithString:@"https://insleep.tech/spark/appcast-dev.xml"]];
     }
     
-    if([[defaults objectForKey:@"currentReleaseChannel"] isEqual: @"dev"]) { // Create fallback for those migrating from previous versions
+    if([[defaults objectForKey:@"currentReleaseChannel"] isEqual: @"dev"]) { // Create fallback from "dev" channel for those migrating from previous versions
         [defaults setObject:@"nightly" forKey:@"currentReleaseChannel"];
         [[SUUpdater sharedUpdater] setFeedURL:[NSURL URLWithString:@"https://insleep.tech/spark/appcast-dev.xml"]];
     }
@@ -315,54 +314,6 @@ NSImage *websiteFavicon = nil;
         self.homepageTextField.enabled = YES;
         self.setHomepageBtn.enabled = YES;
     }
-}
-
-- (void)setHomepageBasedOnSearchEngine:(id)sender {
-    if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Google"]) {
-        
-        // Set homepage to Google
-        [self setHomepageWithString:googleDefaultURL];
-        
-    } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Bing"]) {
-        
-        // Set homepage to Bing
-        [self setHomepageWithString:bingDefaultURL];
-        
-    } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Yahoo!"]) {
-        
-        // Set homepage to Yahoo!
-        [self setHomepageWithString:yahooDefaultURL];
-        
-    } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"DuckDuckGo"]) {
-        
-        // Set homepage to DuckDuckGo
-        [self setHomepageWithString:duckDuckGoDefaultURL];
-        
-    } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Ask"]) {
-        
-        // Set homepage to Ask
-        [self setHomepageWithString:askDefaultURL];
-    } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"AOL"]) {
-        
-        // Set homepage to AOL
-        [self setHomepageWithString:aolDefaultURL];
-    }
-}
-
-- (void)setHomepageWithString:(NSString *)homepageToSet {
-    
-    if([homepageToSet hasPrefix:@"https://"] || [homepageToSet hasPrefix:@"http://"]) {
-        NSLog(@"Setting homepage...");
-        [defaults setObject:[NSString stringWithFormat:@"%@", homepageToSet] forKey:@"userHomepage"];
-        self.homepageTextField.stringValue = [defaults objectForKey:@"userHomepage"];
-    } else {
-        NSLog(@"Homepage not set: invalid web address.");
-        [self setHomepageWithString:googleDefaultURL];
-    }
-}
-
-- (void)settingsMenuClicked:(id)sender {
-    [[self.settingsPopupBtn cell] performClickWithFrame:[sender frame] inView:[sender superview]];
 }
 
 - (IBAction)setCustomColor:(id)sender {
@@ -660,6 +611,54 @@ NSImage *websiteFavicon = nil;
     });
 }
 
+- (void)setHomepageBasedOnSearchEngine:(id)sender {
+    if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Google"]) {
+        
+        // Set homepage to Google
+        [self setHomepageWithString:googleDefaultURL];
+        
+    } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Bing"]) {
+        
+        // Set homepage to Bing
+        [self setHomepageWithString:bingDefaultURL];
+        
+    } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Yahoo!"]) {
+        
+        // Set homepage to Yahoo!
+        [self setHomepageWithString:yahooDefaultURL];
+        
+    } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"DuckDuckGo"]) {
+        
+        // Set homepage to DuckDuckGo
+        [self setHomepageWithString:duckDuckGoDefaultURL];
+        
+    } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Ask"]) {
+        
+        // Set homepage to Ask
+        [self setHomepageWithString:askDefaultURL];
+    } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"AOL"]) {
+        
+        // Set homepage to AOL
+        [self setHomepageWithString:aolDefaultURL];
+    }
+}
+
+- (void)setHomepageWithString:(NSString *)homepageToSet {
+    
+    if([homepageToSet hasPrefix:@"https://"] || [homepageToSet hasPrefix:@"http://"]) {
+        NSLog(@"Setting homepage...");
+        [defaults setObject:[NSString stringWithFormat:@"%@", homepageToSet] forKey:@"userHomepage"];
+        self.homepageTextField.stringValue = [defaults objectForKey:@"userHomepage"];
+    } else {
+        NSLog(@"Homepage not set: invalid web address.");
+        [self setHomepageWithString:googleDefaultURL];
+    }
+}
+
+- (void)settingsMenuClicked:(id)sender {
+    [[self.settingsPopupBtn cell] performClickWithFrame:[sender frame] inView:[sender superview]];
+}
+
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame {
     // Only report feedback for the main frame.
     if (frame == [sender mainFrame]) {
@@ -671,6 +670,7 @@ NSImage *websiteFavicon = nil;
         [self.loadingIndicator startAnimation:self];
         
         // Use Google to get website favicons
+        // In the future, the app should be able to detect a favicon.ico instead of relying on a service to get favicons
         faviconURLString = [NSString stringWithFormat:@"https://www.google.com/s2/favicons?domain=%@", websiteURL];
         faviconURL = [NSURL URLWithString: faviconURLString];
         faviconData = [NSData dataWithContentsOfURL:faviconURL];
