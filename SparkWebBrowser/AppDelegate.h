@@ -41,7 +41,6 @@
 @property (assign, nonatomic) IBOutlet NSPopUpButton *settingsPopupBtn;
 @property (assign, nonatomic) IBOutlet NSColorWell *customColorWell;
 
-
 // Methods
 - (IBAction)newTab:(id)sender;
 - (IBAction)setHomepage:(id)sender;
