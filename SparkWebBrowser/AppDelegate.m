@@ -691,8 +691,8 @@ NSImage *websiteFavicon = nil;
             clippedTitle = [NSString stringWithFormat:@"%@...", [title substringToIndex:clipLength]];
         }
         
-        [self.titleStatus setStringValue:clippedTitle];
-        self.titleStatus.toolTip = title;
+        [self.titleStatus setStringValue:clippedTitle]; // Set titleStatus to clipped title
+        self.titleStatus.toolTip = title; // Set tooltip to unclipped title
         [self.loadingIndicator stopAnimation:self];
         self.reloadBtn.image = [NSImage imageNamed: NSImageNameRefreshTemplate];
         self.loadingIndicator.hidden = YES;
