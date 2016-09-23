@@ -325,6 +325,14 @@ NSImage *websiteFavicon = nil; // The website's favicon, as an NSImage
     [defaults setColor:self.customColorWell.color forKey:@"customColor"];
 }
 
+- (IBAction)clipEndOfSearchURL:(id)sender {
+    if(self.clipSearchURLBtn.state == NSOnState) {
+        [defaults setBool:YES forKey:@"clipEndOfURL"];
+    } else {
+        [defaults setBool:NO forKey:@"clipEndOfURL"];
+    }
+}
+
 - (IBAction)setTopBarColor:(id)sender {
     
     colorChosen = [NSString stringWithFormat:@"%@", self.topBarColorPicker.titleOfSelectedItem];
