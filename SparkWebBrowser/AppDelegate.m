@@ -69,7 +69,6 @@ NSString *userAgent = nil; // Spark's user agent, used when loading webpages
 NSString *clippedTitle = nil; // The title used within the titleStatus string
 
 // Objects related (somewhat) to loading webpages
-
 NSString *searchString = nil; // The string used when initiating a search query
 NSString *homepageString = nil; //
 NSString *urlString = nil; // The initial string to load a webpage from
@@ -499,8 +498,6 @@ NSImage *websiteFavicon = nil; // The website's favicon, as an NSImage
             editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"," withString:@"%2C"];
             editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"<" withString:@"%3C"];
             editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@">" withString:@"%3E"];
-            editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"^" withString:@"%5E"];
-            editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"^" withString:@"%5E"];
             editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"^" withString:@"%5E"];
             
             // Problematic characters
