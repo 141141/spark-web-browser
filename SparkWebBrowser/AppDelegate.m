@@ -45,6 +45,7 @@ NSString *appReleasesURL = @"https://www.github.com/insleep/spark-web-browser/re
 NSColor *defaultColor = nil;
 NSColor *rubyRedColor = nil;
 NSColor *deepAquaColor = nil;
+NSColor *navyBlueColor = nil;
 NSColor *redmondBlueColor = nil;
 NSColor *leafGreenColor = nil;
 NSColor *alloyOrangeColor = nil;
@@ -92,6 +93,7 @@ NSImage *websiteFavicon = nil; // The website's favicon, as an NSImage
     defaultColor = [NSColor colorWithRed:192.0f/255.0f green:192.0f/255.0f blue:192.0f/255.0f alpha:1.0f];
     rubyRedColor = [NSColor colorWithRed:0.773f green:0.231f blue:0.212f alpha:1.0f];
     deepAquaColor = [NSColor colorWithRed:46.0f/255.0f green:133.0f/255.0f blue:162.0f/255.0f alpha:1.0f];
+    navyBlueColor = [NSColor colorWithRed:26.0f/255.0f green:68.0f/255.0f blue:97.0f/255.0f alpha:1.0f];
     redmondBlueColor = [NSColor colorWithRed:16.0f/255.0f green:101.0f/255.0f blue:207.0f/255.0f alpha:1.0f];
     leafGreenColor = [NSColor colorWithRed:8.0f/255.0f green:157.0f/255.0f blue:0.0f/255.0f alpha:1.0f];
     alloyOrangeColor = [NSColor colorWithRed:200.0f/255.0f green:80.0f/255.0f blue:1.0f/255.0f alpha:1.0f];
@@ -240,6 +242,16 @@ NSImage *websiteFavicon = nil; // The website's favicon, as an NSImage
         // Still set color in NSColorWell in case user wants it later
         self.customColorWell.color = [defaults colorForKey:@"customColor"];
         
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Navy Blue"]) {
+        
+        self.customColorWell.hidden = YES;
+        
+        // Set window color to Navy Blue
+        self.window.backgroundColor = navyBlueColor;
+        
+        // Still store color in NSColorWell in case user wants it later
+        [defaults setColor:self.customColorWell.color forKey:@"customColor"];
+        
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Redmond Blue"]) {
         
         self.customColorWell.hidden = YES;
@@ -358,6 +370,16 @@ NSImage *websiteFavicon = nil; // The website's favicon, as an NSImage
         
         // Set window color to Deep Aqua
         self.window.backgroundColor = deepAquaColor;
+        
+        // Still store color in NSColorWell in case user wants it later
+        [defaults setColor:self.customColorWell.color forKey:@"customColor"];
+        
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Navy Blue"]) {
+        
+        self.customColorWell.hidden = YES;
+        
+        // Set window color to Navy Blue
+        self.window.backgroundColor = navyBlueColor;
         
         // Still store color in NSColorWell in case user wants it later
         [defaults setColor:self.customColorWell.color forKey:@"customColor"];
