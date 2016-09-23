@@ -200,8 +200,10 @@ NSImage *websiteFavicon = nil; // The website's favicon, as an NSImage
     self.userAgentField.stringValue = userAgent;
     if(versionString.doubleValue > 10.11) { // Detect whether or not user is running macOS 10.12 or higher
         self.osVersionField.stringValue = [NSString stringWithFormat: @"macOS %@ (%@)", versionString, buildString];
+        self.sparkAboutTitleField.stringValue = [NSString stringWithFormat:@"Spark Web Browser for macOS"];
     } else {
         self.osVersionField.stringValue = [NSString stringWithFormat: @"OS X %@ (%@)", versionString, buildString];
+        self.sparkAboutTitleField.stringValue = [NSString stringWithFormat:@"Spark Web Browser for OS X"];
     }
     self.ntNotSupported.hidden = YES;
     self.faviconImage.hidden = YES;
