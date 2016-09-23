@@ -20,7 +20,6 @@
                 <outlet property="aboutWindow" destination="oJi-1c-Sb5" id="bgk-nR-Kh0"/>
                 <outlet property="addressBar" destination="6S4-CW-iwm" id="yLL-ye-fyR"/>
                 <outlet property="backBtn" destination="CSR-Ik-wrT" id="9ar-Ai-zKp"/>
-                <outlet property="clipSearchURLBtn" destination="Nde-24-kfc" id="MLg-6Y-i3h"/>
                 <outlet property="currentVersion" destination="sbh-Aa-9pH" id="pub-aC-Yo5"/>
                 <outlet property="customColorWell" destination="uuu-yL-LqP" id="rPJ-sf-qXT"/>
                 <outlet property="faviconImage" destination="t5k-sW-5ra" id="bKl-he-loz"/>
@@ -743,17 +742,6 @@ Spark is made possible by the WebKit open source project and other open source s
                             <action selector="setCustomColor:" target="Voe-Tx-rLC" id="MyM-g9-wUk"/>
                         </connections>
                     </colorWell>
-                    <button misplaced="YES" id="Nde-24-kfc">
-                        <rect key="frame" x="188" y="142" width="163" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="check" title="Clip End of Search URL" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="yaY-s3-9SZ">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="clipEndOfSearchURL:" target="Voe-Tx-rLC" id="j6b-4e-H5n"/>
-                        </connections>
-                    </button>
                 </subviews>
             </view>
             <point key="canvasLocation" x="1377.5" y="-505.5"/>

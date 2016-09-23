@@ -40,7 +40,6 @@
 @property (assign, nonatomic) IBOutlet NSButton *settingsBtn;
 @property (assign, nonatomic) IBOutlet NSPopUpButton *settingsPopupBtn;
 @property (assign, nonatomic) IBOutlet NSColorWell *customColorWell;
-@property (assign, nonatomic) IBOutlet NSButton *clipSearchURLBtn;
 
 // Methods
 - (IBAction)newTab:(id)sender;
@@ -52,7 +51,6 @@
 - (IBAction)startSettingHomepageBasedOnSearchEngine:(id)sender;
 - (IBAction)setTopBarColor:(id)sender;
 - (IBAction)setCustomColor:(id)sender;
-- (IBAction)clipEndOfSearchURL:(id)sender;
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame;
 - (void)webView:(WebView *)sender didReceiveTitle:(NSString *)title forFrame:(WebFrame *)frame;
 - (void)setHomepageWithString:(NSString *)homepageToSet;

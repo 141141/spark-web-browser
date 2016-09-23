@@ -325,14 +325,6 @@ NSImage *websiteFavicon = nil; // The website's favicon, as an NSImage
     [defaults setColor:self.customColorWell.color forKey:@"customColor"];
 }
 
-- (IBAction)clipEndOfSearchURL:(id)sender {
-    if(self.clipSearchURLBtn.state == NSOnState) {
-        [defaults setBool:YES forKey:@"clipEndOfURL"];
-    } else {
-        [defaults setBool:NO forKey:@"clipEndOfURL"];
-    }
-}
-
 - (IBAction)setTopBarColor:(id)sender {
     
     colorChosen = [NSString stringWithFormat:@"%@", self.topBarColorPicker.titleOfSelectedItem];
@@ -526,12 +518,6 @@ NSImage *websiteFavicon = nil; // The website's favicon, as an NSImage
             // %25 = % */
 
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
-            
-            if([defaults boolForKey:@"clipEndOfURL"] == YES) {
-                NSRange range = [editedURLString rangeOfString:@"search"];
-                editedURLString = [editedURLString substringToIndex:range.location];
-            }
-            
             self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
             
         } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Bing"]) {
@@ -595,6 +581,8 @@ NSImage *websiteFavicon = nil; // The website's favicon, as an NSImage
             self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
             
         }
+        
+        
     }
 }
 
