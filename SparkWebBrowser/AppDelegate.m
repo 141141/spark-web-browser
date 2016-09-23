@@ -485,7 +485,9 @@ NSImage *websiteFavicon = nil; // The website's favicon, as an NSImage
             
             // Replace special characters
             editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-            editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"'" withString:@"%27"];
+            
+            // Commented out for the time being, will fix soon
+            /*editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"'" withString:@"%27"];
             editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"{" withString:@"%7B"];
             editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"}" withString:@"%7D"];
             editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"|" withString:@"%7C"];
@@ -513,9 +515,15 @@ NSImage *websiteFavicon = nil; // The website's favicon, as an NSImage
             // %23 = #
             // %26 = &
             // %2F = /
-            // %25 = %
+            // %25 = % */
 
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
+            
+            if([defaults boolForKey:@"clipEndOfURL"] == YES) {
+                NSRange range = [editedURLString rangeOfString:@"search"];
+                editedURLString = [editedURLString substringToIndex:range.location];
+            }
+            
             self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
             
         } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Bing"]) {
