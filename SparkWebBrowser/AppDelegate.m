@@ -52,38 +52,39 @@ NSColor *darkGrayColor = nil;
 NSData *customColorData = nil;
 
 // General app setup
-NSUserDefaults *defaults = nil;
-NSDictionary *infoDict = nil;
-NSDictionary *sv = nil;
-NSAlert *alert = nil;
-NSTask *task = nil;
-NSMutableArray *args = nil;
-NSString *appVersion = nil;
-NSString *buildNumber = nil;
-NSString *versionString = nil;
-NSString *buildString = nil;
-NSString *productName = nil;
-NSString *channelVer = nil;
-NSString *editedVersionString = nil;
-NSString *userAgent = nil;
-NSString *clippedTitle = nil;
+NSUserDefaults *defaults = nil; // Shortcut to [NSUserDefaults standardUserDefaults]
+NSDictionary *infoDict = nil; // Spark's Info.plist
+NSDictionary *sv = nil; // macOS' SystemVersion.plist
+NSAlert *alert = nil; // NSAlert used when switching release channels
+NSTask *task = nil; // NSTask used when switching release channels
+NSMutableArray *args = nil; // Arguments used when switching release channels
+NSString *appVersion = nil; // Spark version number
+NSString *buildNumber = nil; // Spark build number
+NSString *versionString = nil; // macOS version number
+NSString *buildString = nil; // macOS build number
+NSString *productName = nil; // macOS product name
+NSString *channelVer = nil; // Spark release channel
+NSString *editedVersionString = nil; // Edited macOS version string
+NSString *userAgent = nil; // Spark's user agent, used when loading webpages
+NSString *clippedTitle = nil; // The title used within the titleStatus string
 
 // Objects related (somewhat) to loading webpages
-NSString *searchString = nil;
-NSString *homepageString = nil;
-NSString *urlString = nil;
-NSString *editedURLString = nil;
-NSString *capitalizedReleaseChannel = nil;
-NSString *uncapitalizedReleaseChannel = nil;
-NSString *searchEngineChosen = nil;
-NSString *colorChosen = nil;
-NSString *urlToString = nil;
-NSString *websiteURL = nil;
-NSString *faviconURLString = nil;
-NSURL *eventURL = nil;
-NSURL *faviconURL = nil;
-NSData *faviconData = nil;
-NSImage *websiteFavicon = nil;
+
+NSString *searchString = nil; // The string used when initiating a search query
+NSString *homepageString = nil; //
+NSString *urlString = nil; // The initial string to load a webpage from
+NSString *editedURLString = nil; // The edited string to load a webpage from
+NSString *capitalizedReleaseChannel = nil; // Spark release channel, including capital letters
+NSString *uncapitalizedReleaseChannel = nil; // Spark release channel, not including capital letters
+NSString *searchEngineChosen = nil; // The current search engine chosen
+NSString *colorChosen = nil; // The current top bar color stored in NSUserDefaults
+NSString *urlToString = nil; // A NSURL converted to a NSString, used when handling spark:// URL events
+NSString *websiteURL = nil; // Current website URL, used when loading webpages
+NSString *faviconURLString = nil; // URL for service that retrieves favicons
+NSURL *eventURL = nil; // Used when handling spark:// URL events
+NSURL *faviconURL = nil; // NSURL converted from faviconURLString
+NSData *faviconData = nil; // Data retrieved from faviconURLString service
+NSImage *websiteFavicon = nil; // The website's favicon, as an NSImage
 
 + (void)initialize {
     defaults = [NSUserDefaults standardUserDefaults]; // Set up NSUserDefaults
@@ -106,7 +107,8 @@ NSImage *websiteFavicon = nil;
     productName = [sv objectForKey:@"ProductName"]; // Get macOS product name
     channelVer = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"currentReleaseChannel"]]; // Get current release channel
     editedVersionString = [versionString stringByReplacingOccurrencesOfString:@"." withString:@"_"]; // Replace dots in version string with underscores
-    userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel %@ %@) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.101 Safari/537.36", productName, editedVersionString]; // Set user agent respective to the version of OS X / macOS the user is running
+    userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel %@ %@) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36", productName, editedVersionString]; // Set user agent respective to the version of OS X / macOS the user is running
+    
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
@@ -481,8 +483,41 @@ NSImage *websiteFavicon = nil;
             NSLog(@"Search engine found: Google");
             
             urlString = [NSString stringWithFormat:googleSearchString, searchString];
-            editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             
+            // Replace special characters
+            editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"'" withString:@"%27"];
+            editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"{" withString:@"%7B"];
+            editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"}" withString:@"%7D"];
+            editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"|" withString:@"%7C"];
+            editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"+" withString:@"%2B"];
+            editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"[" withString:@"%5B"];
+            editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"]" withString:@"%5D"];
+            editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"\\" withString:@"%5C"];
+            editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@";" withString:@"%3B"];
+            editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"`" withString:@"%60"];
+            editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"," withString:@"%2C"];
+            editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"<" withString:@"%3C"];
+            editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@">" withString:@"%3E"];
+            editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"^" withString:@"%5E"];
+            editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"^" withString:@"%5E"];
+            editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"^" withString:@"%5E"];
+            
+            // Problematic characters
+            // editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"=" withString:@"%3D"];
+            // editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@":" withString:@"%3A"];
+            // editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"?" withString:@"%3F"];
+            // editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"/" withString:@"%2F"];
+            // editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"#" withString:@"%23"];
+            // editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"%" withString:@"%25"];
+            // %3D = =
+            // %3F = ?
+            // %3A = :
+            // %23 = #
+            // %26 = &
+            // %2F = /
+            // %25 = %
+
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
             self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
             
