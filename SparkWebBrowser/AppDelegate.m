@@ -505,41 +505,12 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
             
             NSLog(@"Search engine found: Google");
             
+            searchString = [searchString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+            
             urlString = [NSString stringWithFormat:googleSearchString, searchString];
             
             // Replace special characters
             editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-            
-            // Commented out for the time being, will fix soon
-            /*editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"'" withString:@"%27"];
-            editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"{" withString:@"%7B"];
-            editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"}" withString:@"%7D"];
-            editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"|" withString:@"%7C"];
-            editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"+" withString:@"%2B"];
-            editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"[" withString:@"%5B"];
-            editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"]" withString:@"%5D"];
-            editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"\\" withString:@"%5C"];
-            editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@";" withString:@"%3B"];
-            editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"`" withString:@"%60"];
-            editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"," withString:@"%2C"];
-            editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"<" withString:@"%3C"];
-            editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@">" withString:@"%3E"];
-            editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"^" withString:@"%5E"];
-            
-            // Problematic characters
-            // editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"=" withString:@"%3D"];
-            // editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@":" withString:@"%3A"];
-            // editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"?" withString:@"%3F"];
-            // editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"/" withString:@"%2F"];
-            // editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"#" withString:@"%23"];
-            // editedURLString = [editedURLString stringByReplacingOccurrencesOfString:@"%" withString:@"%25"];
-            // %3D = =
-            // %3F = ?
-            // %3A = :
-            // %23 = #
-            // %26 = &
-            // %2F = /
-            // %25 = % */
 
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
             self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
@@ -549,6 +520,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
             // Bing search initiated
             
             NSLog(@"Search engine found: Bing");
+            
+            searchString = [searchString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
             
             urlString = [NSString stringWithFormat:bingSearchString, searchString];
             editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
@@ -562,6 +535,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
             
             NSLog(@"Search engine found: Yahoo!");
             
+            searchString = [searchString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+            
             urlString = [NSString stringWithFormat:yahooSearchString, searchString];
             editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             
@@ -573,6 +548,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
             // DuckDuckGo search initiated
             
             NSLog(@"Search engine found: DuckDuckGo");
+            
+            searchString = [searchString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
             
             urlString = [NSString stringWithFormat:duckDuckGoSearchString, searchString];
             editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
@@ -586,6 +563,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
             
             NSLog(@"Search engine found: Ask");
             
+            searchString = [searchString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+            
             urlString = [NSString stringWithFormat:askSearchString, searchString];
             editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             
@@ -597,6 +576,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
             // AOL search initiated
             
             NSLog(@"Search engine found: AOL");
+            
+            searchString = [searchString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
             
             urlString = [NSString stringWithFormat:aolSearchString, searchString];
             editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
