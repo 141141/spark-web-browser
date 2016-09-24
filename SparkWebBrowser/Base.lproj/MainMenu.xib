@@ -480,7 +480,7 @@
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" id="9o1-qW-hns">
-                        <rect key="frame" x="100" y="72" width="207" height="71"/>
+                        <rect key="frame" x="100" y="43" width="207" height="100"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Loading..." id="PS7-Pn-omo">
                             <font key="font" metaFont="systemLight" size="13"/>
