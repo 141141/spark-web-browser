@@ -67,24 +67,24 @@ NSString *productName = nil; // macOS product name
 NSString *channelVer = nil; // Spark release channel
 NSString *editedVersionString = nil; // Edited macOS version string
 NSString *userAgent = nil; // Spark's user agent, used when loading webpages
-NSString *clippedTitle = nil; // The title used within the titleStatus string
+NSString *clippedTitle = nil; // Title used within the titleStatus string
 
 // Objects related (somewhat) to loading webpages
-NSString *searchString = nil; // The string used when initiating a search query
-NSString *homepageString = nil; //
-NSString *urlString = nil; // The initial string to load a webpage from
-NSString *editedURLString = nil; // The edited string to load a webpage from
+NSString *searchString = nil; // String used when initiating a search query
+NSString *homepageString = nil; // Current homepage chosen
+NSString *urlString = nil; // Initial string to load a webpage from
+NSString *editedURLString = nil; // Edited string to load a webpage from
 NSString *capitalizedReleaseChannel = nil; // Spark release channel, including capital letters
 NSString *uncapitalizedReleaseChannel = nil; // Spark release channel, not including capital letters
-NSString *searchEngineChosen = nil; // The current search engine chosen
-NSString *colorChosen = nil; // The current top bar color stored in NSUserDefaults
-NSString *urlToString = nil; // A NSURL converted to a NSString, used when handling spark:// URL events
+NSString *searchEngineChosen = nil; // Current search engine chosen
+NSString *colorChosen = nil; // Current top bar color stored in NSUserDefaults
+NSString *urlToString = nil; // NSURL converted to a NSString, used when handling spark:// URL events
 NSString *websiteURL = nil; // Current website URL, used when loading webpages
-NSString *faviconURLString = nil; // URL for service that retrieves favicons
+NSString *faviconURLString = nil; // URL for the service that retrieves favicons
 NSURL *eventURL = nil; // Used when handling spark:// URL events
 NSURL *faviconURL = nil; // NSURL converted from faviconURLString
 NSData *faviconData = nil; // Data retrieved from faviconURLString service
-NSImage *websiteFavicon = nil; // The website's favicon, as an NSImage
+NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 
 + (void)initialize {
     defaults = [NSUserDefaults standardUserDefaults]; // Set up NSUserDefaults
