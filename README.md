@@ -47,5 +47,3 @@ Interested in testing out the latest Spark releases before they're available to 
 ## [Known Issues](https://github.com/insleep/spark-web-browser/issues/)
 
 ## [License](https://github.com/insleep/spark-web-browser/blob/master/LICENSE)
-
-### [Looking for Spark for Windows? Click here.](https://github.com/insleep/SparkWebBrowser-Windows/)
