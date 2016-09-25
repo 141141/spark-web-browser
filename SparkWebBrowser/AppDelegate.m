@@ -586,8 +586,6 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
             self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
             
         }
-        
-        
     }
 }
 
