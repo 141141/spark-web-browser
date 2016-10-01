@@ -261,7 +261,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     
     if([defaults objectForKey:@"currentReleaseChannel"] == nil) {
         // No release channel is set -- revert to default
-        [defaults setObject:@"stable" forKey:@"currentReleaseChannel"];
+        [defaults setObject:[NSString stringWithFormat:@"stable"] forKey:@"currentReleaseChannel"];
     }
     
     if([defaults integerForKey:@"releaseChannelIndex"] == (int)nil) {
@@ -273,7 +273,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     
     if([defaults objectForKey:@"currentSearchEngine"] == nil) {
         // No search engine is set -- revert to default
-        [defaults setObject:@"Google" forKey:@"currentSearchEngine"];
+        [defaults setObject:[NSString stringWithFormat:@"Google"] forKey:@"currentSearchEngine"];
     }
     
     if([defaults integerForKey:@"searchEngineIndex"] == (int)nil) {
@@ -330,16 +330,16 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         self.setHomepageBtn.enabled = YES;
     }
     
+    if([[defaults objectForKey:@"currentReleaseChannel"] isEqual: @"dev"]) { // Create fallback from "dev" channel for those migrating from previous versions
+        [defaults setObject:@"nightly" forKey:@"currentReleaseChannel"];
+        [[SUUpdater sharedUpdater] setFeedURL:[NSURL URLWithString:@"https://insleep.tech/spark/appcast-dev.xml"]];
+    }
+    
     if([[defaults objectForKey:@"currentReleaseChannel"] isEqual: @"stable"]) {
         [[SUUpdater sharedUpdater] setFeedURL:[NSURL URLWithString:@"https://insleep.tech/spark/appcast.xml"]];
     } else if([[defaults objectForKey:@"currentReleaseChannel"] isEqual: @"beta"]) {
         [[SUUpdater sharedUpdater] setFeedURL:[NSURL URLWithString:@"https://insleep.tech/spark/appcast-beta.xml"]];
     } else if([[defaults objectForKey:@"currentReleaseChannel"] isEqual: @"nightly"]) {
-        [[SUUpdater sharedUpdater] setFeedURL:[NSURL URLWithString:@"https://insleep.tech/spark/appcast-dev.xml"]];
-    }
-    
-    if([[defaults objectForKey:@"currentReleaseChannel"] isEqual: @"dev"]) { // Create fallback from "dev" channel for those migrating from previous versions
-        [defaults setObject:@"nightly" forKey:@"currentReleaseChannel"];
         [[SUUpdater sharedUpdater] setFeedURL:[NSURL URLWithString:@"https://insleep.tech/spark/appcast-dev.xml"]];
     }
     
