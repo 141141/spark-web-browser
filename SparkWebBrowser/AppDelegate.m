@@ -69,6 +69,7 @@ NSString *editedVersionString = nil; // Edited macOS version string
 NSString *userAgent = nil; // Spark's user agent, used when loading webpages
 NSString *clippedTitle = nil; // Title used within the titleStatus string
 NSString *suggestedFilename = nil; // Filename suggested when downloading files
+NSString *clippedFilename = nil; // Suggested filename with ellipsis suffix
 NSString *destinationFilename = nil; // Directory where downloaded files are stored
 NSString *homeDirectory = nil; // User home directory
 long long expectedLength = 0; // Expected length of a file being downloaded
@@ -178,12 +179,21 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     self.bytesReceived = self.bytesReceived + length;
     
     if (expectedLength != NSURLResponseUnknownLength) {
+        
         // If the expected content length is
         // available, display percent complete.
         double percentComplete = (self.bytesReceived / (float)expectedLength) * 100.0;
         [self.downloadProgressIndicator setDoubleValue:percentComplete];
         [self.bytesDownloadedText setStringValue:[NSString stringWithFormat:@"%ld/%lld MB", self.bytesReceived / 1024 / 1024, expectedLength / 1024 / 1024]];
-        self.fileDownloadingText.stringValue = [NSString stringWithFormat:@"%@", suggestedFilename];
+        
+        const int clipLength = 20;
+        if([suggestedFilename length] > clipLength) {
+            clippedFilename = [NSString stringWithFormat:@"%@...", [suggestedFilename substringToIndex:clipLength]];
+            self.fileDownloadingText.stringValue = [NSString stringWithFormat:@"%@", clippedFilename];
+        } else {
+            self.fileDownloadingText.stringValue = [NSString stringWithFormat:@"%@", suggestedFilename];
+        }
+        
     } else {
         // If the expected content length is
         // unknown, just log the progress.
