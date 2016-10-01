@@ -160,13 +160,12 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 - (void)downloadDidBegin:(NSURLDownload *)download {
     NSLog(@"Download started.");
     
-    //self.fileDownloadingText.stringValue = suggestedFilename;
-    
     self.downloadProgressIndicator.hidden = NO;
     self.bytesDownloadedText.hidden = NO;
     self.downloadingViewBg.hidden = NO;
     self.fileDownloadingText.hidden = NO;
     self.closeDownloadingViewBtn.hidden = NO;
+    self.fileDownloadStatusIcon.hidden = YES;
 }
 
 - (void)download:(NSURLDownload *)download didReceiveDataOfLength:(unsigned)length {
@@ -179,6 +178,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         double percentComplete = (self.bytesReceived/(float)expectedLength) * 100.0;
         [self.downloadProgressIndicator setDoubleValue:percentComplete];
         [self.bytesDownloadedText setStringValue:[NSString stringWithFormat:@"%ld/%lld MB", self.bytesReceived / 1024 / 1024, expectedLength / 1024 / 1024]];
+        self.fileDownloadingText.stringValue = [NSString stringWithFormat:@"%@", suggestedFilename];
     } else {
         // If the expected content length is
         // unknown, just log the progress.
@@ -186,11 +186,14 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     }
     if([self.downloadProgressIndicator doubleValue] == 100) {
         NSLog(@"Download complete.");
-        self.downloadProgressIndicator.hidden = YES;
+        [self.downloadProgressIndicator stopAnimation:self];
+        self.downloadProgressIndicator.doubleValue = 0;
         [self.loadingIndicator stopAnimation:self];
         self.reloadBtn.image = [NSImage imageNamed: NSImageNameRefreshTemplate];
         self.loadingIndicator.hidden = YES;
         self.faviconImage.hidden = NO;
+        self.fileDownloadStatusIcon.hidden = NO;
+        [NSApp requestUserAttention:NSInformationalRequest];
     }
 }
 
@@ -296,6 +299,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     self.downloadingViewBg.hidden = YES;
     self.fileDownloadingText.hidden = YES;
     self.closeDownloadingViewBtn.hidden = YES;
+    self.fileDownloadStatusIcon.hidden = YES;
     self.loadingIndicator.hidden = NO;
     [self.loadingIndicator startAnimation:self];
     self.currentVersion.stringValue = [NSString stringWithFormat:@"%@.%@ (%@ channel)", appVersion, buildNumber, channelVer];
@@ -440,6 +444,15 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     self.downloadingViewBg.hidden = YES;
     self.fileDownloadingText.hidden = YES;
     self.closeDownloadingViewBtn.hidden = YES;
+    self.fileDownloadStatusIcon.hidden = YES;
+}
+
+- (IBAction)openDLOptionsMenu:(id)sender {
+    [[self.dlOptionsMenu cell] performClickWithFrame:[sender frame] inView:[sender superview]];
+}
+
+- (IBAction)cancelDL:(id)sender {
+    
 }
 
 - (IBAction)setTopBarColor:(id)sender {

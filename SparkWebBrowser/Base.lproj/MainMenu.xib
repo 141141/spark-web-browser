@@ -21,13 +21,16 @@
                 <outlet property="addressBar" destination="6S4-CW-iwm" id="yLL-ye-fyR"/>
                 <outlet property="backBtn" destination="CSR-Ik-wrT" id="9ar-Ai-zKp"/>
                 <outlet property="bytesDownloadedText" destination="dwf-zl-wLW" id="euM-ql-uB0"/>
+                <outlet property="cancelDLBtn" destination="GL3-Ep-myH" id="CbS-Lk-nIH"/>
                 <outlet property="closeDownloadingViewBtn" destination="A6A-L3-Pmj" id="bde-Oh-kWa"/>
                 <outlet property="currentVersion" destination="sbh-Aa-9pH" id="pub-aC-Yo5"/>
                 <outlet property="customColorWell" destination="uuu-yL-LqP" id="rPJ-sf-qXT"/>
+                <outlet property="dlOptionsMenu" destination="QPT-Um-nal" id="BqR-fA-IEB"/>
                 <outlet property="downloadLocationField" destination="q54-KN-7yZ" id="1B8-cU-znE"/>
                 <outlet property="downloadProgressIndicator" destination="DMz-UI-kVs" id="8DZ-OU-lg9"/>
                 <outlet property="downloadingViewBg" destination="ZMp-cC-hd9" id="WyY-Mo-Ke2"/>
                 <outlet property="faviconImage" destination="t5k-sW-5ra" id="bKl-he-loz"/>
+                <outlet property="fileDownloadStatusIcon" destination="JL1-ow-kAk" id="wG2-rp-dPa"/>
                 <outlet property="fileDownloadingText" destination="OQ0-32-CRq" id="4XW-55-JXZ"/>
                 <outlet property="forwardBtn" destination="wRb-WG-N9I" id="G2y-ac-Zki"/>
                 <outlet property="homepageBasedOnSearchEngineBtn" destination="5Uw-Fh-cJ1" id="CNY-RK-NbX"/>
@@ -1066,28 +1069,10 @@ Spark is made possible by the WebKit open source project and other open source s
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <progressIndicator wantsLayer="YES" misplaced="YES" maxValue="100" style="bar" id="DMz-UI-kVs">
-                        <rect key="frame" x="135" y="15" width="100" height="22"/>
+                    <progressIndicator wantsLayer="YES" misplaced="YES" maxValue="100" style="spinning" id="DMz-UI-kVs">
+                        <rect key="frame" x="20" y="10" width="32" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </progressIndicator>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="OQ0-32-CRq">
-                        <rect key="frame" x="18" y="27" width="111" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="FileDownloading" id="Hyg-2o-nCp">
-                            <font key="font" metaFont="system" size="14"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="dwf-zl-wLW">
-                        <rect key="frame" x="18" y="7" width="219" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="BytesDownloaded" id="dTj-TK-3Op">
-                            <font key="font" metaFont="system" size="12"/>
-                            <color key="textColor" red="0.46270225253807107" green="0.46270225253807107" blue="0.46270225253807107" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                     <button verticalHuggingPriority="750" misplaced="YES" id="A6A-L3-Pmj">
                         <rect key="frame" x="1083" y="17" width="16" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -1097,6 +1082,58 @@ Spark is made possible by the WebKit open source project and other open source s
                         </buttonCell>
                         <connections>
                             <action selector="closeDownloadingView:" target="Voe-Tx-rLC" id="epl-Oq-3Ts"/>
+                        </connections>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="OQ0-32-CRq">
+                        <rect key="frame" x="58" y="27" width="189" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="FileDownloading" id="Hyg-2o-nCp">
+                            <font key="font" metaFont="system" size="14"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="dwf-zl-wLW">
+                        <rect key="frame" x="58" y="7" width="219" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="BytesDownloaded" id="dTj-TK-3Op">
+                            <font key="font" metaFont="cellTitle"/>
+                            <color key="textColor" red="0.46270225253807107" green="0.46270225253807107" blue="0.46270225253807107" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="JL1-ow-kAk">
+                        <rect key="frame" x="12" y="2" width="48" height="48"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSMenuOnStateTemplate" id="1YL-hD-bfD"/>
+                    </imageView>
+                    <popUpButton hidden="YES" verticalHuggingPriority="750" misplaced="YES" id="QPT-Um-nal">
+                        <rect key="frame" x="9" y="12" width="477" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <popUpButtonCell key="cell" type="push" title="Download Options" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" pullsDown="YES" selectedItem="kP6-XP-WaD" id="fVf-Sr-uqe">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="kpc-9X-WZF">
+                                <items>
+                                    <menuItem title="Download Options" state="on" hidden="YES" enabled="NO" id="kP6-XP-WaD"/>
+                                    <menuItem title="Cancel Download" id="GL3-Ep-myH">
+                                        <connections>
+                                            <action selector="cancelDL:" target="Voe-Tx-rLC" id="Ylz-ot-KNF"/>
+                                        </connections>
+                                    </menuItem>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
+                    <button verticalHuggingPriority="750" misplaced="YES" id="0BQ-EM-Dif">
+                        <rect key="frame" x="12" y="5" width="248" height="42"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="qll-r7-E0N">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="openDLOptionsMenu:" target="Voe-Tx-rLC" id="RDM-wh-RxR"/>
                         </connections>
                     </button>
                 </subviews>
@@ -1111,6 +1148,7 @@ Spark is made possible by the WebKit open source project and other open source s
         <image name="NSGoLeftTemplate" width="9" height="12"/>
         <image name="NSGoRightTemplate" width="9" height="12"/>
         <image name="NSIconViewTemplate" width="10" height="10"/>
+        <image name="NSMenuOnStateTemplate" width="12" height="12"/>
         <image name="NSRefreshTemplate" width="11" height="15"/>
     </resources>
 </document>
