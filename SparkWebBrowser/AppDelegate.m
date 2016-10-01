@@ -245,7 +245,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 }
 
 - (void)download:(NSURLDownload *)download decideDestinationWithSuggestedFilename:(NSString *)filename {
-
+    
     destinationFilename = [NSString stringWithFormat:@"%@%@", [defaults objectForKey:@"currentDownloadLocation"], suggestedFilename];
     
     [download setDestination:destinationFilename allowOverwrite:NO];
@@ -294,7 +294,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     }
     
     [self.topBarColorPicker selectItemAtIndex:[defaults integerForKey:@"colorIndex"]];
-
+    
     if([defaults objectForKey:@"currentDownloadLocation"] == nil) {
         // No download location is set -- revert to default
         [defaults setObject:[NSString stringWithFormat:@"%@/Downloads/", homeDirectory] forKey:@"currentDownloadLocation"];
@@ -307,8 +307,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         // Homepage is not set
         
         // Default homepage
-        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:googleDefaultURL]]];
-        self.homepageTextField.stringValue = [NSString stringWithFormat:@"%@", googleDefaultURL];
+        [self setHomepageWithString:googleDefaultURL];
         
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", [defaults valueForKey:@"userHomepage"]]]]];
     } else {
