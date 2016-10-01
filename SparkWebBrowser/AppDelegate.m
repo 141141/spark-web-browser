@@ -291,10 +291,39 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         // No top bar color index is set -- revert to default
         [defaults setInteger:0 forKey:@"colorIndex"];
     }
-    
+
     if([defaults objectForKey:@"currentDownloadLocation"] == nil) {
         // No download location is set -- revert to default
         [defaults setObject:[NSString stringWithFormat:@"%@/Downloads/", homeDirectory] forKey:@"currentDownloadLocation"];
+    }
+    
+    // Homepage checking
+    if([defaults objectForKey:@"userHomepage"] == nil) {
+        // Homepage is not set
+        
+        // Default homepage
+        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:googleDefaultURL]]];
+        self.homepageTextField.stringValue = [NSString stringWithFormat:@"%@", googleDefaultURL];
+        
+        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", [defaults valueForKey:@"userHomepage"]]]]];
+    } else {
+        // Homepage is set
+        
+        // User-set homepage
+        self.homepageTextField.stringValue = [NSString stringWithFormat:@"%@", [defaults valueForKey:@"userHomepage"]];
+        
+        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", [defaults valueForKey:@"userHomepage"]]]]];
+    }
+    
+    // Check if checkbox should be checked
+    if([defaults boolForKey:@"setHomepageEngine"] == YES) {
+        self.homepageBasedOnSearchEngineBtn.state = NSOnState;
+        self.homepageTextField.enabled = NO;
+        self.setHomepageBtn.enabled = NO;
+    } else {
+        self.homepageBasedOnSearchEngineBtn.state = NSOffState;
+        self.homepageTextField.enabled = YES;
+        self.setHomepageBtn.enabled = YES;
     }
     
     [self.topBarColorPicker selectItemAtIndex:[defaults integerForKey:@"colorIndex"]];
@@ -426,33 +455,6 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         
         // Set window color to a custom color
         self.window.backgroundColor = [defaults colorForKey:@"customColor"];
-    }
-    
-    // Homepage checking
-    if([defaults objectForKey:@"userHomepage"] == nil) {
-        // Homepage is not set
-        
-        // Default homepage
-        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:googleDefaultURL]]];
-        self.homepageTextField.stringValue = [NSString stringWithFormat:@"%@", googleDefaultURL];
-    } else {
-        // Homepage is set
-        
-        // User-set homepage
-        self.homepageTextField.stringValue = [NSString stringWithFormat:@"%@", [defaults valueForKey:@"userHomepage"]];
-        
-        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", [defaults valueForKey:@"userHomepage"]]]]];
-    }
-    
-    // Check if checkbox should be checked
-    if([defaults boolForKey:@"setHomepageEngine"] == YES) {
-        self.homepageBasedOnSearchEngineBtn.state = NSOnState;
-        self.homepageTextField.enabled = NO;
-        self.setHomepageBtn.enabled = NO;
-    } else {
-        self.homepageBasedOnSearchEngineBtn.state = NSOffState;
-        self.homepageTextField.enabled = YES;
-        self.setHomepageBtn.enabled = YES;
     }
 }
 
