@@ -1074,7 +1074,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     <button verticalHuggingPriority="750" misplaced="YES" id="A6A-L3-Pmj">
                         <rect key="frame" x="1083" y="17" width="16" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="inline" title="X" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="f1p-Va-xDG">
+                        <buttonCell key="cell" type="inline" bezelStyle="inline" image="NSStopProgressFreestandingTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" inset="2" id="f1p-Va-xDG">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="smallSystemBold"/>
                         </buttonCell>
@@ -1119,5 +1119,6 @@ Spark is made possible by the WebKit open source project and other open source s
         <image name="NSIconViewTemplate" width="10" height="10"/>
         <image name="NSMenuOnStateTemplate" width="12" height="12"/>
         <image name="NSRefreshTemplate" width="11" height="15"/>
+        <image name="NSStopProgressFreestandingTemplate" width="14" height="14"/>
     </resources>
 </document>
