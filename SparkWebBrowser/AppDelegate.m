@@ -118,7 +118,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     productName = [sv objectForKey:@"ProductName"]; // Get macOS product name
     channelVer = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"currentReleaseChannel"]]; // Get current release channel
     editedVersionString = [versionString stringByReplacingOccurrencesOfString:@"." withString:@"_"]; // Replace dots in version string with underscores
-    userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel %@ %@) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36", productName, editedVersionString]; // Set user agent respective to the version of OS X / macOS the user is running
+    userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel Mac OS X %@) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36", editedVersionString]; // Set user agent respective to the version of OS X / macOS the user is running
     
 }
 
@@ -257,6 +257,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     
     [self.webView setPolicyDelegate:(id<WebPolicyDelegate>)self];
     [self.webView setDownloadDelegate:(id<WebDownloadDelegate>)self];
+    [self.webView setCustomUserAgent: userAgent];
     
     if([defaults objectForKey:@"currentReleaseChannel"] == nil) {
         // No release channel is set -- revert to default
@@ -291,14 +292,18 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         // No top bar color index is set -- revert to default
         [defaults setInteger:0 forKey:@"colorIndex"];
     }
+    
+    [self.topBarColorPicker selectItemAtIndex:[defaults integerForKey:@"colorIndex"]];
 
     if([defaults objectForKey:@"currentDownloadLocation"] == nil) {
         // No download location is set -- revert to default
         [defaults setObject:[NSString stringWithFormat:@"%@/Downloads/", homeDirectory] forKey:@"currentDownloadLocation"];
     }
     
+    [self.downloadLocTextField setStringValue:[defaults objectForKey:@"currentDownloadLocation"]];
+    
     // Homepage checking
-    if([defaults objectForKey:@"userHomepage"] == nil) {
+    if([defaults objectForKey:@"userHomepage"] == nil || [[defaults objectForKey:@"userHomepage"] isEqual: @""]) {
         // Homepage is not set
         
         // Default homepage
@@ -326,10 +331,6 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         self.setHomepageBtn.enabled = YES;
     }
     
-    [self.topBarColorPicker selectItemAtIndex:[defaults integerForKey:@"colorIndex"]];
-    
-    [self.downloadLocTextField setStringValue:[defaults objectForKey:@"currentDownloadLocation"]];
-    
     if([[defaults objectForKey:@"currentReleaseChannel"] isEqual: @"stable"]) {
         [[SUUpdater sharedUpdater] setFeedURL:[NSURL URLWithString:@"https://insleep.tech/spark/appcast.xml"]];
     } else if([[defaults objectForKey:@"currentReleaseChannel"] isEqual: @"beta"]) {
@@ -344,7 +345,6 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     }
     
     // Interface setup
-    [self.webView setCustomUserAgent: userAgent];
     self.userAgentField.stringValue = userAgent;
     if(versionString.doubleValue > 10.11) { // Detect whether or not user is running macOS 10.12 or higher
         self.osVersionField.stringValue = [NSString stringWithFormat: @"macOS %@ (%@)", versionString, buildString];
