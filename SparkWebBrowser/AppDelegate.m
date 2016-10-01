@@ -240,7 +240,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     
     alert = [[NSAlert alloc] init];
     [alert setMessageText:@"Error Downloading File"];
-    [alert setInformativeText:@"An error occurred while downloading the file you requested. Please ensure you are connected to the Internet, and try again later."];
+    [alert setInformativeText:[NSString stringWithFormat:@"An error occurred while downloading the file you requested.\n\nError: %@ %@", [error localizedDescription], [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]]];
     [alert runModal];
 }
 
