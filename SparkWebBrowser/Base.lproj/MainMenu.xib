@@ -607,11 +607,11 @@ Spark is made possible by the WebKit open source project and other open source s
                         </connections>
                     </textField>
                     <textField verticalHuggingPriority="750" misplaced="YES" id="17K-HH-EGB">
-                        <rect key="frame" x="20" y="175" width="254" height="22"/>
+                        <rect key="frame" x="48" y="175" width="226" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" allowsUndo="NO" state="on" borderStyle="bezel" placeholderString="Download Location" drawsBackground="YES" id="ia2-zH-dOh">
                             <font key="font" metaFont="system"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="textColor" red="0.34577252538071068" green="0.34577252538071068" blue="0.34577252538071068" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
@@ -815,9 +815,23 @@ Spark is made possible by the WebKit open source project and other open source s
                             <action selector="setCustomColor:" target="Voe-Tx-rLC" id="MyM-g9-wUk"/>
                         </connections>
                     </colorWell>
+                    <textField verticalHuggingPriority="750" misplaced="YES" id="iF8-FX-TtH">
+                        <rect key="frame" x="20" y="175" width="29" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" allowsUndo="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="yhn-DC-b0O">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="mtn-j0-7a1">
+                        <rect key="frame" x="25" y="176" width="20" height="20"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSFolder" id="McZ-23-W6y"/>
+                    </imageView>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="1383.5" y="-434"/>
+            <point key="canvasLocation" x="1422" y="-537"/>
         </window>
         <window allowsToolTipsWhenApplicationIsInactive="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES"/>
@@ -1111,6 +1125,7 @@ Spark is made possible by the WebKit open source project and other open source s
         <image name="AppIcon256" width="61.439998626708984" height="61.439998626708984"/>
         <image name="NSActionTemplate" width="14" height="14"/>
         <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="NSFolder" width="32" height="32"/>
         <image name="NSGoLeftTemplate" width="9" height="12"/>
         <image name="NSGoRightTemplate" width="9" height="12"/>
         <image name="NSIconViewTemplate" width="10" height="10"/>
