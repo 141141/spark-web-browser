@@ -253,8 +253,6 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     [self.webView setPolicyDelegate:(id<WebPolicyDelegate>)self];
     [self.webView setDownloadDelegate:(id<WebDownloadDelegate>)self];
     
-    self.downloadProgressIndicator.hidden = YES;
-    
     if([defaults objectForKey:@"currentReleaseChannel"] == nil) {
         // No release channel is set -- revert to default
         [defaults setObject:@"stable" forKey:@"currentReleaseChannel"];
@@ -321,6 +319,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     self.fileDownloadingText.hidden = YES;
     self.closeDownloadingViewBtn.hidden = YES;
     self.fileDownloadStatusIcon.hidden = YES;
+    self.downloadProgressIndicator.hidden = YES;
     self.loadingIndicator.hidden = NO;
     [self.loadingIndicator startAnimation:self];
     self.currentVersion.stringValue = [NSString stringWithFormat:@"%@.%@ (%@ channel)", appVersion, buildNumber, channelVer];
