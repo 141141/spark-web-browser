@@ -168,6 +168,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     self.loadingIndicator.hidden = YES;
     self.faviconImage.hidden = NO;
     
+    // Show downloads view
     self.downloadProgressIndicator.hidden = NO;
     self.bytesDownloadedText.hidden = NO;
     self.downloadingViewBg.hidden = NO;
@@ -198,7 +199,6 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         } else {
             self.fileDownloadingText.stringValue = [NSString stringWithFormat:@"%@", suggestedFilename];
         }
-        
     } else {
         // If the expected content length is unknown, just log the progress.
         NSLog(@"Bytes received: %ld", self.bytesReceived);
@@ -221,18 +221,18 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 
 - (void)download:(NSURLDownload *)download didReceiveResponse:(NSURLResponse *)response {
     suggestedFilename = [response suggestedFilename];
+    
     // Reset the progress, this might be called multiple times.
     // bytesReceived is an instance variable defined elsewhere.
     self.bytesReceived = 0;
+    
     // Store the response to use later.
     expectedLength = [response expectedContentLength];
 }
 
 - (void)download:(NSURLDownload *)download didFailWithError:(NSError *)error {
     // File download failed
-    NSLog(@"Download failed! Error: %@ %@",
-          [error localizedDescription],
-          [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
+    NSLog(@"Download failed! Error: %@ %@", [error localizedDescription], [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
     alert = [[NSAlert alloc] init];
     [alert setMessageText:@"Error Downloading File"];
     [alert setInformativeText:@"An error occurred while downloading the file you requested. Please ensure you are connected to the Internet, and try again later."];
@@ -240,8 +240,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 }
 
 - (void)download:(NSURLDownload *)download decideDestinationWithSuggestedFilename:(NSString *)filename {
-    destinationFilename = [[homeDirectory stringByAppendingPathComponent:@"Downloads"]
-                           stringByAppendingPathComponent:filename];
+    destinationFilename = [[homeDirectory stringByAppendingPathComponent:@"Downloads"] stringByAppendingPathComponent:filename];
     
     [download setDestination:destinationFilename allowOverwrite:NO];
 }

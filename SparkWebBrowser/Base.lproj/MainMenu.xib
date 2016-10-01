@@ -1085,7 +1085,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="OQ0-32-CRq">
                         <rect key="frame" x="58" y="27" width="189" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="FileDownloading" id="Hyg-2o-nCp">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Downloading file..." id="Hyg-2o-nCp">
                             <font key="font" metaFont="system" size="14"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1094,7 +1094,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="dwf-zl-wLW">
                         <rect key="frame" x="58" y="7" width="219" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="BytesDownloaded" id="dTj-TK-3Op">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Zero KB/Zero KB" id="dTj-TK-3Op">
                             <font key="font" metaFont="cellTitle"/>
                             <color key="textColor" red="0.46270225253807107" green="0.46270225253807107" blue="0.46270225253807107" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
