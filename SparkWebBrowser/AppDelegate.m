@@ -143,12 +143,29 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     eventURL = [NSURL URLWithString:[[event paramDescriptorForKeyword:keyDirectObject] stringValue]];
     urlToString = [eventURL absoluteString];
     if([urlToString isEqual: @"spark://about"]) {
-        
         // spark://about loaded
         
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-about" ofType:@"html"] isDirectory:NO]]];
         
         self.addressBar.stringValue = @"spark://about";
+        
+    } else if([urlToString isEqual: @"spark://quit"]) {
+        // spark://quit called
+        
+        [[NSApplication sharedApplication] terminate:nil];
+        
+    } else if([urlToString isEqual: @"spark://restart"]) {
+        // spark://restart called
+        
+        task = [[NSTask alloc] init];
+        args = [NSMutableArray array];
+        [args addObject:@"-c"];
+        [args addObject:[NSString stringWithFormat:@"sleep %d; open \"%@\"", 0, [[NSBundle mainBundle] bundlePath]]];
+        [task setLaunchPath:@"/bin/sh"];
+        [task setArguments:args];
+        [task launch];
+        
+        [[NSApplication sharedApplication] terminate:nil];
     }
 }
 
