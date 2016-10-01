@@ -71,6 +71,7 @@ NSString *clippedTitle = nil; // Title used within the titleStatus string
 NSString *suggestedFilename = nil; // Filename suggested when downloading files
 NSString *destinationFilename = nil; // Place where downloaded files are stored
 NSString *homeDirectory = nil; // User home directory
+long long expectedLength = 0; // Expected length of file being downloaded
 
 // Objects related (somewhat) to loading webpages
 NSString *searchString = nil; // String used when initiating a search query
@@ -88,8 +89,6 @@ NSURL *eventURL = nil; // Used when handling spark:// URL events
 NSURL *faviconURL = nil; // NSURL converted from faviconURLString
 NSData *faviconData = nil; // Data retrieved from faviconURLString service
 NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
-
-long long expectedLength = 0;
 
 + (void)initialize {
     defaults = [NSUserDefaults standardUserDefaults]; // Set up NSUserDefaults
