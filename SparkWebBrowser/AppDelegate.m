@@ -69,9 +69,9 @@ NSString *editedVersionString = nil; // Edited macOS version string
 NSString *userAgent = nil; // Spark's user agent, used when loading webpages
 NSString *clippedTitle = nil; // Title used within the titleStatus string
 NSString *suggestedFilename = nil; // Filename suggested when downloading files
-NSString *destinationFilename = nil; // Place where downloaded files are stored
+NSString *destinationFilename = nil; // Directory where downloaded files are stored
 NSString *homeDirectory = nil; // User home directory
-long long expectedLength = 0; // Expected length of file being downloaded
+long long expectedLength = 0; // Expected length of a file being downloaded
 
 // Objects related (somewhat) to loading webpages
 NSString *searchString = nil; // String used when initiating a search query
@@ -711,6 +711,17 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         homepageString = self.homepageTextField.stringValue;
         
         [self setHomepageWithString:homepageString];
+    }
+}
+
+- (IBAction)setDownloadLocation:(id)sender {
+    if(self.downloadLocationField.stringValue == nil || [self.downloadLocationField.stringValue isEqual:@""]) {
+        // File download location is not set -- revert to default
+        
+        [defaults setObject:self.downloadLocationField.stringValue forKey:@"currentDownloadLocation"];
+    } else {
+        
+        [defaults setObject:@"~/Desktop" forKey:@"currentDownloadLocation"];
     }
 }
 

@@ -42,12 +42,14 @@
 @property (assign, nonatomic) IBOutlet NSColorWell *customColorWell;
 @property (assign, nonatomic) IBOutlet NSTextField *sparkAboutTitleField;
 @property (assign, nonatomic) IBOutlet NSProgressIndicator *downloadProgressIndicator;
+@property (assign, nonatomic) IBOutlet NSTextField *downloadLocationField;
 
 @property (nonatomic, assign) long bytesReceived;
 
 // Methods
 - (IBAction)newTab:(id)sender;
 - (IBAction)setHomepage:(id)sender;
+- (IBAction)setDownloadLocation:(id)sender;
 - (IBAction)setReleaseChannel:(id)sender;
 - (IBAction)initWebpageLoad:(id)sender;
 - (IBAction)setSearchEngine:(id)sender;
