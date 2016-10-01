@@ -118,7 +118,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     productName = [sv objectForKey:@"ProductName"]; // Get macOS product name
     channelVer = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"currentReleaseChannel"]]; // Get current release channel
     editedVersionString = [versionString stringByReplacingOccurrencesOfString:@"." withString:@"_"]; // Replace dots in version string with underscores
-    userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel Mac OS X %@) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36", editedVersionString]; // Set user agent respective to the version of OS X / macOS the user is running
+    userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel %@ %@) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36", productName, editedVersionString]; // Set user agent respective to the version of macOS the user is running
     
 }
 
