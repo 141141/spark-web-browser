@@ -68,6 +68,9 @@ NSString *channelVer = nil; // Spark release channel
 NSString *editedVersionString = nil; // Edited macOS version string
 NSString *userAgent = nil; // Spark's user agent, used when loading webpages
 NSString *clippedTitle = nil; // Title used within the titleStatus string
+NSString *suggestedFilename = nil; // Filename suggested when downloading files
+NSString *destinationFilename = nil; // Place where downloaded files are stored
+NSString *homeDirectory = nil; // User home directory
 
 // Objects related (somewhat) to loading webpages
 NSString *searchString = nil; // String used when initiating a search query
@@ -99,6 +102,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     alloyOrangeColor = [NSColor colorWithRed:200.0f/255.0f green:80.0f/255.0f blue:1.0f/255.0f alpha:1.0f];
     darkGrayColor = [NSColor colorWithRed:44.0f/255.0f green:44.0f/255.0f blue:44.0f/255.0f alpha:1.0f];
     
+    homeDirectory = NSHomeDirectory(); // Retrieve user home directory
     infoDict = [[NSBundle mainBundle] infoDictionary]; // Load Info.plist
     appVersion = [infoDict objectForKey:@"CFBundleShortVersionString"]; // Fetch the version number from Info.plist
     buildNumber = [infoDict objectForKey:@"CFBundleVersion"]; // Fetch the build number from Info.plist
@@ -142,9 +146,43 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     }
 }
 
+- (void)webView:(WebView *)sender decidePolicyForMIMEType:(NSString *)type request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id<WebPolicyDecisionListener>)listener {
+    if ([[sender class] canShowMIMEType:type]) {
+        // WebView says it can show these files
+        [listener use];
+    } else {
+        // WebView can't show these files - start a download
+        [listener download];
+    }
+}
+
+- (void)downloadDidBegin:(NSURLDownload *)download {
+    // TODO: Add progress bar with current downloaded byte count
+    NSLog(@"Download started.");
+}
+
+- (void)download:(NSURLDownload *)download didReceiveDataOfLength:(unsigned)length {
+    // TODO: Update progress bar
+    NSLog(@"Some data was downloaded");
+}
+
+- (void)download:(NSURLDownload *)download didReceiveResponse:(NSURLResponse *)response {
+    suggestedFilename = [response suggestedFilename];
+}
+
+
+- (void)download:(NSURLDownload *)download decideDestinationWithSuggestedFilename:(NSString *)filename {
+    destinationFilename = [[homeDirectory stringByAppendingPathComponent:@"Downloads"]
+                                     stringByAppendingPathComponent:filename];
+
+    [download setDestination:destinationFilename allowOverwrite:YES];
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     
     // Finish initializing
+    [self.webView setPolicyDelegate:(id<WebPolicyDelegate>)self];
+    [self.webView setDownloadDelegate:(id<WebDownloadDelegate>)self];
     
     if([defaults objectForKey:@"currentReleaseChannel"] == nil) {
         // No release channel is set -- revert to default
@@ -337,6 +375,12 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     self.window.backgroundColor = self.customColorWell.color;
     
     [defaults setColor:self.customColorWell.color forKey:@"customColor"];
+}
+
+- (IBAction)reportIssueAboutWindow:(id)sender {
+    [self.aboutWindow close];
+    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:appIssuesURL]]];
+    self.addressBar.stringValue = appIssuesURL;
 }
 
 - (IBAction)setTopBarColor:(id)sender {
