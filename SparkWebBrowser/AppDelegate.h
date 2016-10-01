@@ -43,6 +43,10 @@
 @property (assign, nonatomic) IBOutlet NSTextField *sparkAboutTitleField;
 @property (assign, nonatomic) IBOutlet NSProgressIndicator *downloadProgressIndicator;
 @property (assign, nonatomic) IBOutlet NSTextField *downloadLocationField;
+@property (assign, nonatomic) IBOutlet NSButton *closeDownloadingViewBtn;
+@property (assign, nonatomic) IBOutlet NSTextField *downloadingViewBg;
+@property (assign, nonatomic) IBOutlet NSTextField *fileDownloadingText;
+@property (assign, nonatomic) IBOutlet NSTextField *bytesDownloadedText;
 
 @property (nonatomic, assign) long bytesReceived;
 
@@ -58,6 +62,7 @@
 - (IBAction)setTopBarColor:(id)sender;
 - (IBAction)setCustomColor:(id)sender;
 - (IBAction)reportIssueAboutWindow:(id)sender;
+- (IBAction)closeDownloadingView:(id)sender;
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame;
 - (void)webView:(WebView *)sender didReceiveTitle:(NSString *)title forFrame:(WebFrame *)frame;
 - (void)setHomepageWithString:(NSString *)homepageToSet;

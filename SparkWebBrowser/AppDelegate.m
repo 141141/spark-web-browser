@@ -159,7 +159,14 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 
 - (void)downloadDidBegin:(NSURLDownload *)download {
     NSLog(@"Download started.");
+    
+    //self.fileDownloadingText.stringValue = suggestedFilename;
+    
     self.downloadProgressIndicator.hidden = NO;
+    self.bytesDownloadedText.hidden = NO;
+    self.downloadingViewBg.hidden = NO;
+    self.fileDownloadingText.hidden = NO;
+    self.closeDownloadingViewBtn.hidden = NO;
 }
 
 - (void)download:(NSURLDownload *)download didReceiveDataOfLength:(unsigned)length {
@@ -169,8 +176,9 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     if (expectedLength != NSURLResponseUnknownLength) {
         // If the expected content length is
         // available, display percent complete.
-        double percentComplete = (self.bytesReceived/(float)expectedLength)*100.0;
+        double percentComplete = (self.bytesReceived/(float)expectedLength) * 100.0;
         [self.downloadProgressIndicator setDoubleValue:percentComplete];
+        [self.bytesDownloadedText setStringValue:[NSString stringWithFormat:@"%ld/%lld MB", self.bytesReceived / 1024 / 1024, expectedLength / 1024 / 1024]];
     } else {
         // If the expected content length is
         // unknown, just log the progress.
@@ -284,6 +292,10 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     }
     self.ntNotSupported.hidden = YES;
     self.faviconImage.hidden = YES;
+    self.bytesDownloadedText.hidden = YES;
+    self.downloadingViewBg.hidden = YES;
+    self.fileDownloadingText.hidden = YES;
+    self.closeDownloadingViewBtn.hidden = YES;
     self.loadingIndicator.hidden = NO;
     [self.loadingIndicator startAnimation:self];
     self.currentVersion.stringValue = [NSString stringWithFormat:@"%@.%@ (%@ channel)", appVersion, buildNumber, channelVer];
@@ -420,6 +432,14 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     [self.aboutWindow close];
     [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:appIssuesURL]]];
     self.addressBar.stringValue = appIssuesURL;
+}
+
+- (IBAction)closeDownloadingView:(id)sender {
+    self.downloadProgressIndicator.hidden = YES;
+    self.bytesDownloadedText.hidden = YES;
+    self.downloadingViewBg.hidden = YES;
+    self.fileDownloadingText.hidden = YES;
+    self.closeDownloadingViewBtn.hidden = YES;
 }
 
 - (IBAction)setTopBarColor:(id)sender {
@@ -721,7 +741,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         [defaults setObject:self.downloadLocationField.stringValue forKey:@"currentDownloadLocation"];
     } else {
         
-        [defaults setObject:@"~/Desktop" forKey:@"currentDownloadLocation"];
+        [defaults setObject:@"~/Downloads" forKey:@"currentDownloadLocation"];
     }
 }
 
