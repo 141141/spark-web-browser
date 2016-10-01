@@ -163,7 +163,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 }
 
 - (void)downloadDidBegin:(NSURLDownload *)download {
-    NSLog(@"Download started.");
+    NSLog(@"File download started.");
     
     // Don't show loading indicator during this time
     [self.loadingIndicator stopAnimation:self];
@@ -180,7 +180,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 }
 
 - (void)download:(NSURLDownload *)download didReceiveDataOfLength:(unsigned)length {
-    NSLog(@"Downloading data...");
+    NSLog(@"%@", [NSString stringWithFormat:@"Downloading file data: %@", bytesReceivedFormatted]);
     self.bytesReceived = self.bytesReceived + length;
     
     if (expectedLength != NSURLResponseUnknownLength) {
@@ -207,7 +207,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     }
     
     if([self.downloadProgressIndicator doubleValue] == 100) {
-        NSLog(@"Download complete.");
+        NSLog(@"File download complete.");
         [self.downloadProgressIndicator stopAnimation:self];
         self.downloadProgressIndicator.doubleValue = 0;
         [self.loadingIndicator stopAnimation:self];
@@ -234,7 +234,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 
 - (void)download:(NSURLDownload *)download didFailWithError:(NSError *)error {
     // File download failed
-    NSLog(@"Download failed! Error: %@ %@", [error localizedDescription], [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
+    NSLog(@"File download failed! Error: %@ %@", [error localizedDescription], [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
     
     [self.bytesDownloadedText setStringValue:@"Download Failed"];
     
