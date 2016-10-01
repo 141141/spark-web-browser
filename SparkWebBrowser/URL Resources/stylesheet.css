@@ -21,13 +21,13 @@ b {
     font-weight: 500;
 }
 
-.updatesUnavailable {
+.updates-unavailable {
     text-decoration: none !important;
     color: #BFBFBF;
     cursor: default;
 }
 
-.updatesUnavailable:hover {
+.updates-unavailable:hover {
     text-decoration: none !important;
     color: #BFBFBF;
     cursor: default;
