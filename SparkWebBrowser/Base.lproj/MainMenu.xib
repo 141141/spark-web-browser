@@ -21,11 +21,9 @@
                 <outlet property="addressBar" destination="6S4-CW-iwm" id="yLL-ye-fyR"/>
                 <outlet property="backBtn" destination="CSR-Ik-wrT" id="9ar-Ai-zKp"/>
                 <outlet property="bytesDownloadedText" destination="dwf-zl-wLW" id="euM-ql-uB0"/>
-                <outlet property="cancelDLBtn" destination="GL3-Ep-myH" id="CbS-Lk-nIH"/>
                 <outlet property="closeDownloadingViewBtn" destination="A6A-L3-Pmj" id="bde-Oh-kWa"/>
                 <outlet property="currentVersion" destination="sbh-Aa-9pH" id="pub-aC-Yo5"/>
                 <outlet property="customColorWell" destination="uuu-yL-LqP" id="rPJ-sf-qXT"/>
-                <outlet property="dlOptionsMenu" destination="QPT-Um-nal" id="BqR-fA-IEB"/>
                 <outlet property="downloadLocationField" destination="q54-KN-7yZ" id="1B8-cU-znE"/>
                 <outlet property="downloadProgressIndicator" destination="DMz-UI-kVs" id="8DZ-OU-lg9"/>
                 <outlet property="downloadingViewBg" destination="ZMp-cC-hd9" id="WyY-Mo-Ke2"/>
@@ -1107,35 +1105,6 @@ Spark is made possible by the WebKit open source project and other open source s
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSMenuOnStateTemplate" id="1YL-hD-bfD"/>
                     </imageView>
-                    <popUpButton hidden="YES" verticalHuggingPriority="750" misplaced="YES" id="QPT-Um-nal">
-                        <rect key="frame" x="9" y="12" width="477" height="26"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="push" title="Download Options" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" pullsDown="YES" selectedItem="kP6-XP-WaD" id="fVf-Sr-uqe">
-                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="menu"/>
-                            <menu key="menu" id="kpc-9X-WZF">
-                                <items>
-                                    <menuItem title="Download Options" state="on" hidden="YES" enabled="NO" id="kP6-XP-WaD"/>
-                                    <menuItem title="Cancel Download" id="GL3-Ep-myH">
-                                        <connections>
-                                            <action selector="cancelDL:" target="Voe-Tx-rLC" id="Ylz-ot-KNF"/>
-                                        </connections>
-                                    </menuItem>
-                                </items>
-                            </menu>
-                        </popUpButtonCell>
-                    </popUpButton>
-                    <button verticalHuggingPriority="750" misplaced="YES" id="0BQ-EM-Dif">
-                        <rect key="frame" x="12" y="5" width="248" height="42"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="qll-r7-E0N">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="openDLOptionsMenu:" target="Voe-Tx-rLC" id="RDM-wh-RxR"/>
-                        </connections>
-                    </button>
                 </subviews>
             </view>
             <point key="canvasLocation" x="1163.5" y="180.5"/>

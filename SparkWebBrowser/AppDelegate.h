@@ -48,8 +48,6 @@
 @property (assign, nonatomic) IBOutlet NSTextField *fileDownloadingText;
 @property (assign, nonatomic) IBOutlet NSTextField *bytesDownloadedText;
 @property (assign, nonatomic) IBOutlet NSImageView *fileDownloadStatusIcon;
-@property (assign, nonatomic) IBOutlet NSPopUpButton *dlOptionsMenu;
-@property (assign, nonatomic) IBOutlet NSMenuItem *cancelDLBtn;
 
 @property (nonatomic, assign) long bytesReceived;
 
@@ -66,8 +64,6 @@
 - (IBAction)setCustomColor:(id)sender;
 - (IBAction)reportIssueAboutWindow:(id)sender;
 - (IBAction)closeDownloadingView:(id)sender;
-- (IBAction)openDLOptionsMenu:(id)sender;
-- (IBAction)cancelDL:(id)sender;
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame;
 - (void)webView:(WebView *)sender didReceiveTitle:(NSString *)title forFrame:(WebFrame *)frame;
 - (void)setHomepageWithString:(NSString *)homepageToSet;

@@ -160,6 +160,11 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 - (void)downloadDidBegin:(NSURLDownload *)download {
     NSLog(@"Download started.");
     
+    // Don't show loading indicator during this time
+    [self.loadingIndicator stopAnimation:self];
+    self.loadingIndicator.hidden = YES;
+    self.faviconImage.hidden = NO;
+    
     self.downloadProgressIndicator.hidden = NO;
     self.bytesDownloadedText.hidden = NO;
     self.downloadingViewBg.hidden = NO;
@@ -175,7 +180,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     if (expectedLength != NSURLResponseUnknownLength) {
         // If the expected content length is
         // available, display percent complete.
-        double percentComplete = (self.bytesReceived/(float)expectedLength) * 100.0;
+        double percentComplete = (self.bytesReceived / (float)expectedLength) * 100.0;
         [self.downloadProgressIndicator setDoubleValue:percentComplete];
         [self.bytesDownloadedText setStringValue:[NSString stringWithFormat:@"%ld/%lld MB", self.bytesReceived / 1024 / 1024, expectedLength / 1024 / 1024]];
         self.fileDownloadingText.stringValue = [NSString stringWithFormat:@"%@", suggestedFilename];
@@ -193,6 +198,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         self.loadingIndicator.hidden = YES;
         self.faviconImage.hidden = NO;
         self.fileDownloadStatusIcon.hidden = NO;
+        
+        // Bounce dock icon to let user know that the download is complete
         [NSApp requestUserAttention:NSInformationalRequest];
     }
 }
@@ -445,14 +452,6 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     self.fileDownloadingText.hidden = YES;
     self.closeDownloadingViewBtn.hidden = YES;
     self.fileDownloadStatusIcon.hidden = YES;
-}
-
-- (IBAction)openDLOptionsMenu:(id)sender {
-    [[self.dlOptionsMenu cell] performClickWithFrame:[sender frame] inView:[sender superview]];
-}
-
-- (IBAction)cancelDL:(id)sender {
-    
 }
 
 - (IBAction)setTopBarColor:(id)sender {
