@@ -72,6 +72,8 @@ NSString *suggestedFilename = nil; // Filename suggested when downloading files
 NSString *clippedFilename = nil; // Suggested filename with ellipsis suffix
 NSString *destinationFilename = nil; // Directory where downloaded files are stored
 NSString *homeDirectory = nil; // User home directory
+NSString *bytesReceivedFormatted = nil; // Bytes received (file download) (formatted)
+NSString *expectedLengthFormatted = nil; // Expected length of file being downloaded (formatted)
 long long expectedLength = 0; // Expected length of a file being downloaded
 
 // Objects related (somewhat) to loading webpages
@@ -184,7 +186,11 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         // available, display percent complete.
         double percentComplete = (self.bytesReceived / (float)expectedLength) * 100.0;
         [self.downloadProgressIndicator setDoubleValue:percentComplete];
-        [self.bytesDownloadedText setStringValue:[NSString stringWithFormat:@"%ld/%lld MB", self.bytesReceived / 1024 / 1024, expectedLength / 1024 / 1024]];
+        
+        bytesReceivedFormatted = [NSByteCountFormatter stringFromByteCount:self.bytesReceived countStyle:NSByteCountFormatterCountStyleFile];
+        expectedLengthFormatted = [NSByteCountFormatter stringFromByteCount:expectedLength countStyle:NSByteCountFormatterCountStyleFile];
+        
+        [self.bytesDownloadedText setStringValue:[NSString stringWithFormat:@"%@/%@", bytesReceivedFormatted, expectedLengthFormatted]];
         
         const int clipLength = 20;
         if([suggestedFilename length] > clipLength) {
