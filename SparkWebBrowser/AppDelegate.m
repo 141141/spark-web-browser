@@ -64,7 +64,7 @@ NSString *buildNumber = nil; // Spark build number
 NSString *versionString = nil; // macOS version number
 NSString *buildString = nil; // macOS build number
 NSString *productName = nil; // macOS product name
-NSString *channelVer = nil; // Spark release channel
+NSString *releaseChannel = nil; // Spark release channel
 NSString *editedVersionString = nil; // Edited macOS version string
 NSString *userAgent = nil; // Spark's user agent, used when loading webpages
 NSString *clippedTitle = nil; // Title used within the titleStatus string
@@ -116,7 +116,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     versionString = [sv objectForKey:@"ProductVersion"]; // Get macOS version
     buildString = [sv objectForKey:@"ProductBuildVersion"]; // Get macOS build number
     productName = [sv objectForKey:@"ProductName"]; // Get macOS product name
-    channelVer = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"currentReleaseChannel"]]; // Get current release channel
+    releaseChannel = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"currentReleaseChannel"]]; // Get current release channel
     editedVersionString = [versionString stringByReplacingOccurrencesOfString:@"." withString:@"_"]; // Replace dots in version string with underscores
     userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel %@ %@) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36", productName, editedVersionString]; // Set user agent respective to the version of macOS the user is running
     
@@ -362,7 +362,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     self.downloadProgressIndicator.hidden = YES;
     self.loadingIndicator.hidden = NO;
     [self.loadingIndicator startAnimation:self];
-    self.currentVersion.stringValue = [NSString stringWithFormat:@"%@.%@ (%@ channel)", appVersion, buildNumber, channelVer];
+    self.currentVersion.stringValue = [NSString stringWithFormat:@"%@.%@ (%@ channel)", appVersion, buildNumber, releaseChannel];
     self.aboutWindow.backgroundColor = [NSColor whiteColor];
     self.settingsWindow.backgroundColor = [NSColor whiteColor];
     
