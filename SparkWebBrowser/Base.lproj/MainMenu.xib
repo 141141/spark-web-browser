@@ -1048,7 +1048,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="ZMp-cC-hd9">
                         <rect key="frame" x="0.0" y="0.0" width="1107" height="52"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" drawsBackground="YES" id="27d-62-N4n">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1066,11 +1066,11 @@ Spark is made possible by the WebKit open source project and other open source s
                     </textField>
                     <progressIndicator wantsLayer="YES" misplaced="YES" maxValue="100" style="spinning" id="DMz-UI-kVs">
                         <rect key="frame" x="20" y="10" width="32" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </progressIndicator>
                     <button verticalHuggingPriority="750" misplaced="YES" id="A6A-L3-Pmj">
                         <rect key="frame" x="1083" y="17" width="16" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                         <buttonCell key="cell" type="inline" bezelStyle="inline" image="NSStopProgressFreestandingTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" inset="2" id="f1p-Va-xDG">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="smallSystemBold"/>
@@ -1081,7 +1081,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="OQ0-32-CRq">
                         <rect key="frame" x="58" y="27" width="189" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Downloading file..." id="Hyg-2o-nCp">
                             <font key="font" metaFont="system" size="14"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1090,7 +1090,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="dwf-zl-wLW">
                         <rect key="frame" x="58" y="7" width="219" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Zero KB/Zero KB" id="dTj-TK-3Op">
                             <font key="font" metaFont="cellTitle"/>
                             <color key="textColor" red="0.46270225253807107" green="0.46270225253807107" blue="0.46270225253807107" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1099,7 +1099,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     </textField>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="JL1-ow-kAk">
                         <rect key="frame" x="12" y="2" width="48" height="48"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSMenuOnStateTemplate" id="1YL-hD-bfD"/>
                     </imageView>
                 </subviews>
