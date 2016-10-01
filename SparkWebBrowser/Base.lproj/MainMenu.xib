@@ -24,7 +24,7 @@
                 <outlet property="closeDownloadingViewBtn" destination="A6A-L3-Pmj" id="bde-Oh-kWa"/>
                 <outlet property="currentVersion" destination="sbh-Aa-9pH" id="pub-aC-Yo5"/>
                 <outlet property="customColorWell" destination="uuu-yL-LqP" id="rPJ-sf-qXT"/>
-                <outlet property="downloadLocationField" destination="q54-KN-7yZ" id="1B8-cU-znE"/>
+                <outlet property="downloadLocTextField" destination="17K-HH-EGB" id="v3l-W0-emt"/>
                 <outlet property="downloadProgressIndicator" destination="DMz-UI-kVs" id="8DZ-OU-lg9"/>
                 <outlet property="downloadingViewBg" destination="ZMp-cC-hd9" id="WyY-Mo-Ke2"/>
                 <outlet property="faviconImage" destination="t5k-sW-5ra" id="bKl-he-loz"/>
@@ -594,17 +594,6 @@ Spark is made possible by the WebKit open source project and other open source s
                             <action selector="setHomepage:" target="Voe-Tx-rLC" id="91Z-Ei-9oa"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" misplaced="YES" id="Pll-nz-zUC">
-                        <rect key="frame" x="14" y="138" width="60" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ghQ-PV-xoR">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="setDownloadLocation:" target="Voe-Tx-rLC" id="ggM-pB-EGs"/>
-                        </connections>
-                    </button>
                     <textField verticalHuggingPriority="750" misplaced="YES" id="wPk-qF-HnV">
                         <rect key="frame" x="20" y="477" width="254" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -616,6 +605,15 @@ Spark is made possible by the WebKit open source project and other open source s
                         <connections>
                             <action selector="performClick:" target="UmC-Hu-U0Q" id="Gwb-qC-9TH"/>
                         </connections>
+                    </textField>
+                    <textField verticalHuggingPriority="750" misplaced="YES" id="17K-HH-EGB">
+                        <rect key="frame" x="20" y="174" width="254" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" state="on" borderStyle="bezel" placeholderString="Download Location" drawsBackground="YES" id="ia2-zH-dOh">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="6ju-f9-ztb">
                         <rect key="frame" x="18" y="329" width="95" height="17"/>
@@ -760,18 +758,6 @@ Spark is made possible by the WebKit open source project and other open source s
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" misplaced="YES" id="q54-KN-7yZ">
-                        <rect key="frame" x="20" y="174" width="254" height="22"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="e.g. ~/Desktop" drawsBackground="YES" id="fSd-pj-FcY">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                        <connections>
-                            <action selector="performClick:" target="Pll-nz-zUC" id="0if-mR-kay"/>
-                        </connections>
-                    </textField>
                     <box verticalHuggingPriority="750" misplaced="YES" boxType="separator" id="4Kf-Nt-nNP">
                         <rect key="frame" x="20" y="75" width="481" height="5"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -818,6 +804,17 @@ Spark is made possible by the WebKit open source project and other open source s
                             <action selector="setCustomColor:" target="Voe-Tx-rLC" id="MyM-g9-wUk"/>
                         </connections>
                     </colorWell>
+                    <button verticalHuggingPriority="750" misplaced="YES" id="Pll-nz-zUC">
+                        <rect key="frame" x="14" y="138" width="87" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Change..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ghQ-PV-xoR">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="setDownloadLocation:" target="Voe-Tx-rLC" id="Qdx-Ks-F0j"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <point key="canvasLocation" x="1383.5" y="-434.5"/>

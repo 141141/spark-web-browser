@@ -42,12 +42,12 @@
 @property (assign, nonatomic) IBOutlet NSColorWell *customColorWell;
 @property (assign, nonatomic) IBOutlet NSTextField *sparkAboutTitleField;
 @property (assign, nonatomic) IBOutlet NSProgressIndicator *downloadProgressIndicator;
-@property (assign, nonatomic) IBOutlet NSTextField *downloadLocationField;
 @property (assign, nonatomic) IBOutlet NSButton *closeDownloadingViewBtn;
 @property (assign, nonatomic) IBOutlet NSTextField *downloadingViewBg;
 @property (assign, nonatomic) IBOutlet NSTextField *fileDownloadingText;
 @property (assign, nonatomic) IBOutlet NSTextField *bytesDownloadedText;
 @property (assign, nonatomic) IBOutlet NSImageView *fileDownloadStatusIcon;
+@property (assign, nonatomic) IBOutlet NSTextField *downloadLocTextField;
 
 @property (nonatomic, assign) long bytesReceived;
 

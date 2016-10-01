@@ -72,6 +72,8 @@ NSString *suggestedFilename = nil; // Filename suggested when downloading files
 NSString *clippedFilename = nil; // Suggested filename with ellipsis suffix
 NSString *destinationFilename = nil; // Directory where downloaded files are stored
 NSString *homeDirectory = nil; // User home directory
+NSString *downloadLocation = nil; // Download location
+NSString *downloadLocationEdited = nil; // Download location, edited to remove special characters
 NSString *bytesReceivedFormatted = nil; // Bytes received (file download) (formatted)
 NSString *expectedLengthFormatted = nil; // Expected length of file being downloaded (formatted)
 long long expectedLength = 0; // Expected length of a file being downloaded
@@ -233,6 +235,9 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 - (void)download:(NSURLDownload *)download didFailWithError:(NSError *)error {
     // File download failed
     NSLog(@"Download failed! Error: %@ %@", [error localizedDescription], [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
+    
+    [self.bytesDownloadedText setStringValue:@"Download Failed"];
+    
     alert = [[NSAlert alloc] init];
     [alert setMessageText:@"Error Downloading File"];
     [alert setInformativeText:@"An error occurred while downloading the file you requested. Please ensure you are connected to the Internet, and try again later."];
@@ -240,7 +245,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 }
 
 - (void)download:(NSURLDownload *)download decideDestinationWithSuggestedFilename:(NSString *)filename {
-    destinationFilename = [[homeDirectory stringByAppendingPathComponent:@"Downloads"] stringByAppendingPathComponent:filename];
+
+    destinationFilename = [NSString stringWithFormat:@"%@%@", [defaults objectForKey:@"currentDownloadLocation"], suggestedFilename];
     
     [download setDestination:destinationFilename allowOverwrite:NO];
 }
@@ -287,6 +293,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     }
     
     [self.topBarColorPicker selectItemAtIndex:[defaults integerForKey:@"colorIndex"]];
+    
+    [self.downloadLocTextField setStringValue:[defaults objectForKey:@"currentDownloadLocation"]];
     
     if([[defaults objectForKey:@"currentReleaseChannel"] isEqual: @"stable"]) {
         [[SUUpdater sharedUpdater] setFeedURL:[NSURL URLWithString:@"https://insleep.tech/spark/appcast.xml"]];
@@ -759,13 +767,21 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 }
 
 - (IBAction)setDownloadLocation:(id)sender {
-    if(self.downloadLocationField.stringValue == nil || [self.downloadLocationField.stringValue isEqual:@""]) {
-        // File download location is not set -- revert to default
+    // Show an 'Open' dialog box allowing save folder selection.
+    NSOpenPanel *open = [NSOpenPanel openPanel];
+    [open setCanChooseFiles:NO];
+    [open setAllowsMultipleSelection:NO];
+    [open setCanChooseDirectories:YES];
+    [open setCanCreateDirectories:YES];
+    [open setTitle:@"Select Download Location"];
+    [open setPrompt:@"Select"];
+    [open runModal];
+    if (NSFileHandlingPanelOKButton) {
+        downloadLocation = [[NSString stringWithFormat:@"%@", [open URL]] stringByReplacingOccurrencesOfString:@"file://" withString:@""];
+        downloadLocationEdited = [downloadLocation stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
         
-        [defaults setObject:self.downloadLocationField.stringValue forKey:@"currentDownloadLocation"];
-    } else {
-        
-        [defaults setObject:@"~/Downloads" forKey:@"currentDownloadLocation"];
+        [defaults setObject:downloadLocationEdited forKey:@"currentDownloadLocation"];
+        [self.downloadLocTextField setStringValue:[defaults objectForKey:@"currentDownloadLocation"]];
     }
 }
 
