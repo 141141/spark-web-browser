@@ -182,8 +182,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     
     if (expectedLength != NSURLResponseUnknownLength) {
         
-        // If the expected content length is
-        // available, display percent complete.
+        // If the expected content length is available, display percent complete.
         double percentComplete = (self.bytesReceived / (float)expectedLength) * 100.0;
         [self.downloadProgressIndicator setDoubleValue:percentComplete];
         
@@ -201,9 +200,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         }
         
     } else {
-        // If the expected content length is
-        // unknown, just log the progress.
-        NSLog(@"Bytes received - %ld", self.bytesReceived);
+        // If the expected content length is unknown, just log the progress.
+        NSLog(@"Bytes received: %ld", self.bytesReceived);
     }
     if([self.downloadProgressIndicator doubleValue] == 100) {
         NSLog(@"Download complete.");
@@ -232,7 +230,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 - (void)download:(NSURLDownload *)download didFailWithError:(NSError *)error
 {
     // File download failed
-    NSLog(@"Download failed! Error - %@ %@",
+    NSLog(@"Download failed! Error: %@ %@",
           [error localizedDescription],
           [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
     alert = [[NSAlert alloc] init];
