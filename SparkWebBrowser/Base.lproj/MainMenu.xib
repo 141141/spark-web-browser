@@ -632,12 +632,12 @@ Spark is made possible by the WebKit open source project and other open source s
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" id="ESd-DK-qb0">
                                 <items>
-                                    <menuItem title="Google" state="on" id="M4t-1k-gwL"/>
-                                    <menuItem title="Bing" id="iHg-JP-TzF"/>
-                                    <menuItem title="Yahoo!" id="RpJ-j3-k0A"/>
-                                    <menuItem title="DuckDuckGo" id="nq3-GM-uav"/>
-                                    <menuItem title="Ask" id="sIf-t4-D9y"/>
-                                    <menuItem title="AOL" id="zAg-Ww-56y"/>
+                                    <menuItem title="Google" state="on" image="google-search-engine-icon" id="M4t-1k-gwL"/>
+                                    <menuItem title="Bing" image="bing-search-engine-icon" id="iHg-JP-TzF"/>
+                                    <menuItem title="Yahoo!" image="yahoo-search-engine-icon" id="RpJ-j3-k0A"/>
+                                    <menuItem title="DuckDuckGo" image="duckduckgo-search-engine-icon" id="nq3-GM-uav"/>
+                                    <menuItem title="Ask" image="ask-search-engine-icon" id="sIf-t4-D9y"/>
+                                    <menuItem title="AOL" image="aol-search-engine-icon" id="zAg-Ww-56y"/>
                                 </items>
                             </menu>
                         </popUpButtonCell>
@@ -1117,5 +1117,11 @@ Spark is made possible by the WebKit open source project and other open source s
         <image name="NSMenuOnStateTemplate" width="12" height="12"/>
         <image name="NSRefreshTemplate" width="11" height="15"/>
         <image name="NSStopProgressFreestandingTemplate" width="14" height="14"/>
+        <image name="aol-search-engine-icon" width="16" height="16"/>
+        <image name="ask-search-engine-icon" width="16" height="16"/>
+        <image name="bing-search-engine-icon" width="16" height="16"/>
+        <image name="duckduckgo-search-engine-icon" width="16" height="16"/>
+        <image name="google-search-engine-icon" width="16" height="16"/>
+        <image name="yahoo-search-engine-icon" width="16" height="16"/>
     </resources>
 </document>
