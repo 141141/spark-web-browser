@@ -8,12 +8,27 @@ body {
     padding: 40px 15px;
     text-align: center;
 }
+
 h1 {
     font-weight: 400;
 }
+
 p {
     font-weight: 300;
 }
+
 b {
     font-weight: 500;
+}
+
+.updatesUnavailable {
+    text-decoration: none !important;
+    color: #BFBFBF;
+    cursor: default;
+}
+
+.updatesUnavailable:hover {
+    text-decoration: none !important;
+    color: #BFBFBF;
+    cursor: default;
 }
