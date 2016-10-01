@@ -41,6 +41,9 @@
 @property (assign, nonatomic) IBOutlet NSPopUpButton *settingsPopupBtn;
 @property (assign, nonatomic) IBOutlet NSColorWell *customColorWell;
 @property (assign, nonatomic) IBOutlet NSTextField *sparkAboutTitleField;
+@property (assign, nonatomic) IBOutlet NSProgressIndicator *downloadProgressIndicator;
+
+@property (nonatomic, assign) long bytesReceived;
 
 // Methods
 - (IBAction)newTab:(id)sender;

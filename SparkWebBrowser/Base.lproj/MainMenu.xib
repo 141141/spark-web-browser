@@ -22,6 +22,7 @@
                 <outlet property="backBtn" destination="CSR-Ik-wrT" id="9ar-Ai-zKp"/>
                 <outlet property="currentVersion" destination="sbh-Aa-9pH" id="pub-aC-Yo5"/>
                 <outlet property="customColorWell" destination="uuu-yL-LqP" id="rPJ-sf-qXT"/>
+                <outlet property="downloadProgressIndicator" destination="DMz-UI-kVs" id="8DZ-OU-lg9"/>
                 <outlet property="faviconImage" destination="t5k-sW-5ra" id="bKl-he-loz"/>
                 <outlet property="forwardBtn" destination="wRb-WG-N9I" id="G2y-ac-Zki"/>
                 <outlet property="homepageBasedOnSearchEngineBtn" destination="5Uw-Fh-cJ1" id="CNY-RK-NbX"/>
@@ -1006,6 +1007,10 @@ Spark is made possible by the WebKit open source project and other open source s
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <progressIndicator wantsLayer="YES" misplaced="YES" maxValue="100" style="bar" id="DMz-UI-kVs">
+                        <rect key="frame" x="987" y="9" width="100" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    </progressIndicator>
                 </subviews>
             </view>
             <point key="canvasLocation" x="1163.5" y="180.5"/>

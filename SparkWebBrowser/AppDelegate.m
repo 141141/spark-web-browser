@@ -89,6 +89,8 @@ NSURL *faviconURL = nil; // NSURL converted from faviconURLString
 NSData *faviconData = nil; // Data retrieved from faviconURLString service
 NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 
+long long expectedLength = 0;
+
 + (void)initialize {
     defaults = [NSUserDefaults standardUserDefaults]; // Set up NSUserDefaults
     
@@ -157,32 +159,70 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 }
 
 - (void)downloadDidBegin:(NSURLDownload *)download {
-    // TODO: Add progress bar with current downloaded byte count
     NSLog(@"Download started.");
+    self.downloadProgressIndicator.hidden = NO;
 }
 
 - (void)download:(NSURLDownload *)download didReceiveDataOfLength:(unsigned)length {
-    // TODO: Update progress bar
-    NSLog(@"Some data was downloaded");
+    NSLog(@"Downloading data...");
+    self.bytesReceived = self.bytesReceived + length;
+    
+    if (expectedLength != NSURLResponseUnknownLength) {
+        // If the expected content length is
+        // available, display percent complete.
+        double percentComplete = (self.bytesReceived/(float)expectedLength)*100.0;
+        [self.downloadProgressIndicator setDoubleValue:percentComplete];
+    } else {
+        // If the expected content length is
+        // unknown, just log the progress.
+        NSLog(@"Bytes received - %ld", self.bytesReceived);
+    }
+    if([self.downloadProgressIndicator doubleValue] == 100) {
+        NSLog(@"Download complete.");
+        self.downloadProgressIndicator.hidden = YES;
+        [self.loadingIndicator stopAnimation:self];
+        self.reloadBtn.image = [NSImage imageNamed: NSImageNameRefreshTemplate];
+        self.loadingIndicator.hidden = YES;
+        self.faviconImage.hidden = NO;
+    }
 }
 
 - (void)download:(NSURLDownload *)download didReceiveResponse:(NSURLResponse *)response {
     suggestedFilename = [response suggestedFilename];
+    // Reset the progress, this might be called multiple times.
+    // bytesReceived is an instance variable defined elsewhere.
+    self.bytesReceived = 0;
+    // Store the response to use later.
+    expectedLength = [response expectedContentLength];
 }
 
+- (void)download:(NSURLDownload *)download didFailWithError:(NSError *)error
+{
+    // File download failed
+    NSLog(@"Download failed! Error - %@ %@",
+          [error localizedDescription],
+          [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
+    alert = [[NSAlert alloc] init];
+    [alert setMessageText:@"Error Downloading File"];
+    [alert setInformativeText:@"An error occurred while downloading the file you requested. Please ensure you are connected to the Internet, and try again later."];
+    [alert runModal];
+}
 
 - (void)download:(NSURLDownload *)download decideDestinationWithSuggestedFilename:(NSString *)filename {
     destinationFilename = [[homeDirectory stringByAppendingPathComponent:@"Downloads"]
-                                     stringByAppendingPathComponent:filename];
-
-    [download setDestination:destinationFilename allowOverwrite:YES];
+                           stringByAppendingPathComponent:filename];
+    
+    [download setDestination:destinationFilename allowOverwrite:NO];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     
     // Finish initializing
+    
     [self.webView setPolicyDelegate:(id<WebPolicyDelegate>)self];
     [self.webView setDownloadDelegate:(id<WebDownloadDelegate>)self];
+    
+    self.downloadProgressIndicator.hidden = YES;
     
     if([defaults objectForKey:@"currentReleaseChannel"] == nil) {
         // No release channel is set -- revert to default
@@ -514,17 +554,17 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 - (IBAction)setSearchEngine:(id)sender {
     
     searchEngineChosen = [NSString stringWithFormat:@"%@", self.searchEnginePicker.titleOfSelectedItem];
-
-        [defaults setObject:[NSString stringWithFormat:@"%@", searchEngineChosen] forKey:@"currentSearchEngine"];
-        [defaults setInteger:self.searchEnginePicker.indexOfSelectedItem forKey:@"searchEngineIndex"];
+    
+    [defaults setObject:[NSString stringWithFormat:@"%@", searchEngineChosen] forKey:@"currentSearchEngine"];
+    [defaults setInteger:self.searchEnginePicker.indexOfSelectedItem forKey:@"searchEngineIndex"];
+    
+    // Check whether or not to override homepage
+    if([defaults boolForKey:@"setHomepageEngine"] == YES) {
         
-        // Check whether or not to override homepage
-        if([defaults boolForKey:@"setHomepageEngine"] == YES) {
-            
-            NSLog(@"Setting homepage based on search engine");
-            
-            [self setHomepageBasedOnSearchEngine:self];
-        }
+        NSLog(@"Setting homepage based on search engine");
+        
+        [self setHomepageBasedOnSearchEngine:self];
+    }
 }
 
 - (IBAction)initWebpageLoad:(id)sender {
@@ -555,7 +595,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
             
             // Replace special characters
             editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-
+            
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
             self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
             
@@ -636,7 +676,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 - (IBAction)setReleaseChannel:(id)sender {
     
     NSLog(@"Setting release channel...");
-
+    
     capitalizedReleaseChannel = [NSString stringWithFormat:@"%@", self.releaseChannelPicker.titleOfSelectedItem];
     uncapitalizedReleaseChannel = [capitalizedReleaseChannel lowercaseString];
     
