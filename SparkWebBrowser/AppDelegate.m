@@ -292,6 +292,11 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         [defaults setInteger:0 forKey:@"colorIndex"];
     }
     
+    if([defaults objectForKey:@"currentDownloadLocation"] == nil) {
+        // No download location is set -- revert to default
+        [defaults setObject:[NSString stringWithFormat:@"%@/Downloads/", homeDirectory] forKey:@"currentDownloadLocation"];
+    }
+    
     [self.topBarColorPicker selectItemAtIndex:[defaults integerForKey:@"colorIndex"]];
     
     [self.downloadLocTextField setStringValue:[defaults objectForKey:@"currentDownloadLocation"]];
