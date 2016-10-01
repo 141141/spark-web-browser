@@ -203,6 +203,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         // If the expected content length is unknown, just log the progress.
         NSLog(@"Bytes received: %ld", self.bytesReceived);
     }
+    
     if([self.downloadProgressIndicator doubleValue] == 100) {
         NSLog(@"Download complete.");
         [self.downloadProgressIndicator stopAnimation:self];
@@ -227,8 +228,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     expectedLength = [response expectedContentLength];
 }
 
-- (void)download:(NSURLDownload *)download didFailWithError:(NSError *)error
-{
+- (void)download:(NSURLDownload *)download didFailWithError:(NSError *)error {
     // File download failed
     NSLog(@"Download failed! Error: %@ %@",
           [error localizedDescription],
