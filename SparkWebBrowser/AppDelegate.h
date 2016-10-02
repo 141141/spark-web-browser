@@ -12,6 +12,9 @@
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 // Declarations
+
+#pragma mark - IBOutlet
+// Outlets
 @property (assign, nonatomic) IBOutlet NSWindow *window;
 @property (assign, nonatomic) IBOutlet WebView *webView;
 @property (assign, nonatomic) IBOutlet NSTextField *addressBar;
@@ -51,6 +54,7 @@
 
 @property (nonatomic, assign) long bytesReceived;
 
+#pragma mark - IBAction
 // Methods
 - (IBAction)newTab:(id)sender;
 - (IBAction)setHomepage:(id)sender;
@@ -64,6 +68,8 @@
 - (IBAction)setCustomColor:(id)sender;
 - (IBAction)reportIssueAboutWindow:(id)sender;
 - (IBAction)closeDownloadingView:(id)sender;
+
+#pragma mark - Methods
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame;
 - (void)webView:(WebView *)sender didReceiveTitle:(NSString *)title forFrame:(WebFrame *)frame;
 - (void)setHomepageWithString:(NSString *)homepageToSet;

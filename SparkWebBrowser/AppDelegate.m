@@ -95,6 +95,8 @@ NSURL *faviconURL = nil; // NSURL converted from faviconURLString
 NSData *faviconData = nil; // Data retrieved from faviconURLString service
 NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 
+#pragma mark - Pre-initializing
+
 + (void)initialize {
     defaults = [NSUserDefaults standardUserDefaults]; // Set up NSUserDefaults
     
@@ -125,6 +127,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
     return YES;
 }
+
+#pragma mark - URL event handling
 
 -(void)applicationWillFinishLaunching:(NSNotification *)aNotification {
     
@@ -168,6 +172,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         [[NSApplication sharedApplication] terminate:nil];
     }
 }
+
+#pragma mark - WebView download handling
 
 - (void)webView:(WebView *)sender decidePolicyForMIMEType:(NSString *)type request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id<WebPolicyDecisionListener>)listener {
     if ([[sender class] canShowMIMEType:type]) {
@@ -267,6 +273,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     
     [download setDestination:destinationFilename allowOverwrite:NO];
 }
+
+#pragma mark - Application initializing
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     
@@ -468,8 +476,9 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     }
 }
 
+#pragma mark - IBAction
+
 - (IBAction)setCustomColor:(id)sender {
-    
     // Set window color to a custom color
     self.window.backgroundColor = self.customColorWell.color;
     
@@ -821,6 +830,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     });
 }
 
+#pragma mark - Various methods
+
 - (void)setHomepageBasedOnSearchEngine:(id)sender {
     if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Google"]) {
         
@@ -868,6 +879,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 - (void)settingsMenuClicked:(id)sender {
     [[self.settingsPopupBtn cell] performClickWithFrame:[sender frame] inView:[sender superview]];
 }
+
+#pragma mark - WebView loading
 
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame {
     // Only report feedback for the main frame.
