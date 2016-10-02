@@ -128,8 +128,6 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     return YES;
 }
 
-#pragma mark - URL event handling
-
 -(void)applicationWillFinishLaunching:(NSNotification *)aNotification {
     
     // Register for URL events
@@ -139,6 +137,9 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
                            andSelector:@selector(handleGetURLEvent:withReplyEvent:)
                          forEventClass:kInternetEventClass andEventID:kAEGetURL];
 }
+
+#pragma mark - NSAppleEventDescriptor
+// URL event handling
 
 - (void)handleGetURLEvent:(NSAppleEventDescriptor *)event withReplyEvent:(NSAppleEventDescriptor *)replyEvent {
     
@@ -173,7 +174,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     }
 }
 
-#pragma mark - WebView download handling
+#pragma mark - WebView
+// WebView download handling
 
 - (void)webView:(WebView *)sender decidePolicyForMIMEType:(NSString *)type request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id<WebPolicyDecisionListener>)listener {
     if ([[sender class] canShowMIMEType:type]) {
@@ -880,7 +882,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     [[self.settingsPopupBtn cell] performClickWithFrame:[sender frame] inView:[sender superview]];
 }
 
-#pragma mark - WebView loading
+#pragma mark - WebView
+// WebView loading-related methods
 
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame {
     // Only report feedback for the main frame.

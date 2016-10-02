@@ -25,6 +25,11 @@
 		ABBA53EE1D85E0BE00D3B691 /* stylesheet.css in Resources */ = {isa = PBXBuildFile; fileRef = ABBA53EB1D85E0BE00D3B691 /* stylesheet.css */; };
 		ABBD6C201D3707B900C48592 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83980719817D8E001D31B7 /* Cocoa.framework */; };
 		ABBD6C211D3707C600C48592 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83983B19817E15001D31B7 /* WebKit.framework */; };
+		ABE32C7F1DA15AEA00D0B07E /* Screenshot1.png in Resources */ = {isa = PBXBuildFile; fileRef = ABE32C7A1DA15AEA00D0B07E /* Screenshot1.png */; };
+		ABE32C801DA15AEA00D0B07E /* Screenshot2.png in Resources */ = {isa = PBXBuildFile; fileRef = ABE32C7B1DA15AEA00D0B07E /* Screenshot2.png */; };
+		ABE32C811DA15AEA00D0B07E /* Screenshot3.png in Resources */ = {isa = PBXBuildFile; fileRef = ABE32C7C1DA15AEA00D0B07E /* Screenshot3.png */; };
+		ABE32C821DA15AEA00D0B07E /* Screenshot4.png in Resources */ = {isa = PBXBuildFile; fileRef = ABE32C7D1DA15AEA00D0B07E /* Screenshot4.png */; };
+		ABE32C831DA15AEA00D0B07E /* Screenshot5.png in Resources */ = {isa = PBXBuildFile; fileRef = ABE32C7E1DA15AEA00D0B07E /* Screenshot5.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,15 +67,17 @@
 		ABA41D9D1D84DC2300F01B90 /* NSUserDefaults+ColorSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSUserDefaults+ColorSupport.h"; path = "SparkWebBrowser/NSUserDefaults+ColorSupport.h"; sourceTree = SOURCE_ROOT; };
 		ABA41D9E1D84DC2300F01B90 /* NSUserDefaults+ColorSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSUserDefaults+ColorSupport.m"; path = "SparkWebBrowser/NSUserDefaults+ColorSupport.m"; sourceTree = SOURCE_ROOT; };
 		ABA872E11D7FA4140062EC6C /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
-		ABAC55AF1D7B596400CF393B /* Screenshot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot1.png; sourceTree = "<group>"; };
-		ABAC55B01D7B596400CF393B /* Screenshot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot2.png; sourceTree = "<group>"; };
-		ABAC55B11D7B596400CF393B /* Screenshot3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot3.png; sourceTree = "<group>"; };
 		ABB4435E1D846194001D55C7 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = SparkWebBrowser/Sparkle.framework; sourceTree = SOURCE_ROOT; };
 		ABB443621D84634C001D55C7 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = SOURCE_ROOT; };
 		ABBA53E91D85E0BE00D3B691 /* favicon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = favicon.ico; sourceTree = "<group>"; };
 		ABBA53EA1D85E0BE00D3B691 /* spark-about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "spark-about.html"; sourceTree = "<group>"; };
 		ABBA53EB1D85E0BE00D3B691 /* stylesheet.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = stylesheet.css; sourceTree = "<group>"; };
 		ABBD6C101D3706B500C48592 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = "../../../../../Downloads/Sparkle-1.14.0/Sparkle.framework"; sourceTree = "<group>"; };
+		ABE32C7A1DA15AEA00D0B07E /* Screenshot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot1.png; sourceTree = "<group>"; };
+		ABE32C7B1DA15AEA00D0B07E /* Screenshot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot2.png; sourceTree = "<group>"; };
+		ABE32C7C1DA15AEA00D0B07E /* Screenshot3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot3.png; sourceTree = "<group>"; };
+		ABE32C7D1DA15AEA00D0B07E /* Screenshot4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot4.png; sourceTree = "<group>"; };
+		ABE32C7E1DA15AEA00D0B07E /* Screenshot5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot5.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,9 +175,11 @@
 		ABAC55AE1D7B596400CF393B /* Screenshots */ = {
 			isa = PBXGroup;
 			children = (
-				ABAC55AF1D7B596400CF393B /* Screenshot1.png */,
-				ABAC55B01D7B596400CF393B /* Screenshot2.png */,
-				ABAC55B11D7B596400CF393B /* Screenshot3.png */,
+				ABE32C7A1DA15AEA00D0B07E /* Screenshot1.png */,
+				ABE32C7B1DA15AEA00D0B07E /* Screenshot2.png */,
+				ABE32C7C1DA15AEA00D0B07E /* Screenshot3.png */,
+				ABE32C7D1DA15AEA00D0B07E /* Screenshot4.png */,
+				ABE32C7E1DA15AEA00D0B07E /* Screenshot5.png */,
 			);
 			path = Screenshots;
 			sourceTree = "<group>";
@@ -245,10 +254,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABA872E21D7FA4140062EC6C /* .travis.yml in Resources */,
+				ABE32C7F1DA15AEA00D0B07E /* Screenshot1.png in Resources */,
 				AB04FD021C712BAD00F08232 /* Images.xcassets in Resources */,
+				ABE32C811DA15AEA00D0B07E /* Screenshot3.png in Resources */,
 				AB8587B71D7C9DFE0073515C /* SparkIcon256.png in Resources */,
 				AB04FD131C712C6000F08232 /* MainMenu.xib in Resources */,
+				ABE32C821DA15AEA00D0B07E /* Screenshot4.png in Resources */,
+				ABE32C801DA15AEA00D0B07E /* Screenshot2.png in Resources */,
 				ABBA53ED1D85E0BE00D3B691 /* spark-about.html in Resources */,
+				ABE32C831DA15AEA00D0B07E /* Screenshot5.png in Resources */,
 				ABB443631D84634C001D55C7 /* dsa_pub.pem in Resources */,
 				ABB443611D8461CA001D55C7 /* Sparkle.framework in Resources */,
 				ABBA53EC1D85E0BE00D3B691 /* favicon.ico in Resources */,
