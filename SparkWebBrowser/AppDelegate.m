@@ -369,14 +369,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         self.osVersionField.stringValue = [NSString stringWithFormat: @"OS X %@ (%@)", versionString, buildString];
         self.sparkAboutTitleField.stringValue = [NSString stringWithFormat:@"Spark Web Browser for OS X"];
     }
-    self.ntNotSupported.hidden = YES;
+
     self.faviconImage.hidden = YES;
-    self.bytesDownloadedText.hidden = YES;
-    self.downloadingViewBg.hidden = YES;
-    self.fileDownloadingText.hidden = YES;
-    self.closeDownloadingViewBtn.hidden = YES;
-    self.fileDownloadStatusIcon.hidden = YES;
-    self.downloadProgressIndicator.hidden = YES;
     self.loadingIndicator.hidden = NO;
     [self.loadingIndicator startAnimation:self];
     self.currentVersion.stringValue = [NSString stringWithFormat:@"%@.%@ (%@ channel)", appVersion, buildNumber, releaseChannel];
