@@ -399,6 +399,11 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     self.aboutWindow.backgroundColor = [NSColor whiteColor];
     self.settingsWindow.backgroundColor = [NSColor whiteColor];
     
+    if([[defaults objectForKey:@"customSearchEngine"] isEqual: @""]) {
+        self.customSearchEngineField.hidden = YES;
+        self.customSearchEngineSaveBtn.hidden = YES;
+    }
+    
     // Get key value from NSUserDefaults and set top bar color
     if([[defaults objectForKey:@"currentColor"] isEqual: @"Default"]) {
         
