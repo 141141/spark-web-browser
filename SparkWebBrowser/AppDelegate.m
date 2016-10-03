@@ -111,6 +111,11 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     alloyOrangeColor = [NSColor colorWithRed:200.0f/255.0f green:80.0f/255.0f blue:1.0f/255.0f alpha:1.0f];
     darkGrayColor = [NSColor colorWithRed:44.0f/255.0f green:44.0f/255.0f blue:44.0f/255.0f alpha:1.0f];
     
+    if([defaults objectForKey:@"currentReleaseChannel"] == nil) {
+        // No release channel is set -- revert to default
+        [defaults setObject:[NSString stringWithFormat:@"stable"] forKey:@"currentReleaseChannel"];
+    }
+    
     homeDirectory = NSHomeDirectory(); // Retrieve user home directory
     infoDict = [[NSBundle mainBundle] infoDictionary]; // Load Info.plist
     appVersion = [infoDict objectForKey:@"CFBundleShortVersionString"]; // Fetch the version number from Info.plist
@@ -313,6 +318,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     
     if([defaults objectForKey:@"customSearchEngine"] == nil) {
         [defaults setObject:@"" forKey:@"customSearchEngine"];
+        self.customSearchEngineField.hidden = YES;
+        self.customSearchEngineSaveBtn.hidden = YES;
     }
     
     if([defaults objectForKey:@"currentColor"] == nil) {
