@@ -28,6 +28,7 @@ NSString *yahooSearchString = @"https://search.yahoo.com/search?p=%@";
 NSString *duckDuckGoSearchString = @"https://www.duckduckgo.com/%@";
 NSString *askSearchString = @"http://www.ask.com/web?q=%@";
 NSString *aolSearchString = @"http://search.aol.com/aol/search?q=%@";
+NSString *customSearchString = nil;
 
 // Search engine default homepages
 NSString *googleDefaultURL = @"https://www.google.com/";
@@ -379,7 +380,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         self.osVersionField.stringValue = [NSString stringWithFormat: @"OS X %@ (%@)", versionString, buildString];
         self.sparkAboutTitleField.stringValue = [NSString stringWithFormat:@"Spark Web Browser for OS X"];
     }
-
+    
     self.faviconImage.hidden = YES;
     self.loadingIndicator.hidden = NO;
     [self.loadingIndicator startAnimation:self];
@@ -476,6 +477,27 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         // Set window color to a custom color
         self.window.backgroundColor = [defaults colorForKey:@"customColor"];
     }
+    
+    if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Custom"]) {
+        self.customSearchEngineField.stringValue = [defaults objectForKey:@"customSearchEngine"];
+        
+        self.homepageBasedOnSearchEngineBtn.state = NSOffState;
+        self.homepageBasedOnSearchEngineBtn.enabled = NO;
+        self.customSearchEngineField.hidden = NO;
+        self.customSearchEngineSaveBtn.hidden = NO;
+        self.homepageTextField.enabled = YES;
+        self.setHomepageBtn.enabled = YES;
+    } else {
+        if([defaults boolForKey:@"setHomepageEngine"] == YES) {
+            self.homepageBasedOnSearchEngineBtn.state = NSOnState;
+            self.homepageBasedOnSearchEngineBtn.enabled = YES;
+            self.setHomepageBtn.enabled = NO;
+            self.homepageTextField.enabled = NO;
+        }
+        self.customSearchEngineField.hidden = YES;
+        self.customSearchEngineSaveBtn.hidden = YES;
+    }
+    
 }
 
 #pragma mark - IBAction
@@ -500,6 +522,35 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     self.fileDownloadingText.hidden = YES;
     self.closeDownloadingViewBtn.hidden = YES;
     self.fileDownloadStatusIcon.hidden = YES;
+}
+
+- (IBAction)saveCustomSearchEngine:(id)sender {
+    if(self.customSearchEngineField.stringValue.length < 1 || [self.customSearchEngineField.stringValue isEqual: @""] || [self.customSearchEngineField.stringValue isEqual: nil]) {
+        // Text field is empty
+        NSLog(@"Error: custom search engine text field is empty.");
+    } else {
+        NSLog(@"Saving custom search engine...");
+        
+        customSearchString = [[NSString stringWithFormat:@"%@", self.customSearchEngineField.stringValue] stringByReplacingOccurrencesOfString:@"*QUERY*" withString:@"%@"];
+        
+        [defaults setObject:[NSString stringWithFormat:@"Custom"] forKey:@"currentSearchEngine"];
+        [defaults setObject:[NSString stringWithFormat:@"%@", customSearchString] forKey:@"customSearchEngine"];
+        [defaults setInteger:self.searchEnginePicker.indexOfSelectedItem forKey:@"searchEngineIndex"];
+        
+        if([defaults boolForKey:@"setHomepageEngine"] == YES) {
+            
+            [defaults setBool:NO forKey:@"setHomepageEngine"];
+            self.homepageBasedOnSearchEngineBtn.state = NSOffState;
+            self.homepageBasedOnSearchEngineBtn.enabled = NO;
+            self.homepageTextField.enabled = YES;
+            self.setHomepageBtn.enabled = YES;
+        } else {
+            self.homepageBasedOnSearchEngineBtn.state = NSOffState;
+            self.homepageBasedOnSearchEngineBtn.enabled = NO;
+            self.homepageTextField.enabled = YES;
+            self.setHomepageBtn.enabled = YES;
+        }
+    }
 }
 
 - (IBAction)setTopBarColor:(id)sender {
@@ -636,6 +687,34 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     
     [defaults setObject:[NSString stringWithFormat:@"%@", searchEngineChosen] forKey:@"currentSearchEngine"];
     [defaults setInteger:self.searchEnginePicker.indexOfSelectedItem forKey:@"searchEngineIndex"];
+
+    if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Custom"]) {
+        
+        self.customSearchEngineField.stringValue = [defaults objectForKey:@"customSearchEngine"];
+        
+        [defaults setBool:NO forKey:@"setHomepageEngine"];
+        
+        self.homepageBasedOnSearchEngineBtn.state = NSOffState;
+        self.homepageBasedOnSearchEngineBtn.enabled = NO;
+        self.customSearchEngineField.hidden = NO;
+        self.customSearchEngineSaveBtn.hidden = NO;
+        self.homepageTextField.enabled = YES;
+        self.setHomepageBtn.enabled = YES;
+    } else {
+        if([defaults boolForKey:@"setHomepageEngine"] == YES) {
+            self.homepageBasedOnSearchEngineBtn.state = NSOnState;
+            self.homepageBasedOnSearchEngineBtn.enabled = YES;
+            self.setHomepageBtn.enabled = NO;
+            self.homepageTextField.enabled = NO;
+        } else {
+            self.homepageBasedOnSearchEngineBtn.state = NSOffState;
+            self.homepageBasedOnSearchEngineBtn.enabled = YES;
+            self.setHomepageBtn.enabled = YES;
+            self.homepageTextField.enabled = YES;
+        }
+        self.customSearchEngineField.hidden = YES;
+        self.customSearchEngineSaveBtn.hidden = YES;
+    }
     
     // Check whether or not to override homepage
     if([defaults boolForKey:@"setHomepageEngine"] == YES) {
@@ -743,6 +822,20 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
             searchString = [searchString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
             
             urlString = [NSString stringWithFormat:aolSearchString, searchString];
+            editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            
+            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
+            self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
+            
+        } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Custom"]) {
+            
+            // Search with custom engine initiated
+            
+            NSLog(@"Search engine found: Custom");
+            
+            searchString = [searchString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+            
+            urlString = [NSString stringWithFormat:[defaults objectForKey:@"customSearchEngine"], searchString];
             editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];

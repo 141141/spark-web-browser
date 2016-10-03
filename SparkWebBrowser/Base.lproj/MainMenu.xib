@@ -24,6 +24,8 @@
                 <outlet property="closeDownloadingViewBtn" destination="A6A-L3-Pmj" id="bde-Oh-kWa"/>
                 <outlet property="currentVersion" destination="sbh-Aa-9pH" id="pub-aC-Yo5"/>
                 <outlet property="customColorWell" destination="uuu-yL-LqP" id="rPJ-sf-qXT"/>
+                <outlet property="customSearchEngineField" destination="mr4-I9-Hee" id="qPp-QM-nDA"/>
+                <outlet property="customSearchEngineSaveBtn" destination="eoN-AO-Ocm" id="hmK-sl-uxt"/>
                 <outlet property="downloadLocTextField" destination="17K-HH-EGB" id="v3l-W0-emt"/>
                 <outlet property="downloadProgressIndicator" destination="DMz-UI-kVs" id="8DZ-OU-lg9"/>
                 <outlet property="downloadingViewBg" destination="ZMp-cC-hd9" id="WyY-Mo-Ke2"/>
@@ -638,6 +640,8 @@ Spark is made possible by the WebKit open source project and other open source s
                                     <menuItem title="DuckDuckGo" image="duckduckgo-search-engine-icon" id="nq3-GM-uav"/>
                                     <menuItem title="Ask" image="ask-search-engine-icon" id="sIf-t4-D9y"/>
                                     <menuItem title="AOL" image="aol-search-engine-icon" id="zAg-Ww-56y"/>
+                                    <menuItem isSeparatorItem="YES" id="toF-XD-kdO"/>
+                                    <menuItem title="Custom" id="jS2-St-NcO"/>
                                 </items>
                             </menu>
                         </popUpButtonCell>
@@ -829,9 +833,32 @@ Spark is made possible by the WebKit open source project and other open source s
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSFolder" id="McZ-23-W6y"/>
                     </imageView>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" id="mr4-I9-Hee">
+                        <rect key="frame" x="184" y="284" width="231" height="39"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="URL with %@ in place of query" drawsBackground="YES" id="beZ-Fk-jh7">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <action selector="performClick:" target="eoN-AO-Ocm" id="l9l-hM-tJA"/>
+                        </connections>
+                    </textField>
+                    <button verticalHuggingPriority="750" misplaced="YES" id="eoN-AO-Ocm">
+                        <rect key="frame" x="417" y="286" width="60" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="78l-4o-uqD">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="saveCustomSearchEngine:" target="Voe-Tx-rLC" id="9Wc-Hi-Ycw"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="1422" y="-537"/>
+            <point key="canvasLocation" x="1421.5" y="-537"/>
         </window>
         <window allowsToolTipsWhenApplicationIsInactive="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES"/>

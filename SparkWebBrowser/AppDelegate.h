@@ -51,6 +51,8 @@
 @property (assign, nonatomic) IBOutlet NSTextField *bytesDownloadedText;
 @property (assign, nonatomic) IBOutlet NSImageView *fileDownloadStatusIcon;
 @property (assign, nonatomic) IBOutlet NSTextField *downloadLocTextField;
+@property (assign, nonatomic) IBOutlet NSTextField *customSearchEngineField;
+@property (assign, nonatomic) IBOutlet NSButton *customSearchEngineSaveBtn;
 
 @property (nonatomic, assign) long bytesReceived;
 
@@ -68,6 +70,7 @@
 - (IBAction)setCustomColor:(id)sender;
 - (IBAction)reportIssueAboutWindow:(id)sender;
 - (IBAction)closeDownloadingView:(id)sender;
+- (IBAction)saveCustomSearchEngine:(id)sender;
 
 #pragma mark - Methods
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame;
