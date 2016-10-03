@@ -541,28 +541,40 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 }
 
 - (void)saveCustomSearchEngineText:(id)sender {
-    NSLog(@"Saving custom search engine...");
-    
-    customSearchString = [[NSString stringWithFormat:@"%@", self.customSearchEngineField.stringValue] stringByReplacingOccurrencesOfString:@"*QUERY*" withString:@"%@"];
-    
-    [defaults setObject:[NSString stringWithFormat:@"Custom"] forKey:@"currentSearchEngine"];
-    [defaults setObject:[NSString stringWithFormat:@"%@", customSearchString] forKey:@"customSearchEngine"];
-    [defaults setInteger:self.searchEnginePicker.indexOfSelectedItem forKey:@"searchEngineIndex"];
-    
-    if([defaults boolForKey:@"setHomepageEngine"] == YES) {
+    if([self.customSearchEngineField.stringValue containsString:@"\%@"]) {
         
-        [defaults setBool:NO forKey:@"setHomepageEngine"];
-        self.homepageBasedOnSearchEngineBtn.state = NSOffState;
-        self.homepageBasedOnSearchEngineBtn.enabled = NO;
-        self.homepageTextField.enabled = YES;
-        self.setHomepageBtn.enabled = YES;
+        NSLog(@"Saving custom search engine...");
+        
+        customSearchString = [[NSString stringWithFormat:@"%@", self.customSearchEngineField.stringValue] stringByReplacingOccurrencesOfString:@"*QUERY*" withString:@"%@"];
+        
+        [defaults setObject:[NSString stringWithFormat:@"Custom"] forKey:@"currentSearchEngine"];
+        [defaults setObject:[NSString stringWithFormat:@"%@", customSearchString] forKey:@"customSearchEngine"];
+        [defaults setInteger:self.searchEnginePicker.indexOfSelectedItem forKey:@"searchEngineIndex"];
+        
+        if([defaults boolForKey:@"setHomepageEngine"] == YES) {
+            
+            [defaults setBool:NO forKey:@"setHomepageEngine"];
+            self.homepageBasedOnSearchEngineBtn.state = NSOffState;
+            self.homepageBasedOnSearchEngineBtn.enabled = NO;
+            self.homepageTextField.enabled = YES;
+            self.setHomepageBtn.enabled = YES;
+        } else {
+            self.homepageBasedOnSearchEngineBtn.state = NSOffState;
+            self.homepageBasedOnSearchEngineBtn.enabled = NO;
+            self.homepageTextField.enabled = YES;
+            self.setHomepageBtn.enabled = YES;
+        }
+
     } else {
-        self.homepageBasedOnSearchEngineBtn.state = NSOffState;
-        self.homepageBasedOnSearchEngineBtn.enabled = NO;
-        self.homepageTextField.enabled = YES;
-        self.setHomepageBtn.enabled = YES;
+        // Text field does not contain query text.
+        NSLog(@"Error: custom search engine text field does not contain query text.");
+        
+        alert = [[NSAlert alloc] init];
+        [alert setMessageText:@"Error"];
+        [alert setInformativeText:[NSString stringWithFormat:@"An error occurred: the text you entered does not contain %%@ in place of the query. Please enter valid text and try again."]];
+        [alert addButtonWithTitle:@"OK"];
+        [alert runModal];
     }
-    
 }
 
 - (IBAction)saveCustomSearchEngine:(id)sender {
