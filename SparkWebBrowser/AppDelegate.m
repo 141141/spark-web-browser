@@ -186,9 +186,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     if ([[sender class] canShowMIMEType:type]) {
         if(downloadOverride == YES) {
             // Download file anyway, even if WebView can display it
-            
             [listener download];
-            //downloadOverride = NO;
+            downloadOverride = NO;
         } else {
             // WebView says it can show these files
             [listener use];
@@ -244,8 +243,13 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         [self.bytesDownloadedText setStringValue:[NSString stringWithFormat:@"%ld/%ld bytes", self.bytesReceived, self.bytesReceived]];
     }
     
-    if([self.downloadProgressIndicator doubleValue] == 100) {
+    if([self.downloadProgressIndicator doubleValue] == 100 || self.bytesReceived == expectedLength) {
         NSLog(@"File download complete.");
+        
+        if([self.fileDownloadingText.stringValue isEqual: @"Downloading file..."]) {
+            self.fileDownloadingText.stringValue = @"Download complete.";
+        }
+        
         [self.downloadProgressIndicator stopAnimation:self];
         self.downloadProgressIndicator.doubleValue = 0;
         [self.loadingIndicator stopAnimation:self];
@@ -284,7 +288,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 
 - (void)download:(NSURLDownload *)download decideDestinationWithSuggestedFilename:(NSString *)filename {
     
-    if(downloadOverride == YES) {
+    /*if(downloadOverride == YES) {
         NSSavePanel *panel = [NSSavePanel savePanel];
         
         if ([panel runModalForDirectory:nil file:suggestedFilename] == NSFileHandlingPanelCancelButton) {
@@ -300,7 +304,11 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         destinationFilename = [NSString stringWithFormat:@"%@%@", [defaults objectForKey:@"currentDownloadLocation"], suggestedFilename];
         
         [download setDestination:destinationFilename allowOverwrite:NO];
-    }
+    }*/
+    
+    destinationFilename = [NSString stringWithFormat:@"%@%@", [defaults objectForKey:@"currentDownloadLocation"], suggestedFilename];
+    
+    [download setDestination:destinationFilename allowOverwrite:NO];
     
 }
 
@@ -624,7 +632,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     }
 }
 
-- (IBAction)savePageAs:(id)sender {
+- (IBAction)savePage:(id)sender {
     downloadOverride = YES;
     NSLog(@"Downloads overridden. Starting download...");
     [self.webView reload:self];

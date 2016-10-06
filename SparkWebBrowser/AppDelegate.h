@@ -56,8 +56,7 @@
 
 @property (nonatomic, assign) long bytesReceived;
 
-#pragma mark - IBAction
-// Methods
+#pragma mark - IBActions
 - (IBAction)newTab:(id)sender;
 - (IBAction)setHomepage:(id)sender;
 - (IBAction)setDownloadLocation:(id)sender;
@@ -71,7 +70,7 @@
 - (IBAction)reportIssueAboutWindow:(id)sender;
 - (IBAction)closeDownloadingView:(id)sender;
 - (IBAction)saveCustomSearchEngine:(id)sender;
-- (IBAction)savePageAs:(id)sender;
+- (IBAction)savePage:(id)sender;
 
 #pragma mark - Methods
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame;
