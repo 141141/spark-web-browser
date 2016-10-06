@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2333a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2338c" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
@@ -116,6 +116,11 @@
                             <menuItem title="Open Location..." keyEquivalent="l" id="lHF-cs-NH9">
                                 <connections>
                                     <action selector="selectText:" target="6S4-CW-iwm" id="fBQ-2z-qOH"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Save Page As..." keyEquivalent="S" id="H1t-8D-6hy">
+                                <connections>
+                                    <action selector="savePageAs:" target="Voe-Tx-rLC" id="7AB-BY-QvZ"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="fkg-7Z-xqX"/>
@@ -1124,7 +1129,7 @@ Spark is made possible by the WebKit open source project and other open source s
                         <rect key="frame" x="58" y="27" width="189" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Downloading file..." id="Hyg-2o-nCp">
-                            <font key="font" metaFont="system" size="14"/>
+                            <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
@@ -1133,7 +1138,7 @@ Spark is made possible by the WebKit open source project and other open source s
                         <rect key="frame" x="58" y="7" width="219" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Zero KB/Zero KB" id="dTj-TK-3Op">
-                            <font key="font" metaFont="cellTitle"/>
+                            <font key="font" metaFont="system" size="11"/>
                             <color key="textColor" red="0.46270225253807107" green="0.46270225253807107" blue="0.46270225253807107" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>

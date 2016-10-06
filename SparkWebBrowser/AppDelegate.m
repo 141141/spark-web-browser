@@ -78,6 +78,7 @@ NSString *downloadLocationEdited = nil; // Download location, edited to remove s
 NSString *bytesReceivedFormatted = nil; // Bytes received (file download) (formatted)
 NSString *expectedLengthFormatted = nil; // Expected length of file being downloaded (formatted)
 long long expectedLength = 0; // Expected length of a file being downloaded
+bool downloadOverride = NO; // Boolean for whether or not to download a file even if WebView can display it
 
 // Objects related (somewhat) to loading webpages
 NSString *searchString = nil; // String used when initiating a search query
@@ -183,10 +184,16 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 
 - (void)webView:(WebView *)sender decidePolicyForMIMEType:(NSString *)type request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id<WebPolicyDecisionListener>)listener {
     if ([[sender class] canShowMIMEType:type]) {
-        // WebView says it can show these files
-        [listener use];
+        if(downloadOverride == YES) {
+            // Download file anyway, even if WebView can display it
+            [listener download];
+            downloadOverride = NO;
+        } else {
+            // WebView says it can show these files
+            [listener use];
+        }
     } else {
-        // WebView can't show these files - start a download
+        // WebView can't display these files - start a download
         [listener download];
     }
 }
@@ -231,8 +238,9 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
             self.fileDownloadingText.stringValue = [NSString stringWithFormat:@"%@", suggestedFilename];
         }
     } else {
-        // If the expected content length is unknown, just log the progress.
+        // If the expected content length is unknown, log the process and update the indicators without a known length.
         NSLog(@"Bytes received: %ld", self.bytesReceived);
+        [self.bytesDownloadedText setStringValue:[NSString stringWithFormat:@"%ld/%ld bytes", self.bytesReceived, self.bytesReceived]];
     }
     
     if([self.downloadProgressIndicator doubleValue] == 100) {
@@ -562,7 +570,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
             self.homepageTextField.enabled = YES;
             self.setHomepageBtn.enabled = YES;
         }
-
+        
     } else {
         // Text field does not contain query text.
         NSLog(@"Error: custom search engine text field does not contain query text.");
@@ -598,6 +606,12 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         [alert addButtonWithTitle:@"OK"];
         [alert runModal];
     }
+}
+
+- (IBAction)savePageAs:(id)sender {
+    downloadOverride = YES;
+    NSLog(@"Downloads overridden. Starting download...");
+    [self.webView reload:self];
 }
 
 - (IBAction)setTopBarColor:(id)sender {

@@ -71,6 +71,7 @@
 - (IBAction)reportIssueAboutWindow:(id)sender;
 - (IBAction)closeDownloadingView:(id)sender;
 - (IBAction)saveCustomSearchEngine:(id)sender;
+- (IBAction)savePageAs:(id)sender;
 
 #pragma mark - Methods
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame;
