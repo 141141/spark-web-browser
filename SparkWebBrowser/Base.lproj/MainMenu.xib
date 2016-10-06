@@ -1126,7 +1126,7 @@ Spark is made possible by the WebKit open source project and other open source s
                         </connections>
                     </button>
                     <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="OQ0-32-CRq">
-                        <rect key="frame" x="58" y="27" width="189" height="18"/>
+                        <rect key="frame" x="58" y="28" width="189" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Downloading file..." id="Hyg-2o-nCp">
                             <font key="font" metaFont="system"/>
@@ -1135,7 +1135,7 @@ Spark is made possible by the WebKit open source project and other open source s
                         </textFieldCell>
                     </textField>
                     <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="dwf-zl-wLW">
-                        <rect key="frame" x="58" y="7" width="219" height="17"/>
+                        <rect key="frame" x="58" y="10" width="219" height="14"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Zero KB/Zero KB" id="dTj-TK-3Op">
                             <font key="font" metaFont="system" size="11"/>

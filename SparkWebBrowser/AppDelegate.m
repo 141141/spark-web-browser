@@ -186,8 +186,9 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     if ([[sender class] canShowMIMEType:type]) {
         if(downloadOverride == YES) {
             // Download file anyway, even if WebView can display it
+            
             [listener download];
-            downloadOverride = NO;
+            //downloadOverride = NO;
         } else {
             // WebView says it can show these files
             [listener use];
@@ -283,9 +284,24 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 
 - (void)download:(NSURLDownload *)download decideDestinationWithSuggestedFilename:(NSString *)filename {
     
-    destinationFilename = [NSString stringWithFormat:@"%@%@", [defaults objectForKey:@"currentDownloadLocation"], suggestedFilename];
+    if(downloadOverride == YES) {
+        NSSavePanel *panel = [NSSavePanel savePanel];
+        
+        if ([panel runModalForDirectory:nil file:suggestedFilename] == NSFileHandlingPanelCancelButton) {
+            // If the user doesn't want to save, cancel the download.
+            [download cancel];
+            downloadOverride = NO;
+        } else {
+            // Set the destination to save to.
+            [download setDestination:[panel filename] allowOverwrite:YES];
+            downloadOverride = NO;
+        }
+    } else {
+        destinationFilename = [NSString stringWithFormat:@"%@%@", [defaults objectForKey:@"currentDownloadLocation"], suggestedFilename];
+        
+        [download setDestination:destinationFilename allowOverwrite:NO];
+    }
     
-    [download setDestination:destinationFilename allowOverwrite:NO];
 }
 
 #pragma mark - Application initializing
