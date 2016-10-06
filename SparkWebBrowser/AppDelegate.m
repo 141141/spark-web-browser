@@ -638,6 +638,10 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     [self.webView reload:self];
 }
 
+- (IBAction)findText:(id)sender {
+    // Coming soon
+}
+
 - (IBAction)setTopBarColor:(id)sender {
     
     colorChosen = [NSString stringWithFormat:@"%@", self.topBarColorPicker.titleOfSelectedItem];

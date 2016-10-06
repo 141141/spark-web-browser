@@ -71,6 +71,7 @@
 - (IBAction)closeDownloadingView:(id)sender;
 - (IBAction)saveCustomSearchEngine:(id)sender;
 - (IBAction)savePage:(id)sender;
+- (IBAction)findText:(id)sender;
 
 #pragma mark - Methods
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame;
