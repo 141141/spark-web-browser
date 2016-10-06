@@ -8,8 +8,8 @@
 
 #import "AppDelegate.h"
 #import "WebKit/WebKit.h"
-#import "NSUserDefaults+ColorSupport.m"
 #import "Sparkle.framework/Headers/SUUpdater.h"
+#import "NSUserDefaults+ColorSupport.m"
 
 @interface AppDelegate () <NSTabViewDelegate>
 
@@ -55,8 +55,8 @@ NSData *customColorData = nil;
 
 // General app setup
 NSUserDefaults *defaults = nil; // Shortcut to [NSUserDefaults standardUserDefaults]
-NSDictionary *infoDict = nil; // Spark's Info.plist
-NSDictionary *sv = nil; // macOS' SystemVersion.plist
+NSDictionary *infoDict = nil; // Spark Info.plist
+NSDictionary *sv = nil; // macOS SystemVersion.plist
 NSAlert *alert = nil; // NSAlert used when switching release channels
 NSTask *task = nil; // NSTask used when switching release channels
 NSMutableArray *args = nil; // Arguments used when switching release channels
@@ -67,7 +67,7 @@ NSString *buildString = nil; // macOS build number
 NSString *productName = nil; // macOS product name
 NSString *releaseChannel = nil; // Spark release channel
 NSString *editedVersionString = nil; // Edited macOS version string
-NSString *userAgent = nil; // Spark's user agent, used when loading webpages
+NSString *userAgent = nil; // Spark user agent, used when loading webpages
 NSString *clippedTitle = nil; // Title used within the titleStatus string
 NSString *suggestedFilename = nil; // Filename suggested when downloading files
 NSString *clippedFilename = nil; // Suggested filename with ellipsis suffix
@@ -111,7 +111,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     alloyOrangeColor = [NSColor colorWithRed:200.0f/255.0f green:80.0f/255.0f blue:1.0f/255.0f alpha:1.0f];
     darkGrayColor = [NSColor colorWithRed:44.0f/255.0f green:44.0f/255.0f blue:44.0f/255.0f alpha:1.0f];
     
-    if([defaults objectForKey:@"currentReleaseChannel"] == nil) {
+    if([defaults objectForKey:@"currentReleaseChannel"] == nil) { // This is called in applicationDidFinishLaunching as well, but calling it here ensures it's set properly
         // No release channel is set -- revert to default
         [defaults setObject:[NSString stringWithFormat:@"stable"] forKey:@"currentReleaseChannel"];
     }
@@ -144,8 +144,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
                          forEventClass:kInternetEventClass andEventID:kAEGetURL];
 }
 
-#pragma mark - NSAppleEventDescriptor
-// URL event handling
+#pragma mark - URL event handling
 
 - (void)handleGetURLEvent:(NSAppleEventDescriptor *)event withReplyEvent:(NSAppleEventDescriptor *)replyEvent {
     
@@ -180,8 +179,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     }
 }
 
-#pragma mark - WebView
-// WebView download handling
+#pragma mark - WebView download handling
 
 - (void)webView:(WebView *)sender decidePolicyForMIMEType:(NSString *)type request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id<WebPolicyDecisionListener>)listener {
     if ([[sender class] canShowMIMEType:type]) {
@@ -516,7 +514,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     
 }
 
-#pragma mark - IBAction
+#pragma mark - IBActions
 
 - (IBAction)setCustomColor:(id)sender {
     // Set window color to a custom color
@@ -1034,8 +1032,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     [[self.settingsPopupBtn cell] performClickWithFrame:[sender frame] inView:[sender superview]];
 }
 
-#pragma mark - WebView
-// WebView loading-related methods
+#pragma mark - WebView loading-related methods
 
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame {
     // Only report feedback for the main frame.
