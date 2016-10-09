@@ -391,28 +391,18 @@
                 <rect key="frame" x="0.0" y="0.0" width="317" height="232"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button verticalHuggingPriority="750" misplaced="YES" id="kZy-dn-WEH">
-                        <rect key="frame" x="14" y="49" width="154" height="32"/>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" id="vLL-hm-mup">
+                        <rect key="frame" x="18" y="9" width="281" height="35"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Check for Updates" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="neH-Bx-srP">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="checkForUpdates:" target="Knx-RJ-zJs" id="Sd6-6f-yNs"/>
-                        </connections>
-                    </button>
-                    <button verticalHuggingPriority="750" misplaced="YES" id="WGq-tv-AWA">
-                        <rect key="frame" x="168" y="49" width="135" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Report an Issue" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dNw-dp-eHp">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="reportIssueAboutWindow:" target="Voe-Tx-rLC" id="Cpn-VE-lJ8"/>
-                        </connections>
-                    </button>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" id="JIE-U0-fhO">
+                            <font key="font" metaFont="miniSystem"/>
+                            <string key="title">Copyright © 2014-2016 Insleep. All rights reserved.
+Spark is made possible by the WebKit open source project and other open source software.
+</string>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="njf-5J-jAY">
                         <rect key="frame" x="20" y="165" width="47" height="47"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -445,18 +435,28 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" id="vLL-hm-mup">
-                        <rect key="frame" x="18" y="9" width="281" height="35"/>
+                    <button verticalHuggingPriority="750" misplaced="YES" id="kZy-dn-WEH">
+                        <rect key="frame" x="14" y="52" width="154" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" id="JIE-U0-fhO">
-                            <font key="font" metaFont="miniSystem"/>
-                            <string key="title">Copyright © 2014-2016 Insleep. All rights reserved.
-Spark is made possible by the WebKit open source project and other open source software.
-</string>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
+                        <buttonCell key="cell" type="push" title="Check for Updates" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="neH-Bx-srP">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="checkForUpdates:" target="Knx-RJ-zJs" id="Sd6-6f-yNs"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" misplaced="YES" id="WGq-tv-AWA">
+                        <rect key="frame" x="168" y="52" width="135" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Report an Issue" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dNw-dp-eHp">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="reportIssueAboutWindow:" target="Voe-Tx-rLC" id="Cpn-VE-lJ8"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <point key="canvasLocation" x="718.5" y="-480"/>

@@ -485,7 +485,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     self.loadingIndicator.hidden = NO;
     [self.loadingIndicator startAnimation:self];
     self.currentVersion.stringValue = [NSString stringWithFormat:@"Version %@.%@", appVersion, buildNumber];
-    self.currentReleaseChannel.stringValue = [NSString stringWithFormat:@"%@ release channel", releaseChannel];
+    self.currentReleaseChannel.stringValue = [NSString stringWithFormat:@"%@ release channel", [releaseChannel capitalizedString]];
     self.aboutWindow.backgroundColor = [NSColor whiteColor];
     self.settingsWindow.backgroundColor = [NSColor whiteColor];
     
@@ -642,7 +642,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         
         NSLog(@"Saving custom search engine...");
         
-        customSearchString = [[NSString stringWithFormat:@"%@", self.customSearchEngineField.stringValue] stringByReplacingOccurrencesOfString:@"*QUERY*" withString:@"%@"];
+        customSearchString = [[NSString stringWithFormat:@"%@", self.customSearchEngineField.stringValue] stringByReplacingOccurrencesOfString:@"*QUERY*" withString:@"%@"]; // Create fallback for those migrating from beta/nightly builds
         
         [defaults setObject:[NSString stringWithFormat:@"Custom"] forKey:@"currentSearchEngine"];
         [defaults setObject:[NSString stringWithFormat:@"%@", customSearchString] forKey:@"customSearchEngine"];
