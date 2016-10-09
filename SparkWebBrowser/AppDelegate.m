@@ -471,22 +471,13 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         [[SUUpdater sharedUpdater] setFeedURL:[NSURL URLWithString:@"https://insleep.tech/spark/appcast-dev.xml"]];
     }
     
-    // Interface setup
-    self.userAgentField.stringValue = userAgent;
-    if(versionString.doubleValue > 10.11) { // Detect whether or not user is running macOS 10.12 or higher
-        self.osVersionField.stringValue = [NSString stringWithFormat: @"macOS %@ (%@)", versionString, buildString];
-        self.sparkAboutTitleField.stringValue = [NSString stringWithFormat:@"Spark Web Browser for macOS"];
-    } else {
-        self.osVersionField.stringValue = [NSString stringWithFormat: @"OS X %@ (%@)", versionString, buildString];
-        self.sparkAboutTitleField.stringValue = [NSString stringWithFormat:@"Spark Web Browser for OS X"];
-    }
-    
     self.faviconImage.hidden = YES;
     self.loadingIndicator.hidden = NO;
     [self.loadingIndicator startAnimation:self];
     self.currentVersion.stringValue = [NSString stringWithFormat:@"Version %@.%@", appVersion, buildNumber];
     self.currentReleaseChannel.stringValue = [NSString stringWithFormat:@"%@ release channel", [releaseChannel capitalizedString]];
     self.aboutWindow.backgroundColor = [NSColor whiteColor];
+    self.errorWindow.backgroundColor = [NSColor whiteColor];
     self.settingsWindow.backgroundColor = [NSColor whiteColor];
     
     if([[defaults objectForKey:@"customSearchEngine"] isEqual: @""]) {

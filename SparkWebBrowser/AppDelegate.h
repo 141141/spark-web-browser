@@ -21,9 +21,8 @@
 @property (assign, nonatomic) IBOutlet NSTextField *ntNotSupported;
 @property (assign, nonatomic) IBOutlet NSTextField *currentVersion;
 @property (assign, nonatomic) IBOutlet NSTextField *currentReleaseChannel;
+@property (assign, nonatomic) IBOutlet NSPanel *errorWindow;
 @property (assign, nonatomic) IBOutlet NSPanel *aboutWindow;
-@property (assign, nonatomic) IBOutlet NSTextField *userAgentField;
-@property (assign, nonatomic) IBOutlet NSTextField *osVersionField;
 @property (assign, nonatomic) IBOutlet NSProgressIndicator *loadingIndicator;
 @property (assign, nonatomic) IBOutlet NSImageView *faviconImage;
 @property (assign, nonatomic) IBOutlet NSTextField *homepageTextField;
@@ -43,7 +42,6 @@
 @property (assign, nonatomic) IBOutlet NSButton *settingsBtn;
 @property (assign, nonatomic) IBOutlet NSPopUpButton *settingsPopupBtn;
 @property (assign, nonatomic) IBOutlet NSColorWell *customColorWell;
-@property (assign, nonatomic) IBOutlet NSTextField *sparkAboutTitleField;
 @property (assign, nonatomic) IBOutlet NSProgressIndicator *downloadProgressIndicator;
 @property (assign, nonatomic) IBOutlet NSButton *closeDownloadingViewBtn;
 @property (assign, nonatomic) IBOutlet NSTextField *downloadingViewBg;
@@ -55,6 +53,8 @@
 @property (assign, nonatomic) IBOutlet NSButton *customSearchEngineSaveBtn;
 @property (assign, nonatomic) IBOutlet NSButton *lastSessionRadioBtn;
 @property (assign, nonatomic) IBOutlet NSButton *homepageRadioBtn;
+@property (assign, nonatomic) IBOutlet NSTextField *errorPanelTitle;
+@property (assign, nonatomic) IBOutlet NSTextField *errorPanelText;
 
 @property (nonatomic, assign) long bytesReceived;
 
