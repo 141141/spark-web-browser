@@ -351,7 +351,6 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     
     if([defaults integerForKey:@"searchEngineIndex"] == (int)nil) {
         // No search engine index is set -- revert to default
-        NSLog(@"Error: no search engine index is set. Setting now...");
         
         [defaults setInteger:0 forKey:@"searchEngineIndex"];
     }
@@ -394,7 +393,6 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     
     if([defaults boolForKey:@"startupWithLastSession"] == (bool)nil) {
         // No startup settings exist -- revert to default
-        NSLog(@"Error: no startup settings exist. Setting now...");
         
         [defaults setBool:NO forKey:@"startupWithLastSession"];
         self.lastSessionRadioBtn.state = NSOffState;
@@ -459,6 +457,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     }
     
     if([[defaults objectForKey:@"currentReleaseChannel"] isEqual: @"dev"]) { // Create fallback from "dev" channel for those migrating from previous versions
+        NSLog(@"Resetting release channel to \"nightly\"");
+        
         [defaults setObject:@"nightly" forKey:@"currentReleaseChannel"];
         [[SUUpdater sharedUpdater] setFeedURL:[NSURL URLWithString:@"https://insleep.tech/spark/appcast-dev.xml"]];
     }
@@ -493,7 +493,13 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         self.customSearchEngineSaveBtn.hidden = YES;
     }
     
-    // Get key value from NSUserDefaults and set top bar color
+    if([[defaults objectForKey:@"currentColor"] isEqual: @"Navy Blue"]) { // Create fallback from "Navy Blue" -> "Midnight Blue" for those migrating from previous versions
+        NSLog(@"Resetting theme color to \"Midnight Blue\"");
+        
+        [defaults setObject:[NSString stringWithFormat:@"Midnight Blue"] forKey:@"currentColor"];
+    }
+    
+    // Get key value from NSUserDefaults and set theme color
     if([[defaults objectForKey:@"currentColor"] isEqual: @"Default"]) {
         
         self.customColorWell.hidden = YES;
