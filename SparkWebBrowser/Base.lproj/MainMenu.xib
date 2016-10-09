@@ -1081,14 +1081,14 @@ Spark is made possible by the WebKit open source project and other open source s
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="uuQ-xY-3aS" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="731" y="406" width="391" height="284"/>
+            <rect key="contentRect" x="731" y="406" width="348" height="228"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" misplaced="YES" id="XN6-qf-Pdi">
-                <rect key="frame" x="0.0" y="0.0" width="391" height="284"/>
+                <rect key="frame" x="0.0" y="0.0" width="348" height="228"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" id="4M2-zn-hbU">
-                        <rect key="frame" x="18" y="208" width="355" height="33"/>
+                        <rect key="frame" x="18" y="152" width="312" height="33"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Error" id="pgZ-Cf-zBF">
                             <font key="font" metaFont="system" size="27"/>
@@ -1096,8 +1096,17 @@ Spark is made possible by the WebKit open source project and other open source s
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" id="gH6-oi-BWq">
+                        <rect key="frame" x="18" y="49" width="312" height="95"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="An error occurred. Please try again later." id="gSr-ue-frb">
+                            <font key="font" metaFont="system" size="16"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                     <button verticalHuggingPriority="750" misplaced="YES" id="c9X-Ux-FHl">
-                        <rect key="frame" x="155" y="13" width="81" height="32"/>
+                        <rect key="frame" x="134" y="13" width="81" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KTI-U7-JLg">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1110,18 +1119,9 @@ DQ
                             <action selector="orderOut:" target="uuQ-xY-3aS" id="lFr-rU-N8f"/>
                         </connections>
                     </button>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" id="gH6-oi-BWq">
-                        <rect key="frame" x="18" y="49" width="355" height="151"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="An error occurred. Please try again later." id="gSr-ue-frb">
-                            <font key="font" metaFont="system" size="16"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="459.5" y="-744"/>
+            <point key="canvasLocation" x="438" y="-772"/>
         </window>
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="mqa-o5-dlu" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" texturedBackground="YES"/>
