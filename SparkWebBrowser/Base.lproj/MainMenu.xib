@@ -788,20 +788,6 @@ Spark is made possible by the WebKit open source project and other open source s
                             <action selector="setReleaseChannel:" target="Voe-Tx-rLC" id="BAJ-Ij-Q1P"/>
                         </connections>
                     </popUpButton>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="8jo-1g-mt3">
-                        <rect key="frame" x="253" y="583" width="161" height="34"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Preferences" id="SYn-GM-8JT">
-                            <font key="font" metaFont="systemMedium" size="28"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="Kls-Ev-WgN">
-                        <rect key="frame" x="203" y="578" width="44" height="44"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="SparkIcon256" id="Ba0-wf-SUn"/>
-                    </imageView>
                     <button misplaced="YES" id="NUL-1g-aHX">
                         <rect key="frame" x="291" y="461" width="88" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -824,6 +810,15 @@ Spark is made possible by the WebKit open source project and other open source s
                             <action selector="lastSessionRadioBtnSelected:" target="Voe-Tx-rLC" id="NM8-Pu-Czr"/>
                         </connections>
                     </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="8jo-1g-mt3">
+                        <rect key="frame" x="227" y="588" width="161" height="34"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Preferences" id="SYn-GM-8JT">
+                            <font key="font" metaFont="systemMedium" size="28"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
             <point key="canvasLocation" x="1472" y="-537"/>
@@ -1127,7 +1122,6 @@ Spark is made possible by the WebKit open source project and other open source s
         <image name="NSMenuOnStateTemplate" width="12" height="12"/>
         <image name="NSRefreshTemplate" width="11" height="15"/>
         <image name="NSStopProgressFreestandingTemplate" width="14" height="14"/>
-        <image name="SparkIcon256" width="61.439998626708984" height="61.439998626708984"/>
         <image name="aol-search-engine-icon" width="16" height="16"/>
         <image name="ask-search-engine-icon" width="16" height="16"/>
         <image name="bing-search-engine-icon" width="16" height="16"/>
