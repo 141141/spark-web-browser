@@ -195,7 +195,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
             [listener use];
         }
     } else {
-        // WebView can't display these files - start a download
+        // WebView can't display these files -- start a download
         [listener download];
     }
 }
