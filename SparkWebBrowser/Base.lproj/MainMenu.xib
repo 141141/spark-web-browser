@@ -22,6 +22,7 @@
                 <outlet property="backBtn" destination="CSR-Ik-wrT" id="9ar-Ai-zKp"/>
                 <outlet property="bytesDownloadedText" destination="dwf-zl-wLW" id="euM-ql-uB0"/>
                 <outlet property="closeDownloadingViewBtn" destination="A6A-L3-Pmj" id="bde-Oh-kWa"/>
+                <outlet property="currentReleaseChannel" destination="Nsk-Kz-xZ8" id="YrI-ws-JOD"/>
                 <outlet property="currentVersion" destination="sbh-Aa-9pH" id="pub-aC-Yo5"/>
                 <outlet property="customColorWell" destination="uuu-yL-LqP" id="rPJ-sf-qXT"/>
                 <outlet property="customSearchEngineField" destination="mr4-I9-Hee" id="qPp-QM-nDA"/>
@@ -41,7 +42,6 @@
                 <outlet property="ntBtn" destination="pmy-Gn-uac" id="eJG-ga-1rU"/>
                 <outlet property="ntBtnBackground" destination="VRX-Sp-sir" id="uAL-Ad-2Pe"/>
                 <outlet property="ntNotSupported" destination="e3k-CE-CDi" id="JB0-P4-EAc"/>
-                <outlet property="osVersionField" destination="mdu-F3-Gvc" id="At6-wc-w2v"/>
                 <outlet property="releaseChannelPicker" destination="DBB-e5-yay" id="faC-8w-Olv"/>
                 <outlet property="reloadBtn" destination="gZC-HQ-A14" id="jGE-yL-ojT"/>
                 <outlet property="searchEnginePicker" destination="GYw-Eq-qx7" id="whS-kR-ROu"/>
@@ -49,12 +49,10 @@
                 <outlet property="settingsBtn" destination="Nsh-fL-8Ic" id="c7u-0x-cPE"/>
                 <outlet property="settingsPopupBtn" destination="vH7-Li-e10" id="uXS-4j-fNl"/>
                 <outlet property="settingsWindow" destination="MMA-4M-Pa4" id="6F0-cu-izG"/>
-                <outlet property="sparkAboutTitleField" destination="GCz-bx-8Be" id="kE8-U0-KGY"/>
                 <outlet property="tabBg" destination="7o9-5H-k8C" id="eFO-J4-FaZ"/>
                 <outlet property="titleStatus" destination="JvK-hQ-Wwq" id="SHO-kH-keU"/>
                 <outlet property="topBarBg" destination="bY4-GT-wGb" id="gOF-sW-3Lj"/>
                 <outlet property="topBarColorPicker" destination="XHo-Io-iG9" id="A34-iL-EJS"/>
-                <outlet property="userAgentField" destination="9o1-qW-hns" id="C28-xd-N7u"/>
                 <outlet property="webView" destination="ffM-a6-P1L" id="vO9-FI-Eez"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="FlD-yq-Bjm"/>
             </connections>
@@ -387,94 +385,14 @@
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="oJi-1c-Sb5" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="83" y="97" width="487" height="284"/>
+            <rect key="contentRect" x="83" y="97" width="317" height="232"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
-            <view key="contentView" id="zUI-Uv-Oe8">
-                <rect key="frame" x="0.0" y="0.0" width="487" height="284"/>
+            <view key="contentView" misplaced="YES" id="zUI-Uv-Oe8">
+                <rect key="frame" x="0.0" y="0.0" width="317" height="232"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="mdu-F3-Gvc">
-                        <rect key="frame" x="100" y="151" width="207" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Mac OS X" id="Pvk-mL-E4X">
-                            <font key="font" metaFont="systemLight" size="13"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="xov-8m-vae">
-                        <rect key="frame" x="18" y="151" width="27" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="OS:" id="hug-Xg-Er8">
-                            <font key="font" metaFont="systemMedium" size="13"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Tcz-mo-0gm">
-                        <rect key="frame" x="18" y="126" width="78" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="User Agent:" id="cPN-GU-XFt">
-                            <font key="font" metaFont="systemMedium" size="13"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" id="9o1-qW-hns">
-                        <rect key="frame" x="100" y="43" width="207" height="100"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Loading..." id="PS7-Pn-omo">
-                            <font key="font" metaFont="systemLight" size="13"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="IJ8-Wb-oLm">
-                        <rect key="frame" x="18" y="176" width="45" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Spark:" id="Q9p-jq-bT1">
-                            <font key="font" metaFont="systemMedium" size="13"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="sbh-Aa-9pH">
-                        <rect key="frame" x="100" y="176" width="212" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="0.0.0.0.00 (channel channel)" id="sH9-de-kgl">
-                            <font key="font" metaFont="systemLight" size="13"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="XYY-bE-W9s">
-                        <rect key="frame" x="338" y="140" width="111" height="112"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="AppIcon256" id="S9P-GN-W2g"/>
-                    </imageView>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" id="vLL-hm-mup">
-                        <rect key="frame" x="317" y="31" width="152" height="59"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" id="JIE-U0-fhO">
-                            <font key="font" metaFont="miniSystem"/>
-                            <string key="title">Copyright © 2014-2016 Insleep. All rights reserved.
-Spark is made possible by the WebKit open source project and other open source software.
-</string>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" id="GCz-bx-8Be">
-                        <rect key="frame" x="328" y="98" width="131" height="34"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Spark Web Browser for macOS" id="kpY-M3-QnN">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                     <button verticalHuggingPriority="750" misplaced="YES" id="kZy-dn-WEH">
-                        <rect key="frame" x="14" y="13" width="154" height="32"/>
+                        <rect key="frame" x="14" y="49" width="154" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Check for Updates" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="neH-Bx-srP">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -485,7 +403,7 @@ Spark is made possible by the WebKit open source project and other open source s
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" misplaced="YES" id="WGq-tv-AWA">
-                        <rect key="frame" x="168" y="13" width="135" height="32"/>
+                        <rect key="frame" x="168" y="49" width="135" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Report an Issue" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dNw-dp-eHp">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -495,9 +413,53 @@ Spark is made possible by the WebKit open source project and other open source s
                             <action selector="reportIssueAboutWindow:" target="Voe-Tx-rLC" id="Cpn-VE-lJ8"/>
                         </connections>
                     </button>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="njf-5J-jAY">
+                        <rect key="frame" x="20" y="165" width="47" height="47"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="AppIcon256" id="1Gv-lZ-5iA"/>
+                    </imageView>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" id="xT8-6l-XnR">
+                        <rect key="frame" x="73" y="172" width="77" height="33"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="About" id="pht-Ee-wSp">
+                            <font key="font" metaFont="system" size="27"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="sbh-Aa-9pH">
+                        <rect key="frame" x="18" y="126" width="281" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Version 0.0.0.0.00" id="sH9-de-kgl">
+                            <font key="font" metaFont="system" size="18"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="Nsk-Kz-xZ8">
+                        <rect key="frame" x="18" y="96" width="281" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="{CHANNEL} release channel" id="JpR-fy-tP0">
+                            <font key="font" metaFont="system" size="18"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" id="vLL-hm-mup">
+                        <rect key="frame" x="18" y="9" width="281" height="35"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" id="JIE-U0-fhO">
+                            <font key="font" metaFont="miniSystem"/>
+                            <string key="title">Copyright © 2014-2016 Insleep. All rights reserved.
+Spark is made possible by the WebKit open source project and other open source software.
+</string>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="803.5" y="-454"/>
+            <point key="canvasLocation" x="718.5" y="-480"/>
         </window>
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="MMA-4M-Pa4" userLabel="Preferences Window" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>

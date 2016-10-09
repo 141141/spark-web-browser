@@ -484,7 +484,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     self.faviconImage.hidden = YES;
     self.loadingIndicator.hidden = NO;
     [self.loadingIndicator startAnimation:self];
-    self.currentVersion.stringValue = [NSString stringWithFormat:@"%@.%@ (%@ channel)", appVersion, buildNumber, releaseChannel];
+    self.currentVersion.stringValue = [NSString stringWithFormat:@"Version %@.%@", appVersion, buildNumber];
+    self.currentReleaseChannel.stringValue = [NSString stringWithFormat:@"%@ release channel", releaseChannel];
     self.aboutWindow.backgroundColor = [NSColor whiteColor];
     self.settingsWindow.backgroundColor = [NSColor whiteColor];
     

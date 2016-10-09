@@ -20,6 +20,7 @@
 @property (assign, nonatomic) IBOutlet NSTextField *titleStatus;
 @property (assign, nonatomic) IBOutlet NSTextField *ntNotSupported;
 @property (assign, nonatomic) IBOutlet NSTextField *currentVersion;
+@property (assign, nonatomic) IBOutlet NSTextField *currentReleaseChannel;
 @property (assign, nonatomic) IBOutlet NSPanel *aboutWindow;
 @property (assign, nonatomic) IBOutlet NSTextField *userAgentField;
 @property (assign, nonatomic) IBOutlet NSTextField *osVersionField;
