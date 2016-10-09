@@ -8,8 +8,8 @@
 
 #import "AppDelegate.h"
 #import "WebKit/WebKit.h"
+#import "NSUserDefaults+ColorSupport.h"
 #import "Sparkle.framework/Headers/SUUpdater.h"
-#import "NSUserDefaults+ColorSupport.m"
 
 @interface AppDelegate () <NSTabViewDelegate>
 
@@ -288,6 +288,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 
 - (void)download:(NSURLDownload *)download decideDestinationWithSuggestedFilename:(NSString *)filename {
     
+    // For later option to ask where to save each file before downloading
     /*if(downloadOverride == YES) {
         NSSavePanel *panel = [NSSavePanel savePanel];
         
@@ -636,6 +637,24 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     downloadOverride = YES;
     NSLog(@"Downloads overridden. Starting download...");
     [self.webView reload:self];
+}
+
+- (IBAction)lastSessionRadioBtnSelected:(id)sender {
+    
+    NSLog(@"Startup setting changed: now starting with last session.");
+    
+    [defaults setBool:YES forKey:@"startupWithLastSession"];
+    self.lastSessionRadioBtn.state = NSOnState;
+    self.homepageRadioBtn.state = NSOffState;
+}
+
+- (IBAction)homepageRadioBtnSelected:(id)sender {
+    
+    NSLog(@"Startup setting changed: now starting with homepage.");
+    
+    [defaults setBool:NO forKey:@"startupWithLastSession"];
+    self.homepageRadioBtn.state = NSOnState;
+    self.lastSessionRadioBtn.state = NSOffState;
 }
 
 - (IBAction)setTopBarColor:(id)sender {

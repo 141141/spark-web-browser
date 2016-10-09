@@ -13,8 +13,7 @@
 
 // Declarations
 
-#pragma mark - IBOutlet
-// Outlets
+#pragma mark - IBOutlets
 @property (assign, nonatomic) IBOutlet NSWindow *window;
 @property (assign, nonatomic) IBOutlet WebView *webView;
 @property (assign, nonatomic) IBOutlet NSTextField *addressBar;
@@ -53,6 +52,8 @@
 @property (assign, nonatomic) IBOutlet NSTextField *downloadLocTextField;
 @property (assign, nonatomic) IBOutlet NSTextField *customSearchEngineField;
 @property (assign, nonatomic) IBOutlet NSButton *customSearchEngineSaveBtn;
+@property (assign, nonatomic) IBOutlet NSButton *lastSessionRadioBtn;
+@property (assign, nonatomic) IBOutlet NSButton *homepageRadioBtn;
 
 @property (nonatomic, assign) long bytesReceived;
 
@@ -71,8 +72,10 @@
 - (IBAction)closeDownloadingView:(id)sender;
 - (IBAction)saveCustomSearchEngine:(id)sender;
 - (IBAction)savePage:(id)sender;
+- (IBAction)lastSessionRadioBtnSelected:(id)sender;
+- (IBAction)homepageRadioBtnSelected:(id)sender;
 
-#pragma mark - Methods
+#pragma mark - Various methods
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame;
 - (void)webView:(WebView *)sender didReceiveTitle:(NSString *)title forFrame:(WebFrame *)frame;
 - (void)setHomepageWithString:(NSString *)homepageToSet;
