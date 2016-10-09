@@ -95,7 +95,7 @@ NSString *faviconURLString = nil; // URL for the service that retrieves favicons
 NSURL *eventURL = nil; // Used when handling spark:// URL events
 NSURL *faviconURL = nil; // NSURL converted from faviconURLString
 NSData *faviconData = nil; // Data retrieved from faviconURLString service
-NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
+NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
 
 #pragma mark - Pre-initializing
 
