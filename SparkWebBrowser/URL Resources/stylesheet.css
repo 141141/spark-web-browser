@@ -21,6 +21,10 @@ b {
     font-weight: 500;
 }
 
+a {
+    line-height: 2.0em;
+}
+
 .updates-unavailable {
     text-decoration: none !important;
     color: #BFBFBF;
