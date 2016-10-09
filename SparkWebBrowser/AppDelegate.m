@@ -46,7 +46,7 @@ NSString *appReleasesURL = @"https://www.github.com/insleep/spark-web-browser/re
 NSColor *defaultColor = nil;
 NSColor *rubyRedColor = nil;
 NSColor *deepAquaColor = nil;
-NSColor *navyBlueColor = nil;
+NSColor *midnightBlueColor = nil;
 NSColor *redmondBlueColor = nil;
 NSColor *leafGreenColor = nil;
 NSColor *alloyOrangeColor = nil;
@@ -106,7 +106,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     defaultColor = [NSColor colorWithRed:192.0f/255.0f green:192.0f/255.0f blue:192.0f/255.0f alpha:1.0f];
     rubyRedColor = [NSColor colorWithRed:0.773f green:0.231f blue:0.212f alpha:1.0f];
     deepAquaColor = [NSColor colorWithRed:46.0f/255.0f green:133.0f/255.0f blue:162.0f/255.0f alpha:1.0f];
-    navyBlueColor = [NSColor colorWithRed:26.0f/255.0f green:68.0f/255.0f blue:97.0f/255.0f alpha:1.0f];
+    midnightBlueColor = [NSColor colorWithRed:26.0f/255.0f green:68.0f/255.0f blue:97.0f/255.0f alpha:1.0f];
     redmondBlueColor = [NSColor colorWithRed:16.0f/255.0f green:101.0f/255.0f blue:207.0f/255.0f alpha:1.0f];
     leafGreenColor = [NSColor colorWithRed:8.0f/255.0f green:157.0f/255.0f blue:0.0f/255.0f alpha:1.0f];
     alloyOrangeColor = [NSColor colorWithRed:200.0f/255.0f green:80.0f/255.0f blue:1.0f/255.0f alpha:1.0f];
@@ -114,6 +114,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     
     if([defaults objectForKey:@"currentReleaseChannel"] == nil) { // This is called in applicationDidFinishLaunching as well, but calling it here ensures it's set properly
         // No release channel is set -- revert to default
+        NSLog(@"Error: no release channel is set. Setting now...");
+        
         [defaults setObject:[NSString stringWithFormat:@"stable"] forKey:@"currentReleaseChannel"];
     }
     
@@ -319,17 +321,22 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     
     // Finish initializing
     
+    // Set up WebView
     [self.webView setPolicyDelegate:(id<WebPolicyDelegate>)self];
     [self.webView setDownloadDelegate:(id<WebDownloadDelegate>)self];
     [self.webView setCustomUserAgent: userAgent];
     
     if([defaults objectForKey:@"currentReleaseChannel"] == nil) {
         // No release channel is set -- revert to default
+        NSLog(@"Error: no release channel is set. Setting now...");
+        
         [defaults setObject:[NSString stringWithFormat:@"stable"] forKey:@"currentReleaseChannel"];
     }
     
     if([defaults integerForKey:@"releaseChannelIndex"] == (int)nil) {
         // No release channel index is set -- revert to default
+        NSLog(@"Error: no release channel index is set. Setting now...");
+        
         [defaults setInteger:0 forKey:@"releaseChannelIndex"];
     }
     
@@ -337,29 +344,40 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     
     if([defaults objectForKey:@"currentSearchEngine"] == nil) {
         // No search engine is set -- revert to default
+        NSLog(@"Error: no search engine is set. Setting now...");
+        
         [defaults setObject:[NSString stringWithFormat:@"Google"] forKey:@"currentSearchEngine"];
     }
     
     if([defaults integerForKey:@"searchEngineIndex"] == (int)nil) {
         // No search engine index is set -- revert to default
+        NSLog(@"Error: no search engine index is set. Setting now...");
+        
         [defaults setInteger:0 forKey:@"searchEngineIndex"];
     }
     
     [self.searchEnginePicker selectItemAtIndex:[defaults integerForKey:@"searchEngineIndex"]];
     
     if([defaults objectForKey:@"customSearchEngine"] == nil) {
+        // A custom search engine is not set
+        NSLog(@"Error: the value of \"customSearchEngine\" is nil. Setting now...");
+        
         [defaults setObject:@"" forKey:@"customSearchEngine"];
         self.customSearchEngineField.hidden = YES;
         self.customSearchEngineSaveBtn.hidden = YES;
     }
     
     if([defaults objectForKey:@"currentColor"] == nil) {
-        // No top bar color is set -- revert to default
+        // No theme color is set -- revert to default
+        NSLog(@"Error: no theme color is set. Setting now...");
+        
         [defaults setObject:@"Default" forKey:@"currentColor"];
     }
     
     if([defaults integerForKey:@"colorIndex"] == (int)nil) {
-        // No top bar color index is set -- revert to default
+        // No theme color index is set -- revert to default
+        NSLog(@"Error: no theme color index is set. Setting now...");
+        
         [defaults setInteger:0 forKey:@"colorIndex"];
     }
     
@@ -367,26 +385,66 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     
     if([defaults objectForKey:@"currentDownloadLocation"] == nil) {
         // No download location is set -- revert to default
+        NSLog(@"Error: no download location is set. Setting now...");
+        
         [defaults setObject:[NSString stringWithFormat:@"%@/Downloads/", homeDirectory] forKey:@"currentDownloadLocation"];
     }
     
     [self.downloadLocTextField setStringValue:[defaults objectForKey:@"currentDownloadLocation"]];
     
+    if([defaults boolForKey:@"startupWithLastSession"] == (bool)nil) {
+        // No startup settings exist -- revert to default
+        NSLog(@"Error: no startup settings exist. Setting now...");
+        
+        [defaults setBool:NO forKey:@"startupWithLastSession"];
+        self.lastSessionRadioBtn.state = NSOffState;
+        self.homepageRadioBtn.state = NSOnState;
+    }
+    
+    // Check which radio button should be on (startup settings)
+    if([defaults boolForKey:@"startupWithLastSession"] == YES) {
+        self.lastSessionRadioBtn.state = NSOnState;
+        self.homepageRadioBtn.state = NSOffState;
+    } else {
+        self.lastSessionRadioBtn.state = NSOffState;
+        self.homepageRadioBtn.state = NSOnState;
+    }
+    
     // Homepage checking
     if([defaults objectForKey:@"userHomepage"] == nil || [[defaults objectForKey:@"userHomepage"] isEqual: @""]) {
         // Homepage is not set
+        NSLog(@"Error: homepage is not set. Setting now...");
         
         // Default homepage
         [self setHomepageWithString:googleDefaultURL];
         
-        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", [defaults valueForKey:@"userHomepage"]]]]];
+        if([defaults boolForKey:@"startupWithLastSession"] == NO) {
+            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", [defaults valueForKey:@"userHomepage"]]]]];
+        } else {
+            if([defaults objectForKey:@"lastSession"] == nil || [[defaults objectForKey:@"lastSession"] isEqual: @""]) {
+                [defaults setObject:[NSString stringWithFormat:@"%@", [defaults objectForKey:@"userHomepage"]] forKey:@"lastSession"];
+            }
+            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", [defaults valueForKey:@"lastSession"]]]]];
+        }
+        
     } else {
         // Homepage is set
+        NSLog(@"Homepage is set. Continuing...");
         
         // User-set homepage
         self.homepageTextField.stringValue = [NSString stringWithFormat:@"%@", [defaults valueForKey:@"userHomepage"]];
         
-        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", [defaults valueForKey:@"userHomepage"]]]]];
+        if([defaults boolForKey:@"startupWithLastSession"] == NO) {
+            
+            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", [defaults valueForKey:@"userHomepage"]]]]];
+        } else {
+            if([defaults objectForKey:@"lastSession"] == nil || [[defaults objectForKey:@"lastSession"] isEqual: @""]) {
+                [defaults setObject:[NSString stringWithFormat:@"%@", [defaults objectForKey:@"userHomepage"]] forKey:@"lastSession"];
+            }
+            
+            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", [defaults valueForKey:@"lastSession"]]]]];
+        }
+        
     }
     
     // Check if checkbox should be checked
@@ -466,12 +524,12 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         // Still set color in NSColorWell in case user wants it later
         self.customColorWell.color = [defaults colorForKey:@"customColor"];
         
-    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Navy Blue"]) {
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Midnight Blue"]) {
         
         self.customColorWell.hidden = YES;
         
-        // Set window color to Navy Blue
-        self.window.backgroundColor = navyBlueColor;
+        // Set window color to Midnight Blue
+        self.window.backgroundColor = midnightBlueColor;
         
         // Still store color in NSColorWell in case user wants it later
         [defaults setColor:self.customColorWell.color forKey:@"customColor"];
@@ -541,6 +599,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
             self.setHomepageBtn.enabled = NO;
             self.homepageTextField.enabled = NO;
         }
+        
         self.customSearchEngineField.hidden = YES;
         self.customSearchEngineSaveBtn.hidden = YES;
     }
@@ -694,12 +753,12 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         // Still store color in NSColorWell in case user wants it later
         [defaults setColor:self.customColorWell.color forKey:@"customColor"];
         
-    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Navy Blue"]) {
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Midnight Blue"]) {
         
         self.customColorWell.hidden = YES;
         
-        // Set window color to Navy Blue
-        self.window.backgroundColor = navyBlueColor;
+        // Set window color to Midnight Blue
+        self.window.backgroundColor = midnightBlueColor;
         
         // Still store color in NSColorWell in case user wants it later
         [defaults setColor:self.customColorWell.color forKey:@"customColor"];
@@ -827,7 +886,6 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         
         self.customSearchEngineField.hidden = NO;
         self.customSearchEngineSaveBtn.hidden = NO;
-        
     }
     
     // Check whether or not to override homepage
@@ -957,6 +1015,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
             
         }
     }
+    
+    [defaults setObject:[NSString stringWithFormat:@"%@", self.addressBar.stringValue] forKey:@"lastSession"];
 }
 
 - (IBAction)setReleaseChannel:(id)sender {
