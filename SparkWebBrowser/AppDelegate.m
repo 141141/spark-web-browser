@@ -282,10 +282,16 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     
     [self.bytesDownloadedText setStringValue:@"Download Failed"];
     
-    alert = [[NSAlert alloc] init];
+    self.errorPanelTitle.stringValue = @"Error Downloading File";
+    self.errorPanelText.stringValue = [NSString stringWithFormat:@"An error occurred while downloading the file you requested.\n\nError: %@ %@", [error localizedDescription], [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]];
+    self.errorWindow.isVisible = YES;
+    [self.errorWindow makeKeyAndOrderFront:nil];
+    [NSApp activateIgnoringOtherApps:YES];
+    
+    /*alert = [[NSAlert alloc] init];
     [alert setMessageText:@"Error Downloading File"];
     [alert setInformativeText:[NSString stringWithFormat:@"An error occurred while downloading the file you requested.\n\nError: %@ %@", [error localizedDescription], [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]]];
-    [alert runModal];
+    [alert runModal];*/
 }
 
 - (void)download:(NSURLDownload *)download decideDestinationWithSuggestedFilename:(NSString *)filename {
@@ -478,6 +484,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     self.currentReleaseChannel.stringValue = [NSString stringWithFormat:@"%@ release channel", [releaseChannel capitalizedString]];
     self.aboutWindow.backgroundColor = [NSColor whiteColor];
     self.errorWindow.backgroundColor = [NSColor whiteColor];
+    self.popupWindow.backgroundColor = [NSColor whiteColor];
     self.settingsWindow.backgroundColor = [NSColor whiteColor];
     
     if([[defaults objectForKey:@"customSearchEngine"] isEqual: @""]) {
@@ -657,11 +664,17 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         // Text field does not contain query text.
         NSLog(@"Error: custom search engine text field does not contain query text.");
         
-        alert = [[NSAlert alloc] init];
+        self.errorPanelTitle.stringValue = @"Error";
+        self.errorPanelText.stringValue = [NSString stringWithFormat:@"An error occurred: the text you entered is not a valid URL. Please enter a valid URL and try again."];
+        self.errorWindow.isVisible = YES;
+        [self.errorWindow makeKeyAndOrderFront:nil];
+        [NSApp activateIgnoringOtherApps:YES];
+        
+        /*alert = [[NSAlert alloc] init];
         [alert setMessageText:@"Error"];
         [alert setInformativeText:[NSString stringWithFormat:@"An error occurred: the text you entered does not contain %%@ in place of the query. Please enter valid text and try again."]];
         [alert addButtonWithTitle:@"OK"];
-        [alert runModal];
+        [alert runModal];*/
     }
 }
 
@@ -670,11 +683,17 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         // Text field is empty
         NSLog(@"Error: custom search engine text field is empty.");
         
-        alert = [[NSAlert alloc] init];
+        self.errorPanelTitle.stringValue = @"Error";
+        self.errorPanelText.stringValue = [NSString stringWithFormat:@"An error occurred: you did not enter any text. Please enter a valid URL and try again."];
+        self.errorWindow.isVisible = YES;
+        [self.errorWindow makeKeyAndOrderFront:nil];
+        [NSApp activateIgnoringOtherApps:YES];
+        
+        /*alert = [[NSAlert alloc] init];
         [alert setMessageText:@"Error"];
         [alert setInformativeText:[NSString stringWithFormat:@"An error occurred: you did not enter any text. Please enter a valid URL and try again."]];
         [alert addButtonWithTitle:@"OK"];
-        [alert runModal];
+        [alert runModal];*/
         
     } else if([self.customSearchEngineField.stringValue hasPrefix:@"http://"] || [self.customSearchEngineField.stringValue hasPrefix:@"https://"]) {
         [self saveCustomSearchEngineText:self];
@@ -682,11 +701,17 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         // String is not a URL
         NSLog(@"Error: custom search engine text field does not contain a URL.");
         
-        alert = [[NSAlert alloc] init];
+        self.errorPanelTitle.stringValue = @"Error";
+        self.errorPanelText.stringValue = [NSString stringWithFormat:@"An error occurred: the text you entered is not a valid URL. Please enter a valid URL and try again."];
+        self.errorWindow.isVisible = YES;
+        [self.errorWindow makeKeyAndOrderFront:nil];
+        [NSApp activateIgnoringOtherApps:YES];
+        
+        /*alert = [[NSAlert alloc] init];
         [alert setMessageText:@"Error"];
         [alert setInformativeText:[NSString stringWithFormat:@"An error occurred: the text you entered is not a valid URL. Please enter a valid URL and try again."]];
         [alert addButtonWithTitle:@"OK"];
-        [alert runModal];
+        [alert runModal];*/
     }
 }
 
@@ -712,6 +737,19 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     [defaults setBool:NO forKey:@"startupWithLastSession"];
     self.homepageRadioBtn.state = NSOnState;
     self.lastSessionRadioBtn.state = NSOffState;
+}
+
+- (IBAction)setReleaseChannelBtnClicked:(id)sender {
+    task = [[NSTask alloc] init];
+    args = [NSMutableArray array];
+    [args addObject:@"-c"];
+    [args addObject:[NSString stringWithFormat:@"sleep %d; open \"%@\"", 0, [[NSBundle mainBundle] bundlePath]]];
+    [task setLaunchPath:@"/bin/sh"];
+    [task setArguments:args];
+    [task launch];
+    
+    [[NSApplication sharedApplication] terminate:nil];
+
 }
 
 - (IBAction)setTopBarColor:(id)sender {
@@ -1027,7 +1065,12 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     [defaults setObject:[NSString stringWithFormat:@"%@", uncapitalizedReleaseChannel] forKey:@"currentReleaseChannel"];
     [defaults setInteger:self.releaseChannelPicker.indexOfSelectedItem forKey:@"releaseChannelIndex"];
     
-    alert = [[NSAlert alloc] init];
+    self.popupWindowText.stringValue = [NSString stringWithFormat:@"Spark release channel will be set to: %@.\n\nA browser restart is required for this to take effect.", uncapitalizedReleaseChannel];
+    self.popupWindow.isVisible = YES;
+    [self.popupWindow makeKeyAndOrderFront:nil];
+    [NSApp activateIgnoringOtherApps:YES];
+    
+    /*alert = [[NSAlert alloc] init];
     [alert setMessageText:@"Set Release Channel and Restart?"];
     [alert setInformativeText:[NSString stringWithFormat:@"Spark release channel will be set to: %@.\n\nA browser restart is required for this to take effect.", uncapitalizedReleaseChannel]];
     [alert addButtonWithTitle:@"Restart Later"];
@@ -1042,7 +1085,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         [task launch];
         
         [[NSApplication sharedApplication] terminate:nil];
-    }
+    }*/
 }
 
 - (IBAction)setHomepage:(id)sender {

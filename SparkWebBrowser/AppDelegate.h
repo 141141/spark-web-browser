@@ -22,6 +22,7 @@
 @property (assign, nonatomic) IBOutlet NSTextField *currentVersion;
 @property (assign, nonatomic) IBOutlet NSTextField *currentReleaseChannel;
 @property (assign, nonatomic) IBOutlet NSPanel *errorWindow;
+@property (assign, nonatomic) IBOutlet NSPanel *popupWindow;
 @property (assign, nonatomic) IBOutlet NSPanel *aboutWindow;
 @property (assign, nonatomic) IBOutlet NSProgressIndicator *loadingIndicator;
 @property (assign, nonatomic) IBOutlet NSImageView *faviconImage;
@@ -55,6 +56,8 @@
 @property (assign, nonatomic) IBOutlet NSButton *homepageRadioBtn;
 @property (assign, nonatomic) IBOutlet NSTextField *errorPanelTitle;
 @property (assign, nonatomic) IBOutlet NSTextField *errorPanelText;
+@property (assign, nonatomic) IBOutlet NSTextField *popupWindowTitle;
+@property (assign, nonatomic) IBOutlet NSTextField *popupWindowText;
 
 @property (nonatomic, assign) long bytesReceived;
 
@@ -75,6 +78,7 @@
 - (IBAction)savePage:(id)sender;
 - (IBAction)lastSessionRadioBtnSelected:(id)sender;
 - (IBAction)homepageRadioBtnSelected:(id)sender;
+- (IBAction)setReleaseChannelBtnClicked:(id)sender;
 
 #pragma mark - Various methods
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame;
