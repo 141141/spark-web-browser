@@ -129,7 +129,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
     productName = [sv objectForKey:@"ProductName"]; // Get macOS product name
     releaseChannel = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"currentReleaseChannel"]]; // Get current release channel
     editedVersionString = [versionString stringByReplacingOccurrencesOfString:@"." withString:@"_"]; // Replace dots in version string with underscores
-    userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel %@ %@) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36", productName, editedVersionString]; // Set user agent respective to the version of macOS the user is running
+    userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel %@ %@) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.59 Safari/537.36", productName, editedVersionString]; // Set user agent respective to the version of macOS the user is running
     
 }
 
@@ -155,12 +155,21 @@ NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
     
     eventURL = [NSURL URLWithString:[[event paramDescriptorForKeyword:keyDirectObject] stringValue]];
     urlToString = [eventURL absoluteString];
-    if([urlToString isEqual: @"spark://about"]) {
-        // spark://about loaded
+    if([urlToString isEqual: @"spark://about"] || [urlToString isEqual: @"spark://spark"]) {
+        // spark://about || spark://spark called
         
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-about" ofType:@"html"] isDirectory:NO]]];
         
         self.addressBar.stringValue = @"spark://about";
+        
+    } else if([urlToString isEqual: @"spark://prefs"] || [urlToString isEqual: @"spark://preferences"] || [urlToString isEqual: @"spark://settings"]) {
+        // spark://prefs || spark://preferences || spark://settings called
+        
+        self.settingsWindow.isVisible = YES;
+        [self.settingsWindow makeKeyAndOrderFront:nil];
+        [NSApp activateIgnoringOtherApps:YES];
+        
+        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", [defaults valueForKey:@"lastSession"]]]]];
         
     } else if([urlToString isEqual: @"spark://quit"]) {
         // spark://quit called
