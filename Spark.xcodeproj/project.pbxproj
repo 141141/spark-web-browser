@@ -20,6 +20,7 @@
 		ABA872E21D7FA4140062EC6C /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = ABA872E11D7FA4140062EC6C /* .travis.yml */; };
 		ABB443611D8461CA001D55C7 /* Sparkle.framework in Resources */ = {isa = PBXBuildFile; fileRef = ABB4435E1D846194001D55C7 /* Sparkle.framework */; };
 		ABB443631D84634C001D55C7 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = ABB443621D84634C001D55C7 /* dsa_pub.pem */; };
+		ABB89ADF1DAF04FC007CE7D1 /* spark-invalid-url.html in Resources */ = {isa = PBXBuildFile; fileRef = ABB89ADE1DAF04FC007CE7D1 /* spark-invalid-url.html */; };
 		ABBA53EC1D85E0BE00D3B691 /* favicon.ico in Resources */ = {isa = PBXBuildFile; fileRef = ABBA53E91D85E0BE00D3B691 /* favicon.ico */; };
 		ABBA53ED1D85E0BE00D3B691 /* spark-about.html in Resources */ = {isa = PBXBuildFile; fileRef = ABBA53EA1D85E0BE00D3B691 /* spark-about.html */; };
 		ABBA53EE1D85E0BE00D3B691 /* stylesheet.css in Resources */ = {isa = PBXBuildFile; fileRef = ABBA53EB1D85E0BE00D3B691 /* stylesheet.css */; };
@@ -69,6 +70,7 @@
 		ABA872E11D7FA4140062EC6C /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		ABB4435E1D846194001D55C7 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = SparkWebBrowser/Sparkle.framework; sourceTree = SOURCE_ROOT; };
 		ABB443621D84634C001D55C7 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = SOURCE_ROOT; };
+		ABB89ADE1DAF04FC007CE7D1 /* spark-invalid-url.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "spark-invalid-url.html"; sourceTree = "<group>"; };
 		ABBA53E91D85E0BE00D3B691 /* favicon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = favicon.ico; sourceTree = "<group>"; };
 		ABBA53EA1D85E0BE00D3B691 /* spark-about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "spark-about.html"; sourceTree = "<group>"; };
 		ABBA53EB1D85E0BE00D3B691 /* stylesheet.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = stylesheet.css; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			children = (
 				ABBA53E91D85E0BE00D3B691 /* favicon.ico */,
 				ABBA53EA1D85E0BE00D3B691 /* spark-about.html */,
+				ABB89ADE1DAF04FC007CE7D1 /* spark-invalid-url.html */,
 				ABBA53EB1D85E0BE00D3B691 /* stylesheet.css */,
 			);
 			name = "URL Resources";
@@ -257,6 +260,7 @@
 				ABE32C7F1DA15AEA00D0B07E /* Screenshot1.png in Resources */,
 				AB04FD021C712BAD00F08232 /* Images.xcassets in Resources */,
 				ABE32C811DA15AEA00D0B07E /* Screenshot3.png in Resources */,
+				ABB89ADF1DAF04FC007CE7D1 /* spark-invalid-url.html in Resources */,
 				AB8587B71D7C9DFE0073515C /* SparkIcon256.png in Resources */,
 				AB04FD131C712C6000F08232 /* MainMenu.xib in Resources */,
 				ABE32C821DA15AEA00D0B07E /* Screenshot4.png in Resources */,

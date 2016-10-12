@@ -169,8 +169,6 @@ NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
         [self.settingsWindow makeKeyAndOrderFront:nil];
         [NSApp activateIgnoringOtherApps:YES];
         
-        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", [defaults valueForKey:@"lastSession"]]]]];
-        
     } else if([urlToString isEqual: @"spark://quit"]) {
         // spark://quit called
         
@@ -188,6 +186,14 @@ NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
         [task launch];
         
         [[NSApplication sharedApplication] terminate:nil];
+    } else if([urlToString hasPrefix: @"spark://"]) {
+        // Invalid spark:// URL
+        
+        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-invalid-url" ofType:@"html"] isDirectory:NO]]];
+        
+        self.addressBar.stringValue = searchString;
+        
+        self.titleStatus.stringValue = [NSString stringWithFormat:@"%@ is not available", searchString];
     }
 }
 
