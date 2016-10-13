@@ -304,31 +304,31 @@ NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
     [NSApp activateIgnoringOtherApps:YES];
     
     /*alert = [[NSAlert alloc] init];
-    [alert setMessageText:@"Error Downloading File"];
-    [alert setInformativeText:[NSString stringWithFormat:@"An error occurred while downloading the file you requested.\n\nError: %@ %@", [error localizedDescription], [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]]];
-    [alert runModal];*/
+     [alert setMessageText:@"Error Downloading File"];
+     [alert setInformativeText:[NSString stringWithFormat:@"An error occurred while downloading the file you requested.\n\nError: %@ %@", [error localizedDescription], [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]]];
+     [alert runModal];*/
 }
 
 - (void)download:(NSURLDownload *)download decideDestinationWithSuggestedFilename:(NSString *)filename {
     
     // For later option to ask where to save each file before downloading
     /*if(downloadOverride == YES) {
-        NSSavePanel *panel = [NSSavePanel savePanel];
-        
-        if ([panel runModalForDirectory:nil file:suggestedFilename] == NSFileHandlingPanelCancelButton) {
-            // If the user doesn't want to save, cancel the download.
-            [download cancel];
-            downloadOverride = NO;
-        } else {
-            // Set the destination to save to.
-            [download setDestination:[panel filename] allowOverwrite:YES];
-            downloadOverride = NO;
-        }
-    } else {
-        destinationFilename = [NSString stringWithFormat:@"%@%@", [defaults objectForKey:@"currentDownloadLocation"], suggestedFilename];
-        
-        [download setDestination:destinationFilename allowOverwrite:NO];
-    }*/
+     NSSavePanel *panel = [NSSavePanel savePanel];
+     
+     if ([panel runModalForDirectory:nil file:suggestedFilename] == NSFileHandlingPanelCancelButton) {
+     // If the user doesn't want to save, cancel the download.
+     [download cancel];
+     downloadOverride = NO;
+     } else {
+     // Set the destination to save to.
+     [download setDestination:[panel filename] allowOverwrite:YES];
+     downloadOverride = NO;
+     }
+     } else {
+     destinationFilename = [NSString stringWithFormat:@"%@%@", [defaults objectForKey:@"currentDownloadLocation"], suggestedFilename];
+     
+     [download setDestination:destinationFilename allowOverwrite:NO];
+     }*/
     
     destinationFilename = [NSString stringWithFormat:@"%@%@", [defaults objectForKey:@"currentDownloadLocation"], suggestedFilename];
     
@@ -686,10 +686,10 @@ NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
         [NSApp activateIgnoringOtherApps:YES];
         
         /*alert = [[NSAlert alloc] init];
-        [alert setMessageText:@"Error"];
-        [alert setInformativeText:[NSString stringWithFormat:@"An error occurred: the text you entered does not contain %%@ in place of the query. Please enter valid text and try again."]];
-        [alert addButtonWithTitle:@"OK"];
-        [alert runModal];*/
+         [alert setMessageText:@"Error"];
+         [alert setInformativeText:[NSString stringWithFormat:@"An error occurred: the text you entered does not contain %%@ in place of the query. Please enter valid text and try again."]];
+         [alert addButtonWithTitle:@"OK"];
+         [alert runModal];*/
     }
 }
 
@@ -705,10 +705,10 @@ NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
         [NSApp activateIgnoringOtherApps:YES];
         
         /*alert = [[NSAlert alloc] init];
-        [alert setMessageText:@"Error"];
-        [alert setInformativeText:[NSString stringWithFormat:@"An error occurred: you did not enter any text. Please enter a valid URL and try again."]];
-        [alert addButtonWithTitle:@"OK"];
-        [alert runModal];*/
+         [alert setMessageText:@"Error"];
+         [alert setInformativeText:[NSString stringWithFormat:@"An error occurred: you did not enter any text. Please enter a valid URL and try again."]];
+         [alert addButtonWithTitle:@"OK"];
+         [alert runModal];*/
         
     } else if([self.customSearchEngineField.stringValue hasPrefix:@"http://"] || [self.customSearchEngineField.stringValue hasPrefix:@"https://"]) {
         [self saveCustomSearchEngineText:self];
@@ -723,10 +723,10 @@ NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
         [NSApp activateIgnoringOtherApps:YES];
         
         /*alert = [[NSAlert alloc] init];
-        [alert setMessageText:@"Error"];
-        [alert setInformativeText:[NSString stringWithFormat:@"An error occurred: the text you entered is not a valid URL. Please enter a valid URL and try again."]];
-        [alert addButtonWithTitle:@"OK"];
-        [alert runModal];*/
+         [alert setMessageText:@"Error"];
+         [alert setInformativeText:[NSString stringWithFormat:@"An error occurred: the text you entered is not a valid URL. Please enter a valid URL and try again."]];
+         [alert addButtonWithTitle:@"OK"];
+         [alert runModal];*/
     }
 }
 
@@ -764,7 +764,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
     [task launch];
     
     [[NSApplication sharedApplication] terminate:nil];
-
+    
 }
 
 - (IBAction)setTopBarColor:(id)sender {
@@ -965,109 +965,116 @@ NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
         NSLog(@"User has initiated a search. Fetching search engine...");
         
         if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Google"]) {
-            
-            // Google search initiated
-            
-            NSLog(@"Search engine found: Google");
-            
-            searchString = [searchString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-            
-            urlString = [NSString stringWithFormat:googleSearchString, searchString];
-            
-            // Replace special characters
-            editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-            
-            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
-            self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
-            
+            if(![searchString hasPrefix:@"spark://"]) {
+                
+                // Google search initiated
+                
+                NSLog(@"Search engine found: Google");
+                
+                searchString = [searchString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+                
+                urlString = [NSString stringWithFormat:googleSearchString, searchString];
+                
+                // Replace special characters
+                editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+                
+                [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
+                self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
+            }
         } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Bing"]) {
-            
-            // Bing search initiated
-            
-            NSLog(@"Search engine found: Bing");
-            
-            searchString = [searchString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-            
-            urlString = [NSString stringWithFormat:bingSearchString, searchString];
-            editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-            
-            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
-            self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
-            
+            if(![searchString hasPrefix:@"spark://"]) {
+                
+                // Bing search initiated
+                
+                NSLog(@"Search engine found: Bing");
+                
+                searchString = [searchString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+                
+                urlString = [NSString stringWithFormat:bingSearchString, searchString];
+                editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+                
+                [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
+                self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
+            }
         } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Yahoo!"]) {
-            
-            // Yahoo! search initiated
-            
-            NSLog(@"Search engine found: Yahoo!");
-            
-            searchString = [searchString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-            
-            urlString = [NSString stringWithFormat:yahooSearchString, searchString];
-            editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-            
-            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
-            self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
-            
+            if(![searchString hasPrefix:@"spark://"]) {
+                
+                // Yahoo! search initiated
+                
+                NSLog(@"Search engine found: Yahoo!");
+                
+                searchString = [searchString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+                
+                urlString = [NSString stringWithFormat:yahooSearchString, searchString];
+                editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+                
+                [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
+                self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
+            }
         } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"DuckDuckGo"]) {
-            
-            // DuckDuckGo search initiated
-            
-            NSLog(@"Search engine found: DuckDuckGo");
-            
-            searchString = [searchString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-            
-            urlString = [NSString stringWithFormat:duckDuckGoSearchString, searchString];
-            editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-            
-            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
-            self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
-            
+            if(![searchString hasPrefix:@"spark://"]) {
+                
+                // DuckDuckGo search initiated
+                
+                NSLog(@"Search engine found: DuckDuckGo");
+                
+                searchString = [searchString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+                
+                urlString = [NSString stringWithFormat:duckDuckGoSearchString, searchString];
+                editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+                
+                [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
+                self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
+            }
         } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Ask"]) {
-            
-            // Ask search initiated
-            
-            NSLog(@"Search engine found: Ask");
-            
-            searchString = [searchString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-            
-            urlString = [NSString stringWithFormat:askSearchString, searchString];
-            editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-            
-            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
-            self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
-            
+            if(![searchString hasPrefix:@"spark://"]) {
+                
+                // Ask search initiated
+                
+                NSLog(@"Search engine found: Ask");
+                
+                searchString = [searchString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+                
+                urlString = [NSString stringWithFormat:askSearchString, searchString];
+                editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+                
+                [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
+                self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
+            }
         } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"AOL"]) {
-            
-            // AOL search initiated
-            
-            NSLog(@"Search engine found: AOL");
-            
-            searchString = [searchString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-            
-            urlString = [NSString stringWithFormat:aolSearchString, searchString];
-            editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-            
-            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
-            self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
-            
+            if(![searchString hasPrefix:@"spark://"]) {
+                // AOL search initiated
+                
+                NSLog(@"Search engine found: AOL");
+                
+                searchString = [searchString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+                
+                urlString = [NSString stringWithFormat:aolSearchString, searchString];
+                editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+                
+                [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
+                self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
+            }
         } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Custom"]) {
-            
-            // Search with custom engine initiated
-            
-            NSLog(@"Search engine found: Custom");
-            
-            searchString = [searchString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-            
-            urlString = [NSString stringWithFormat:[defaults objectForKey:@"customSearchEngine"], searchString];
-            editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-            
-            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
-            self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
-            
+            if(![searchString hasPrefix:@"spark://"]) {
+                
+                // Search with custom engine initiated
+                
+                NSLog(@"Search engine found: Custom");
+                
+                searchString = [searchString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+                
+                urlString = [NSString stringWithFormat:[defaults objectForKey:@"customSearchEngine"], searchString];
+                editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+                
+                [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
+                self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
+                
+            }
         }
+        
+        [defaults setObject:[NSString stringWithFormat:@"%@", self.addressBar.stringValue] forKey:@"lastSession"];
     }
-    
-    [defaults setObject:[NSString stringWithFormat:@"%@", self.addressBar.stringValue] forKey:@"lastSession"];
 }
 
 - (IBAction)setReleaseChannel:(id)sender {
@@ -1086,21 +1093,21 @@ NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
     [NSApp activateIgnoringOtherApps:YES];
     
     /*alert = [[NSAlert alloc] init];
-    [alert setMessageText:@"Set Release Channel and Restart?"];
-    [alert setInformativeText:[NSString stringWithFormat:@"Spark release channel will be set to: %@.\n\nA browser restart is required for this to take effect.", uncapitalizedReleaseChannel]];
-    [alert addButtonWithTitle:@"Restart Later"];
-    [alert addButtonWithTitle:@"Set Release Channel"];
-    if(alert.runModal == NSAlertSecondButtonReturn) {
-        task = [[NSTask alloc] init];
-        args = [NSMutableArray array];
-        [args addObject:@"-c"];
-        [args addObject:[NSString stringWithFormat:@"sleep %d; open \"%@\"", 0, [[NSBundle mainBundle] bundlePath]]];
-        [task setLaunchPath:@"/bin/sh"];
-        [task setArguments:args];
-        [task launch];
-        
-        [[NSApplication sharedApplication] terminate:nil];
-    }*/
+     [alert setMessageText:@"Set Release Channel and Restart?"];
+     [alert setInformativeText:[NSString stringWithFormat:@"Spark release channel will be set to: %@.\n\nA browser restart is required for this to take effect.", uncapitalizedReleaseChannel]];
+     [alert addButtonWithTitle:@"Restart Later"];
+     [alert addButtonWithTitle:@"Set Release Channel"];
+     if(alert.runModal == NSAlertSecondButtonReturn) {
+     task = [[NSTask alloc] init];
+     args = [NSMutableArray array];
+     [args addObject:@"-c"];
+     [args addObject:[NSString stringWithFormat:@"sleep %d; open \"%@\"", 0, [[NSBundle mainBundle] bundlePath]]];
+     [task setLaunchPath:@"/bin/sh"];
+     [task setArguments:args];
+     [task launch];
+     
+     [[NSApplication sharedApplication] terminate:nil];
+     }*/
 }
 
 - (IBAction)setHomepage:(id)sender {
