@@ -36,3 +36,7 @@ a {
     color: #BFBFBF;
     cursor: default;
 }
+
+.invalid-sadface {
+    font-size: 175px;
+}
