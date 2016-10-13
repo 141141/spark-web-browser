@@ -964,10 +964,11 @@ NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
     } else if([searchString hasPrefix:@"file://"]) {
         NSLog(@"file:// prefix");
     } else {
-        NSLog(@"User has initiated a search. Fetching search engine...");
-        
-        if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Google"]) {
-            if(![searchString hasPrefix:@"spark://"]) {
+        if(![searchString hasPrefix:@"spark://"]) {
+            
+            NSLog(@"User has initiated a search. Fetching search engine...");
+            
+            if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Google"]) {
                 
                 // Google search initiated
                 
@@ -982,9 +983,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
                 
                 [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
                 self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
-            }
-        } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Bing"]) {
-            if(![searchString hasPrefix:@"spark://"]) {
+                
+            } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Bing"]) {
                 
                 // Bing search initiated
                 
@@ -997,9 +997,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
                 
                 [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
                 self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
-            }
-        } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Yahoo!"]) {
-            if(![searchString hasPrefix:@"spark://"]) {
+                
+            } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Yahoo!"]) {
                 
                 // Yahoo! search initiated
                 
@@ -1012,9 +1011,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
                 
                 [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
                 self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
-            }
-        } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"DuckDuckGo"]) {
-            if(![searchString hasPrefix:@"spark://"]) {
+                
+            } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"DuckDuckGo"]) {
                 
                 // DuckDuckGo search initiated
                 
@@ -1027,9 +1025,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
                 
                 [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
                 self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
-            }
-        } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Ask"]) {
-            if(![searchString hasPrefix:@"spark://"]) {
+                
+            } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Ask"]) {
                 
                 // Ask search initiated
                 
@@ -1042,9 +1039,9 @@ NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
                 
                 [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
                 self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
-            }
-        } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"AOL"]) {
-            if(![searchString hasPrefix:@"spark://"]) {
+                
+            } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"AOL"]) {
+                
                 // AOL search initiated
                 
                 NSLog(@"Search engine found: AOL");
@@ -1056,9 +1053,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
                 
                 [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
                 self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
-            }
-        } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Custom"]) {
-            if(![searchString hasPrefix:@"spark://"]) {
+                
+            } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Custom"]) {
                 
                 // Search with custom engine initiated
                 
