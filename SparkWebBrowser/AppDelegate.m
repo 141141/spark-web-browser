@@ -169,6 +169,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
         [self.settingsWindow makeKeyAndOrderFront:nil];
         [NSApp activateIgnoringOtherApps:YES];
         
+        self.addressBar.stringValue = self.webView.mainFrameURL;
+        
     } else if([urlToString isEqual: @"spark://quit"]) {
         // spark://quit called
         
@@ -1253,7 +1255,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
         self.loadingIndicator.hidden = YES;
         self.faviconImage.hidden = NO;
         
-        if([self.addressBar.stringValue isEqual: @"spark://about"]) {
+        if([self.addressBar.stringValue hasPrefix: @"spark://"]) {
             self.faviconImage.image = [NSImage imageNamed:@"favicon.ico"];
         }
     }
