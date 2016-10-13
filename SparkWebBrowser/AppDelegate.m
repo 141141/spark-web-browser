@@ -158,12 +158,16 @@ NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
     if([urlToString isEqual: @"spark://about"] || [urlToString isEqual: @"spark://spark"]) {
         // spark://about || spark://spark called
         
+        NSLog(@"spark://about || spark://spark called. Loading...");
+        
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-about" ofType:@"html"] isDirectory:NO]]];
         
         self.addressBar.stringValue = @"spark://about";
         
     } else if([urlToString isEqual: @"spark://prefs"] || [urlToString isEqual: @"spark://preferences"] || [urlToString isEqual: @"spark://settings"]) {
         // spark://prefs || spark://preferences || spark://settings called
+        
+        NSLog(@"spark://prefs || spark://preferences || spark://settings called. Loading...");
         
         self.settingsWindow.isVisible = YES;
         [self.settingsWindow makeKeyAndOrderFront:nil];
@@ -174,10 +178,14 @@ NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
     } else if([urlToString isEqual: @"spark://quit"]) {
         // spark://quit called
         
+        NSLog(@"spark://quit called. Quitting...");
+        
         [[NSApplication sharedApplication] terminate:nil];
         
     } else if([urlToString isEqual: @"spark://restart"]) {
         // spark://restart called
+        
+        NSLog(@"spark://restart called. Restarting...");
         
         task = [[NSTask alloc] init];
         args = [NSMutableArray array];
@@ -190,6 +198,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
         [[NSApplication sharedApplication] terminate:nil];
     } else if([urlToString hasPrefix: @"spark://"]) {
         // Invalid spark:// URL
+        
+        NSLog(@"Error: invalid spark:// URL. Loading spark-invalid-url...");
         
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-invalid-url" ofType:@"html"] isDirectory:NO]]];
         
