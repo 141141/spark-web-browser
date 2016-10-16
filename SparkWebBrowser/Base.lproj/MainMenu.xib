@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2338c" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2548a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
@@ -820,7 +820,7 @@ Spark is made possible by the WebKit open source project and other open source s
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button verticalHuggingPriority="750" id="CSR-Ik-wrT">
+                    <button toolTip="Go back" verticalHuggingPriority="750" id="CSR-Ik-wrT">
                         <rect key="frame" x="3" y="656" width="23" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSGoLeftTemplate" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="VLy-6I-5e9">
@@ -831,7 +831,7 @@ Spark is made possible by the WebKit open source project and other open source s
                             <action selector="goBack:" target="ffM-a6-P1L" id="GRo-KP-AB9"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" id="wRb-WG-N9I">
+                    <button toolTip="Go forward" verticalHuggingPriority="750" id="wRb-WG-N9I">
                         <rect key="frame" x="31" y="656" width="23" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSGoRightTemplate" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="eND-U0-Xbb">
@@ -842,11 +842,11 @@ Spark is made possible by the WebKit open source project and other open source s
                             <action selector="goForward:" target="ffM-a6-P1L" id="DA3-yk-DFS"/>
                         </connections>
                     </button>
-                    <textField toolTip="Type the URL of the website you want to go to here. (including http://)" verticalHuggingPriority="750" id="6S4-CW-iwm">
+                    <textField verticalHuggingPriority="750" id="6S4-CW-iwm">
                         <rect key="frame" x="89" y="656" width="991" height="22"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" title="https://" placeholderString="" bezelStyle="round" id="MSe-fD-WSx">
-                            <font key="font" metaFont="system" size="12"/>
+                            <font key="font" metaFont="cellTitle"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
@@ -854,7 +854,7 @@ Spark is made possible by the WebKit open source project and other open source s
                             <action selector="initWebpageLoad:" target="Voe-Tx-rLC" id="Of9-6w-ii3"/>
                         </connections>
                     </textField>
-                    <button verticalHuggingPriority="750" id="gZC-HQ-A14">
+                    <button toolTip="Reload this page" verticalHuggingPriority="750" id="gZC-HQ-A14">
                         <rect key="frame" x="58" y="656" width="23" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRefreshTemplate" imagePosition="overlaps" alignment="center" state="on" inset="2" id="IwX-sg-PoZ">
@@ -902,7 +902,7 @@ Spark is made possible by the WebKit open source project and other open source s
                             <color key="backgroundColor" white="1" alpha="0.80367080479452058" colorSpace="deviceWhite"/>
                         </textFieldCell>
                     </textField>
-                    <button verticalHuggingPriority="750" id="pmy-Gn-uac">
+                    <button toolTip="Open a new tab" verticalHuggingPriority="750" id="pmy-Gn-uac">
                         <rect key="frame" x="281" y="687" width="21" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="bx5-yX-Nf2">
@@ -1007,7 +1007,7 @@ Spark is made possible by the WebKit open source project and other open source s
                             </menu>
                         </popUpButtonCell>
                     </popUpButton>
-                    <button verticalHuggingPriority="750" id="Nsh-fL-8Ic">
+                    <button toolTip="Open menu" verticalHuggingPriority="750" id="Nsh-fL-8Ic">
                         <rect key="frame" x="1083" y="657" width="21" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSActionTemplate" imagePosition="overlaps" alignment="center" state="on" inset="2" id="pgV-8x-Z2I">
@@ -1031,7 +1031,7 @@ Spark is made possible by the WebKit open source project and other open source s
                         <rect key="frame" x="111" y="686" width="162" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" placeholderString="Loading..." id="I9i-cv-n8A">
-                            <font key="font" metaFont="system" size="12"/>
+                            <font key="font" metaFont="cellTitle"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>

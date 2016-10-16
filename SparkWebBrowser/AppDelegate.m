@@ -475,7 +475,6 @@ NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
             
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", [defaults valueForKey:@"lastSession"]]]]];
         }
-        
     }
     
     // Check if checkbox should be checked
@@ -506,9 +505,14 @@ NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
     
     self.faviconImage.hidden = YES;
     self.loadingIndicator.hidden = NO;
+    
     [self.loadingIndicator startAnimation:self];
+    
+    // Set strings
     self.currentVersion.stringValue = [NSString stringWithFormat:@"Version %@.%@", appVersion, buildNumber];
     self.currentReleaseChannel.stringValue = [NSString stringWithFormat:@"%@ release channel", [releaseChannel capitalizedString]];
+    
+    // Window setup
     self.aboutWindow.backgroundColor = [NSColor whiteColor];
     self.errorWindow.backgroundColor = [NSColor whiteColor];
     self.popupWindow.backgroundColor = [NSColor whiteColor];
