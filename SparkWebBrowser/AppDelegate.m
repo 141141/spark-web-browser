@@ -97,6 +97,11 @@ NSURL *faviconURL = nil; // NSURL converted from faviconURLString
 NSData *faviconData = nil; // Data retrieved from faviconURLString service
 NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
 
+NSTrackingArea *reloadBtnTrackingArea = nil;
+NSTrackingArea *settingsBtnTrackingArea = nil;
+NSTrackingArea *forwardBtnTrackingArea = nil;
+NSTrackingArea *backBtnTrackingArea = nil;
+
 #pragma mark - Pre-initializing
 
 + (void)initialize {
@@ -348,6 +353,29 @@ NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
     
 }
 
+- (void)mouseEntered:(NSEvent *)theEvent {
+    // Mouse entered tracking area
+    
+    if([[theEvent trackingArea] isEqual:reloadBtnTrackingArea]) {
+        [[self.reloadBtn cell] setBackgroundColor:[NSColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f]];
+    } else if([[theEvent trackingArea] isEqual:backBtnTrackingArea]) {
+        [[self.backBtn cell] setBackgroundColor:[NSColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f]];
+    } else if([[theEvent trackingArea] isEqual:forwardBtnTrackingArea]) {
+        [[self.forwardBtn cell] setBackgroundColor:[NSColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f]];
+    } else if([[theEvent trackingArea] isEqual:settingsBtnTrackingArea]) {
+        [[self.settingsBtn cell] setBackgroundColor:[NSColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f]];
+    }
+}
+
+- (void)mouseExited:(NSEvent *)theEvent {
+    // Mouse exited tracking area
+    
+    [[self.backBtn cell] setBackgroundColor:[NSColor whiteColor]];
+    [[self.forwardBtn cell] setBackgroundColor:[NSColor whiteColor]];
+    [[self.reloadBtn cell] setBackgroundColor:[NSColor whiteColor]];
+    [[self.settingsBtn cell] setBackgroundColor:[NSColor whiteColor]];
+}
+
 #pragma mark - Application initializing
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
@@ -359,6 +387,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
     [self.webView setDownloadDelegate:(id<WebDownloadDelegate>)self];
     [self.webView setCustomUserAgent: userAgent];
     
+    // NSUserDefaults key value checking
     if([defaults objectForKey:@"currentReleaseChannel"] == nil) {
         // No release channel is set -- revert to default
         NSLog(@"Error: no release channel is set. Setting now...");
@@ -517,6 +546,17 @@ NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
     self.errorWindow.backgroundColor = [NSColor whiteColor];
     self.popupWindow.backgroundColor = [NSColor whiteColor];
     self.settingsWindow.backgroundColor = [NSColor whiteColor];
+    
+    // Set up tracking areas
+    backBtnTrackingArea = [[NSTrackingArea alloc] initWithRect:[self.backBtn bounds] options:NSTrackingMouseEnteredAndExited |NSTrackingActiveAlways owner:self userInfo:nil];
+    forwardBtnTrackingArea = [[NSTrackingArea alloc] initWithRect:[self.forwardBtn bounds] options:NSTrackingMouseEnteredAndExited |NSTrackingActiveAlways owner:self userInfo:nil];
+    reloadBtnTrackingArea = [[NSTrackingArea alloc] initWithRect:[self.reloadBtn bounds] options:NSTrackingMouseEnteredAndExited |NSTrackingActiveAlways owner:self userInfo:nil];
+    settingsBtnTrackingArea = [[NSTrackingArea alloc] initWithRect:[self.settingsBtn bounds] options:NSTrackingMouseEnteredAndExited |NSTrackingActiveAlways owner:self userInfo:nil];
+    
+    [self.backBtn addTrackingArea:backBtnTrackingArea];
+    [self.forwardBtn addTrackingArea:forwardBtnTrackingArea];
+    [self.reloadBtn addTrackingArea:reloadBtnTrackingArea];
+    [self.settingsBtn addTrackingArea:settingsBtnTrackingArea];
     
     if([[defaults objectForKey:@"customSearchEngine"] isEqual: @""]) {
         self.customSearchEngineField.hidden = YES;
