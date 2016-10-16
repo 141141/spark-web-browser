@@ -199,7 +199,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         [task launch];
         
         [[NSApplication sharedApplication] terminate:nil];
-    } else if([urlToString hasPrefix: @"spark://"]) {
+    } else if([urlToString hasPrefix: @"spark://"] || [urlToString hasPrefix: @"spark:"]) {
         // Invalid spark:// URL
         
         NSLog(@"Error: invalid spark:// URL. Loading spark-invalid-url...");
@@ -1184,7 +1184,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         
         // Set homepage to Google
         [self setHomepageWithString:googleDefaultURL];
-        
+
     } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Bing"]) {
         
         // Set homepage to Bing
@@ -1231,7 +1231,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame {
     // Only report feedback for the main frame.
-    if (frame == [sender mainFrame]) {
+    if(frame == [sender mainFrame]) {
         websiteURL = [[[[frame provisionalDataSource] request] URL] absoluteString];
         self.reloadBtn.image = [NSImage imageNamed: NSImageNameStopProgressTemplate];
         [self.addressBar setStringValue:websiteURL];
@@ -1254,7 +1254,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     clippedTitle = title;
     
     // Only report feedback for the main frame.
-    if (frame == [sender mainFrame]) {
+    if(frame == [sender mainFrame]) {
         
         const int clipLength = 25;
         if([title length] > clipLength) {
@@ -1268,7 +1268,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         self.loadingIndicator.hidden = YES;
         self.faviconImage.hidden = NO;
         
-        if([self.addressBar.stringValue hasPrefix: @"spark://"]) {
+        if([self.addressBar.stringValue hasPrefix: @"spark://"] || [self.addressBar.stringValue hasPrefix: @"spark:"]) {
             self.faviconImage.image = [NSImage imageNamed:@"favicon.ico"];
         }
     }

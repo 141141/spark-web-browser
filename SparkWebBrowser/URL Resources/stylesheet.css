@@ -42,18 +42,20 @@ a {
     cursor: default;
 }
 
+.about-heading {
+    font-weight: 300;
+}
+
 .invalidpage-sadface {
-    text-align: left;
     font-size: 50px;
 }
 
 .invalidpage-heading {
-    text-align: left;
-    font-weight: 200;
+    font-weight: 300;
 }
 
 .invalidpage-desc {
-    text-align: left;
+    text-align: center;
     font-size: 18px;
 }
 
