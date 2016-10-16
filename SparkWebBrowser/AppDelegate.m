@@ -135,238 +135,11 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel %@ %@) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.59 Safari/537.36", productName, editedVersionString]; // Set user agent respective to the version of macOS the user is running
 }
 
-- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
-    return YES;
-}
-
--(void)applicationWillFinishLaunching:(NSNotification *)aNotification {
+- (void)applicationWillFinishLaunching:(NSNotification *)aNotification {
     // Register for URL events
     
     NSAppleEventManager *appleEventManager = [NSAppleEventManager sharedAppleEventManager];
     [appleEventManager setEventHandler:self andSelector:@selector(handleGetURLEvent:withReplyEvent:) forEventClass:kInternetEventClass andEventID:kAEGetURL];
-}
-
-#pragma mark - URL event handling
-
-- (void)handleGetURLEvent:(NSAppleEventDescriptor *)event withReplyEvent:(NSAppleEventDescriptor *)replyEvent {
-    // Handle spark:// URL events
-    
-    eventURL = [NSURL URLWithString:[[event paramDescriptorForKeyword:keyDirectObject] stringValue]];
-    urlToString = [eventURL absoluteString];
-    if([urlToString isEqual: @"spark://about"] || [urlToString isEqual: @"spark://spark"]) {
-        // spark://about || spark://spark called
-        
-        NSLog(@"spark://about || spark://spark called. Loading...");
-        
-        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-about" ofType:@"html"] isDirectory:NO]]];
-        
-        self.addressBar.stringValue = @"spark://about";
-        
-    } else if([urlToString isEqual: @"spark://prefs"] || [urlToString isEqual: @"spark://preferences"] || [urlToString isEqual: @"spark://settings"]) {
-        // spark://prefs || spark://preferences || spark://settings called
-        
-        NSLog(@"spark://prefs || spark://preferences || spark://settings called. Loading...");
-        
-        self.settingsWindow.isVisible = YES;
-        [self.settingsWindow makeKeyAndOrderFront:nil];
-        [NSApp activateIgnoringOtherApps:YES];
-        
-        self.addressBar.stringValue = self.webView.mainFrameURL;
-        
-    } else if([urlToString isEqual: @"spark://quit"]) {
-        // spark://quit called
-        
-        NSLog(@"spark://quit called. Quitting...");
-        
-        [[NSApplication sharedApplication] terminate:nil];
-        
-    } else if([urlToString isEqual: @"spark://restart"]) {
-        // spark://restart called
-        
-        NSLog(@"spark://restart called. Restarting...");
-        
-        task = [[NSTask alloc] init];
-        args = [NSMutableArray array];
-        [args addObject:@"-c"];
-        [args addObject:[NSString stringWithFormat:@"sleep %d; open \"%@\"", 0, [[NSBundle mainBundle] bundlePath]]];
-        [task setLaunchPath:@"/bin/sh"];
-        [task setArguments:args];
-        [task launch];
-        
-        [[NSApplication sharedApplication] terminate:nil];
-    } else if([urlToString hasPrefix: @"spark://"] || [urlToString hasPrefix: @"spark:"]) {
-        // Invalid spark:// URL
-        
-        NSLog(@"Error: invalid spark:// URL. Loading spark-invalid-url...");
-        
-        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-invalid-url" ofType:@"html"] isDirectory:NO]]];
-        
-        self.addressBar.stringValue = searchString;
-        
-        self.titleStatus.stringValue = [NSString stringWithFormat:@"%@ is not available", searchString];
-    }
-}
-
-#pragma mark - WebView download handling
-
-- (void)webView:(WebView *)sender decidePolicyForMIMEType:(NSString *)type request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id<WebPolicyDecisionListener>)listener {
-    if ([[sender class] canShowMIMEType:type]) {
-        if(downloadOverride == YES) {
-            // Download file anyway, even if WebView can display it
-            [listener download];
-            
-            // Reset downloadOverride
-            downloadOverride = NO;
-        } else {
-            // WebView says it can show these files
-            [listener use];
-        }
-    } else {
-        // WebView can't display these files -- start a download
-        [listener download];
-    }
-}
-
-- (void)downloadDidBegin:(NSURLDownload *)download {
-    NSLog(@"File download started.");
-    
-    // Don't show loading indicator during this time
-    [self.loadingIndicator stopAnimation:self];
-    self.loadingIndicator.hidden = YES;
-    self.faviconImage.hidden = NO;
-    
-    // Show downloads view
-    self.downloadProgressIndicator.hidden = NO;
-    self.bytesDownloadedText.hidden = NO;
-    self.downloadingViewBg.hidden = NO;
-    self.fileDownloadingText.hidden = NO;
-    self.closeDownloadingViewBtn.hidden = NO;
-    self.fileDownloadStatusIcon.hidden = YES;
-}
-
-- (void)download:(NSURLDownload *)download didReceiveDataOfLength:(unsigned)length {
-    NSLog(@"%@", [NSString stringWithFormat:@"Downloading file data: %@", bytesReceivedFormatted]);
-    self.bytesReceived = self.bytesReceived + length;
-    
-    if (expectedLength != NSURLResponseUnknownLength) {
-        
-        // If the expected content length is available, display percent complete.
-        double percentComplete = (self.bytesReceived / (float)expectedLength) * 100.0;
-        [self.downloadProgressIndicator setDoubleValue:percentComplete];
-        
-        bytesReceivedFormatted = [NSByteCountFormatter stringFromByteCount:self.bytesReceived countStyle:NSByteCountFormatterCountStyleFile];
-        expectedLengthFormatted = [NSByteCountFormatter stringFromByteCount:expectedLength countStyle:NSByteCountFormatterCountStyleFile];
-        
-        [self.bytesDownloadedText setStringValue:[NSString stringWithFormat:@"%@/%@", bytesReceivedFormatted, expectedLengthFormatted]];
-        
-        const int clipLength = 20;
-        if([suggestedFilename length] > clipLength) {
-            clippedFilename = [NSString stringWithFormat:@"%@...", [suggestedFilename substringToIndex:clipLength]];
-            self.fileDownloadingText.stringValue = [NSString stringWithFormat:@"%@", clippedFilename];
-        } else {
-            self.fileDownloadingText.stringValue = [NSString stringWithFormat:@"%@", suggestedFilename];
-        }
-    } else {
-        // If the expected content length is unknown, log the process and update the indicators without a known length.
-        NSLog(@"Bytes received: %ld", self.bytesReceived);
-        [self.bytesDownloadedText setStringValue:[NSString stringWithFormat:@"%ld/%ld bytes", self.bytesReceived, self.bytesReceived]];
-    }
-    
-    if([self.downloadProgressIndicator doubleValue] == 100 || self.bytesReceived == expectedLength) {
-        // File download complete
-        
-        NSLog(@"File download complete.");
-        
-        if([self.fileDownloadingText.stringValue isEqual: @"Downloading file..."]) {
-            self.fileDownloadingText.stringValue = @"Download complete.";
-        }
-        
-        [self.downloadProgressIndicator stopAnimation:self];
-        self.downloadProgressIndicator.doubleValue = 0;
-        [self.loadingIndicator stopAnimation:self];
-        self.reloadBtn.image = [NSImage imageNamed: NSImageNameRefreshTemplate];
-        self.loadingIndicator.hidden = YES;
-        self.faviconImage.hidden = NO;
-        self.fileDownloadStatusIcon.hidden = NO;
-        
-        // Bounce dock icon to let user know that the download is complete
-        [NSApp requestUserAttention:NSInformationalRequest];
-    }
-}
-
-- (void)download:(NSURLDownload *)download didReceiveResponse:(NSURLResponse *)response {
-    suggestedFilename = [response suggestedFilename];
-    
-    // Reset the progress, this might be called multiple times.
-    // bytesReceived is an instance variable defined elsewhere.
-    self.bytesReceived = 0;
-    
-    // Store the response to use later.
-    expectedLength = [response expectedContentLength];
-}
-
-- (void)download:(NSURLDownload *)download didFailWithError:(NSError *)error {
-    // File download failed
-    
-    NSLog(@"File download failed! Error: %@ %@", [error localizedDescription], [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
-    
-    [self.bytesDownloadedText setStringValue:@"Download Failed"];
-    
-    self.errorPanelTitle.stringValue = @"Error Downloading File";
-    self.errorPanelText.stringValue = [NSString stringWithFormat:@"An error occurred while downloading the file you requested.\n\nError: %@ %@", [error localizedDescription], [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]];
-    self.errorWindow.isVisible = YES;
-    [self.errorWindow makeKeyAndOrderFront:nil];
-    [NSApp activateIgnoringOtherApps:YES];
-}
-
-- (void)download:(NSURLDownload *)download decideDestinationWithSuggestedFilename:(NSString *)filename {
-    
-    // For later option to ask where to save each file before downloading
-    /*if(downloadOverride == YES) {
-     NSSavePanel *panel = [NSSavePanel savePanel];
-     
-     if ([panel runModalForDirectory:nil file:suggestedFilename] == NSFileHandlingPanelCancelButton) {
-     // If the user doesn't want to save, cancel the download.
-     [download cancel];
-     downloadOverride = NO;
-     } else {
-     // Set the destination to save to.
-     [download setDestination:[panel filename] allowOverwrite:YES];
-     downloadOverride = NO;
-     }
-     } else {
-     destinationFilename = [NSString stringWithFormat:@"%@%@", [defaults objectForKey:@"currentDownloadLocation"], suggestedFilename];
-     
-     [download setDestination:destinationFilename allowOverwrite:NO];
-     }*/
-    
-    destinationFilename = [NSString stringWithFormat:@"%@%@", [defaults objectForKey:@"currentDownloadLocation"], suggestedFilename];
-    
-    [download setDestination:destinationFilename allowOverwrite:NO];
-    
-}
-
-- (void)mouseEntered:(NSEvent *)theEvent {
-    // Mouse entered tracking area
-    
-    if([[theEvent trackingArea] isEqual:backBtnTrackingArea]) {
-        [[self.backBtn cell] setBackgroundColor:[NSColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f]];
-    } else if([[theEvent trackingArea] isEqual:forwardBtnTrackingArea]) {
-        [[self.forwardBtn cell] setBackgroundColor:[NSColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f]];
-    } else if([[theEvent trackingArea] isEqual:reloadBtnTrackingArea]) {
-        [[self.reloadBtn cell] setBackgroundColor:[NSColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f]];
-    } else if([[theEvent trackingArea] isEqual:settingsBtnTrackingArea]) {
-        [[self.settingsBtn cell] setBackgroundColor:[NSColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f]];
-    }
-}
-
-- (void)mouseExited:(NSEvent *)theEvent {
-    // Mouse exited tracking area
-    
-    [[self.backBtn cell] setBackgroundColor:[NSColor whiteColor]];
-    [[self.forwardBtn cell] setBackgroundColor:[NSColor whiteColor]];
-    [[self.reloadBtn cell] setBackgroundColor:[NSColor whiteColor]];
-    [[self.settingsBtn cell] setBackgroundColor:[NSColor whiteColor]];
 }
 
 #pragma mark - Application initializing
@@ -671,7 +444,6 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         self.customSearchEngineField.hidden = YES;
         self.customSearchEngineSaveBtn.hidden = YES;
     }
-    
 }
 
 #pragma mark - IBActions
@@ -690,6 +462,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 }
 
 - (IBAction)closeDownloadingView:(id)sender {
+    
     self.downloadProgressIndicator.hidden = YES;
     self.bytesDownloadedText.hidden = YES;
     self.downloadingViewBg.hidden = YES;
@@ -1219,6 +992,229 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     [[self.settingsPopupBtn cell] performClickWithFrame:[sender frame] inView:[sender superview]];
 }
 
+#pragma mark - URL event handling
+
+- (void)handleGetURLEvent:(NSAppleEventDescriptor *)event withReplyEvent:(NSAppleEventDescriptor *)replyEvent {
+    // Handle spark:// URL events
+    
+    eventURL = [NSURL URLWithString:[[event paramDescriptorForKeyword:keyDirectObject] stringValue]];
+    urlToString = [eventURL absoluteString];
+    if([urlToString isEqual: @"spark://about"] || [urlToString isEqual: @"spark://spark"]) {
+        // spark://about || spark://spark called
+        
+        NSLog(@"spark://about || spark://spark called. Loading...");
+        
+        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-about" ofType:@"html"] isDirectory:NO]]];
+        
+        self.addressBar.stringValue = @"spark://about";
+        
+    } else if([urlToString isEqual: @"spark://prefs"] || [urlToString isEqual: @"spark://preferences"] || [urlToString isEqual: @"spark://settings"]) {
+        // spark://prefs || spark://preferences || spark://settings called
+        
+        NSLog(@"spark://prefs || spark://preferences || spark://settings called. Loading...");
+        
+        self.settingsWindow.isVisible = YES;
+        [self.settingsWindow makeKeyAndOrderFront:nil];
+        [NSApp activateIgnoringOtherApps:YES];
+        
+        self.addressBar.stringValue = self.webView.mainFrameURL;
+        
+    } else if([urlToString isEqual: @"spark://quit"]) {
+        // spark://quit called
+        
+        NSLog(@"spark://quit called. Quitting...");
+        
+        [[NSApplication sharedApplication] terminate:nil];
+        
+    } else if([urlToString isEqual: @"spark://restart"]) {
+        // spark://restart called
+        
+        NSLog(@"spark://restart called. Restarting...");
+        
+        task = [[NSTask alloc] init];
+        args = [NSMutableArray array];
+        [args addObject:@"-c"];
+        [args addObject:[NSString stringWithFormat:@"sleep %d; open \"%@\"", 0, [[NSBundle mainBundle] bundlePath]]];
+        [task setLaunchPath:@"/bin/sh"];
+        [task setArguments:args];
+        [task launch];
+        
+        [[NSApplication sharedApplication] terminate:nil];
+    } else if([urlToString hasPrefix: @"spark://"] || [urlToString hasPrefix: @"spark:"]) {
+        // Invalid spark:// URL
+        
+        NSLog(@"Error: invalid spark:// URL. Loading spark-invalid-url...");
+        
+        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-invalid-url" ofType:@"html"] isDirectory:NO]]];
+        
+        self.addressBar.stringValue = searchString;
+        
+        self.titleStatus.stringValue = [NSString stringWithFormat:@"%@ is not available", searchString];
+    }
+}
+
+- (void)mouseEntered:(NSEvent *)theEvent {
+    // Mouse entered tracking area
+    
+    if([[theEvent trackingArea] isEqual:backBtnTrackingArea]) {
+        [[self.backBtn cell] setBackgroundColor:[NSColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f]];
+    } else if([[theEvent trackingArea] isEqual:forwardBtnTrackingArea]) {
+        [[self.forwardBtn cell] setBackgroundColor:[NSColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f]];
+    } else if([[theEvent trackingArea] isEqual:reloadBtnTrackingArea]) {
+        [[self.reloadBtn cell] setBackgroundColor:[NSColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f]];
+    } else if([[theEvent trackingArea] isEqual:settingsBtnTrackingArea]) {
+        [[self.settingsBtn cell] setBackgroundColor:[NSColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f]];
+    }
+}
+
+- (void)mouseExited:(NSEvent *)theEvent {
+    // Mouse exited tracking area
+    
+    [[self.backBtn cell] setBackgroundColor:[NSColor whiteColor]];
+    [[self.forwardBtn cell] setBackgroundColor:[NSColor whiteColor]];
+    [[self.reloadBtn cell] setBackgroundColor:[NSColor whiteColor]];
+    [[self.settingsBtn cell] setBackgroundColor:[NSColor whiteColor]];
+}
+
+#pragma mark - WebView download handling
+
+- (void)webView:(WebView *)sender decidePolicyForMIMEType:(NSString *)type request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id<WebPolicyDecisionListener>)listener {
+    if ([[sender class] canShowMIMEType:type]) {
+        if(downloadOverride == YES) {
+            // Download file anyway, even if WebView can display it
+            [listener download];
+            
+            // Reset downloadOverride
+            downloadOverride = NO;
+        } else {
+            // WebView says it can show these files
+            [listener use];
+        }
+    } else {
+        // WebView can't display these files -- start a download
+        [listener download];
+    }
+}
+
+- (void)downloadDidBegin:(NSURLDownload *)download {
+    NSLog(@"File download started.");
+    
+    // Don't show loading indicator during this time
+    [self.loadingIndicator stopAnimation:self];
+    self.loadingIndicator.hidden = YES;
+    self.faviconImage.hidden = NO;
+    
+    // Show downloads view
+    self.downloadProgressIndicator.hidden = NO;
+    self.bytesDownloadedText.hidden = NO;
+    self.downloadingViewBg.hidden = NO;
+    self.fileDownloadingText.hidden = NO;
+    self.closeDownloadingViewBtn.hidden = NO;
+    self.fileDownloadStatusIcon.hidden = YES;
+}
+
+- (void)download:(NSURLDownload *)download didReceiveDataOfLength:(unsigned)length {
+    NSLog(@"%@", [NSString stringWithFormat:@"Downloading file data: %@", bytesReceivedFormatted]);
+    self.bytesReceived = self.bytesReceived + length;
+    
+    if (expectedLength != NSURLResponseUnknownLength) {
+        
+        // If the expected content length is available, display percent complete.
+        double percentComplete = (self.bytesReceived / (float)expectedLength) * 100.0;
+        [self.downloadProgressIndicator setDoubleValue:percentComplete];
+        
+        bytesReceivedFormatted = [NSByteCountFormatter stringFromByteCount:self.bytesReceived countStyle:NSByteCountFormatterCountStyleFile];
+        expectedLengthFormatted = [NSByteCountFormatter stringFromByteCount:expectedLength countStyle:NSByteCountFormatterCountStyleFile];
+        
+        [self.bytesDownloadedText setStringValue:[NSString stringWithFormat:@"%@/%@", bytesReceivedFormatted, expectedLengthFormatted]];
+        
+        const int clipLength = 20;
+        if([suggestedFilename length] > clipLength) {
+            clippedFilename = [NSString stringWithFormat:@"%@...", [suggestedFilename substringToIndex:clipLength]];
+            self.fileDownloadingText.stringValue = [NSString stringWithFormat:@"%@", clippedFilename];
+        } else {
+            self.fileDownloadingText.stringValue = [NSString stringWithFormat:@"%@", suggestedFilename];
+        }
+    } else {
+        // If the expected content length is unknown, log the process and update the indicators without a known length.
+        NSLog(@"Bytes received: %ld", self.bytesReceived);
+        [self.bytesDownloadedText setStringValue:[NSString stringWithFormat:@"%ld/%ld bytes", self.bytesReceived, self.bytesReceived]];
+    }
+    
+    if([self.downloadProgressIndicator doubleValue] == 100 || self.bytesReceived == expectedLength) {
+        // File download complete
+        
+        NSLog(@"File download complete.");
+        
+        if([self.fileDownloadingText.stringValue isEqual: @"Downloading file..."]) {
+            self.fileDownloadingText.stringValue = @"Download complete.";
+        }
+        
+        [self.downloadProgressIndicator stopAnimation:self];
+        self.downloadProgressIndicator.doubleValue = 0;
+        [self.loadingIndicator stopAnimation:self];
+        self.reloadBtn.image = [NSImage imageNamed: NSImageNameRefreshTemplate];
+        self.loadingIndicator.hidden = YES;
+        self.faviconImage.hidden = NO;
+        self.fileDownloadStatusIcon.hidden = NO;
+        
+        // Bounce dock icon to let user know that the download is complete
+        [NSApp requestUserAttention:NSInformationalRequest];
+    }
+}
+
+- (void)download:(NSURLDownload *)download didReceiveResponse:(NSURLResponse *)response {
+    suggestedFilename = [response suggestedFilename];
+    
+    // Reset the progress, this might be called multiple times.
+    // bytesReceived is an instance variable defined elsewhere.
+    self.bytesReceived = 0;
+    
+    // Store the response to use later.
+    expectedLength = [response expectedContentLength];
+}
+
+- (void)download:(NSURLDownload *)download didFailWithError:(NSError *)error {
+    // File download failed
+    
+    NSLog(@"File download failed! Error: %@ %@", [error localizedDescription], [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
+    
+    [self.bytesDownloadedText setStringValue:@"Download Failed"];
+    
+    self.errorPanelTitle.stringValue = @"Error Downloading File";
+    self.errorPanelText.stringValue = [NSString stringWithFormat:@"An error occurred while downloading the file you requested.\n\nError: %@ %@", [error localizedDescription], [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]];
+    self.errorWindow.isVisible = YES;
+    [self.errorWindow makeKeyAndOrderFront:nil];
+    [NSApp activateIgnoringOtherApps:YES];
+}
+
+- (void)download:(NSURLDownload *)download decideDestinationWithSuggestedFilename:(NSString *)filename {
+    
+    // For later option to ask where to save each file before downloading
+    /*if(downloadOverride == YES) {
+     NSSavePanel *panel = [NSSavePanel savePanel];
+     
+     if ([panel runModalForDirectory:nil file:suggestedFilename] == NSFileHandlingPanelCancelButton) {
+     // If the user doesn't want to save, cancel the download.
+     [download cancel];
+     downloadOverride = NO;
+     } else {
+     // Set the destination to save to.
+     [download setDestination:[panel filename] allowOverwrite:YES];
+     downloadOverride = NO;
+     }
+     } else {
+     destinationFilename = [NSString stringWithFormat:@"%@%@", [defaults objectForKey:@"currentDownloadLocation"], suggestedFilename];
+     
+     [download setDestination:destinationFilename allowOverwrite:NO];
+     }*/
+    
+    destinationFilename = [NSString stringWithFormat:@"%@%@", [defaults objectForKey:@"currentDownloadLocation"], suggestedFilename];
+    
+    [download setDestination:destinationFilename allowOverwrite:NO];
+    
+}
+
 #pragma mark - WebView loading-related methods
 
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame {
@@ -1264,6 +1260,12 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
             self.faviconImage.image = [NSImage imageNamed:@"favicon.ico"];
         }
     }
+}
+
+#pragma mark - Miscellaneous methods
+
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
+    return YES;
 }
 
 @end
