@@ -133,7 +133,6 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     releaseChannel = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"currentReleaseChannel"]]; // Get current release channel
     editedVersionString = [versionString stringByReplacingOccurrencesOfString:@"." withString:@"_"]; // Replace dots in version string with underscores
     userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel %@ %@) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.59 Safari/537.36", productName, editedVersionString]; // Set user agent respective to the version of macOS the user is running
-    
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
@@ -141,19 +140,15 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 }
 
 -(void)applicationWillFinishLaunching:(NSNotification *)aNotification {
-    
     // Register for URL events
     
     NSAppleEventManager *appleEventManager = [NSAppleEventManager sharedAppleEventManager];
-    [appleEventManager setEventHandler:self
-                           andSelector:@selector(handleGetURLEvent:withReplyEvent:)
-                         forEventClass:kInternetEventClass andEventID:kAEGetURL];
+    [appleEventManager setEventHandler:self andSelector:@selector(handleGetURLEvent:withReplyEvent:) forEventClass:kInternetEventClass andEventID:kAEGetURL];
 }
 
 #pragma mark - URL event handling
 
 - (void)handleGetURLEvent:(NSAppleEventDescriptor *)event withReplyEvent:(NSAppleEventDescriptor *)replyEvent {
-    
     // Handle spark:// URL events
     
     eventURL = [NSURL URLWithString:[[event paramDescriptorForKeyword:keyDirectObject] stringValue]];
@@ -799,7 +794,6 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     [task launch];
     
     [[NSApplication sharedApplication] terminate:nil];
-    
 }
 
 - (IBAction)setTopBarColor:(id)sender {
@@ -918,7 +912,6 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         self.setHomepageBtn.enabled = YES;
     }
 }
-
 
 - (IBAction)viewReleaseNotes:(id)sender {
     [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:appReleasesURL, appVersion]]]];
@@ -1183,7 +1176,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         
         // Set homepage to Google
         [self setHomepageWithString:googleDefaultURL];
-
+        
     } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Bing"]) {
         
         // Set homepage to Bing
