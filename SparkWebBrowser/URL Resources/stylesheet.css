@@ -46,6 +46,21 @@ a {
     font-weight: 300;
 }
 
+.about-checkforupdates {
+    font-weight: 200;
+    padding-right: 15px;
+}
+
+.about-reportissue {
+    font-weight: 200;
+}
+
+.about-hr {
+    border: none;
+    height: 1px;
+    background-color: #C1C1C1;
+}
+
 .invalidpage-sadface {
     font-size: 50px;
 }
