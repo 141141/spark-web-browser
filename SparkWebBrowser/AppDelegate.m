@@ -395,7 +395,6 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     
     if([defaults integerForKey:@"releaseChannelIndex"] == (int)nil) {
         // No release channel index is set -- revert to default
-        NSLog(@"Error: no release channel index is set. Setting now...");
         
         [defaults setInteger:0 forKey:@"releaseChannelIndex"];
     }
