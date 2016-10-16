@@ -60,6 +60,10 @@ NSDictionary *sv = nil; // macOS SystemVersion.plist
 NSAlert *alert = nil; // NSAlert used when switching release channels
 NSTask *task = nil; // NSTask used when switching release channels
 NSMutableArray *args = nil; // Arguments used when switching release channels
+NSTrackingArea *backBtnTrackingArea = nil; // Back button tracking area (used for hover effect)
+NSTrackingArea *forwardBtnTrackingArea = nil; // Forward button tracking area (used for hover effect)
+NSTrackingArea *reloadBtnTrackingArea = nil; // Reload button tracking area (used for hover effect)
+NSTrackingArea *settingsBtnTrackingArea = nil; // Settings button tracking area (used for hover effect)
 NSString *appVersion = nil; // Spark version number
 NSString *buildNumber = nil; // Spark build number
 NSString *versionString = nil; // macOS version number
@@ -96,11 +100,6 @@ NSURL *eventURL = nil; // Used when handling spark:// URL events
 NSURL *faviconURL = nil; // NSURL converted from faviconURLString
 NSData *faviconData = nil; // Data retrieved from faviconURLString service
 NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
-
-NSTrackingArea *reloadBtnTrackingArea = nil;
-NSTrackingArea *settingsBtnTrackingArea = nil;
-NSTrackingArea *forwardBtnTrackingArea = nil;
-NSTrackingArea *backBtnTrackingArea = nil;
 
 #pragma mark - Pre-initializing
 
@@ -356,12 +355,12 @@ NSTrackingArea *backBtnTrackingArea = nil;
 - (void)mouseEntered:(NSEvent *)theEvent {
     // Mouse entered tracking area
     
-    if([[theEvent trackingArea] isEqual:reloadBtnTrackingArea]) {
-        [[self.reloadBtn cell] setBackgroundColor:[NSColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f]];
-    } else if([[theEvent trackingArea] isEqual:backBtnTrackingArea]) {
+    if([[theEvent trackingArea] isEqual:backBtnTrackingArea]) {
         [[self.backBtn cell] setBackgroundColor:[NSColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f]];
     } else if([[theEvent trackingArea] isEqual:forwardBtnTrackingArea]) {
         [[self.forwardBtn cell] setBackgroundColor:[NSColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f]];
+    } else if([[theEvent trackingArea] isEqual:reloadBtnTrackingArea]) {
+        [[self.reloadBtn cell] setBackgroundColor:[NSColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f]];
     } else if([[theEvent trackingArea] isEqual:settingsBtnTrackingArea]) {
         [[self.settingsBtn cell] setBackgroundColor:[NSColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f]];
     }
