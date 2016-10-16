@@ -202,13 +202,6 @@
 			name = CSS;
 			sourceTree = "<group>";
 		};
-		ABAC7A711DB324CA0087FF6B /* JavaScript */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = JavaScript;
-			sourceTree = "<group>";
-		};
 		ABAC7A721DB324D30087FF6B /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,7 +249,6 @@
 			children = (
 				ABAC7A731DB324DE0087FF6B /* HTML */,
 				ABAC7A721DB324D30087FF6B /* Images */,
-				ABAC7A711DB324CA0087FF6B /* JavaScript */,
 				ABAC7A701DB324C50087FF6B /* CSS */,
 			);
 			name = "URL Resources";
