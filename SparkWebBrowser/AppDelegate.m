@@ -145,7 +145,6 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 #pragma mark - Application initializing
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    
     // Finish initializing
     
     // Set up WebView
