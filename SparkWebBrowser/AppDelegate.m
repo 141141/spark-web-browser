@@ -57,7 +57,6 @@ NSData *customColorData = nil;
 NSUserDefaults *defaults = nil; // Shortcut to [NSUserDefaults standardUserDefaults]
 NSDictionary *infoDict = nil; // Spark Info.plist
 NSDictionary *sv = nil; // macOS SystemVersion.plist
-NSAlert *alert = nil; // NSAlert used when switching release channels
 NSTask *task = nil; // NSTask used when switching release channels
 NSMutableArray *args = nil; // Arguments used when switching release channels
 NSTrackingArea *backBtnTrackingArea = nil; // Back button tracking area (used for hover effect)
@@ -99,7 +98,7 @@ NSString *faviconURLString = nil; // URL for the service that retrieves favicons
 NSURL *eventURL = nil; // Used when handling spark:// URL events
 NSURL *faviconURL = nil; // NSURL converted from faviconURLString
 NSData *faviconData = nil; // Data retrieved from faviconURLString service
-NSImage *websiteFavicon = nil; // Current website favicon, as a NSImage
+NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 
 #pragma mark - Pre-initializing
 

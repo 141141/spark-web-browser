@@ -7,14 +7,11 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
     padding: 40px 15px;
     text-align: center;
+    background-color: #FBFBFB;
 }
 
 h1 {
     font-weight: 400;
-}
-
-p {
-    font-weight: 300;
 }
 
 b {
@@ -23,6 +20,14 @@ b {
 
 a {
     line-height: 2.0em;
+}
+
+.lead {
+    font-weight: 200;
+}
+
+.spark-styles {
+    display: inline-block;
 }
 
 .updates-unavailable {
@@ -37,6 +42,23 @@ a {
     cursor: default;
 }
 
-.invalid-sadface {
-    font-size: 175px;
+.invalidpage-sadface {
+    text-align: left;
+    font-size: 50px;
+}
+
+.invalidpage-heading {
+    text-align: left;
+    font-weight: 200;
+}
+
+.invalidpage-desc {
+    text-align: left;
+    font-size: 18px;
+}
+
+.invalidpage-hr {
+    border: none;
+    height: 1px;
+    background-color: #C1C1C1;
 }

@@ -426,7 +426,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="sbh-Aa-9pH">
                         <rect key="frame" x="18" y="126" width="281" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Version 0.0.0.0.00" id="sH9-de-kgl">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Version {VERSION}" id="sH9-de-kgl">
                             <font key="font" metaFont="system" size="18"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -843,7 +843,7 @@ Spark is made possible by the WebKit open source project and other open source s
                         </connections>
                     </button>
                     <textField verticalHuggingPriority="750" misplaced="YES" id="6S4-CW-iwm">
-                        <rect key="frame" x="118" y="656" width="962" height="22"/>
+                        <rect key="frame" x="89" y="656" width="991" height="22"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" title="https://" placeholderString="" bezelStyle="round" id="MSe-fD-WSx">
                             <font key="font" metaFont="cellTitle"/>
@@ -1074,17 +1074,6 @@ Spark is made possible by the WebKit open source project and other open source s
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSMenuOnStateTemplate" id="1YL-hD-bfD"/>
                     </imageView>
-                    <button toolTip="Reload this page" verticalHuggingPriority="750" misplaced="YES" id="b1c-O6-Qgj">
-                        <rect key="frame" x="87" y="657" width="23" height="22"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSHomeTemplate" imagePosition="overlaps" alignment="center" state="on" inset="2" id="mPL-eW-vuZ">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="reload:" target="ffM-a6-P1L" id="9wK-cN-qW0"/>
-                        </connections>
-                    </button>
                 </subviews>
             </view>
             <point key="canvasLocation" x="1163.5" y="180.5"/>
@@ -1198,7 +1187,6 @@ DQ
         <image name="NSFolder" width="32" height="32"/>
         <image name="NSGoLeftTemplate" width="9" height="12"/>
         <image name="NSGoRightTemplate" width="9" height="12"/>
-        <image name="NSHomeTemplate" width="14" height="14"/>
         <image name="NSIconViewTemplate" width="10" height="10"/>
         <image name="NSMenuOnStateTemplate" width="12" height="12"/>
         <image name="NSRefreshTemplate" width="11" height="15"/>
