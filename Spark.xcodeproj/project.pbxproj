@@ -17,7 +17,6 @@
 		ABA41D9F1D84DC2300F01B90 /* NSUserDefaults+ColorSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA41D9E1D84DC2300F01B90 /* NSUserDefaults+ColorSupport.m */; };
 		ABA41DA61D84E40F00F01B90 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB4435E1D846194001D55C7 /* Sparkle.framework */; };
 		ABA41DA71D84E40F00F01B90 /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ABB4435E1D846194001D55C7 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		ABA872E21D7FA4140062EC6C /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = ABA872E11D7FA4140062EC6C /* .travis.yml */; };
 		ABAC7A841DB325ED0087FF6B /* bootstrap.min.js in Resources */ = {isa = PBXBuildFile; fileRef = ABAC7A831DB325ED0087FF6B /* bootstrap.min.js */; };
 		ABAC7A861DB325F10087FF6B /* bootstrap.min.css in Resources */ = {isa = PBXBuildFile; fileRef = ABAC7A851DB325F10087FF6B /* bootstrap.min.css */; };
 		ABAC7A881DB325F50087FF6B /* jquery.min.js in Resources */ = {isa = PBXBuildFile; fileRef = ABAC7A871DB325F50087FF6B /* jquery.min.js */; };
@@ -30,11 +29,6 @@
 		ABBD6C201D3707B900C48592 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83980719817D8E001D31B7 /* Cocoa.framework */; };
 		ABBD6C211D3707C600C48592 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83983B19817E15001D31B7 /* WebKit.framework */; };
 		ABD638DD1DC40D2400AD11BB /* spark-urls.html in Resources */ = {isa = PBXBuildFile; fileRef = ABD638DC1DC40D2400AD11BB /* spark-urls.html */; };
-		ABE32C7F1DA15AEA00D0B07E /* Screenshot1.png in Resources */ = {isa = PBXBuildFile; fileRef = ABE32C7A1DA15AEA00D0B07E /* Screenshot1.png */; };
-		ABE32C801DA15AEA00D0B07E /* Screenshot2.png in Resources */ = {isa = PBXBuildFile; fileRef = ABE32C7B1DA15AEA00D0B07E /* Screenshot2.png */; };
-		ABE32C811DA15AEA00D0B07E /* Screenshot3.png in Resources */ = {isa = PBXBuildFile; fileRef = ABE32C7C1DA15AEA00D0B07E /* Screenshot3.png */; };
-		ABE32C821DA15AEA00D0B07E /* Screenshot4.png in Resources */ = {isa = PBXBuildFile; fileRef = ABE32C7D1DA15AEA00D0B07E /* Screenshot4.png */; };
-		ABE32C831DA15AEA00D0B07E /* Screenshot5.png in Resources */ = {isa = PBXBuildFile; fileRef = ABE32C7E1DA15AEA00D0B07E /* Screenshot5.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -316,20 +310,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABA872E21D7FA4140062EC6C /* .travis.yml in Resources */,
-				ABE32C7F1DA15AEA00D0B07E /* Screenshot1.png in Resources */,
 				AB04FD021C712BAD00F08232 /* Images.xcassets in Resources */,
-				ABE32C811DA15AEA00D0B07E /* Screenshot3.png in Resources */,
 				ABB89ADF1DAF04FC007CE7D1 /* spark-invalid-url.html in Resources */,
 				AB8587B71D7C9DFE0073515C /* SparkIcon256.png in Resources */,
 				AB04FD131C712C6000F08232 /* MainMenu.xib in Resources */,
-				ABE32C821DA15AEA00D0B07E /* Screenshot4.png in Resources */,
 				ABAC7A861DB325F10087FF6B /* bootstrap.min.css in Resources */,
-				ABE32C801DA15AEA00D0B07E /* Screenshot2.png in Resources */,
 				ABAC7A881DB325F50087FF6B /* jquery.min.js in Resources */,
 				ABD638DD1DC40D2400AD11BB /* spark-urls.html in Resources */,
 				ABBA53ED1D85E0BE00D3B691 /* spark-about.html in Resources */,
-				ABE32C831DA15AEA00D0B07E /* Screenshot5.png in Resources */,
 				ABAC7A841DB325ED0087FF6B /* bootstrap.min.js in Resources */,
 				ABB443631D84634C001D55C7 /* dsa_pub.pem in Resources */,
 				ABB443611D8461CA001D55C7 /* Sparkle.framework in Resources */,
