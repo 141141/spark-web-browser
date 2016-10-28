@@ -533,6 +533,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 }
 
 - (IBAction)savePage:(id)sender {
+    
     downloadOverride = YES;
     NSLog(@"Downloads overridden. Starting download...");
     [self.webView reload:self];
@@ -557,6 +558,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 }
 
 - (IBAction)setReleaseChannelBtnClicked:(id)sender {
+    
     task = [[NSTask alloc] init];
     args = [NSMutableArray array];
     [args addObject:@"-c"];
@@ -968,6 +970,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         
         // Set homepage to Ask
         [self setHomepageWithString:askDefaultURL];
+        
     } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"AOL"]) {
         
         // Set homepage to AOL
@@ -977,11 +980,11 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 
 - (void)setHomepageWithString:(NSString *)homepageToSet {
     
-    if([homepageToSet hasPrefix:@"https://"] || [homepageToSet hasPrefix:@"http://"]) {
+    if([homepageToSet hasPrefix:@"https://"] || [homepageToSet hasPrefix:@"http://"]) { // Valid address
         NSLog(@"Setting homepage...");
         [defaults setObject:[NSString stringWithFormat:@"%@", homepageToSet] forKey:@"userHomepage"];
         self.homepageTextField.stringValue = [defaults objectForKey:@"userHomepage"];
-    } else {
+    } else { // Invalid address
         NSLog(@"Homepage not set: invalid web address.");
         [self setHomepageWithString:googleDefaultURL];
     }
@@ -1001,7 +1004,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     if([urlToString isEqual: @"spark://about"] || [urlToString isEqual: @"spark://spark"]) {
         // spark://about || spark://spark called
         
-        NSLog(@"spark://about || spark://spark called. Loading...");
+        NSLog(@"spark://about || spark://spark called. Loading spark-about.html...");
         
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-about" ofType:@"html"] isDirectory:NO]]];
         
@@ -1039,10 +1042,29 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         [task launch];
         
         [[NSApplication sharedApplication] terminate:nil];
+        
+    } else if([urlToString isEqual: @"spark://refresh"]) {
+        // spark://refresh called
+        
+        NSLog(@"spark://refresh called. Refreshing webpage...");
+        
+        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.webView.mainFrameURL]]];
+        
+        self.addressBar.stringValue = self.webView.mainFrameURL;
+        
+    } else if([urlToString isEqual: @"spark://urls"]) {
+        // spark://urls called
+        
+        NSLog(@"spark://urls called. Loading spark-urls.html...");
+        
+        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-urls" ofType:@"html"] isDirectory:NO]]];
+        
+        self.addressBar.stringValue = @"spark://urls";
+        
     } else if([urlToString hasPrefix: @"spark://"] || [urlToString hasPrefix: @"spark:"]) {
         // Invalid spark:// URL
         
-        NSLog(@"Error: invalid spark:// URL. Loading spark-invalid-url...");
+        NSLog(@"Error: invalid spark:// URL. Loading spark-invalid-url.html...");
         
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-invalid-url" ofType:@"html"] isDirectory:NO]]];
         
