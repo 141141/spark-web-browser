@@ -61,6 +61,12 @@ a {
     background-color: #C1C1C1;
 }
 
+.about-copyright {
+    font-weight: 200;
+    font-size: 11px;
+    padding-top: 30px;
+}
+
 .invalidpage-sadface {
     font-size: 50px;
 }
