@@ -8,7 +8,7 @@
 
 #import "NSUserDefaults+ColorSupport.h"
 
-@implementation NSUserDefaults(myColorSupport)
+@implementation NSUserDefaults(colorSupport)
 
 - (void)setColor:(NSColor *)aColor forKey:(NSString *)aKey {
     NSData *theData = [NSArchiver archivedDataWithRootObject:aColor];

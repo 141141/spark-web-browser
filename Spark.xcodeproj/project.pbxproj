@@ -109,7 +109,7 @@
 			children = (
 				ABA872E11D7FA4140062EC6C /* .travis.yml */,
 				ABAC55AE1D7B596400CF393B /* Screenshots */,
-				AB83980D19817D8E001D31B7 /* SparkWebBrowser */,
+				AB83980D19817D8E001D31B7 /* Spark */,
 				AB83980619817D8E001D31B7 /* Frameworks */,
 				AB83980519817D8E001D31B7 /* Products */,
 				ABBA53E81D85E0BE00D3B691 /* URL Resources */,
@@ -146,7 +146,7 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		AB83980D19817D8E001D31B7 /* SparkWebBrowser */ = {
+		AB83980D19817D8E001D31B7 /* Spark */ = {
 			isa = PBXGroup;
 			children = (
 				ABA41DA51D84E40600F01B90 /* Frameworks */,
@@ -158,7 +158,7 @@
 				AB04FD011C712BAD00F08232 /* Images.xcassets */,
 				AB83980E19817D8E001D31B7 /* Supporting Files */,
 			);
-			name = SparkWebBrowser;
+			name = Spark;
 			path = "Web Browser";
 			sourceTree = "<group>";
 		};

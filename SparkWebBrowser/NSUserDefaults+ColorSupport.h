@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSUserDefaults(myColorSupport)
+@interface NSUserDefaults(colorSupport)
 
 - (void)setColor:(NSColor *)aColor forKey:(NSString *)aKey;
 - (NSColor *)colorForKey:(NSString *)aKey;
