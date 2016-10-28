@@ -132,7 +132,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     productName = [sv objectForKey:@"ProductName"]; // Get macOS product name
     releaseChannel = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"currentReleaseChannel"]]; // Get current release channel
     editedVersionString = [versionString stringByReplacingOccurrencesOfString:@"." withString:@"_"]; // Replace dots in version string with underscores
-    userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel %@ %@) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.59 Safari/537.36", productName, editedVersionString]; // Set user agent respective to the version of macOS the user is running
+    userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel %@ %@) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36", productName, editedVersionString]; // Set user agent respective to the version of macOS the user is running
 }
 
 - (void)applicationWillFinishLaunching:(NSNotification *)aNotification {
@@ -908,6 +908,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 }
 
 - (IBAction)setDownloadLocation:(id)sender {
+    
     // Show an 'Open' dialog box allowing save folder selection.
     NSOpenPanel *open = [NSOpenPanel openPanel];
     [open setCanChooseFiles:NO];
@@ -917,7 +918,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     [open setTitle:@"Select Download Location"];
     [open setPrompt:@"Select"];
     [open runModal];
-    if (NSFileHandlingPanelOKButton) {
+    
+    if(NSFileHandlingPanelOKButton) {
         downloadLocation = [[NSString stringWithFormat:@"%@", [open URL]] stringByReplacingOccurrencesOfString:@"file://" withString:@""];
         downloadLocationEdited = [downloadLocation stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
         
@@ -1102,7 +1104,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 #pragma mark - WebView download handling
 
 - (void)webView:(WebView *)sender decidePolicyForMIMEType:(NSString *)type request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id<WebPolicyDecisionListener>)listener {
-    if ([[sender class] canShowMIMEType:type]) {
+    if([[sender class] canShowMIMEType:type]) {
         if(downloadOverride == YES) {
             // Download file anyway, even if WebView can display it
             [listener download];
@@ -1140,7 +1142,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     NSLog(@"%@", [NSString stringWithFormat:@"Downloading file data: %@", bytesReceivedFormatted]);
     self.bytesReceived = self.bytesReceived + length;
     
-    if (expectedLength != NSURLResponseUnknownLength) {
+    if(expectedLength != NSURLResponseUnknownLength) {
         
         // If the expected content length is available, display percent complete.
         double percentComplete = (self.bytesReceived / (float)expectedLength) * 100.0;
@@ -1217,7 +1219,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     /*if(downloadOverride == YES) {
      NSSavePanel *panel = [NSSavePanel savePanel];
      
-     if ([panel runModalForDirectory:nil file:suggestedFilename] == NSFileHandlingPanelCancelButton) {
+     if([panel runModalForDirectory:nil file:suggestedFilename] == NSFileHandlingPanelCancelButton) {
      // If the user doesn't want to save, cancel the download.
      [download cancel];
      downloadOverride = NO;
@@ -1241,6 +1243,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 #pragma mark - WebView loading-related methods
 
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame {
+    
     // Only report feedback for the main frame.
     if(frame == [sender mainFrame]) {
         websiteURL = [[[[frame provisionalDataSource] request] URL] absoluteString];
