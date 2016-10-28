@@ -79,3 +79,18 @@ a {
     height: 1px;
     background-color: #C1C1C1;
 }
+
+.sparkurls-heading {
+    font-weight: 300;
+}
+
+.sparkurls-hr {
+    border: none;
+    height: 1px;
+    background-color: #C1C1C1;
+}
+
+.sparkurls-desc {
+    text-align: center;
+    font-size: 18px;
+}
