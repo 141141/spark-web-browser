@@ -752,6 +752,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 
 - (IBAction)initWebpageLoad:(id)sender {
     
+    //NSLog(@"%@", self.webView.webFrame.status);
+    
     searchString = self.addressBar.stringValue;
     
     [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:searchString]]];
@@ -1043,12 +1045,12 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         
         [[NSApplication sharedApplication] terminate:nil];
         
-    } else if([urlToString isEqual: @"spark://refresh"]) {
-        // spark://refresh called
+    } else if([urlToString isEqual: @"spark://refresh"] || [urlToString isEqual: @"spark://reload"]) {
+        // spark://refresh || spark://reload called
         
-        NSLog(@"spark://refresh called. Refreshing webpage...");
+        NSLog(@"spark://refresh || spark://reload called. Refreshing webpage...");
         
-        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.webView.mainFrameURL]]];
+        [[self.webView mainFrame] reload];
         
         self.addressBar.stringValue = self.webView.mainFrameURL;
         
