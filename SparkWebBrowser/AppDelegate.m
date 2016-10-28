@@ -1260,6 +1260,21 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     }
 }
 
+- (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame {
+    
+    // Only report feedback for the main frame.
+    if(frame == [sender mainFrame]) {
+        [self.loadingIndicator stopAnimation:self];
+        self.reloadBtn.image = [NSImage imageNamed: NSImageNameRefreshTemplate];
+        self.loadingIndicator.hidden = YES;
+        self.faviconImage.hidden = NO;
+        
+        if([self.addressBar.stringValue hasPrefix: @"spark://"] || [self.addressBar.stringValue hasPrefix: @"spark:"]) {
+            self.faviconImage.image = [NSImage imageNamed:@"favicon.ico"];
+        }
+    }
+}
+
 - (void)webView:(WebView *)sender didReceiveTitle:(NSString *)title forFrame:(WebFrame *)frame {
     
     clippedTitle = title;
@@ -1274,14 +1289,6 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         
         [self.titleStatus setStringValue:clippedTitle]; // Set titleStatus to clipped title
         self.titleStatus.toolTip = title; // Set tooltip to unclipped title
-        [self.loadingIndicator stopAnimation:self];
-        self.reloadBtn.image = [NSImage imageNamed: NSImageNameRefreshTemplate];
-        self.loadingIndicator.hidden = YES;
-        self.faviconImage.hidden = NO;
-        
-        if([self.addressBar.stringValue hasPrefix: @"spark://"] || [self.addressBar.stringValue hasPrefix: @"spark:"]) {
-            self.faviconImage.image = [NSImage imageNamed:@"favicon.ico"];
-        }
     }
 }
 
