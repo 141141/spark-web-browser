@@ -470,6 +470,7 @@
 				PRODUCT_NAME = Spark;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = macosx;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -490,6 +491,7 @@
 				PRODUCT_NAME = Spark;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = macosx;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
