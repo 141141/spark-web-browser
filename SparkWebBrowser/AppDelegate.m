@@ -1102,9 +1102,16 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     } else if([urlToString isEqual: @"spark://checkforupdates"] || [urlToString isEqual: @"spark://update"] || [urlToString isEqual:@"spark://updates"]) {
         // spark://checkforupdates || spark://update || spark://updates called
         
-        NSLog(@"spark://checkforupdates || spark://update || spark://updates called. Loading spark-urls.html...");
+        NSLog(@"spark://checkforupdates || spark://update || spark://updates called. Checking for updates...");
         
         [[SUUpdater sharedUpdater] checkForUpdates:nil];
+        
+    } else if([urlToString isEqual: @"spark://reportissue"] || [urlToString isEqual: @"spark://reportanissue"] || [urlToString isEqual: @"spark://issue"] || [urlToString isEqual: @"spark://issues"]) {
+        // spark://reportissue || spark://reportanissue || spark://issue || spark://issues called
+        
+        NSLog(@"spark://reportissue || spark://reportanissue || spark://issue || spark://issues called. Loading...");
+        
+        [self reportIssue:nil];
         
     } else if([urlToString hasPrefix: @"spark://"] || [urlToString hasPrefix: @"spark:"]) {
         // Invalid spark:// URL
