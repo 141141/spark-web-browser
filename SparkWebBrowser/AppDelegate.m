@@ -322,9 +322,15 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     [self.reloadBtn addTrackingArea:reloadBtnTrackingArea];
     [self.settingsBtn addTrackingArea:settingsBtnTrackingArea];
     
+    // Check whether or not a custom search engine is in use
     if([[defaults objectForKey:@"customSearchEngine"] isEqual: @""]) {
         self.customSearchEngineField.hidden = YES;
         self.customSearchEngineSaveBtn.hidden = YES;
+    }
+    
+    // Check whether or not WebKit developer menus are enabled
+    if([defaults boolForKey:@"WebKitDeveloperExtras"] != YES) {
+        [defaults setBool:YES forKey:@"WebKitDeveloperExtras"]; // Turn on developer menus
     }
     
     if([[defaults objectForKey:@"currentColor"] isEqual: @"Navy Blue"]) { // Create fallback from "Navy Blue" -> "Midnight Blue" for those migrating from previous versions
@@ -455,6 +461,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 }
 
 - (IBAction)reportIssueAboutWindow:(id)sender {
+    
     [self.aboutWindow close];
     [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:appIssuesURL]]];
     self.addressBar.stringValue = appIssuesURL;
@@ -471,6 +478,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 }
 
 - (void)saveCustomSearchEngineText:(id)sender {
+    
     if([self.customSearchEngineField.stringValue containsString:@"\%@"]) {
         
         NSLog(@"Saving custom search engine...");
@@ -508,6 +516,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 }
 
 - (IBAction)saveCustomSearchEngine:(id)sender {
+    
     if([self.customSearchEngineField.stringValue isEqual: @""] || [self.customSearchEngineField.stringValue isEqual: nil]) {
         // Text field is empty
         NSLog(@"Error: custom search engine text field is empty.");
@@ -536,7 +545,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     
     downloadOverride = YES;
     NSLog(@"Downloads overridden. Starting download...");
-    [self.webView reload:self];
+    [[self.webView mainFrame] reload];
 }
 
 - (IBAction)lastSessionRadioBtnSelected:(id)sender {
