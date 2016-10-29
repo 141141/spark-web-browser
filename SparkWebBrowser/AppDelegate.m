@@ -1023,10 +1023,10 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         
         self.addressBar.stringValue = @"spark://about";
         
-    } else if([urlToString isEqual: @"spark://prefs"] || [urlToString isEqual: @"spark://preferences"] || [urlToString isEqual: @"spark://settings"]) {
-        // spark://prefs || spark://preferences || spark://settings called
+    } else if([urlToString isEqual: @"spark://prefs"] || [urlToString isEqual: @"spark://preferences"] || [urlToString isEqual: @"spark://settings"] || [urlToString isEqual:@"spark://config"]) {
+        // spark://prefs || spark://preferences || spark://settings || spark://config called
         
-        NSLog(@"spark://prefs || spark://preferences || spark://settings called. Loading...");
+        NSLog(@"spark://prefs || spark://preferences || spark://settings || spark://config called. Loading...");
         
         self.settingsWindow.isVisible = YES;
         [self.settingsWindow makeKeyAndOrderFront:nil];
