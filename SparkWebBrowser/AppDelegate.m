@@ -761,8 +761,6 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 
 - (IBAction)initWebpageLoad:(id)sender {
     
-    //NSLog(@"%@", self.webView.webFrame.status);
-    
     searchString = self.addressBar.stringValue;
     
     [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:searchString]]];
@@ -1092,14 +1090,21 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         
         self.addressBar.stringValue = self.webView.mainFrameURL;
         
-    } else if([urlToString isEqual: @"spark://urls"]) {
-        // spark://urls called
+    } else if([urlToString isEqual: @"spark://urls"] || [urlToString isEqual: @"spark://spark-urls"]) {
+        // spark://urls || spark://spark-urls called
         
-        NSLog(@"spark://urls called. Loading spark-urls.html...");
+        NSLog(@"spark://urls || spark://spark-urls called. Loading spark-urls.html...");
         
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-urls" ofType:@"html"] isDirectory:NO]]];
         
         self.addressBar.stringValue = @"spark://urls";
+        
+    } else if([urlToString isEqual: @"spark://checkforupdates"] || [urlToString isEqual: @"spark://update"] || [urlToString isEqual:@"spark://updates"]) {
+        // spark://checkforupdates || spark://update || spark://updates called
+        
+        NSLog(@"spark://checkforupdates || spark://update || spark://updates called. Loading spark-urls.html...");
+        
+        [[SUUpdater sharedUpdater] checkForUpdates:nil];
         
     } else if([urlToString hasPrefix: @"spark://"] || [urlToString hasPrefix: @"spark:"]) {
         // Invalid spark:// URL
@@ -1311,6 +1316,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         if([self.addressBar.stringValue hasPrefix: @"spark://"] || [self.addressBar.stringValue hasPrefix: @"spark:"]) {
             self.faviconImage.image = [NSImage imageNamed:@"favicon.ico"];
         }
+        
+        [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-current-version').innerHTML = 'Version %@.%@ (%@ channel)';", appVersion, buildNumber, releaseChannel]];
     }
 }
 

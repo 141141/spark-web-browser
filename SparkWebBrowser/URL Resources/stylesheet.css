@@ -50,6 +50,12 @@ a {
     font-weight: 300;
 }
 
+.about-releasechannel {
+    line-height: 0.7em;
+    font-weight: 200;
+    font-size: 20px;
+}
+
 .about-checkforupdates {
     font-weight: 200;
     padding-right: 15px;
