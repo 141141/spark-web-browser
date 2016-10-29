@@ -1113,6 +1113,13 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         
         [self reportIssue:nil];
         
+    } else if([urlToString isEqual: @"spark://releasenotes"]) {
+        // spark://releasenotes called
+        
+        NSLog(@"spark://releasenotes called. Loading...");
+        
+        [self viewReleaseNotes:nil];
+        
     } else if([urlToString hasPrefix: @"spark://"] || [urlToString hasPrefix: @"spark:"]) {
         // Invalid spark:// URL
         
