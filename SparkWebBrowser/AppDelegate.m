@@ -1317,7 +1317,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
             self.faviconImage.image = [NSImage imageNamed:@"favicon.ico"];
         }
         
-        [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-current-version').innerHTML = 'Version %@.%@ (%@ channel)';", appVersion, buildNumber, releaseChannel]];
+        [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-currentVersion').innerHTML = 'Version %@.%@ (%@ channel)';", appVersion, buildNumber, releaseChannel]];
     }
 }
 
