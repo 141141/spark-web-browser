@@ -1065,6 +1065,24 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         
         self.addressBar.stringValue = self.webView.mainFrameURL;
         
+    } else if([urlToString isEqual: @"spark://back"] || [urlToString isEqual: @"spark://goback"] || [urlToString isEqual: @"spark://previouspage"]) {
+        // spark://back || spark://goback || spark://previouspage called
+        
+        NSLog(@"spark://back || spark://goback || spark://previouspage called. Loading...");
+        
+        [self.webView goBack:nil];
+        
+        self.addressBar.stringValue = self.webView.mainFrameURL;
+        
+    } else if([urlToString isEqual: @"spark://forward"] || [urlToString isEqual: @"spark://goforward"] || [urlToString isEqual: @"spark://nextpage"]) {
+        // spark://forward || spark://goforward || spark://nextpage called
+        
+        NSLog(@"spark://forward || spark://goforward || spark://nextpage called. Loading...");
+        
+        [self.webView goForward:nil];
+        
+        self.addressBar.stringValue = self.webView.mainFrameURL;
+        
     } else if([urlToString isEqual: @"spark://urls"]) {
         // spark://urls called
         
