@@ -1083,6 +1083,15 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         
         self.addressBar.stringValue = self.webView.mainFrameURL;
         
+    } else if([urlToString isEqual: @"spark://newtab"] || [urlToString isEqual: @"spark://addtab"]) {
+        // spark://newtab || spark://addtab called
+        
+        NSLog(@"spark://newtab || spark://addtab called. Loading...");
+        
+        [self newTab:nil];
+        
+        self.addressBar.stringValue = self.webView.mainFrameURL;
+        
     } else if([urlToString isEqual: @"spark://urls"]) {
         // spark://urls called
         
