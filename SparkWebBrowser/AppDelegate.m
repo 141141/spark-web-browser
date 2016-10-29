@@ -132,7 +132,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     productName = [sv objectForKey:@"ProductName"]; // Get macOS product name
     releaseChannel = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"currentReleaseChannel"]]; // Get current release channel
     editedVersionString = [versionString stringByReplacingOccurrencesOfString:@"." withString:@"_"]; // Replace dots in version string with underscores
-    userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel %@ %@) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36", productName, editedVersionString]; // Set user agent respective to the version of macOS the user is running
+    userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel %@ %@) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36 Spark/%@.%@", productName, editedVersionString, appVersion, buildNumber]; // Set user agent respective to the current versions of Spark and macOS
 }
 
 - (void)applicationWillFinishLaunching:(NSNotification *)aNotification {
