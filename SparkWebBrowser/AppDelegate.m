@@ -285,13 +285,6 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         self.setHomepageBtn.enabled = YES;
     }
     
-    // Check if checkbox should be checked (spark://config/UseSparkAboutWebpage)
-    if([defaults boolForKey:@"useSparkAboutPage"] == YES) {
-        self.useAboutPageBtn.state = NSOnState;
-    } else {
-        self.useAboutPageBtn.state = NSOffState;
-    }
-    
     if([[defaults objectForKey:@"currentReleaseChannel"] isEqual: @"dev"]) { // Create fallback from "dev" channel for those migrating from previous versions
         NSLog(@"Resetting release channel to \"nightly\"");
         
@@ -461,6 +454,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         self.customSearchEngineField.hidden = YES;
         self.customSearchEngineSaveBtn.hidden = YES;
     }
+    
+    [self checkExperimentalConfig:nil];
 }
 
 #pragma mark - IBActions
@@ -487,44 +482,6 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     self.fileDownloadingText.hidden = YES;
     self.closeDownloadingViewBtn.hidden = YES;
     self.fileDownloadStatusIcon.hidden = YES;
-}
-
-- (void)saveCustomSearchEngineText:(id)sender {
-    
-    if([self.customSearchEngineField.stringValue containsString:@"\%@"]) {
-        
-        NSLog(@"Saving custom search engine...");
-        
-        customSearchString = [[NSString stringWithFormat:@"%@", self.customSearchEngineField.stringValue] stringByReplacingOccurrencesOfString:@"*QUERY*" withString:@"%@"]; // Create fallback for those migrating from beta/nightly builds
-        
-        [defaults setObject:[NSString stringWithFormat:@"Custom"] forKey:@"currentSearchEngine"];
-        [defaults setObject:[NSString stringWithFormat:@"%@", customSearchString] forKey:@"customSearchEngine"];
-        [defaults setInteger:self.searchEnginePicker.indexOfSelectedItem forKey:@"searchEngineIndex"];
-        
-        if([defaults boolForKey:@"setHomepageEngine"] == YES) {
-            
-            [defaults setBool:NO forKey:@"setHomepageEngine"];
-            self.homepageBasedOnSearchEngineBtn.state = NSOffState;
-            self.homepageBasedOnSearchEngineBtn.enabled = NO;
-            self.homepageTextField.enabled = YES;
-            self.setHomepageBtn.enabled = YES;
-        } else {
-            self.homepageBasedOnSearchEngineBtn.state = NSOffState;
-            self.homepageBasedOnSearchEngineBtn.enabled = NO;
-            self.homepageTextField.enabled = YES;
-            self.setHomepageBtn.enabled = YES;
-        }
-        
-    } else {
-        // Text field does not contain query text.
-        NSLog(@"Error: custom search engine text field does not contain query text.");
-        
-        self.errorPanelTitle.stringValue = @"Error";
-        self.errorPanelText.stringValue = [NSString stringWithFormat:@"An error occurred: the text you entered is not a valid URL. Please enter a valid URL and try again."];
-        self.errorWindow.isVisible = YES;
-        [self.errorWindow makeKeyAndOrderFront:nil];
-        [NSApp activateIgnoringOtherApps:YES];
-    }
 }
 
 - (IBAction)saveCustomSearchEngine:(id)sender {
@@ -1000,6 +957,54 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 }
 
 #pragma mark - Various methods
+
+- (void)checkExperimentalConfig:(id)sender {
+    
+    // Check if checkbox should be checked (spark://config/UseSparkAboutWebpage)
+    if([defaults boolForKey:@"useSparkAboutPage"] == YES) {
+        self.useAboutPageBtn.state = NSOnState;
+    } else {
+        self.useAboutPageBtn.state = NSOffState;
+    }
+}
+
+- (void)saveCustomSearchEngineText:(id)sender {
+    
+    if([self.customSearchEngineField.stringValue containsString:@"\%@"]) {
+        
+        NSLog(@"Saving custom search engine...");
+        
+        customSearchString = [[NSString stringWithFormat:@"%@", self.customSearchEngineField.stringValue] stringByReplacingOccurrencesOfString:@"*QUERY*" withString:@"%@"]; // Create fallback for those migrating from beta/nightly builds
+        
+        [defaults setObject:[NSString stringWithFormat:@"Custom"] forKey:@"currentSearchEngine"];
+        [defaults setObject:[NSString stringWithFormat:@"%@", customSearchString] forKey:@"customSearchEngine"];
+        [defaults setInteger:self.searchEnginePicker.indexOfSelectedItem forKey:@"searchEngineIndex"];
+        
+        if([defaults boolForKey:@"setHomepageEngine"] == YES) {
+            
+            [defaults setBool:NO forKey:@"setHomepageEngine"];
+            self.homepageBasedOnSearchEngineBtn.state = NSOffState;
+            self.homepageBasedOnSearchEngineBtn.enabled = NO;
+            self.homepageTextField.enabled = YES;
+            self.setHomepageBtn.enabled = YES;
+        } else {
+            self.homepageBasedOnSearchEngineBtn.state = NSOffState;
+            self.homepageBasedOnSearchEngineBtn.enabled = NO;
+            self.homepageTextField.enabled = YES;
+            self.setHomepageBtn.enabled = YES;
+        }
+        
+    } else {
+        // Text field does not contain query text.
+        NSLog(@"Error: custom search engine text field does not contain query text.");
+        
+        self.errorPanelTitle.stringValue = @"Error";
+        self.errorPanelText.stringValue = [NSString stringWithFormat:@"An error occurred: the text you entered is not a valid URL. Please enter a valid URL and try again."];
+        self.errorWindow.isVisible = YES;
+        [self.errorWindow makeKeyAndOrderFront:nil];
+        [NSApp activateIgnoringOtherApps:YES];
+    }
+}
 
 - (void)setHomepageBasedOnSearchEngine:(id)sender {
     if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Google"]) {

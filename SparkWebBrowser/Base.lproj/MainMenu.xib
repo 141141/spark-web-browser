@@ -356,6 +356,9 @@
                             <menuItem isSeparatorItem="YES" id="XPA-fq-Ga5"/>
                             <menuItem title="Experimental Configuration" id="JOt-9f-RRr">
                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="makeKeyAndOrderFront:" target="qp2-Mq-gTe" id="YOv-gH-bFK"/>
+                                </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="ni2-l9-1B1"/>
                             <menuItem title="Bring All to Front" id="Ptv-wc-ehk">
@@ -477,7 +480,7 @@ Spark is made possible by the WebKit open source project and other open source s
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="MMA-4M-Pa4" userLabel="Preferences Window" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="216" y="230" width="614" height="642"/>
+            <rect key="contentRect" x="363" y="216" width="614" height="642"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" misplaced="YES" id="9sG-7c-hp7">
                 <rect key="frame" x="0.0" y="0.0" width="614" height="642"/>
@@ -787,7 +790,7 @@ Spark is made possible by the WebKit open source project and other open source s
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="qp2-Mq-gTe" userLabel="Config Window" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="216" y="230" width="525" height="173"/>
+            <rect key="contentRect" x="577" y="497" width="525" height="173"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" misplaced="YES" id="ElD-p4-mUE">
                 <rect key="frame" x="0.0" y="0.0" width="525" height="173"/>
