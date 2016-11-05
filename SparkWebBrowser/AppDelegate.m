@@ -960,7 +960,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 
 - (void)checkExperimentalConfig:(id)sender {
     
-    // Check if checkbox should be checked (spark://config/UseSparkAboutWebpage)
+    // Check if checkbox should be checked (spark://config - "Use spark://about webpage")
     if([defaults boolForKey:@"useSparkAboutPage"] == YES) {
         self.useAboutPageBtn.state = NSOnState;
     } else {
