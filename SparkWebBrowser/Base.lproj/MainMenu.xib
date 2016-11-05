@@ -354,6 +354,10 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="XPA-fq-Ga5"/>
+                            <menuItem title="Experimental Configuration" id="JOt-9f-RRr">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="ni2-l9-1B1"/>
                             <menuItem title="Bring All to Front" id="Ptv-wc-ehk">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
@@ -389,7 +393,7 @@
                     </menu>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="898" y="-744"/>
+            <point key="canvasLocation" x="919" y="-694"/>
         </menu>
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="oJi-1c-Sb5" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
@@ -468,7 +472,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="922" y="-506"/>
+            <point key="canvasLocation" x="944" y="-481"/>
         </window>
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="MMA-4M-Pa4" userLabel="Preferences Window" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
@@ -783,18 +787,18 @@ Spark is made possible by the WebKit open source project and other open source s
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="qp2-Mq-gTe" userLabel="Config Window" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="216" y="230" width="324" height="124"/>
+            <rect key="contentRect" x="216" y="230" width="525" height="173"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" misplaced="YES" id="ElD-p4-mUE">
-                <rect key="frame" x="0.0" y="0.0" width="324" height="124"/>
+                <rect key="frame" x="0.0" y="0.0" width="525" height="173"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <box verticalHuggingPriority="750" misplaced="YES" boxType="separator" id="Qtq-Mj-oqy">
-                        <rect key="frame" x="20" y="50" width="292" height="5"/>
+                        <rect key="frame" x="20" y="50" width="485" height="5"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </box>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="Wuz-PX-SMz">
-                        <rect key="frame" x="71" y="68" width="173" height="34"/>
+                        <rect key="frame" x="71" y="124" width="173" height="34"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Configuration" id="cWD-g8-44W">
                             <font key="font" metaFont="system" size="28"/>
@@ -803,10 +807,29 @@ Spark is made possible by the WebKit open source project and other open source s
                         </textFieldCell>
                     </textField>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="5ax-wd-HiW">
-                        <rect key="frame" x="20" y="61" width="47" height="47"/>
+                        <rect key="frame" x="20" y="117" width="47" height="47"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="AppIcon256" id="Ggz-Tf-jA4"/>
                     </imageView>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" id="3Kt-xI-ELp">
+                        <rect key="frame" x="18" y="61" width="489" height="52"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="gRr-nC-ra9">
+                            <font key="font" metaFont="system" size="10"/>
+                            <string key="title">                  These experimental features may change, break, or disappear at any time. There are absolutely no guarantees about what may happen if you turn one of these experiments on, and your browser may delete all your data, or your security and privacy could be compromised in unexpected ways. Please proceed with caution.</string>
+                            <color key="textColor" red="0.33004838199999997" green="0.33004838199999997" blue="0.33004838199999997" alpha="0.93430543659999998" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" id="era-qZ-wuw">
+                        <rect key="frame" x="18" y="100" width="56" height="13"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="WARNING:" id="0UG-IT-dn5">
+                            <font key="font" metaFont="system" size="10"/>
+                            <color key="textColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                     <button misplaced="YES" id="Dsd-aD-fO0">
                         <rect key="frame" x="18" y="18" width="189" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -820,7 +843,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="823" y="-902"/>
+            <point key="canvasLocation" x="829" y="-860"/>
         </window>
         <window allowsToolTipsWhenApplicationIsInactive="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES"/>
@@ -1152,7 +1175,7 @@ DQ
                     </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="438" y="-772"/>
+            <point key="canvasLocation" x="332" y="-744"/>
         </window>
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="mqa-o5-dlu" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" texturedBackground="YES"/>
@@ -1208,7 +1231,7 @@ DQ
                     </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="478" y="-421"/>
+            <point key="canvasLocation" x="524" y="-415"/>
         </window>
     </objects>
     <resources>
