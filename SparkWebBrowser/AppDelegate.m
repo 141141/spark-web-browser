@@ -316,6 +316,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     self.settingsWindow.backgroundColor = [NSColor whiteColor];
     self.configWindow.backgroundColor = [NSColor whiteColor];
     
+    [self checkExperimentalConfig:nil];
+    
     // Set up tracking areas
     backBtnTrackingArea = [[NSTrackingArea alloc] initWithRect:[self.backBtn bounds] options:NSTrackingMouseEnteredAndExited |NSTrackingActiveAlways owner:self userInfo:nil];
     forwardBtnTrackingArea = [[NSTrackingArea alloc] initWithRect:[self.forwardBtn bounds] options:NSTrackingMouseEnteredAndExited |NSTrackingActiveAlways owner:self userInfo:nil];
@@ -454,8 +456,6 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         self.customSearchEngineField.hidden = YES;
         self.customSearchEngineSaveBtn.hidden = YES;
     }
-    
-    [self checkExperimentalConfig:nil];
 }
 
 #pragma mark - IBActions
@@ -974,7 +974,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         
         NSLog(@"Saving custom search engine...");
         
-        customSearchString = [[NSString stringWithFormat:@"%@", self.customSearchEngineField.stringValue] stringByReplacingOccurrencesOfString:@"*QUERY*" withString:@"%@"]; // Create fallback for those migrating from beta/nightly builds
+        customSearchString = [NSString stringWithFormat:@"%@", self.customSearchEngineField.stringValue];
         
         [defaults setObject:[NSString stringWithFormat:@"Custom"] forKey:@"currentSearchEngine"];
         [defaults setObject:[NSString stringWithFormat:@"%@", customSearchString] forKey:@"customSearchEngine"];
