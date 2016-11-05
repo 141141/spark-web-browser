@@ -147,6 +147,10 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Finish initializing
     
+    // Used for debugging purposes
+    //NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+    //[defaults removePersistentDomainForName:appDomain];
+    
     // Set up WebView
     [self.webView setPolicyDelegate:(id<WebPolicyDelegate>)self];
     [self.webView setDownloadDelegate:(id<WebDownloadDelegate>)self];
@@ -270,7 +274,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         }
     }
     
-    // Check if checkbox should be checked
+    // Check if checkbox should be checked (setHomepageBtn)
     if([defaults boolForKey:@"setHomepageEngine"] == YES) {
         self.homepageBasedOnSearchEngineBtn.state = NSOnState;
         self.homepageTextField.enabled = NO;
@@ -279,6 +283,13 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         self.homepageBasedOnSearchEngineBtn.state = NSOffState;
         self.homepageTextField.enabled = YES;
         self.setHomepageBtn.enabled = YES;
+    }
+    
+    // Check if checkbox should be checked (spark://config/UseSparkAboutWebpage)
+    if([defaults boolForKey:@"useSparkAboutPage"] == YES) {
+        self.useAboutPageBtn.state = NSOnState;
+    } else {
+        self.useAboutPageBtn.state = NSOffState;
     }
     
     if([[defaults objectForKey:@"currentReleaseChannel"] isEqual: @"dev"]) { // Create fallback from "dev" channel for those migrating from previous versions
@@ -310,6 +321,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     self.errorWindow.backgroundColor = [NSColor whiteColor];
     self.popupWindow.backgroundColor = [NSColor whiteColor];
     self.settingsWindow.backgroundColor = [NSColor whiteColor];
+    self.configWindow.backgroundColor = [NSColor whiteColor];
     
     // Set up tracking areas
     backBtnTrackingArea = [[NSTrackingArea alloc] initWithRect:[self.backBtn bounds] options:NSTrackingMouseEnteredAndExited |NSTrackingActiveAlways owner:self userInfo:nil];
@@ -579,7 +591,40 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     [[NSApplication sharedApplication] terminate:nil];
 }
 
+- (IBAction)useAboutPage:(id)sender {
+    
+    if(self.useAboutPageBtn.state == NSOnState) {
+        NSLog(@"Now using spark://about webpage.");
+        
+        [defaults setBool:YES forKey:@"useSparkAboutPage"];
+    } else {
+        NSLog(@"Now using Spark About window.");
+        
+        [defaults setBool:NO forKey:@"useSparkAboutPage"];
+    }
+}
+
+- (IBAction)openAboutWindow:(id)sender {
+    
+    if([defaults boolForKey:@"useSparkAboutPage"] == YES) {
+        
+        NSLog(@"Loading spark-about.html...");
+        
+        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-about" ofType:@"html"] isDirectory:NO]]];
+        
+        self.addressBar.stringValue = @"spark://about";
+    } else {
+        NSLog(@"Opening About window...");
+        
+        self.aboutWindow.isVisible = YES;
+        [self.aboutWindow makeKeyAndOrderFront:nil];
+        [NSApp activateIgnoringOtherApps:YES];
+    }
+}
+
 - (IBAction)setTopBarColor:(id)sender {
+    
+    NSLog(@"Setting theme color...");
     
     colorChosen = [NSString stringWithFormat:@"%@", self.topBarColorPicker.titleOfSelectedItem];
     
@@ -1015,19 +1060,39 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     if([urlToString isEqual: @"spark://about"] || [urlToString isEqual: @"spark://spark"]) {
         // spark://about || spark://spark called
         
-        NSLog(@"spark://about || spark://spark called. Loading spark-about.html...");
+        if([defaults boolForKey:@"useSparkAboutPage"] == YES) {
+            
+            NSLog(@"spark://about || spark://spark called. Loading spark-about.html...");
+            
+            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-about" ofType:@"html"] isDirectory:NO]]];
+            
+            self.addressBar.stringValue = @"spark://about";
+        } else {
+            NSLog(@"spark://about || spark://spark called. Opening About window...");
+            
+            self.aboutWindow.isVisible = YES;
+            [self.aboutWindow makeKeyAndOrderFront:nil];
+            [NSApp activateIgnoringOtherApps:YES];
+        }
         
-        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-about" ofType:@"html"] isDirectory:NO]]];
+    } else if([urlToString isEqual: @"spark://prefs"] || [urlToString isEqual: @"spark://preferences"] || [urlToString isEqual: @"spark://settings"]) {
+        // spark://prefs || spark://preferences || spark://settings called
         
-        self.addressBar.stringValue = @"spark://about";
-        
-    } else if([urlToString isEqual: @"spark://prefs"] || [urlToString isEqual: @"spark://preferences"] || [urlToString isEqual: @"spark://settings"] || [urlToString isEqual:@"spark://config"]) {
-        // spark://prefs || spark://preferences || spark://settings || spark://config called
-        
-        NSLog(@"spark://prefs || spark://preferences || spark://settings || spark://config called. Loading...");
+        NSLog(@"spark://prefs || spark://preferences || spark://settings called. Loading...");
         
         self.settingsWindow.isVisible = YES;
         [self.settingsWindow makeKeyAndOrderFront:nil];
+        [NSApp activateIgnoringOtherApps:YES];
+        
+        self.addressBar.stringValue = self.webView.mainFrameURL;
+        
+    } else if([urlToString isEqual: @"spark://config"]) {
+        // spark://config called
+        
+        NSLog(@"spark://config called. Opening Configuration window...");
+        
+        self.configWindow.isVisible = YES;
+        [self.configWindow makeKeyAndOrderFront:nil];
         [NSApp activateIgnoringOtherApps:YES];
         
         self.addressBar.stringValue = self.webView.mainFrameURL;

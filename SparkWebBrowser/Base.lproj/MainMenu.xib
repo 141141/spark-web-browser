@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11542" systemVersion="16C32e" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11542" systemVersion="16C32f" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
@@ -23,6 +23,7 @@
                 <outlet property="backBtn" destination="CSR-Ik-wrT" id="9ar-Ai-zKp"/>
                 <outlet property="bytesDownloadedText" destination="dwf-zl-wLW" id="euM-ql-uB0"/>
                 <outlet property="closeDownloadingViewBtn" destination="A6A-L3-Pmj" id="bde-Oh-kWa"/>
+                <outlet property="configWindow" destination="qp2-Mq-gTe" id="nho-rh-GTX"/>
                 <outlet property="currentReleaseChannel" destination="Nsk-Kz-xZ8" id="YrI-ws-JOD"/>
                 <outlet property="currentVersion" destination="sbh-Aa-9pH" id="pub-aC-Yo5"/>
                 <outlet property="customColorWell" destination="uuu-yL-LqP" id="rPJ-sf-qXT"/>
@@ -60,6 +61,7 @@
                 <outlet property="titleStatus" destination="JvK-hQ-Wwq" id="SHO-kH-keU"/>
                 <outlet property="topBarBg" destination="bY4-GT-wGb" id="gOF-sW-3Lj"/>
                 <outlet property="topBarColorPicker" destination="XHo-Io-iG9" id="A34-iL-EJS"/>
+                <outlet property="useAboutPageBtn" destination="Dsd-aD-fO0" id="BKp-8D-uSF"/>
                 <outlet property="webView" destination="ffM-a6-P1L" id="vO9-FI-Eez"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="FlD-yq-Bjm"/>
             </connections>
@@ -74,7 +76,7 @@
                             <menuItem title="About Spark" id="5kV-Vb-QxS">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
-                                    <action selector="makeKeyAndOrderFront:" target="oJi-1c-Sb5" id="1Jq-nI-LrI"/>
+                                    <action selector="openAboutWindow:" target="Voe-Tx-rLC" id="qMD-QL-NB9"/>
                                 </connections>
                             </menuItem>
                             <menuItem title="Check for Updates..." id="eTj-Kv-YWS">
@@ -776,7 +778,49 @@ Spark is made possible by the WebKit open source project and other open source s
                     </textField>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="1472" y="-537"/>
+            <point key="canvasLocation" x="1474" y="-625"/>
+        </window>
+        <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="qp2-Mq-gTe" userLabel="Config Window" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="216" y="230" width="324" height="124"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <view key="contentView" misplaced="YES" id="ElD-p4-mUE">
+                <rect key="frame" x="0.0" y="0.0" width="324" height="124"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <box verticalHuggingPriority="750" misplaced="YES" boxType="separator" id="Qtq-Mj-oqy">
+                        <rect key="frame" x="20" y="50" width="292" height="5"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    </box>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="Wuz-PX-SMz">
+                        <rect key="frame" x="71" y="68" width="173" height="34"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Configuration" id="cWD-g8-44W">
+                            <font key="font" metaFont="system" size="28"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="5ax-wd-HiW">
+                        <rect key="frame" x="20" y="61" width="47" height="47"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="AppIcon256" id="Ggz-Tf-jA4"/>
+                    </imageView>
+                    <button misplaced="YES" id="Dsd-aD-fO0">
+                        <rect key="frame" x="18" y="18" width="189" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Use spark://about webpage" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="tSd-Uk-uIG">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="useAboutPage:" target="Voe-Tx-rLC" id="46p-A0-fx1"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <point key="canvasLocation" x="823" y="-902"/>
         </window>
         <window allowsToolTipsWhenApplicationIsInactive="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES"/>
@@ -972,7 +1016,7 @@ Spark is made possible by the WebKit open source project and other open source s
                                                 <menuItem title="About Spark" id="lHH-QS-cRn">
                                                     <modifierMask key="keyEquivalentModifierMask"/>
                                                     <connections>
-                                                        <action selector="makeKeyAndOrderFront:" target="oJi-1c-Sb5" id="i2Z-wl-nig"/>
+                                                        <action selector="openAboutWindow:" target="Voe-Tx-rLC" id="OQZ-RK-Q99"/>
                                                     </connections>
                                                 </menuItem>
                                                 <menuItem title="Check for Updates..." id="ldt-Zm-wUS">
