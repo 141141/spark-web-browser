@@ -104,3 +104,13 @@ a {
     text-align: center;
     font-size: 18px;
 }
+
+.version-item {
+    padding-top: 5px;
+    line-height: 0.2em;
+    font-size: 14px;
+}
+
+.version-item-first {
+    padding-top: 20px;
+}

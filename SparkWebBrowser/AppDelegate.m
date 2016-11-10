@@ -1080,6 +1080,15 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
             [NSApp activateIgnoringOtherApps:YES];
         }
         
+    } else if([urlToString isEqual: @"spark://version"]) {
+        // spark://version called
+        
+        NSLog(@"spark://version called. Loading spark-version.html...");
+        
+        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-version" ofType:@"html"] isDirectory:NO]]];
+        
+        self.addressBar.stringValue = @"spark://version";
+        
     } else if([urlToString isEqual: @"spark://prefs"] || [urlToString isEqual: @"spark://preferences"] || [urlToString isEqual: @"spark://settings"]) {
         // spark://prefs || spark://preferences || spark://settings called
         
@@ -1401,7 +1410,9 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
             self.faviconImage.image = [NSImage imageNamed:@"favicon.ico"];
         }
         
-        [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-currentVersion').innerHTML = 'Version %@.%@ (%@ channel)';", appVersion, buildNumber, releaseChannel]];
+        [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-currentVersion').innerHTML = '%@';", appVersion]];
+        [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-currentBuild').innerHTML = '%@';", buildNumber]];
+        [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-currentReleaseChannel').innerHTML = '%@';", releaseChannel]];
     }
 }
 
