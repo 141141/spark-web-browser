@@ -28,6 +28,7 @@
 		ABBA53EE1D85E0BE00D3B691 /* stylesheet.css in Resources */ = {isa = PBXBuildFile; fileRef = ABBA53EB1D85E0BE00D3B691 /* stylesheet.css */; };
 		ABBD6C201D3707B900C48592 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83980719817D8E001D31B7 /* Cocoa.framework */; };
 		ABBD6C211D3707C600C48592 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83983B19817E15001D31B7 /* WebKit.framework */; };
+		ABC8F5631DD403E60015BCA0 /* spark-version.html in Resources */ = {isa = PBXBuildFile; fileRef = ABC8F5621DD403E60015BCA0 /* spark-version.html */; };
 		ABD638DD1DC40D2400AD11BB /* spark-urls.html in Resources */ = {isa = PBXBuildFile; fileRef = ABD638DC1DC40D2400AD11BB /* spark-urls.html */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		ABBA53EA1D85E0BE00D3B691 /* spark-about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "spark-about.html"; sourceTree = "<group>"; };
 		ABBA53EB1D85E0BE00D3B691 /* stylesheet.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = stylesheet.css; sourceTree = "<group>"; };
 		ABBD6C101D3706B500C48592 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = "../../../../../Downloads/Sparkle-1.14.0/Sparkle.framework"; sourceTree = "<group>"; };
+		ABC8F5621DD403E60015BCA0 /* spark-version.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "spark-version.html"; sourceTree = "<group>"; };
 		ABD638DC1DC40D2400AD11BB /* spark-urls.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "spark-urls.html"; sourceTree = "<group>"; };
 		ABE32C7A1DA15AEA00D0B07E /* Screenshot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot1.png; sourceTree = "<group>"; };
 		ABE32C7B1DA15AEA00D0B07E /* Screenshot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot2.png; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				ABBA53EA1D85E0BE00D3B691 /* spark-about.html */,
+				ABC8F5621DD403E60015BCA0 /* spark-version.html */,
 				ABB89ADE1DAF04FC007CE7D1 /* spark-invalid-url.html */,
 				ABD638DC1DC40D2400AD11BB /* spark-urls.html */,
 			);
@@ -317,6 +320,7 @@
 				ABAC7A861DB325F10087FF6B /* bootstrap.min.css in Resources */,
 				ABAC7A881DB325F50087FF6B /* jquery.min.js in Resources */,
 				ABD638DD1DC40D2400AD11BB /* spark-urls.html in Resources */,
+				ABC8F5631DD403E60015BCA0 /* spark-version.html in Resources */,
 				ABBA53ED1D85E0BE00D3B691 /* spark-about.html in Resources */,
 				ABAC7A841DB325ED0087FF6B /* bootstrap.min.js in Resources */,
 				ABB443631D84634C001D55C7 /* dsa_pub.pem in Resources */,
