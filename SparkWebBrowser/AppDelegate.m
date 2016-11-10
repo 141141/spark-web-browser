@@ -162,7 +162,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     // Set up WebView
     [self.webView setPolicyDelegate:(id<WebPolicyDelegate>)self];
     [self.webView setDownloadDelegate:(id<WebDownloadDelegate>)self];
-    [self.webView setCustomUserAgent: userAgent];
+    [self.webView setCustomUserAgent:userAgent];
     
     // NSUserDefaults key value checking
     if([defaults objectForKey:@"currentReleaseChannel"] == nil) {
@@ -1320,7 +1320,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         [self.downloadProgressIndicator stopAnimation:self];
         self.downloadProgressIndicator.doubleValue = 0;
         [self.loadingIndicator stopAnimation:self];
-        self.reloadBtn.image = [NSImage imageNamed: NSImageNameRefreshTemplate];
+        self.reloadBtn.image = [NSImage imageNamed:NSImageNameRefreshTemplate];
         self.loadingIndicator.hidden = YES;
         self.faviconImage.hidden = NO;
         self.fileDownloadStatusIcon.hidden = NO;
@@ -1389,7 +1389,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     // Only report feedback for the main frame.
     if(frame == [sender mainFrame]) {
         websiteURL = [[[[frame provisionalDataSource] request] URL] absoluteString];
-        self.reloadBtn.image = [NSImage imageNamed: NSImageNameStopProgressTemplate];
+        self.reloadBtn.image = [NSImage imageNamed:NSImageNameStopProgressTemplate];
         [self.addressBar setStringValue:websiteURL];
         self.faviconImage.hidden = YES;
         self.loadingIndicator.hidden = NO;
@@ -1398,7 +1398,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         // Use Google to get website favicons
         // In the future, the app should be able to detect a favicon.ico instead of relying on a service to get favicons
         faviconURLString = [NSString stringWithFormat:@"https://www.google.com/s2/favicons?domain=%@", websiteURL];
-        faviconURL = [NSURL URLWithString: faviconURLString];
+        faviconURL = [NSURL URLWithString:faviconURLString];
         faviconData = [NSData dataWithContentsOfURL:faviconURL];
         websiteFavicon = [[NSImage alloc] initWithData:faviconData];
         self.faviconImage.image = websiteFavicon;
@@ -1410,7 +1410,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     // Only report feedback for the main frame.
     if(frame == [sender mainFrame]) {
         [self.loadingIndicator stopAnimation:self];
-        self.reloadBtn.image = [NSImage imageNamed: NSImageNameRefreshTemplate];
+        self.reloadBtn.image = [NSImage imageNamed:NSImageNameRefreshTemplate];
         self.loadingIndicator.hidden = YES;
         self.faviconImage.hidden = NO;
         
