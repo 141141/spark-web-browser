@@ -68,7 +68,7 @@ NSString *buildNumber = nil; // Spark build number
 NSString *macOSVersionString = nil; // macOS version number
 NSString *macOSBuildString = nil; // macOS build number
 NSString *macOSProductName = nil; // macOS product name
-NSString *editedMacOSProductName = nil; // Edited macOS product name
+NSString *customMacOSProductName = nil; // Edited macOS product name
 NSString *releaseChannel = nil; // Spark release channel
 NSString *editedVersionString = nil; // Edited macOS version string
 NSString *userAgent = nil; // Spark user agent, used when loading webpages
@@ -116,7 +116,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     alloyOrangeColor = [NSColor colorWithRed:200.0f/255.0f green:80.0f/255.0f blue:1.0f/255.0f alpha:1.0f];
     darkGrayColor = [NSColor colorWithRed:44.0f/255.0f green:44.0f/255.0f blue:44.0f/255.0f alpha:1.0f];
     
-    if([defaults objectForKey:@"currentReleaseChannel"] == nil) { // This is called in applicationDidFinishLaunching as well, but calling it here ensures it's set properly
+    if([defaults objectForKey:@"currentReleaseChannel"] == nil) { // This is called in applicationDidFinishLaunching as well, but calling it here ensures it's properly set
         // No release channel is set -- revert to default
         NSLog(@"Error: no release channel is set. Setting now...");
         
@@ -133,9 +133,9 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     macOSProductName = [sv objectForKey:@"ProductName"]; // Get macOS product name
     
     if([[NSProcessInfo processInfo] operatingSystemVersion].minorVersion < 12) { // Check whether or not user is running macOS 10.12 or later
-        editedMacOSProductName = @"OS X";
+        customMacOSProductName = @"OS X";
     } else {
-        editedMacOSProductName = @"macOS";
+        customMacOSProductName = @"macOS";
     }
     
     releaseChannel = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"currentReleaseChannel"]]; // Get current release channel
@@ -1422,7 +1422,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-currentBuild').innerHTML = '%@';", buildNumber]];
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-currentReleaseChannel').innerHTML = '%@';", releaseChannel]];
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-userAgent').innerHTML = '%@';", userAgent]];
-        [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-operatingSystemName').innerHTML = '%@';", editedMacOSProductName]];
+        [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-operatingSystemName').innerHTML = '%@';", customMacOSProductName]];
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-operatingSystemVersion').innerHTML = '%@';", macOSVersionString]];
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-operatingSystemBuild').innerHTML = '%@';", macOSBuildString]];
     }
