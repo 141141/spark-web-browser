@@ -114,3 +114,23 @@ a {
 .version-item-first {
     padding-top: 20px;
 }
+
+.version-item-userAgent {
+    line-height: 1.4em;
+}
+
+.version-hr {
+    border: none;
+    height: 1px;
+    background-color: #C1C1C1;
+}
+
+.version-copyright {
+    font-weight: 200;
+    font-size: 11px;
+}
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}

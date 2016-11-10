@@ -65,9 +65,10 @@ NSTrackingArea *reloadBtnTrackingArea = nil; // Reload button tracking area (use
 NSTrackingArea *settingsBtnTrackingArea = nil; // Settings button tracking area (used for hover effect)
 NSString *appVersion = nil; // Spark version number
 NSString *buildNumber = nil; // Spark build number
-NSString *versionString = nil; // macOS version number
-NSString *buildString = nil; // macOS build number
-NSString *productName = nil; // macOS product name
+NSString *macOSVersionString = nil; // macOS version number
+NSString *macOSBuildString = nil; // macOS build number
+NSString *macOSProductName = nil; // macOS product name
+NSString *editedMacOSProductName = nil; // Edited macOS product name
 NSString *releaseChannel = nil; // Spark release channel
 NSString *editedVersionString = nil; // Edited macOS version string
 NSString *userAgent = nil; // Spark user agent, used when loading webpages
@@ -127,12 +128,19 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     appVersion = [infoDict objectForKey:@"CFBundleShortVersionString"]; // Fetch the version number from Info.plist
     buildNumber = [infoDict objectForKey:@"CFBundleVersion"]; // Fetch the build number from Info.plist
     sv = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"]; // Load SystemVersion.plist
-    versionString = [sv objectForKey:@"ProductVersion"]; // Get macOS version
-    buildString = [sv objectForKey:@"ProductBuildVersion"]; // Get macOS build number
-    productName = [sv objectForKey:@"ProductName"]; // Get macOS product name
+    macOSVersionString = [sv objectForKey:@"ProductVersion"]; // Get macOS version
+    macOSBuildString = [sv objectForKey:@"ProductBuildVersion"]; // Get macOS build number
+    macOSProductName = [sv objectForKey:@"ProductName"]; // Get macOS product name
+    
+    if(NSAppKitVersionNumber <= NSAppKitVersionNumber10_12) { // Check whether or not user is running macOS 10.12 or later
+        editedMacOSProductName = @"OS X";
+    } else {
+        editedMacOSProductName = @"macOS";
+    }
+    
     releaseChannel = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"currentReleaseChannel"]]; // Get current release channel
-    editedVersionString = [versionString stringByReplacingOccurrencesOfString:@"." withString:@"_"]; // Replace dots in version string with underscores
-    userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel %@ %@) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36 Spark/%@.%@", productName, editedVersionString, appVersion, buildNumber]; // Set user agent respective to the current versions of Spark and macOS
+    editedVersionString = [macOSVersionString stringByReplacingOccurrencesOfString:@"." withString:@"_"]; // Replace dots in version string with underscores
+    userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel %@ %@) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36 Spark/%@.%@", macOSProductName, editedVersionString, appVersion, buildNumber]; // Set user agent respective to the current versions of Spark and macOS
 }
 
 - (void)applicationWillFinishLaunching:(NSNotification *)aNotification {
@@ -1080,10 +1088,10 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
             [NSApp activateIgnoringOtherApps:YES];
         }
         
-    } else if([urlToString isEqual: @"spark://version"]) {
-        // spark://version called
+    } else if([urlToString isEqual: @"spark://version"] || [urlToString isEqual:@"spark://currentversion"]) {
+        // spark://version || spark://currentversion called
         
-        NSLog(@"spark://version called. Loading spark-version.html...");
+        NSLog(@"spark://version || spark://currentversion called. Loading spark-version.html...");
         
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-version" ofType:@"html"] isDirectory:NO]]];
         
@@ -1413,6 +1421,10 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-currentVersion').innerHTML = '%@';", appVersion]];
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-currentBuild').innerHTML = '%@';", buildNumber]];
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-currentReleaseChannel').innerHTML = '%@';", releaseChannel]];
+        [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-userAgent').innerHTML = '%@';", userAgent]];
+        [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-operatingSystemName').innerHTML = '%@';", editedMacOSProductName]];
+        [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-operatingSystemVersion').innerHTML = '%@';", macOSVersionString]];
+        [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-operatingSystemBuild').innerHTML = '%@';", macOSBuildString]];
     }
 }
 
