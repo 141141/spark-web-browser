@@ -132,7 +132,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     macOSBuildString = [sv objectForKey:@"ProductBuildVersion"]; // Get macOS build number
     macOSProductName = [sv objectForKey:@"ProductName"]; // Get macOS product name
     
-    if(NSAppKitVersionNumber <= NSAppKitVersionNumber10_12) { // Check whether or not user is running macOS 10.12 or later
+    if([[NSProcessInfo processInfo] operatingSystemVersion].minorVersion < 12) { // Check whether or not user is running macOS 10.12 or later
         editedMacOSProductName = @"OS X";
     } else {
         editedMacOSProductName = @"macOS";
