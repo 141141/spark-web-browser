@@ -1014,9 +1014,9 @@ Spark is made possible by the WebKit open source project and other open source s
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                         <menu key="submenu" title="More Tools" id="Lnl-Rh-3Pb">
                                             <items>
-                                                <menuItem title="Save Page..." id="793-TA-p5n">
+                                                <menuItem title="Save Page..." keyEquivalent="S" id="YoN-xb-Jzx">
                                                     <connections>
-                                                        <action selector="savePage:" target="-1" id="MAx-bt-CVz"/>
+                                                        <action selector="savePage:" target="-1" id="kEC-GY-8xq"/>
                                                     </connections>
                                                 </menuItem>
                                             </items>
