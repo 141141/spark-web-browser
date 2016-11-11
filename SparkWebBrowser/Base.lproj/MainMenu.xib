@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11542" systemVersion="16C32f" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11542" systemVersion="16C41b" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
@@ -675,6 +675,7 @@ Spark is made possible by the WebKit open source project and other open source s
                                     <menuItem title="Redmond Blue" id="joZ-Ng-4qb"/>
                                     <menuItem title="Leaf Green" id="fKJ-1s-2Se"/>
                                     <menuItem title="Alloy Orange" id="CAI-8i-CQY"/>
+                                    <menuItem title="Canary Yellow" id="NYf-iW-Iax"/>
                                     <menuItem title="Dark Gray" id="Nd6-9K-LI2"/>
                                     <menuItem isSeparatorItem="YES" id="axc-JB-fcf"/>
                                     <menuItem title="Custom" id="Uxr-7V-3BE"/>
@@ -1008,6 +1009,18 @@ Spark is made possible by the WebKit open source project and other open source s
                                         <connections>
                                             <action selector="print:" target="-1" id="PO0-Fx-n4h"/>
                                         </connections>
+                                    </menuItem>
+                                    <menuItem title="More Tools" id="VOo-yR-0ty">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <menu key="submenu" title="More Tools" id="Lnl-Rh-3Pb">
+                                            <items>
+                                                <menuItem title="Save Page..." id="793-TA-p5n">
+                                                    <connections>
+                                                        <action selector="savePage:" target="-1" id="MAx-bt-CVz"/>
+                                                    </connections>
+                                                </menuItem>
+                                            </items>
+                                        </menu>
                                     </menuItem>
                                     <menuItem isSeparatorItem="YES" id="f3M-b5-m5O"/>
                                     <menuItem title="Cut" id="Sx7-IY-WuM">

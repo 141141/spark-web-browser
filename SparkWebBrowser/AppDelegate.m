@@ -50,6 +50,7 @@ NSColor *midnightBlueColor = nil;
 NSColor *redmondBlueColor = nil;
 NSColor *leafGreenColor = nil;
 NSColor *alloyOrangeColor = nil;
+NSColor *canaryYellowColor = nil;
 NSColor *darkGrayColor = nil;
 NSData *customColorData = nil;
 
@@ -114,6 +115,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     redmondBlueColor = [NSColor colorWithRed:16.0f/255.0f green:101.0f/255.0f blue:207.0f/255.0f alpha:1.0f];
     leafGreenColor = [NSColor colorWithRed:8.0f/255.0f green:157.0f/255.0f blue:0.0f/255.0f alpha:1.0f];
     alloyOrangeColor = [NSColor colorWithRed:200.0f/255.0f green:80.0f/255.0f blue:1.0f/255.0f alpha:1.0f];
+    canaryYellowColor = [NSColor colorWithRed:253.0f/255.0f green:193.0f/255.0f blue:53.0f/255.0f alpha:1.0f];
     darkGrayColor = [NSColor colorWithRed:44.0f/255.0f green:44.0f/255.0f blue:44.0f/255.0f alpha:1.0f];
     
     if([defaults objectForKey:@"currentReleaseChannel"] == nil) { // This is called in applicationDidFinishLaunching as well, but calling it here ensures it's properly set
@@ -156,8 +158,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     // Finish initializing
     
     // Used for debugging purposes
-    //NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
-    //[defaults removePersistentDomainForName:appDomain];
+    // NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+    // [defaults removePersistentDomainForName:appDomain];
     
     // Set up WebView
     [self.webView setPolicyDelegate:(id<WebPolicyDelegate>)self];
@@ -324,13 +326,14 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     self.settingsWindow.backgroundColor = [NSColor whiteColor];
     self.configWindow.backgroundColor = [NSColor whiteColor];
     
+    // Check experimental configuration settings
     [self checkExperimentalConfig:nil];
     
     // Set up tracking areas
-    backBtnTrackingArea = [[NSTrackingArea alloc] initWithRect:[self.backBtn bounds] options:NSTrackingMouseEnteredAndExited |NSTrackingActiveAlways owner:self userInfo:nil];
-    forwardBtnTrackingArea = [[NSTrackingArea alloc] initWithRect:[self.forwardBtn bounds] options:NSTrackingMouseEnteredAndExited |NSTrackingActiveAlways owner:self userInfo:nil];
-    reloadBtnTrackingArea = [[NSTrackingArea alloc] initWithRect:[self.reloadBtn bounds] options:NSTrackingMouseEnteredAndExited |NSTrackingActiveAlways owner:self userInfo:nil];
-    settingsBtnTrackingArea = [[NSTrackingArea alloc] initWithRect:[self.settingsBtn bounds] options:NSTrackingMouseEnteredAndExited |NSTrackingActiveAlways owner:self userInfo:nil];
+    backBtnTrackingArea = [[NSTrackingArea alloc] initWithRect:[self.backBtn bounds] options:NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways owner:self userInfo:nil];
+    forwardBtnTrackingArea = [[NSTrackingArea alloc] initWithRect:[self.forwardBtn bounds] options:NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways owner:self userInfo:nil];
+    reloadBtnTrackingArea = [[NSTrackingArea alloc] initWithRect:[self.reloadBtn bounds] options:NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways owner:self userInfo:nil];
+    settingsBtnTrackingArea = [[NSTrackingArea alloc] initWithRect:[self.settingsBtn bounds] options:NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways owner:self userInfo:nil];
     
     [self.backBtn addTrackingArea:backBtnTrackingArea];
     [self.forwardBtn addTrackingArea:forwardBtnTrackingArea];
@@ -421,6 +424,16 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         
         // Set window color to Alloy Orange
         self.window.backgroundColor = alloyOrangeColor;
+        
+        // Still set color in NSColorWell in case user wants it later
+        self.customColorWell.color = [defaults colorForKey:@"customColor"];
+        
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Canary Yellow"]) {
+        
+        self.customColorWell.hidden = YES;
+        
+        // Set window color to Canary Yellow
+        self.window.backgroundColor = canaryYellowColor;
         
         // Still set color in NSColorWell in case user wants it later
         self.customColorWell.color = [defaults colorForKey:@"customColor"];
@@ -665,6 +678,16 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         
         // Still store color in NSColorWell in case user wants it later
         [defaults setColor:self.customColorWell.color forKey:@"customColor"];
+        
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Canary Yellow"]) {
+        
+        self.customColorWell.hidden = YES;
+        
+        // Set window color to Canary Yellow
+        self.window.backgroundColor = canaryYellowColor;
+        
+        // Still set color in NSColorWell in case user wants it later
+        self.customColorWell.color = [defaults colorForKey:@"customColor"];
         
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Dark Gray"]) {
         
@@ -1359,27 +1382,26 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     
     // For later option to ask where to save each file before downloading
     /*if(downloadOverride == YES) {
-     NSSavePanel *panel = [NSSavePanel savePanel];
+        NSSavePanel *panel = [NSSavePanel savePanel];
      
-     if([panel runModalForDirectory:nil file:suggestedFilename] == NSFileHandlingPanelCancelButton) {
-     // If the user doesn't want to save, cancel the download.
-     [download cancel];
-     downloadOverride = NO;
+        if([panel runModalForDirectory:nil file:suggestedFilename] == NSFileHandlingPanelCancelButton) {
+            // If the user doesn't want to save, cancel the download.
+            [download cancel];
+            downloadOverride = NO;
+        } else {
+            // Set the destination to save to.
+            [download setDestination:[panel filename] allowOverwrite:YES];
+            downloadOverride = NO;
+        }
      } else {
-     // Set the destination to save to.
-     [download setDestination:[panel filename] allowOverwrite:YES];
-     downloadOverride = NO;
-     }
-     } else {
-     destinationFilename = [NSString stringWithFormat:@"%@%@", [defaults objectForKey:@"currentDownloadLocation"], suggestedFilename];
+        destinationFilename = [NSString stringWithFormat:@"%@%@", [defaults objectForKey:@"currentDownloadLocation"], suggestedFilename];
      
-     [download setDestination:destinationFilename allowOverwrite:NO];
+        [download setDestination:destinationFilename allowOverwrite:NO];
      }*/
     
     destinationFilename = [NSString stringWithFormat:@"%@%@", [defaults objectForKey:@"currentDownloadLocation"], suggestedFilename];
     
     [download setDestination:destinationFilename allowOverwrite:NO];
-    
 }
 
 #pragma mark - WebView loading-related methods
