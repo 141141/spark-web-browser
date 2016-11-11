@@ -27,7 +27,7 @@ NSString *bingSearchString = @"https://www.bing.com/search?q=%@";
 NSString *yahooSearchString = @"https://search.yahoo.com/search?p=%@";
 NSString *duckDuckGoSearchString = @"https://www.duckduckgo.com/%@";
 NSString *askSearchString = @"http://www.ask.com/web?q=%@";
-NSString *aolSearchString = @"http://search.aol.com/aol/search?q=%@";
+NSString *aolSearchString = @"https://search.aol.com/aol/search?q=%@";
 NSString *customSearchString = nil;
 
 // Search engine default homepages
@@ -39,7 +39,7 @@ NSString *askDefaultURL = @"http://www.ask.com/";
 NSString *aolDefaultURL = @"http://www.aol.com/";
 
 // Strings for "Help" menu bar item
-NSString *appIssuesURL = @"https://github.com/insleep/spark-web-browser/issues/new?title=Describe%20your%20feature%20request%20or%20bug%20report,%20succinctly&body=**Spark%20version:**%20%0A%20**Spark%20build:**%20%0A%20**Release%20channel:**%20%0A%20**macOS%20version:**%20%0A%0A%20**Description:**%20%0A%0A%20**Steps%20to%20reproduce:**%20%0A%0A%20**Expected%20results:**%20%0A%0A%20**Actual%20results:**";
+NSString *appIssuesURL = @"https://www.github.com/insleep/spark-web-browser/issues/new?title=Describe%20your%20feature%20request%20or%20bug%20report,%20succinctly&body=**Spark%20version:**%20%0A%20**Spark%20build:**%20%0A%20**Release%20channel:**%20%0A%20**macOS%20version:**%20%0A%0A%20**Description:**%20%0A%0A%20**Steps%20to%20reproduce:**%20%0A%0A%20**Expected%20results:**%20%0A%0A%20**Actual%20results:**";
 NSString *appReleasesURL = @"https://www.github.com/insleep/spark-web-browser/releases/tag/%@/";
 
 // Theme colors
