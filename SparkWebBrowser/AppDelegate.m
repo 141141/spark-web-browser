@@ -93,7 +93,7 @@ NSString *editedURLString = nil; // Edited string to load a webpage from
 NSString *capitalizedReleaseChannel = nil; // Spark release channel, including capital letters
 NSString *uncapitalizedReleaseChannel = nil; // Spark release channel, not including capital letters
 NSString *searchEngineChosen = nil; // Current search engine chosen
-NSString *colorChosen = nil; // Current top bar color stored in NSUserDefaults
+NSString *colorChosen = nil; // Current theme color stored in NSUserDefaults
 NSString *urlToString = nil; // NSURL converted to a NSString, used when handling spark:// URL events
 NSString *websiteURL = nil; // Current website URL, used when loading webpages
 NSString *faviconURLString = nil; // URL for the service that retrieves favicons
@@ -213,14 +213,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         [defaults setObject:@"Default" forKey:@"currentColor"];
     }
     
-    if([defaults integerForKey:@"colorIndex"] == (int)nil) {
-        // No theme color index is set -- revert to default
-        NSLog(@"Error: no theme color index is set. Setting now...");
-        
-        [defaults setInteger:0 forKey:@"colorIndex"];
-    }
-    
-    [self.topBarColorPicker selectItemAtIndex:[defaults integerForKey:@"colorIndex"]];
+    [self.topBarColorPicker selectItemWithTitle:[defaults objectForKey:@"currentColor"]];
     
     if([defaults objectForKey:@"currentDownloadLocation"] == nil) {
         // No download location is set -- revert to default
@@ -607,7 +600,6 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     colorChosen = [NSString stringWithFormat:@"%@", self.topBarColorPicker.titleOfSelectedItem];
     
     [defaults setObject:[NSString stringWithFormat:@"%@", colorChosen] forKey:@"currentColor"];
-    [defaults setInteger:self.topBarColorPicker.indexOfSelectedItem forKey:@"colorIndex"];
     
     if([[defaults objectForKey:@"currentColor"] isEqual: @"Default"]) {
         
