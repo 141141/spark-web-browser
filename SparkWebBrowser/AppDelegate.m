@@ -1430,14 +1430,15 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         self.loadingIndicator.hidden = YES;
         self.faviconImage.hidden = NO;
         
-        if([self.addressBar.stringValue hasPrefix: @"spark://"] || [self.addressBar.stringValue hasPrefix: @"spark:"]) {
+        if([self.addressBar.stringValue hasPrefix: @"spark:"]) { // Check whether or not a spark: page is being loaded
             self.faviconImage.image = [NSImage imageNamed:@"favicon.ico"];
         }
         
-        if(self.faviconImage.image == nil) {
+        if(self.faviconImage.image == nil) { // Check whether or not a favicon image exists for the current webpage
             self.faviconImage.image = [NSImage imageNamed:@"defaultfavicon"];
         }
         
+        // Set values for use on spark:// pages
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-currentVersion').innerHTML = '%@';", appVersion]];
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-currentBuild').innerHTML = '%@';", buildNumber]];
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-currentReleaseChannel').innerHTML = '%@';", releaseChannel]];
