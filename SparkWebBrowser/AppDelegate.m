@@ -174,7 +174,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         [defaults setObject:[NSString stringWithFormat:@"stable"] forKey:@"currentReleaseChannel"];
     }
     
-    if([defaults integerForKey:@"releaseChannelIndex"] == (int)nil) {
+    if([defaults objectForKey:@"releaseChannelIndex"] == nil) {
         // No release channel index is set -- revert to default
         
         [defaults setInteger:0 forKey:@"releaseChannelIndex"];
@@ -189,7 +189,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         [defaults setObject:[NSString stringWithFormat:@"Google"] forKey:@"currentSearchEngine"];
     }
     
-    if([defaults integerForKey:@"searchEngineIndex"] == (int)nil) {
+    if([defaults objectForKey:@"searchEngineIndex"] == nil) {
         // No search engine index is set -- revert to default
         
         [defaults setInteger:0 forKey:@"searchEngineIndex"];
@@ -224,7 +224,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     
     [self.downloadLocTextField setStringValue:[defaults objectForKey:@"currentDownloadLocation"]];
     
-    if([defaults boolForKey:@"startupWithLastSession"] == (bool)nil) {
+    if([defaults objectForKey:@"startupWithLastSession"] == nil) {
         // No startup settings exist -- revert to default
         
         [defaults setBool:NO forKey:@"startupWithLastSession"];

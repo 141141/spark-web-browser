@@ -940,7 +940,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     <webView id="ffM-a6-P1L">
                         <rect key="frame" x="0.0" y="0.0" width="1107" height="652"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12">
+                        <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12" javaScriptCanOpenWindowsAutomatically="NO">
                             <nil key="identifier"/>
                         </webPreferences>
                         <connections>
