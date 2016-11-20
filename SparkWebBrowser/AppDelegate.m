@@ -176,6 +176,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     
     if([defaults objectForKey:@"releaseChannelIndex"] == nil) {
         // No release channel index is set -- revert to default
+        NSLog(@"Error: no release channel index is set. Setting now...");
         
         [defaults setInteger:0 forKey:@"releaseChannelIndex"];
     }
@@ -191,6 +192,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     
     if([defaults objectForKey:@"searchEngineIndex"] == nil) {
         // No search engine index is set -- revert to default
+        NSLog(@"Error: no search engine index is set. Setting now...");
         
         [defaults setInteger:0 forKey:@"searchEngineIndex"];
     }
