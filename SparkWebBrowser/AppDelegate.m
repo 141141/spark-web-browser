@@ -19,7 +19,7 @@
 
 @synthesize window;
 
-// Declarations -- defined within the class for easy changes / scalability in the future
+#pragma mark - Declarations
 
 // Search engine query strings
 NSString *googleSearchString = @"https://www.google.com/search?q=%@";
