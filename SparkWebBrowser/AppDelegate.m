@@ -1374,7 +1374,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 
 - (void)download:(NSURLDownload *)download decideDestinationWithSuggestedFilename:(NSString *)filename {
     
-    // For later option to ask where to save each file before downloading
+    // For future option to ask where to save each file before downloading
     /*if(downloadOverride == YES) {
         NSSavePanel *panel = [NSSavePanel savePanel];
      
