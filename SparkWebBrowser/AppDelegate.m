@@ -1439,10 +1439,14 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         }
         
         // Set values for use on spark:// pages
+        
+        // Shared resources
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-currentVersion').innerHTML = '%@';", appVersion]];
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-currentBuild').innerHTML = '%@';", buildNumber]];
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-currentReleaseChannel').innerHTML = '%@';", releaseChannel]];
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-userAgent').innerHTML = '%@';", userAgent]];
+
+        // spark://version resources
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-operatingSystemName').innerHTML = '%@';", customMacOSProductName]];
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-operatingSystemVersion').innerHTML = '%@';", macOSVersionString]];
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-operatingSystemBuild').innerHTML = '%@';", macOSBuildString]];
