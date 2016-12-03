@@ -99,6 +99,7 @@ NSString *websiteURL = nil; // Current website URL, used when loading webpages
 NSString *faviconURLString = nil; // URL for the service that retrieves favicons
 NSURL *eventURL = nil; // Used when handling spark:// URL events
 NSURL *faviconURL = nil; // NSURL converted from faviconURLString
+NSURL *candidateURL = nil; // String value of addressBar as an NSURL
 NSData *faviconData = nil; // Data retrieved from faviconURLString service
 NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 
@@ -788,9 +789,9 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 
 - (IBAction)initWebpageLoad:(id)sender {
     
-    NSURL *candidateURL = [NSURL URLWithString:self.addressBar.stringValue];
+    candidateURL = [NSURL URLWithString:self.addressBar.stringValue]; // String value of addressBar converted to an NSURL
 
-    searchString = self.addressBar.stringValue;
+    searchString = self.addressBar.stringValue; // String value of addressBar
     
     if([searchString hasPrefix:@"https://"]) {
 
@@ -798,7 +799,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
             
             NSLog(@"URL is valid. Loading HTTPS webpage...");
             
-            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:searchString]]];
+            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:candidateURL]];
             self.addressBar.stringValue = [NSString stringWithFormat:@"%@", searchString];
         }
         
@@ -808,7 +809,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
             
             NSLog(@"URL is valid. Loading HTTP webpage...");
             
-            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:searchString]]];
+            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:candidateURL]];
             self.addressBar.stringValue = [NSString stringWithFormat:@"%@", searchString];
         }
         
