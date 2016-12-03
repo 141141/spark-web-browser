@@ -811,6 +811,17 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
             
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:candidateURL]];
             self.addressBar.stringValue = [NSString stringWithFormat:@"%@", searchString];
+            
+            /*NSCachedURLResponse *urlResponse = [[NSURLCache sharedURLCache] cachedResponseForRequest:webView.request];
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*) urlResponse.response;
+            NSInteger statusCode = httpResponse.statusCode;
+            if (statusCode > 399) {
+                NSError *error = [NSError errorWithDomain:@"HTTP Error" code:httpResponse.statusCode userInfo:@{@"response":httpResponse}];
+                // Forward the error to webView:didFailLoadWithError: or other
+            }
+            else {
+                // No HTTP error
+            }*/
         }
         
     } else if([searchString hasPrefix:@"file://"]) {
@@ -1419,6 +1430,14 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 }
 
 #pragma mark - WebView loading-related methods
+
+- (void)webView:(WebView *)sender decidePolicyForNewWindowAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request newFrameName:(NSString *)frameName decisionListener:(id<WebPolicyDecisionListener>)listener {
+    
+    NSLog(@"Website is attempting to open a new tab/window. Loading webpage...");
+    
+    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:request.URL]];
+    self.addressBar.stringValue = [NSString stringWithFormat:@"%@", request.URL];
+}
 
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame {
     
