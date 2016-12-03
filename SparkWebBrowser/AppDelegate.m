@@ -813,15 +813,15 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
             self.addressBar.stringValue = [NSString stringWithFormat:@"%@", searchString];
             
             /*NSCachedURLResponse *urlResponse = [[NSURLCache sharedURLCache] cachedResponseForRequest:webView.request];
-            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*) urlResponse.response;
-            NSInteger statusCode = httpResponse.statusCode;
-            if (statusCode > 399) {
-                NSError *error = [NSError errorWithDomain:@"HTTP Error" code:httpResponse.statusCode userInfo:@{@"response":httpResponse}];
-                // Forward the error to webView:didFailLoadWithError: or other
-            }
-            else {
-                // No HTTP error
-            }*/
+             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*) urlResponse.response;
+             NSInteger statusCode = httpResponse.statusCode;
+             if (statusCode > 399) {
+             NSError *error = [NSError errorWithDomain:@"HTTP Error" code:httpResponse.statusCode userInfo:@{@"response":httpResponse}];
+             // Forward the error to webView:didFailLoadWithError: or other
+             }
+             else {
+             // No HTTP error
+             }*/
         }
         
     } else if([searchString hasPrefix:@"file://"]) {
@@ -1431,6 +1431,25 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 
 #pragma mark - WebView loading-related methods
 
+- (void)webView:(WebView *)sender didFailProvisionalLoadWithError:(NSError *)error forFrame:(WebFrame *)frame {
+    NSLog(@"Provisional webpage load failed: %@", error);
+    
+    [defaults setObject:[NSString stringWithFormat:@"%@", self.addressBar.stringValue] forKey:@"lastSession"];
+    
+    if(error.code == -1202) {
+        
+        NSLog(@"Loading spark-cert-invalid.html...");
+        
+        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-cert-invalid" ofType:@"html"] isDirectory:NO]]];
+        
+        //The certificate for this server is invalid. You might be connecting to a server that is pretending to be “hi.com” which could put your confidential information at risk.
+    }
+}
+
+- (void)webView:(WebView *)sender didFailLoadWithError:(NSError *)error forFrame:(WebFrame *)frame {
+    NSLog(@"Webpage load failed: %@", error);
+}
+
 - (void)webView:(WebView *)sender decidePolicyForNewWindowAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request newFrameName:(NSString *)frameName decisionListener:(id<WebPolicyDecisionListener>)listener {
     
     NSLog(@"Website is attempting to open a new tab/window. Loading webpage...");
@@ -1489,6 +1508,9 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-operatingSystemName').innerHTML = '%@';", customMacOSProductName]];
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-operatingSystemVersion').innerHTML = '%@';", macOSVersionString]];
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-operatingSystemBuild').innerHTML = '%@';", macOSBuildString]];
+        
+        // spark://invalid-cert resources
+        [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-invalidCertWebpage').innerHTML = '%@';", [[defaults objectForKey:@"lastSession"] stringByReplacingOccurrencesOfString:@"https://" withString:@""]]];
     }
 }
 
