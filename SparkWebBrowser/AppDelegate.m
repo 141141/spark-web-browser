@@ -788,15 +788,30 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 
 - (IBAction)initWebpageLoad:(id)sender {
     
+    NSURL *candidateURL = [NSURL URLWithString:self.addressBar.stringValue];
+
     searchString = self.addressBar.stringValue;
     
-    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:searchString]]];
-    self.addressBar.stringValue = [NSString stringWithFormat:@"%@", searchString];
-    
     if([searchString hasPrefix:@"https://"]) {
-        NSLog(@"Loading HTTPS webpage...");
+
+        if(candidateURL && candidateURL.scheme && candidateURL.host) {
+            
+            NSLog(@"URL is valid. Loading HTTPS webpage...");
+            
+            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:searchString]]];
+            self.addressBar.stringValue = [NSString stringWithFormat:@"%@", searchString];
+        }
+        
     } else if([searchString hasPrefix:@"http://"]) {
-        NSLog(@"Loading HTTP webpage...");
+        
+        if(candidateURL && candidateURL.scheme && candidateURL.host) {
+            
+            NSLog(@"URL is valid. Loading HTTP webpage...");
+            
+            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:searchString]]];
+            self.addressBar.stringValue = [NSString stringWithFormat:@"%@", searchString];
+        }
+        
     } else if([searchString hasPrefix:@"file://"]) {
         NSLog(@"file:// prefix");
     } else {
