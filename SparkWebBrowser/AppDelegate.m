@@ -1451,7 +1451,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         // NSURLErrorServerCertificateNotYetValid = -1204
         // NSURLErrorServerCertificateHasUnknownRoot = -1203
         // NSURLErrorServerCertificateUntrusted = -1202
-        //NSURLErrorServerCertificateHasBadDate = -1201
+        // NSURLErrorServerCertificateHasBadDate = -1201
         // NSURLErrorSecureConnectionFailed = -1200
         
         NSLog(@"Loading spark-cert-invalid.html...");
