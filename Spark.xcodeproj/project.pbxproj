@@ -15,12 +15,9 @@
 		AB98DDDC1D370CD100ABCF16 /* WebKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB83983B19817E15001D31B7 /* WebKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AB98DDDE1D370CD400ABCF16 /* Cocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB83980719817D8E001D31B7 /* Cocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ABA41D9F1D84DC2300F01B90 /* NSUserDefaults+ColorSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA41D9E1D84DC2300F01B90 /* NSUserDefaults+ColorSupport.m */; };
-		ABA41DA61D84E40F00F01B90 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB4435E1D846194001D55C7 /* Sparkle.framework */; };
-		ABA41DA71D84E40F00F01B90 /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ABB4435E1D846194001D55C7 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ABAC7A841DB325ED0087FF6B /* bootstrap.min.js in Resources */ = {isa = PBXBuildFile; fileRef = ABAC7A831DB325ED0087FF6B /* bootstrap.min.js */; };
 		ABAC7A861DB325F10087FF6B /* bootstrap.min.css in Resources */ = {isa = PBXBuildFile; fileRef = ABAC7A851DB325F10087FF6B /* bootstrap.min.css */; };
 		ABAC7A881DB325F50087FF6B /* jquery.min.js in Resources */ = {isa = PBXBuildFile; fileRef = ABAC7A871DB325F50087FF6B /* jquery.min.js */; };
-		ABB443611D8461CA001D55C7 /* Sparkle.framework in Resources */ = {isa = PBXBuildFile; fileRef = ABB4435E1D846194001D55C7 /* Sparkle.framework */; };
 		ABB443631D84634C001D55C7 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = ABB443621D84634C001D55C7 /* dsa_pub.pem */; };
 		ABB89ADF1DAF04FC007CE7D1 /* spark-invalid-url.html in Resources */ = {isa = PBXBuildFile; fileRef = ABB89ADE1DAF04FC007CE7D1 /* spark-invalid-url.html */; };
 		ABBA53EC1D85E0BE00D3B691 /* favicon.ico in Resources */ = {isa = PBXBuildFile; fileRef = ABBA53E91D85E0BE00D3B691 /* favicon.ico */; };
@@ -34,6 +31,9 @@
 		ABD324AC1DF3A96B005DBF4F /* spark-connection-fail.html in Resources */ = {isa = PBXBuildFile; fileRef = ABD324AB1DF3A96B005DBF4F /* spark-connection-fail.html */; };
 		ABD324B01DF3B630005DBF4F /* spark-redirect-loop.html in Resources */ = {isa = PBXBuildFile; fileRef = ABD324AF1DF3B630005DBF4F /* spark-redirect-loop.html */; };
 		ABD638DD1DC40D2400AD11BB /* spark-urls.html in Resources */ = {isa = PBXBuildFile; fileRef = ABD638DC1DC40D2400AD11BB /* spark-urls.html */; };
+		ABEB632D1DF4AFD80005FFB9 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEB632B1DF4AFD00005FFB9 /* Sparkle.framework */; };
+		ABEB632E1DF4AFD80005FFB9 /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ABEB632B1DF4AFD00005FFB9 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ABEB632F1DF4B00B0005FFB9 /* Sparkle.framework in Resources */ = {isa = PBXBuildFile; fileRef = ABEB632B1DF4AFD00005FFB9 /* Sparkle.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,7 +44,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				AB98DDDE1D370CD400ABCF16 /* Cocoa.framework in Embed Frameworks */,
-				ABA41DA71D84E40F00F01B90 /* Sparkle.framework in Embed Frameworks */,
+				ABEB632E1DF4AFD80005FFB9 /* Sparkle.framework in Embed Frameworks */,
 				AB98DDDC1D370CD100ABCF16 /* WebKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -74,7 +74,6 @@
 		ABAC7A831DB325ED0087FF6B /* bootstrap.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = bootstrap.min.js; path = "SparkWebBrowser/URL Resources/bootstrap.min.js"; sourceTree = SOURCE_ROOT; };
 		ABAC7A851DB325F10087FF6B /* bootstrap.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = bootstrap.min.css; path = "SparkWebBrowser/URL Resources/bootstrap.min.css"; sourceTree = SOURCE_ROOT; };
 		ABAC7A871DB325F50087FF6B /* jquery.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = jquery.min.js; path = "SparkWebBrowser/URL Resources/jquery.min.js"; sourceTree = SOURCE_ROOT; };
-		ABB4435E1D846194001D55C7 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = SparkWebBrowser/Sparkle.framework; sourceTree = SOURCE_ROOT; };
 		ABB443621D84634C001D55C7 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = SOURCE_ROOT; };
 		ABB89ADE1DAF04FC007CE7D1 /* spark-invalid-url.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "spark-invalid-url.html"; sourceTree = "<group>"; };
 		ABBA53E91D85E0BE00D3B691 /* favicon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = favicon.ico; sourceTree = "<group>"; };
@@ -92,6 +91,7 @@
 		ABE32C7C1DA15AEA00D0B07E /* Screenshot3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot3.png; sourceTree = "<group>"; };
 		ABE32C7D1DA15AEA00D0B07E /* Screenshot4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot4.png; sourceTree = "<group>"; };
 		ABE32C7E1DA15AEA00D0B07E /* Screenshot5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot5.png; sourceTree = "<group>"; };
+		ABEB632B1DF4AFD00005FFB9 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = SparkWebBrowser/Sparkle.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +100,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABBD6C211D3707C600C48592 /* WebKit.framework in Frameworks */,
-				ABA41DA61D84E40F00F01B90 /* Sparkle.framework in Frameworks */,
+				ABEB632D1DF4AFD80005FFB9 /* Sparkle.framework in Frameworks */,
 				ABBD6C201D3707B900C48592 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -183,7 +183,7 @@
 		ABA41DA51D84E40600F01B90 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				ABB4435E1D846194001D55C7 /* Sparkle.framework */,
+				ABEB632B1DF4AFD00005FFB9 /* Sparkle.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -325,6 +325,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABEB632F1DF4B00B0005FFB9 /* Sparkle.framework in Resources */,
 				AB04FD021C712BAD00F08232 /* Images.xcassets in Resources */,
 				ABB89ADF1DAF04FC007CE7D1 /* spark-invalid-url.html in Resources */,
 				AB8587B71D7C9DFE0073515C /* SparkIcon256.png in Resources */,
@@ -338,7 +339,6 @@
 				ABBA53ED1D85E0BE00D3B691 /* spark-about.html in Resources */,
 				ABAC7A841DB325ED0087FF6B /* bootstrap.min.js in Resources */,
 				ABB443631D84634C001D55C7 /* dsa_pub.pem in Resources */,
-				ABB443611D8461CA001D55C7 /* Sparkle.framework in Resources */,
 				ABD324B01DF3B630005DBF4F /* spark-redirect-loop.html in Resources */,
 				ABBA53EC1D85E0BE00D3B691 /* favicon.ico in Resources */,
 				ABBA53EE1D85E0BE00D3B691 /* stylesheet.css in Resources */,
@@ -468,7 +468,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/SparkWebBrowser";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/SparkWebBrowser",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SparkWebBrowser/Spark-Prefix.pch";
 				INFOPLIST_FILE = "SparkWebBrowser/Spark-Info.plist";
@@ -489,7 +492,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/SparkWebBrowser";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/SparkWebBrowser",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SparkWebBrowser/Spark-Prefix.pch";
 				INFOPLIST_FILE = "SparkWebBrowser/Spark-Info.plist";
