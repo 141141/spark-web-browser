@@ -100,7 +100,7 @@ a {
 }
 
 .invalidpage-firstBtn {
-    float: center;
+    /* float: center; */
     width: 150px;
 }
 

@@ -82,6 +82,7 @@ NSString *downloadLocation = nil; // Download location
 NSString *downloadLocationEdited = nil; // Download location, edited to remove special characters
 NSString *bytesReceivedFormatted = nil; // Bytes received (file download) (formatted)
 NSString *expectedLengthFormatted = nil; // Expected length of file being downloaded (formatted)
+NSString *lastSession = nil; // Value from NSUserDefaults of lastSession
 long long expectedLength = 0; // Expected length of a file being downloaded
 bool downloadOverride = NO; // Boolean for whether or not to download a file even if WebView can display it
 
@@ -1436,14 +1437,22 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     
     [defaults setObject:[NSString stringWithFormat:@"%@", self.addressBar.stringValue] forKey:@"lastSession"];
     
-    if(error.code == -1202) {
+    if(error.code == -1206 || error.code == -1205 || error.code == -1204 || error.code == -1203 || error.code == -1202 || error.code == -1201 || error.code == -1200) {
+        // NSURLErrorClientCertificateRequired = -1206
+        //NSURLErrorClientCertificateRejected = -1205
+        // NSURLErrorServerCertificateNotYetValid = -1204
+        // NSURLErrorServerCertificateHasUnknownRoot = -1203
+        // NSURLErrorServerCertificateUntrusted = -1202
+        //NSURLErrorServerCertificateHasBadDate = -1201
+        // NSURLErrorSecureConnectionFailed = -1200
         
         NSLog(@"Loading spark-cert-invalid.html...");
         
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-cert-invalid" ofType:@"html"] isDirectory:NO]]];
         
         self.addressBar.stringValue = [defaults objectForKey:@"lastSession"];
-    } else if(error.code == -1004) {
+    } else if(error.code == -1009 || error.code == -1004) {
+        // NSURLErrorNotConnectedToInternet || NSURLErrorCannotConnectToHost
         
         NSLog(@"Loading spark-connection-fail.html...");
         
@@ -1490,6 +1499,13 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     
     // Only report feedback for the main frame.
     if(frame == [sender mainFrame]) {
+        
+        lastSession = [[defaults objectForKey:@"lastSession"] stringByReplacingOccurrencesOfString:@"https://" withString:@""];
+        
+        if([lastSession rangeOfString:@"/"].location != NSNotFound) {
+            lastSession = [lastSession substringToIndex:[lastSession rangeOfString:@"/"].location];
+        }
+        
         [self.loadingIndicator stopAnimation:self];
         self.reloadBtn.image = [NSImage imageNamed:NSImageNameRefreshTemplate];
         self.loadingIndicator.hidden = YES;
@@ -1517,7 +1533,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-operatingSystemBuild').innerHTML = '%@';", macOSBuildString]];
         
         // spark://invalid-cert resources
-        [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-webpageRequested').innerHTML = '%@';", [[defaults objectForKey:@"lastSession"] stringByReplacingOccurrencesOfString:@"https://" withString:@""]]];
+        [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-webpageRequested').innerHTML = '%@';", lastSession]];
     }
 }
 
