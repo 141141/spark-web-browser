@@ -1445,9 +1445,9 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         self.addressBar.stringValue = [defaults objectForKey:@"lastSession"];
     } else if(error.code == -1004) {
         
-        NSLog(@"Loading spark-cert-invalid.html...");
+        NSLog(@"Loading spark-connection-fail.html...");
         
-        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-cert-invalid" ofType:@"html"] isDirectory:NO]]];
+        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-connection-fail" ofType:@"html"] isDirectory:NO]]];
         
         self.addressBar.stringValue = [defaults objectForKey:@"lastSession"];
     }
