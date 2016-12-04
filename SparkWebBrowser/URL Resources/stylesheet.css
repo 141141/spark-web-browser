@@ -95,6 +95,20 @@ a {
     color: #FFFFFF;
 }
 
+.invalidpage-button-margin {
+    margin-left: 10px;
+}
+
+.invalidpage-backBtn {
+    float: center;
+    width: 150px;
+}
+
+.invalidpage-proceedBtn {
+    float: center;
+    width: 150px;
+}
+
 .sparkurls-heading {
     font-weight: 300;
 }

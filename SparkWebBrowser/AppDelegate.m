@@ -1443,6 +1443,13 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-cert-invalid" ofType:@"html"] isDirectory:NO]]];
         
         self.addressBar.stringValue = [defaults objectForKey:@"lastSession"];
+    } else if(error.code == -1004) {
+        
+        NSLog(@"Loading spark-cert-invalid.html...");
+        
+        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-cert-invalid" ofType:@"html"] isDirectory:NO]]];
+        
+        self.addressBar.stringValue = [defaults objectForKey:@"lastSession"];
     }
 }
 
@@ -1510,7 +1517,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-operatingSystemBuild').innerHTML = '%@';", macOSBuildString]];
         
         // spark://invalid-cert resources
-        [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-invalidCertWebpage').innerHTML = '%@';", [[defaults objectForKey:@"lastSession"] stringByReplacingOccurrencesOfString:@"https://" withString:@""]]];
+        [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-webpageRequested').innerHTML = '%@';", [[defaults objectForKey:@"lastSession"] stringByReplacingOccurrencesOfString:@"https://" withString:@""]]];
     }
 }
 

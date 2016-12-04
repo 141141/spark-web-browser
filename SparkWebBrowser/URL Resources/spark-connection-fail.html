@@ -1,6 +1,6 @@
 <!--
  
- spark-cert-invalid.html
+ spark-connection-fail.html
  Spark
  
  Copyright (c) 2014-2016 Jonathan Wukitsch / Insleep
@@ -28,11 +28,10 @@
     <div class="container">
         <div class="spark-styles row col-sm-8 col-centered">
             <img src="ErrorIcon256.png" alt="Error icon" height="84" width="84">
-            <h1 class="invalidpage-heading">Your connection is not secure</h1>
+            <h1 class="invalidpage-heading">Unable to connect</h1>
             <hr class="invalidpage-hr" />
-            <p class="invalidpage-desc lead">The certificate for this server is invalid.&nbsp;You might be connecting to a server that is pretending to be&nbsp;<b><span id="sparkWebBrowser-webpageRequested"></span></b>&nbsp;which could put your confidential information at risk.&nbsp;Because of this, Spark has not connected to this website.</p>
-            <a href="spark://back" class="invalidpage-button-link"><button type="button" class="invalidpage-backBtn btn btn-primary">Go Back</button></a>
-            <a href="spark://invalidcert-proceedanyway" class="invalidpage-button-margin invalidpage-button-link"><button type="button" class="invalidpage-proceedBtn btn btn-danger">Proceed Anyway</button></a>
+            <p class="invalidpage-desc lead">Spark can't establish a connection to &nbsp;<b><span id="sparkWebBrowser-webpageRequested"></span></b>&nbsp;.</p>
+            <a href="spark://reload" class="invalidpage-button-link"><button type="button" class="invalidpage-backBtn btn btn-primary">Try Again</button></a>
         </div>
     </div>
     
