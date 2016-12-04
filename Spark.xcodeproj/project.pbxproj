@@ -30,7 +30,7 @@
 		ABBD6C211D3707C600C48592 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83983B19817E15001D31B7 /* WebKit.framework */; };
 		ABC8F5631DD403E60015BCA0 /* spark-version.html in Resources */ = {isa = PBXBuildFile; fileRef = ABC8F5621DD403E60015BCA0 /* spark-version.html */; };
 		ABD324A41DF36D4D005DBF4F /* spark-cert-invalid.html in Resources */ = {isa = PBXBuildFile; fileRef = ABD324A31DF36D4D005DBF4F /* spark-cert-invalid.html */; };
-		ABD324A61DF3A180005DBF4F /* ErrorIcon256.png in Resources */ = {isa = PBXBuildFile; fileRef = ABD324A51DF3A180005DBF4F /* ErrorIcon256.png */; };
+		ABD324A81DF3A1DC005DBF4F /* ErrorIcon256.png in Resources */ = {isa = PBXBuildFile; fileRef = ABD324A71DF3A1DC005DBF4F /* ErrorIcon256.png */; };
 		ABD638DD1DC40D2400AD11BB /* spark-urls.html in Resources */ = {isa = PBXBuildFile; fileRef = ABD638DC1DC40D2400AD11BB /* spark-urls.html */; };
 /* End PBXBuildFile section */
 
@@ -81,7 +81,7 @@
 		ABBD6C101D3706B500C48592 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = "../../../../../Downloads/Sparkle-1.14.0/Sparkle.framework"; sourceTree = "<group>"; };
 		ABC8F5621DD403E60015BCA0 /* spark-version.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "spark-version.html"; sourceTree = "<group>"; };
 		ABD324A31DF36D4D005DBF4F /* spark-cert-invalid.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "spark-cert-invalid.html"; sourceTree = "<group>"; };
-		ABD324A51DF3A180005DBF4F /* ErrorIcon256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ErrorIcon256.png; sourceTree = SOURCE_ROOT; };
+		ABD324A71DF3A1DC005DBF4F /* ErrorIcon256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ErrorIcon256.png; path = "SparkWebBrowser/URL Resources/ErrorIcon256.png"; sourceTree = SOURCE_ROOT; };
 		ABD638DC1DC40D2400AD11BB /* spark-urls.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "spark-urls.html"; sourceTree = "<group>"; };
 		ABE32C7A1DA15AEA00D0B07E /* Screenshot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot1.png; sourceTree = "<group>"; };
 		ABE32C7B1DA15AEA00D0B07E /* Screenshot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot2.png; sourceTree = "<group>"; };
@@ -228,7 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				AB8587B61D7C9DFE0073515C /* SparkIcon256.png */,
-				ABD324A51DF3A180005DBF4F /* ErrorIcon256.png */,
+				ABD324A71DF3A1DC005DBF4F /* ErrorIcon256.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -322,7 +322,7 @@
 				AB04FD021C712BAD00F08232 /* Images.xcassets in Resources */,
 				ABB89ADF1DAF04FC007CE7D1 /* spark-invalid-url.html in Resources */,
 				AB8587B71D7C9DFE0073515C /* SparkIcon256.png in Resources */,
-				ABD324A61DF3A180005DBF4F /* ErrorIcon256.png in Resources */,
+				ABD324A81DF3A1DC005DBF4F /* ErrorIcon256.png in Resources */,
 				AB04FD131C712C6000F08232 /* MainMenu.xib in Resources */,
 				ABAC7A861DB325F10087FF6B /* bootstrap.min.css in Resources */,
 				ABAC7A881DB325F50087FF6B /* jquery.min.js in Resources */,
