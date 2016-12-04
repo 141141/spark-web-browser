@@ -1442,7 +1442,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-cert-invalid" ofType:@"html"] isDirectory:NO]]];
         
-        //The certificate for this server is invalid. You might be connecting to a server that is pretending to be “hi.com” which could put your confidential information at risk.
+        self.addressBar.stringValue = [defaults objectForKey:@"lastSession"];
     }
 }
 
