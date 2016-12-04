@@ -90,6 +90,11 @@ a {
     background-color: #C1C1C1;
 }
 
+.invalidpage-button-link {
+    text-decoration: none !important;
+    color: #FFFFFF;
+}
+
 .sparkurls-heading {
     font-weight: 300;
 }
