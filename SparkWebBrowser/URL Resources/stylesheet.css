@@ -99,12 +99,12 @@ a {
     margin-left: 10px;
 }
 
-.invalidpage-backBtn {
+.invalidpage-firstBtn {
     float: center;
     width: 150px;
 }
 
-.invalidpage-proceedBtn {
+.invalidpage-secondBtn {
     float: center;
     width: 150px;
 }
