@@ -1,6 +1,6 @@
 <!--
  
- spark-connection-fail.html
+ spark-redirect-loop.html
  Spark
  
  Copyright (c) 2014-2016 Jonathan Wukitsch / Insleep
@@ -26,10 +26,10 @@
 
 <body>
     <div class="container">
-        <div class="spark-styles">
-            <h1 class="invalidpage-heading">This site can't be reached</h1>
+        <div class="spark-styles row col-sm-8 col-centered">
+            <h1 class="invalidpage-heading">This webpage has a redirect loop</h1>
             <hr class="invalidpage-hr" />
-            <p class="invalidpage-desc lead">Spark can't establish a connection to&nbsp;<b><span id="sparkWebBrowser-webpageRequested"></span></b>.</p>
+            <p class="invalidpage-desc lead">The webpage at&nbsp;<b><span id="sparkWebBrowser-webpageRequested"></span></b>&nbsp;has resulted in too many redirects.&nbsp;This could possibly be the result of a server configuration issue, not a problem with your computer.</p>
             <a href="spark://lastsession" class="invalidpage-button-link"><button type="button" class="invalidpage-firstBtn btn btn-primary">Try Again</button></a>
         </div>
     </div>

@@ -1256,6 +1256,14 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         
         [self viewReleaseNotes:nil];
         
+    } else if([urlToString isEqual: @"spark://lastsession"]) {
+        // spark://lastsession called
+        
+        NSLog(@"spark://lastsession called. Loading...");
+        
+        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[defaults objectForKey:@"lastSession"]]]];
+        self.addressBar.stringValue = [defaults objectForKey:@"lastSession"];
+        
     } else if([urlToString hasPrefix: @"spark://"] || [urlToString hasPrefix: @"spark:"]) {
         // Invalid spark:// URL
         
@@ -1452,11 +1460,20 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         
         self.addressBar.stringValue = [defaults objectForKey:@"lastSession"];
     } else if(error.code == -1009 || error.code == -1004) {
-        // NSURLErrorNotConnectedToInternet || NSURLErrorCannotConnectToHost
+        // NSURLErrorNotConnectedToInternet = -1009
+        // NSURLErrorCannotConnectToHost = -1004
         
         NSLog(@"Loading spark-connection-fail.html...");
         
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-connection-fail" ofType:@"html"] isDirectory:NO]]];
+        
+        self.addressBar.stringValue = [defaults objectForKey:@"lastSession"];
+    } else if(error.code == -1007) {
+        // NSURLErrorHTTPTooManyRedirects
+        
+        NSLog(@"Loading spark-redirect-loop.html...");
+        
+        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-redirect-loop" ofType:@"html"] isDirectory:NO]]];
         
         self.addressBar.stringValue = [defaults objectForKey:@"lastSession"];
     }
