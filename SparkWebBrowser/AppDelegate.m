@@ -1168,10 +1168,10 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         
         self.addressBar.stringValue = self.webView.mainFrameURL;
         
-    } else if([urlToString isEqual: @"spark://quit"]) {
-        // spark://quit called
+    } else if([urlToString isEqual: @"spark://quit"] || [urlToString isEqual: @"spark://close"] || [urlToString isEqual: @"spark://endsession"] || [urlToString isEqual: @"spark://closesession"]) {
+        // spark://quit || spark://close || spark://endsession || spark://closesession called
         
-        NSLog(@"spark://quit called. Quitting...");
+        NSLog(@"spark://quit || spark://close || spark://endsession || spark://closesession called. Quitting...");
         
         [[NSApplication sharedApplication] terminate:nil];
         
