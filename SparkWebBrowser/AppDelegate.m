@@ -127,6 +127,11 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         [defaults setObject:[NSString stringWithFormat:@"stable"] forKey:@"currentReleaseChannel"];
     }
     
+    // Check whether or not WebKit developer menus are enabled
+    if([defaults boolForKey:@"WebKitDeveloperExtras"] != YES) {
+        [defaults setBool:YES forKey:@"WebKitDeveloperExtras"]; // Turn on developer menus
+    }
+    
     homeDirectory = NSHomeDirectory(); // Retrieve user home directory
     infoDict = [[NSBundle mainBundle] infoDictionary]; // Load Info.plist
     appVersion = [infoDict objectForKey:@"CFBundleShortVersionString"]; // Fetch the version number from Info.plist
@@ -341,11 +346,6 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     if([[defaults objectForKey:@"customSearchEngine"] isEqual: @""]) {
         self.customSearchEngineField.hidden = YES;
         self.customSearchEngineSaveBtn.hidden = YES;
-    }
-    
-    // Check whether or not WebKit developer menus are enabled
-    if([defaults boolForKey:@"WebKitDeveloperExtras"] != YES) {
-        [defaults setBool:YES forKey:@"WebKitDeveloperExtras"]; // Turn on developer menus
     }
     
     if([[defaults objectForKey:@"currentColor"] isEqual: @"Navy Blue"]) { // Create fallback from "Navy Blue" -> "Midnight Blue" for those migrating from previous versions
