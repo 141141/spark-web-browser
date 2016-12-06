@@ -478,6 +478,17 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 
 #pragma mark - IBActions
 
+- (IBAction)resetAllSettings:(id)sender {
+    self.popupWindowTitle.stringValue = @"Reset Settings and Restart?";
+    self.popupWindowText.stringValue = [NSString stringWithFormat:@"This will reset your startup page, release channel, search engine, download location, and theme. A browser restart is required for this to take effect."];
+    self.popupWindowBtn1.title = @"Reset All Settings";
+    self.popupWindowBtn2.title = @"Cancel";
+    self.popupWindowBtn1.action = @selector(resetAllSettingsBtnClicked:);
+    self.popupWindow.isVisible = YES;
+    [self.popupWindow makeKeyAndOrderFront:nil];
+    [NSApp activateIgnoringOtherApps:YES];
+}
+
 - (IBAction)setCustomColor:(id)sender {
     // Set window color to a custom color
     self.window.backgroundColor = self.customColorWell.color;
@@ -953,7 +964,11 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     [defaults setObject:[NSString stringWithFormat:@"%@", uncapitalizedReleaseChannel] forKey:@"currentReleaseChannel"];
     [defaults setInteger:self.releaseChannelPicker.indexOfSelectedItem forKey:@"releaseChannelIndex"];
     
+    self.popupWindowTitle.stringValue = @"Set Release Channel and Restart?";
     self.popupWindowText.stringValue = [NSString stringWithFormat:@"Spark release channel will be set to: %@.\n\nA browser restart is required for this to take effect.", uncapitalizedReleaseChannel];
+    self.popupWindowBtn1.title = @"Set Release Channel";
+    self.popupWindowBtn2.title = @"Restart Later";
+    self.popupWindowBtn1.action = @selector(setReleaseChannelBtnClicked:);
     self.popupWindow.isVisible = YES;
     [self.popupWindow makeKeyAndOrderFront:nil];
     [NSApp activateIgnoringOtherApps:YES];
@@ -1106,6 +1121,24 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         NSLog(@"Homepage not set: invalid web address.");
         [self setHomepageWithString:googleDefaultURL];
     }
+}
+
+- (void)resetAllSettingsBtnClicked:(id)sender {
+    NSLog(@"Resetting all settings...");
+    
+    NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+    [defaults removePersistentDomainForName:appDomain]; // Remove all NSUserDefaults values
+    
+    NSLog(@"Settings reset. Restarting...");
+    task = [[NSTask alloc] init];
+    args = [NSMutableArray array];
+    [args addObject:@"-c"];
+    [args addObject:[NSString stringWithFormat:@"sleep %d; open \"%@\"", 0, [[NSBundle mainBundle] bundlePath]]];
+    [task setLaunchPath:@"/bin/sh"];
+    [task setArguments:args];
+    [task launch];
+    
+    [[NSApplication sharedApplication] terminate:nil];
 }
 
 - (void)settingsMenuClicked:(id)sender {

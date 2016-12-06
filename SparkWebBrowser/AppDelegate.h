@@ -59,6 +59,8 @@
 @property (assign, nonatomic) IBOutlet NSTextField *errorPanelText;
 @property (assign, nonatomic) IBOutlet NSTextField *popupWindowTitle;
 @property (assign, nonatomic) IBOutlet NSTextField *popupWindowText;
+@property (assign, nonatomic) IBOutlet NSButton *popupWindowBtn1;
+@property (assign, nonatomic) IBOutlet NSButton *popupWindowBtn2;
 @property (assign, nonatomic) IBOutlet NSButton *useAboutPageBtn;
 
 @property (nonatomic, assign) long bytesReceived;
