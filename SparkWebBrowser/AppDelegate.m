@@ -1492,13 +1492,20 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-cert-invalid" ofType:@"html"] isDirectory:NO]]];
         
         self.addressBar.stringValue = [defaults objectForKey:@"lastSession"];
-    } else if(error.code == -1009 || error.code == -1004) {
-        // NSURLErrorNotConnectedToInternet = -1009
+    } else if(error.code == -1004) {
         // NSURLErrorCannotConnectToHost = -1004
         
         NSLog(@"Loading spark-connection-fail.html...");
         
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-connection-fail" ofType:@"html"] isDirectory:NO]]];
+        
+        self.addressBar.stringValue = [defaults objectForKey:@"lastSession"];
+    } else if(error.code == -1009) {
+        // NSURLErrorNotConnectedToInternet
+        
+        NSLog(@"Loading spark-disconnected.html...");
+        
+        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-disconnected" ofType:@"html"] isDirectory:NO]]];
         
         self.addressBar.stringValue = [defaults objectForKey:@"lastSession"];
     } else if(error.code == -1007) {

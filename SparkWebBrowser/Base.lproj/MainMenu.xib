@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11542" systemVersion="16C53a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11542" systemVersion="16C63a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
@@ -398,7 +398,7 @@
                     </menu>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="919" y="-694"/>
+            <point key="canvasLocation" x="944" y="-695"/>
         </menu>
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="oJi-1c-Sb5" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
@@ -821,7 +821,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="1474" y="-565.5"/>
+            <point key="canvasLocation" x="1477" y="-642"/>
         </window>
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="qp2-Mq-gTe" userLabel="Config Window" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
@@ -882,7 +882,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     </imageView>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="828.5" y="-860.5"/>
+            <point key="canvasLocation" x="840" y="-863"/>
         </window>
         <window allowsToolTipsWhenApplicationIsInactive="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES"/>
@@ -1181,7 +1181,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     </imageView>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="1163.5" y="180.5"/>
+            <point key="canvasLocation" x="930" y="175"/>
         </window>
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="uuQ-xY-3aS" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
@@ -1226,7 +1226,7 @@ DQ
                     </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="332" y="-744"/>
+            <point key="canvasLocation" x="340" y="-891"/>
         </window>
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="mqa-o5-dlu" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" texturedBackground="YES"/>
@@ -1282,7 +1282,7 @@ DQ
                     </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="524" y="-415"/>
+            <point key="canvasLocation" x="514" y="-569"/>
         </window>
     </objects>
     <resources>

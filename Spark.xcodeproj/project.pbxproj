@@ -12,6 +12,7 @@
 		AB04FD0C1C712BDB00F08232 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB04FD0A1C712BDB00F08232 /* main.m */; };
 		AB04FD131C712C6000F08232 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB04FD111C712C6000F08232 /* MainMenu.xib */; };
 		AB8587B71D7C9DFE0073515C /* SparkIcon256.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8587B61D7C9DFE0073515C /* SparkIcon256.png */; };
+		AB91A0D31DFDECC600911531 /* spark-disconnected.html in Resources */ = {isa = PBXBuildFile; fileRef = AB91A0D21DFDECC600911531 /* spark-disconnected.html */; };
 		AB98DDDC1D370CD100ABCF16 /* WebKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB83983B19817E15001D31B7 /* WebKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AB98DDDE1D370CD400ABCF16 /* Cocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB83980719817D8E001D31B7 /* Cocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ABA41D9F1D84DC2300F01B90 /* NSUserDefaults+ColorSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA41D9E1D84DC2300F01B90 /* NSUserDefaults+ColorSupport.m */; };
@@ -68,6 +69,7 @@
 		AB83982619817D8E001D31B7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		AB83983B19817E15001D31B7 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		AB8587B61D7C9DFE0073515C /* SparkIcon256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SparkIcon256.png; path = SparkWebBrowser/Images.xcassets/AppIcon256.imageset/SparkIcon256.png; sourceTree = SOURCE_ROOT; };
+		AB91A0D21DFDECC600911531 /* spark-disconnected.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "spark-disconnected.html"; sourceTree = "<group>"; };
 		ABA41D9D1D84DC2300F01B90 /* NSUserDefaults+ColorSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSUserDefaults+ColorSupport.h"; path = "SparkWebBrowser/NSUserDefaults+ColorSupport.h"; sourceTree = SOURCE_ROOT; };
 		ABA41D9E1D84DC2300F01B90 /* NSUserDefaults+ColorSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSUserDefaults+ColorSupport.m"; path = "SparkWebBrowser/NSUserDefaults+ColorSupport.m"; sourceTree = SOURCE_ROOT; };
 		ABA872E11D7FA4140062EC6C /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
@@ -220,12 +222,13 @@
 			isa = PBXGroup;
 			children = (
 				ABBA53EA1D85E0BE00D3B691 /* spark-about.html */,
-				ABC8F5621DD403E60015BCA0 /* spark-version.html */,
-				ABB89ADE1DAF04FC007CE7D1 /* spark-invalid-url.html */,
 				ABD324A31DF36D4D005DBF4F /* spark-cert-invalid.html */,
 				ABD324AB1DF3A96B005DBF4F /* spark-connection-fail.html */,
+				AB91A0D21DFDECC600911531 /* spark-disconnected.html */,
+				ABB89ADE1DAF04FC007CE7D1 /* spark-invalid-url.html */,
 				ABD324AF1DF3B630005DBF4F /* spark-redirect-loop.html */,
 				ABD638DC1DC40D2400AD11BB /* spark-urls.html */,
+				ABC8F5621DD403E60015BCA0 /* spark-version.html */,
 			);
 			name = HTML;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				ABB89ADF1DAF04FC007CE7D1 /* spark-invalid-url.html in Resources */,
 				AB8587B71D7C9DFE0073515C /* SparkIcon256.png in Resources */,
 				ABD324A81DF3A1DC005DBF4F /* ErrorIcon256.png in Resources */,
+				AB91A0D31DFDECC600911531 /* spark-disconnected.html in Resources */,
 				AB04FD131C712C6000F08232 /* MainMenu.xib in Resources */,
 				ABAC7A861DB325F10087FF6B /* bootstrap.min.css in Resources */,
 				ABAC7A881DB325F50087FF6B /* jquery.min.js in Resources */,
