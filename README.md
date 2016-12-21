@@ -2,6 +2,8 @@
 
 [![Version](https://img.shields.io/github/release/insleep/spark-web-browser.svg?style=flat-square)](https://github.com/insleep/spark-web-browser/releases/)&nbsp;[![Build Status](https://img.shields.io/travis/insleep/spark-web-browser/master.svg?style=flat-square)](https://travis-ci.org/insleep/spark-web-browser)&nbsp;[![Language](https://img.shields.io/badge/language-Objective--C-red.svg?style=flat-square)](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html)
 
+---
+
 ## About
 
 Spark is a simple, lightweight browser for Windows and macOS built with the [WebKit](https://webkit.org) browser engine.
