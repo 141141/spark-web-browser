@@ -1577,7 +1577,6 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         }
         
         // Set values for use on spark:// pages
-        //test
         
         // Shared resources
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-currentVersion').innerHTML = '%@';", appVersion]];
