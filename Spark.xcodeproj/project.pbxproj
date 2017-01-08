@@ -18,21 +18,22 @@
 		ABB443631D84634C001D55C7 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = ABB443621D84634C001D55C7 /* dsa_pub.pem */; };
 		ABBD6C201D3707B900C48592 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83980719817D8E001D31B7 /* Cocoa.framework */; };
 		ABBD6C211D3707C600C48592 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83983B19817E15001D31B7 /* WebKit.framework */; };
-		ABE2C6DA1E22E111005CE2C3 /* favicon.ico in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C6D91E22E111005CE2C3 /* favicon.ico */; };
-		ABE2C6DC1E22E117005CE2C3 /* stylesheet.css in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C6DB1E22E117005CE2C3 /* stylesheet.css */; };
-		ABE2C6E51E22E120005CE2C3 /* spark-about.html in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C6DD1E22E120005CE2C3 /* spark-about.html */; };
-		ABE2C6E61E22E120005CE2C3 /* spark-cert-invalid.html in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C6DE1E22E120005CE2C3 /* spark-cert-invalid.html */; };
-		ABE2C6E71E22E120005CE2C3 /* spark-connection-fail.html in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C6DF1E22E120005CE2C3 /* spark-connection-fail.html */; };
-		ABE2C6E81E22E120005CE2C3 /* spark-disconnected.html in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C6E01E22E120005CE2C3 /* spark-disconnected.html */; };
-		ABE2C6E91E22E120005CE2C3 /* spark-invalid-url.html in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C6E11E22E120005CE2C3 /* spark-invalid-url.html */; };
-		ABE2C6EA1E22E120005CE2C3 /* spark-redirect-loop.html in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C6E21E22E120005CE2C3 /* spark-redirect-loop.html */; };
-		ABE2C6EB1E22E120005CE2C3 /* spark-urls.html in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C6E31E22E120005CE2C3 /* spark-urls.html */; };
-		ABE2C6EC1E22E120005CE2C3 /* spark-version.html in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C6E41E22E120005CE2C3 /* spark-version.html */; };
-		ABE2C6EF1E22E129005CE2C3 /* ErrorIcon256.png in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C6ED1E22E129005CE2C3 /* ErrorIcon256.png */; };
-		ABE2C6F01E22E129005CE2C3 /* InternetDisconnected.png in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C6EE1E22E129005CE2C3 /* InternetDisconnected.png */; };
-		ABE2C6F21E22E132005CE2C3 /* bootstrap.min.css in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C6F11E22E132005CE2C3 /* bootstrap.min.css */; };
-		ABE2C6F51E22E13C005CE2C3 /* bootstrap.min.js in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C6F31E22E13C005CE2C3 /* bootstrap.min.js */; };
-		ABE2C6F61E22E13C005CE2C3 /* jquery.min.js in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C6F41E22E13C005CE2C3 /* jquery.min.js */; };
+		ABE2C6FB1E22E500005CE2C3 /* bootstrap.min.js in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C6F91E22E500005CE2C3 /* bootstrap.min.js */; };
+		ABE2C6FC1E22E500005CE2C3 /* jquery.min.js in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C6FA1E22E500005CE2C3 /* jquery.min.js */; };
+		ABE2C6FE1E22E506005CE2C3 /* bootstrap.min.css in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C6FD1E22E506005CE2C3 /* bootstrap.min.css */; };
+		ABE2C7011E22E50E005CE2C3 /* ErrorIcon256.png in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C6FF1E22E50E005CE2C3 /* ErrorIcon256.png */; };
+		ABE2C7021E22E50E005CE2C3 /* InternetDisconnected.png in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C7001E22E50E005CE2C3 /* InternetDisconnected.png */; };
+		ABE2C7041E22E514005CE2C3 /* favicon.ico in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C7031E22E514005CE2C3 /* favicon.ico */; };
+		ABE2C7061E22E51D005CE2C3 /* stylesheet.css in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C7051E22E51D005CE2C3 /* stylesheet.css */; };
+		ABE2C7101E22E524005CE2C3 /* spark-about.html in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C7071E22E524005CE2C3 /* spark-about.html */; };
+		ABE2C7111E22E524005CE2C3 /* spark-cert-invalid.html in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C7081E22E524005CE2C3 /* spark-cert-invalid.html */; };
+		ABE2C7121E22E524005CE2C3 /* spark-connection-fail.html in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C7091E22E524005CE2C3 /* spark-connection-fail.html */; };
+		ABE2C7131E22E524005CE2C3 /* spark-disconnected.html in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C70A1E22E524005CE2C3 /* spark-disconnected.html */; };
+		ABE2C7141E22E524005CE2C3 /* spark-dns-failed.html in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C70B1E22E524005CE2C3 /* spark-dns-failed.html */; };
+		ABE2C7151E22E524005CE2C3 /* spark-invalid-url.html in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C70C1E22E524005CE2C3 /* spark-invalid-url.html */; };
+		ABE2C7161E22E524005CE2C3 /* spark-redirect-loop.html in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C70D1E22E524005CE2C3 /* spark-redirect-loop.html */; };
+		ABE2C7171E22E524005CE2C3 /* spark-urls.html in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C70E1E22E524005CE2C3 /* spark-urls.html */; };
+		ABE2C7181E22E524005CE2C3 /* spark-version.html in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C70F1E22E524005CE2C3 /* spark-version.html */; };
 		ABEB632D1DF4AFD80005FFB9 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEB632B1DF4AFD00005FFB9 /* Sparkle.framework */; };
 		ABEB632E1DF4AFD80005FFB9 /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ABEB632B1DF4AFD00005FFB9 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ABEB632F1DF4B00B0005FFB9 /* Sparkle.framework in Resources */ = {isa = PBXBuildFile; fileRef = ABEB632B1DF4AFD00005FFB9 /* Sparkle.framework */; };
@@ -75,21 +76,22 @@
 		ABA872E11D7FA4140062EC6C /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		ABB443621D84634C001D55C7 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = SOURCE_ROOT; };
 		ABBD6C101D3706B500C48592 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = "../../../../../Downloads/Sparkle-1.14.0/Sparkle.framework"; sourceTree = "<group>"; };
-		ABE2C6D91E22E111005CE2C3 /* favicon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; name = favicon.ico; path = Images/favicon.ico; sourceTree = "<group>"; };
-		ABE2C6DB1E22E117005CE2C3 /* stylesheet.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = stylesheet.css; path = CSS/stylesheet.css; sourceTree = "<group>"; };
-		ABE2C6DD1E22E120005CE2C3 /* spark-about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "spark-about.html"; path = "HTML/spark-about.html"; sourceTree = "<group>"; };
-		ABE2C6DE1E22E120005CE2C3 /* spark-cert-invalid.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "spark-cert-invalid.html"; path = "HTML/spark-cert-invalid.html"; sourceTree = "<group>"; };
-		ABE2C6DF1E22E120005CE2C3 /* spark-connection-fail.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "spark-connection-fail.html"; path = "HTML/spark-connection-fail.html"; sourceTree = "<group>"; };
-		ABE2C6E01E22E120005CE2C3 /* spark-disconnected.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "spark-disconnected.html"; path = "HTML/spark-disconnected.html"; sourceTree = "<group>"; };
-		ABE2C6E11E22E120005CE2C3 /* spark-invalid-url.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "spark-invalid-url.html"; path = "HTML/spark-invalid-url.html"; sourceTree = "<group>"; };
-		ABE2C6E21E22E120005CE2C3 /* spark-redirect-loop.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "spark-redirect-loop.html"; path = "HTML/spark-redirect-loop.html"; sourceTree = "<group>"; };
-		ABE2C6E31E22E120005CE2C3 /* spark-urls.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "spark-urls.html"; path = "HTML/spark-urls.html"; sourceTree = "<group>"; };
-		ABE2C6E41E22E120005CE2C3 /* spark-version.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "spark-version.html"; path = "HTML/spark-version.html"; sourceTree = "<group>"; };
-		ABE2C6ED1E22E129005CE2C3 /* ErrorIcon256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ErrorIcon256.png; path = "SparkWebBrowser/URL Resources/Images/ErrorIcon256.png"; sourceTree = SOURCE_ROOT; };
-		ABE2C6EE1E22E129005CE2C3 /* InternetDisconnected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = InternetDisconnected.png; path = "SparkWebBrowser/URL Resources/Images/InternetDisconnected.png"; sourceTree = SOURCE_ROOT; };
-		ABE2C6F11E22E132005CE2C3 /* bootstrap.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = bootstrap.min.css; path = "SparkWebBrowser/URL Resources/CSS/bootstrap.min.css"; sourceTree = SOURCE_ROOT; };
-		ABE2C6F31E22E13C005CE2C3 /* bootstrap.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = bootstrap.min.js; path = "SparkWebBrowser/URL Resources/JavaScript/bootstrap.min.js"; sourceTree = SOURCE_ROOT; };
-		ABE2C6F41E22E13C005CE2C3 /* jquery.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = jquery.min.js; path = "SparkWebBrowser/URL Resources/JavaScript/jquery.min.js"; sourceTree = SOURCE_ROOT; };
+		ABE2C6F91E22E500005CE2C3 /* bootstrap.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = bootstrap.min.js; path = "SparkWebBrowser/URL Resources/bootstrap.min.js"; sourceTree = SOURCE_ROOT; };
+		ABE2C6FA1E22E500005CE2C3 /* jquery.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = jquery.min.js; path = "SparkWebBrowser/URL Resources/jquery.min.js"; sourceTree = SOURCE_ROOT; };
+		ABE2C6FD1E22E506005CE2C3 /* bootstrap.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = bootstrap.min.css; path = "SparkWebBrowser/URL Resources/bootstrap.min.css"; sourceTree = SOURCE_ROOT; };
+		ABE2C6FF1E22E50E005CE2C3 /* ErrorIcon256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ErrorIcon256.png; path = "SparkWebBrowser/URL Resources/ErrorIcon256.png"; sourceTree = SOURCE_ROOT; };
+		ABE2C7001E22E50E005CE2C3 /* InternetDisconnected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = InternetDisconnected.png; path = "SparkWebBrowser/URL Resources/InternetDisconnected.png"; sourceTree = SOURCE_ROOT; };
+		ABE2C7031E22E514005CE2C3 /* favicon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = favicon.ico; sourceTree = "<group>"; };
+		ABE2C7051E22E51D005CE2C3 /* stylesheet.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = stylesheet.css; sourceTree = "<group>"; };
+		ABE2C7071E22E524005CE2C3 /* spark-about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "spark-about.html"; sourceTree = "<group>"; };
+		ABE2C7081E22E524005CE2C3 /* spark-cert-invalid.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "spark-cert-invalid.html"; sourceTree = "<group>"; };
+		ABE2C7091E22E524005CE2C3 /* spark-connection-fail.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "spark-connection-fail.html"; sourceTree = "<group>"; };
+		ABE2C70A1E22E524005CE2C3 /* spark-disconnected.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "spark-disconnected.html"; sourceTree = "<group>"; };
+		ABE2C70B1E22E524005CE2C3 /* spark-dns-failed.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "spark-dns-failed.html"; sourceTree = "<group>"; };
+		ABE2C70C1E22E524005CE2C3 /* spark-invalid-url.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "spark-invalid-url.html"; sourceTree = "<group>"; };
+		ABE2C70D1E22E524005CE2C3 /* spark-redirect-loop.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "spark-redirect-loop.html"; sourceTree = "<group>"; };
+		ABE2C70E1E22E524005CE2C3 /* spark-urls.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "spark-urls.html"; sourceTree = "<group>"; };
+		ABE2C70F1E22E524005CE2C3 /* spark-version.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "spark-version.html"; sourceTree = "<group>"; };
 		ABE32C7A1DA15AEA00D0B07E /* Screenshot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot1.png; sourceTree = "<group>"; };
 		ABE32C7B1DA15AEA00D0B07E /* Screenshot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot2.png; sourceTree = "<group>"; };
 		ABE32C7C1DA15AEA00D0B07E /* Screenshot3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot3.png; sourceTree = "<group>"; };
@@ -207,7 +209,7 @@
 		ABAC7A701DB324C50087FF6B /* CSS */ = {
 			isa = PBXGroup;
 			children = (
-				ABE2C6DB1E22E117005CE2C3 /* stylesheet.css */,
+				ABE2C7051E22E51D005CE2C3 /* stylesheet.css */,
 			);
 			name = CSS;
 			sourceTree = "<group>";
@@ -215,7 +217,7 @@
 		ABAC7A721DB324D30087FF6B /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				ABE2C6D91E22E111005CE2C3 /* favicon.ico */,
+				ABE2C7031E22E514005CE2C3 /* favicon.ico */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -223,14 +225,15 @@
 		ABAC7A731DB324DE0087FF6B /* HTML */ = {
 			isa = PBXGroup;
 			children = (
-				ABE2C6DD1E22E120005CE2C3 /* spark-about.html */,
-				ABE2C6DE1E22E120005CE2C3 /* spark-cert-invalid.html */,
-				ABE2C6DF1E22E120005CE2C3 /* spark-connection-fail.html */,
-				ABE2C6E01E22E120005CE2C3 /* spark-disconnected.html */,
-				ABE2C6E11E22E120005CE2C3 /* spark-invalid-url.html */,
-				ABE2C6E21E22E120005CE2C3 /* spark-redirect-loop.html */,
-				ABE2C6E31E22E120005CE2C3 /* spark-urls.html */,
-				ABE2C6E41E22E120005CE2C3 /* spark-version.html */,
+				ABE2C7071E22E524005CE2C3 /* spark-about.html */,
+				ABE2C7081E22E524005CE2C3 /* spark-cert-invalid.html */,
+				ABE2C7091E22E524005CE2C3 /* spark-connection-fail.html */,
+				ABE2C70A1E22E524005CE2C3 /* spark-disconnected.html */,
+				ABE2C70B1E22E524005CE2C3 /* spark-dns-failed.html */,
+				ABE2C70C1E22E524005CE2C3 /* spark-invalid-url.html */,
+				ABE2C70D1E22E524005CE2C3 /* spark-redirect-loop.html */,
+				ABE2C70E1E22E524005CE2C3 /* spark-urls.html */,
+				ABE2C70F1E22E524005CE2C3 /* spark-version.html */,
 			);
 			name = HTML;
 			sourceTree = "<group>";
@@ -239,8 +242,8 @@
 			isa = PBXGroup;
 			children = (
 				AB8587B61D7C9DFE0073515C /* SparkIcon256.png */,
-				ABE2C6ED1E22E129005CE2C3 /* ErrorIcon256.png */,
-				ABE2C6EE1E22E129005CE2C3 /* InternetDisconnected.png */,
+				ABE2C6FF1E22E50E005CE2C3 /* ErrorIcon256.png */,
+				ABE2C7001E22E50E005CE2C3 /* InternetDisconnected.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -248,7 +251,7 @@
 		ABAC7A791DB325460087FF6B /* CSS */ = {
 			isa = PBXGroup;
 			children = (
-				ABE2C6F11E22E132005CE2C3 /* bootstrap.min.css */,
+				ABE2C6FD1E22E506005CE2C3 /* bootstrap.min.css */,
 			);
 			name = CSS;
 			sourceTree = "<group>";
@@ -256,8 +259,8 @@
 		ABAC7A7A1DB3254A0087FF6B /* JavaScript */ = {
 			isa = PBXGroup;
 			children = (
-				ABE2C6F31E22E13C005CE2C3 /* bootstrap.min.js */,
-				ABE2C6F41E22E13C005CE2C3 /* jquery.min.js */,
+				ABE2C6F91E22E500005CE2C3 /* bootstrap.min.js */,
+				ABE2C6FA1E22E500005CE2C3 /* jquery.min.js */,
 			);
 			name = JavaScript;
 			sourceTree = "<group>";
@@ -331,26 +334,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABE2C6F51E22E13C005CE2C3 /* bootstrap.min.js in Resources */,
-				ABE2C6F21E22E132005CE2C3 /* bootstrap.min.css in Resources */,
-				ABE2C6F61E22E13C005CE2C3 /* jquery.min.js in Resources */,
-				ABE2C6E91E22E120005CE2C3 /* spark-invalid-url.html in Resources */,
+				ABE2C7161E22E524005CE2C3 /* spark-redirect-loop.html in Resources */,
 				ABEB632F1DF4B00B0005FFB9 /* Sparkle.framework in Resources */,
+				ABE2C7171E22E524005CE2C3 /* spark-urls.html in Resources */,
 				AB04FD021C712BAD00F08232 /* Images.xcassets in Resources */,
-				ABE2C6E61E22E120005CE2C3 /* spark-cert-invalid.html in Resources */,
-				ABE2C6E71E22E120005CE2C3 /* spark-connection-fail.html in Resources */,
-				ABE2C6EF1E22E129005CE2C3 /* ErrorIcon256.png in Resources */,
+				ABE2C7111E22E524005CE2C3 /* spark-cert-invalid.html in Resources */,
+				ABE2C7121E22E524005CE2C3 /* spark-connection-fail.html in Resources */,
+				ABE2C6FB1E22E500005CE2C3 /* bootstrap.min.js in Resources */,
+				ABE2C6FE1E22E506005CE2C3 /* bootstrap.min.css in Resources */,
 				AB8587B71D7C9DFE0073515C /* SparkIcon256.png in Resources */,
-				ABE2C6DA1E22E111005CE2C3 /* favicon.ico in Resources */,
 				AB04FD131C712C6000F08232 /* MainMenu.xib in Resources */,
-				ABE2C6EC1E22E120005CE2C3 /* spark-version.html in Resources */,
-				ABE2C6EB1E22E120005CE2C3 /* spark-urls.html in Resources */,
-				ABE2C6DC1E22E117005CE2C3 /* stylesheet.css in Resources */,
-				ABE2C6E81E22E120005CE2C3 /* spark-disconnected.html in Resources */,
-				ABE2C6E51E22E120005CE2C3 /* spark-about.html in Resources */,
-				ABE2C6EA1E22E120005CE2C3 /* spark-redirect-loop.html in Resources */,
+				ABE2C6FC1E22E500005CE2C3 /* jquery.min.js in Resources */,
+				ABE2C7061E22E51D005CE2C3 /* stylesheet.css in Resources */,
+				ABE2C7021E22E50E005CE2C3 /* InternetDisconnected.png in Resources */,
+				ABE2C7131E22E524005CE2C3 /* spark-disconnected.html in Resources */,
+				ABE2C7181E22E524005CE2C3 /* spark-version.html in Resources */,
+				ABE2C7101E22E524005CE2C3 /* spark-about.html in Resources */,
 				ABB443631D84634C001D55C7 /* dsa_pub.pem in Resources */,
-				ABE2C6F01E22E129005CE2C3 /* InternetDisconnected.png in Resources */,
+				ABE2C7011E22E50E005CE2C3 /* ErrorIcon256.png in Resources */,
+				ABE2C7041E22E514005CE2C3 /* favicon.ico in Resources */,
+				ABE2C7151E22E524005CE2C3 /* spark-invalid-url.html in Resources */,
+				ABE2C7141E22E524005CE2C3 /* spark-dns-failed.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

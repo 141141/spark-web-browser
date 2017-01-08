@@ -1,0 +1,42 @@
+<!--
+ 
+ spark-dns-failed.html
+ Spark
+ 
+ Copyright (c) 2014-2017 Jonathan Wukitsch / Insleep
+ This code is distributed under the terms and conditions of the GNU license. You may copy, distribute and modify the software as long as you track changes/dates in source files. Any modifications to or software including (via compiler) GPL-licensed code must also be made available under the GPL along with build & install instructions.
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Problem loading page</title>
+    <!--<link rel="shortcut icon" href="https://insleep.tech/spark/favicon.ico" type="image/x-icon" />-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="bootstrap.min.js"></script>
+    <!-- Custom styles -->
+    <link href="stylesheet.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="spark-styles">
+            <h1 class="invalidpage-heading">This site can't be reached</h1>
+            <hr class="invalidpage-hr" />
+            <p class="invalidpage-desc lead">Spark can't establish a connection to&nbsp;<b><span id="sparkWebBrowser-webpageRequested"></span></b>.&nbsp;The server DNS address could not be found.</p>
+            <a href="spark://lastsession" class="invalidpage-button-link"><button type="button" class="invalidpage-firstBtn btn btn-primary">Try Again</button></a>
+        </div>
+    </div>
+    
+    <!-- /.container -->
+    <!-- Bootstrap core JavaScript
+         ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="jquery.min.js"></script>
+</body>
+</html>

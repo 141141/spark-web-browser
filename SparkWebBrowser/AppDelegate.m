@@ -1510,22 +1510,25 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-cert-invalid" ofType:@"html"] isDirectory:NO]]];
         
         self.addressBar.stringValue = [defaults objectForKey:@"lastSession"];
+        
     } else if(error.code == -1003) {
-        // NSURLErrorCannotFindHost = -1003
+        // NSURLErrorCannotFindHost
         
         NSLog(@"Loading spark-connection-fail.html...");
         
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-connection-fail" ofType:@"html"] isDirectory:NO]]];
         
         self.addressBar.stringValue = [defaults objectForKey:@"lastSession"];
+        
     } else if(error.code == -1004) {
-        // NSURLErrorCannotConnectToHost = -1004
+        // NSURLErrorCannotConnectToHost
         
         NSLog(@"Loading spark-connection-fail.html...");
         
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-connection-fail" ofType:@"html"] isDirectory:NO]]];
         
         self.addressBar.stringValue = [defaults objectForKey:@"lastSession"];
+        
     } else if(error.code == -1009) {
         // NSURLErrorNotConnectedToInternet
         
@@ -1534,12 +1537,21 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-disconnected" ofType:@"html"] isDirectory:NO]]];
         
         self.addressBar.stringValue = [defaults objectForKey:@"lastSession"];
+        
     } else if(error.code == -1007) {
         // NSURLErrorHTTPTooManyRedirects
         
         NSLog(@"Loading spark-redirect-loop.html...");
         
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-redirect-loop" ofType:@"html"] isDirectory:NO]]];
+        
+        self.addressBar.stringValue = [defaults objectForKey:@"lastSession"];
+    } else if(error.code == -1006) {
+        // NSURLErrorDNSLookupFailed
+        
+        NSLog(@"Loading spark-dns-failed.html...");
+        
+        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-dns-failed" ofType:@"html"] isDirectory:NO]]];
         
         self.addressBar.stringValue = [defaults objectForKey:@"lastSession"];
     }
