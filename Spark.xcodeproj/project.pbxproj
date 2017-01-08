@@ -32,6 +32,7 @@
 		ABD324AC1DF3A96B005DBF4F /* spark-connection-fail.html in Resources */ = {isa = PBXBuildFile; fileRef = ABD324AB1DF3A96B005DBF4F /* spark-connection-fail.html */; };
 		ABD324B01DF3B630005DBF4F /* spark-redirect-loop.html in Resources */ = {isa = PBXBuildFile; fileRef = ABD324AF1DF3B630005DBF4F /* spark-redirect-loop.html */; };
 		ABD638DD1DC40D2400AD11BB /* spark-urls.html in Resources */ = {isa = PBXBuildFile; fileRef = ABD638DC1DC40D2400AD11BB /* spark-urls.html */; };
+		ABE2C6D61E22DFC3005CE2C3 /* InternetDisconnected.png in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C6D51E22DFC3005CE2C3 /* InternetDisconnected.png */; };
 		ABEB632D1DF4AFD80005FFB9 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEB632B1DF4AFD00005FFB9 /* Sparkle.framework */; };
 		ABEB632E1DF4AFD80005FFB9 /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ABEB632B1DF4AFD00005FFB9 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ABEB632F1DF4B00B0005FFB9 /* Sparkle.framework in Resources */ = {isa = PBXBuildFile; fileRef = ABEB632B1DF4AFD00005FFB9 /* Sparkle.framework */; };
@@ -88,6 +89,7 @@
 		ABD324AB1DF3A96B005DBF4F /* spark-connection-fail.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "spark-connection-fail.html"; sourceTree = "<group>"; };
 		ABD324AF1DF3B630005DBF4F /* spark-redirect-loop.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "spark-redirect-loop.html"; sourceTree = "<group>"; };
 		ABD638DC1DC40D2400AD11BB /* spark-urls.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "spark-urls.html"; sourceTree = "<group>"; };
+		ABE2C6D51E22DFC3005CE2C3 /* InternetDisconnected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InternetDisconnected.png; sourceTree = SOURCE_ROOT; };
 		ABE32C7A1DA15AEA00D0B07E /* Screenshot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot1.png; sourceTree = "<group>"; };
 		ABE32C7B1DA15AEA00D0B07E /* Screenshot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot2.png; sourceTree = "<group>"; };
 		ABE32C7C1DA15AEA00D0B07E /* Screenshot3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot3.png; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 			children = (
 				AB8587B61D7C9DFE0073515C /* SparkIcon256.png */,
 				ABD324A71DF3A1DC005DBF4F /* ErrorIcon256.png */,
+				ABE2C6D51E22DFC3005CE2C3 /* InternetDisconnected.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				ABBA53EC1D85E0BE00D3B691 /* favicon.ico in Resources */,
 				ABBA53EE1D85E0BE00D3B691 /* stylesheet.css in Resources */,
 				ABD324AC1DF3A96B005DBF4F /* spark-connection-fail.html in Resources */,
+				ABE2C6D61E22DFC3005CE2C3 /* InternetDisconnected.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
