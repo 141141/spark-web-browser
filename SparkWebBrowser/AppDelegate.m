@@ -837,13 +837,18 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         }
         
     } else if([searchString hasPrefix:@"file://"]) {
+        // file:// prefix
         NSLog(@"file:// prefix");
-    } else if([searchString hasPrefix:@"spark://"]) {
         
+        [self handleFilePrefix:nil];
+        
+    } else if([searchString hasPrefix:@"spark://"]) {
+        // spark:// prefix
         NSLog(@"spark:// prefix");
         
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:candidateURL]];
         self.addressBar.stringValue = [NSString stringWithFormat:@"%@", searchString];
+        
     } else {
         
         NSLog(@"User has initiated a search. Fetching search engine...");
@@ -1029,6 +1034,19 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 }
 
 #pragma mark - Various methods
+
+- (void)handleFilePrefix:(id)sender {
+    
+    clippedTitle = self.webView.mainFrameURL;
+    
+    const int clipLength = 25;
+    if([self.webView.mainFrameURL length] > clipLength) {
+        clippedTitle = [NSString stringWithFormat:@"%@...", [self.webView.mainFrameURL substringToIndex:clipLength]];
+    }
+    
+    [self.titleStatus setStringValue:clippedTitle]; // Set titleStatus to clipped title
+    self.titleStatus.toolTip = self.webView.mainFrameURL; // Set tooltip to unclipped title
+}
 
 - (void)checkExperimentalConfig:(id)sender {
     
@@ -1306,7 +1324,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         
         self.addressBar.stringValue = searchString;
         
-        self.titleStatus.stringValue = [NSString stringWithFormat:@"%@ is not available", searchString];
+        [self.titleStatus setStringValue:[NSString stringWithFormat:@"%@ is not available", searchString]];
     }
 }
 
@@ -1541,6 +1559,11 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         self.faviconImage.hidden = YES;
         self.loadingIndicator.hidden = NO;
         [self.loadingIndicator startAnimation:self];
+        
+        // Check whether or not we're handling a local file
+        if([self.addressBar.stringValue hasPrefix:@"file://"]) {
+            [self handleFilePrefix:nil];
+        }
         
         // Use Google to get website favicons
         // In the future, the app should be able to detect a favicon.ico instead of relying on a service to get favicons
