@@ -92,5 +92,7 @@
 - (void)setHomepageWithString:(NSString *)homepageToSet;
 - (void)settingsMenuClicked:(id)sender;
 - (void)setHomepageBasedOnSearchEngine:(id)sender;
+- (void)checkExperimentalConfig:(id)sender;
+- (void)handleFilePrefix:(id)sender;
 
 @end
