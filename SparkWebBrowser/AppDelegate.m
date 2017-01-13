@@ -109,9 +109,6 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 + (void)initialize {
     defaults = [NSUserDefaults standardUserDefaults]; // Set up NSUserDefaults
     
-    
-    // TEST COMMIT
-    
     // Set up theme colors
     defaultColor = [NSColor colorWithRed:192.0f/255.0f green:192.0f/255.0f blue:192.0f/255.0f alpha:1.0f];
     rubyRedColor = [NSColor colorWithRed:0.773f green:0.231f blue:0.212f alpha:1.0f];
