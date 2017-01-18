@@ -912,6 +912,9 @@ Spark is made possible by the WebKit open source project and other open source s
                             <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <outlet property="menu" destination="o06-WA-3Lg" id="ahY-SZ-Lkh"/>
+                        </connections>
                     </textField>
                     <button toolTip="Go back" verticalHuggingPriority="750" id="CSR-Ik-wrT">
                         <rect key="frame" x="3" y="656" width="23" height="22"/>
@@ -1284,6 +1287,30 @@ DQ
             </view>
             <point key="canvasLocation" x="514" y="-569"/>
         </window>
+        <menu title="TabContextMenu" id="o06-WA-3Lg">
+            <items>
+                <menuItem title="New Tab" id="xZo-PJ-HDo">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="newTab:" target="Voe-Tx-rLC" id="BDS-Dw-VZQ"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="oUf-vL-Ttd"/>
+                <menuItem title="Reload" id="wpu-bZ-mMT">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="reload:" target="ffM-a6-P1L" id="ZjG-hC-VYh"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Close" id="fZd-C3-n2G">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="performClose:" target="QvC-M9-y7g" id="t7t-Kg-QBw"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="514" y="-279"/>
+        </menu>
     </objects>
     <resources>
         <image name="AppIcon256" width="61.439998626708984" height="61.439998626708984"/>
