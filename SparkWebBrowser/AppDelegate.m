@@ -1514,9 +1514,9 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     } else if(error.code == -1003) {
         // NSURLErrorCannotFindHost
         
-        NSLog(@"Loading spark-connection-fail.html...");
+        NSLog(@"Loading spark-dns-failed.html...");
         
-        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-connection-fail" ofType:@"html"] isDirectory:NO]]];
+        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-dns-failed" ofType:@"html"] isDirectory:NO]]];
         
         self.addressBar.stringValue = [defaults objectForKey:@"lastSession"];
         
@@ -1601,6 +1601,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     if(frame == [sender mainFrame]) {
         
         lastSession = [[defaults objectForKey:@"lastSession"] stringByReplacingOccurrencesOfString:@"https://" withString:@""];
+        lastSession = [[defaults objectForKey:@"lastSession"] stringByReplacingOccurrencesOfString:@"http://" withString:@""];
         
         if([lastSession rangeOfString:@"/"].location != NSNotFound) {
             lastSession = [lastSession substringToIndex:[lastSession rangeOfString:@"/"].location];
@@ -1626,14 +1627,12 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-currentBuild').innerHTML = '%@';", buildNumber]];
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-currentReleaseChannel').innerHTML = '%@';", releaseChannel]];
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-userAgent').innerHTML = '%@';", userAgent]];
+        [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-webpageRequested').innerHTML = '%@';", lastSession]];
         
         // spark://version resources
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-operatingSystemName').innerHTML = '%@';", customMacOSProductName]];
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-operatingSystemVersion').innerHTML = '%@';", macOSVersionString]];
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-operatingSystemBuild').innerHTML = '%@';", macOSBuildString]];
-        
-        // spark://invalid-cert resources
-        [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-webpageRequested').innerHTML = '%@';", lastSession]];
     }
 }
 
