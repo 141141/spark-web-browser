@@ -11,7 +11,7 @@
 #import "NSUserDefaults+ColorSupport.h"
 #import "Sparkle.framework/Headers/SUUpdater.h"
 
-@interface AppDelegate () <NSTabViewDelegate>
+@interface AppDelegate () <NSTabViewDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate, NSURLSessionDelegate>
 
 @end
 
@@ -105,6 +105,7 @@ NSData *faviconData = nil; // Data retrieved from faviconURLString service
 NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 
 #pragma mark - Pre-initializing
+
 
 + (void)initialize {
     defaults = [NSUserDefaults standardUserDefaults]; // Set up NSUserDefaults
@@ -1315,6 +1316,16 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[defaults objectForKey:@"lastSession"]]]];
         self.addressBar.stringValue = [defaults objectForKey:@"lastSession"];
         
+    } else if([urlToString isEqual: @"spark://invalidcert-proceedanyway"]) {
+        // spark://invalidcert-proceedanyway called
+        
+        NSLog(@"spark://invalidcert-proceedanyway called. Loading...");
+        
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[defaults objectForKey:@"lastSession"]]];
+        
+        NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+        [urlConnection start];
+        
     } else if([urlToString hasPrefix: @"spark://"] || [urlToString hasPrefix: @"spark:"]) {
         // Invalid spark:// URL
         
@@ -1489,6 +1500,27 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     [download setDestination:destinationFilename allowOverwrite:NO];
 }
 
+#pragma NSURLConnectionDelegate / WebView SSL handling
+
+- (void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
+    if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) {
+        NSURL* baseURL = [NSURL URLWithString:[defaults objectForKey:@"lastSession"]];
+        if ([challenge.protectionSpace.host isEqualToString:baseURL.host]) {
+            NSLog(@"Trusting connection to host %@", challenge.protectionSpace.host);
+            [challenge.sender useCredential:[NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust] forAuthenticationChallenge:challenge];
+        } else {
+            NSLog(@"Not trusting connection to host %@", challenge.protectionSpace.host);
+        }
+    }
+    
+    [challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)pResponse {
+    [connection cancel];
+    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[defaults objectForKey:@"lastSession"]]]];
+}
+
 #pragma mark - WebView loading-related methods
 
 - (void)webView:(WebView *)sender didFailProvisionalLoadWithError:(NSError *)error forFrame:(WebFrame *)frame {
@@ -1601,7 +1633,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     if(frame == [sender mainFrame]) {
         
         lastSession = [[defaults objectForKey:@"lastSession"] stringByReplacingOccurrencesOfString:@"https://" withString:@""];
-        lastSession = [[defaults objectForKey:@"lastSession"] stringByReplacingOccurrencesOfString:@"http://" withString:@""];
+        lastSession = [lastSession stringByReplacingOccurrencesOfString:@"http://" withString:@""];
         
         if([lastSession rangeOfString:@"/"].location != NSNotFound) {
             lastSession = [lastSession substringToIndex:[lastSession rangeOfString:@"/"].location];
