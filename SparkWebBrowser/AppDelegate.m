@@ -153,7 +153,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     editedVersionString = [macOSVersionString stringByReplacingOccurrencesOfString:@"." withString:@"_"]; // Replace dots in version string with underscores
     userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel %@ %@) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36 Spark/%@.%@", macOSProductName, editedVersionString, appVersion, buildNumber]; // Set user agent respective to the current versions of Spark and macOS
     
-    untrustedSites = [NSMutableArray array];
+    untrustedSites = [NSMutableArray array]; // Set up untrusted sites array
 }
 
 - (void)applicationWillFinishLaunching:(NSNotification *)aNotification {
