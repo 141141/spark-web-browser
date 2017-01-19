@@ -103,6 +103,7 @@ NSURL *faviconURL = nil; // NSURL converted from faviconURLString
 NSURL *candidateURL = nil; // String value of addressBar as an NSURL
 NSData *faviconData = nil; // Data retrieved from faviconURLString service
 NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
+NSMutableArray *untrustedSites = nil; // Array of untrusted websites
 
 #pragma mark - Pre-initializing
 
@@ -151,6 +152,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     releaseChannel = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"currentReleaseChannel"]]; // Get current release channel
     editedVersionString = [macOSVersionString stringByReplacingOccurrencesOfString:@"." withString:@"_"]; // Replace dots in version string with underscores
     userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel %@ %@) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36 Spark/%@.%@", macOSProductName, editedVersionString, appVersion, buildNumber]; // Set user agent respective to the current versions of Spark and macOS
+    
+    untrustedSites = [NSMutableArray array];
 }
 
 - (void)applicationWillFinishLaunching:(NSNotification *)aNotification {
@@ -802,6 +805,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 
 - (IBAction)initWebpageLoad:(id)sender {
     
+    [self.addressBar setTextColor:[NSColor blackColor]];
+    
     candidateURL = [NSURL URLWithString:self.addressBar.stringValue]; // String value of addressBar converted to an NSURL
     
     searchString = self.addressBar.stringValue; // String value of addressBar
@@ -1323,6 +1328,10 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[defaults objectForKey:@"lastSession"]]];
         
+        [untrustedSites addObject:[defaults objectForKey:@"lastSession"]];
+        
+        [defaults setObject:untrustedSites forKey:@"untrustedSitesArray"];
+        
         NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
         [urlConnection start];
         
@@ -1530,7 +1539,7 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
     
     if(error.code == -1206 || error.code == -1205 || error.code == -1204 || error.code == -1203 || error.code == -1202 || error.code == -1201 || error.code == -1200) {
         // NSURLErrorClientCertificateRequired = -1206
-        //NSURLErrorClientCertificateRejected = -1205
+        // NSURLErrorClientCertificateRejected = -1205
         // NSURLErrorServerCertificateNotYetValid = -1204
         // NSURLErrorServerCertificateHasUnknownRoot = -1203
         // NSURLErrorServerCertificateUntrusted = -1202
@@ -1538,6 +1547,8 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         // NSURLErrorSecureConnectionFailed = -1200
         
         NSLog(@"Loading spark-cert-invalid.html...");
+        
+        [self.addressBar setTextColor:[NSColor redColor]];
         
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-cert-invalid" ofType:@"html"] isDirectory:NO]]];
         
@@ -1650,6 +1661,10 @@ NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
         
         if(self.faviconImage.image == nil) { // Check whether or not a favicon image exists for the current webpage
             self.faviconImage.image = [NSImage imageNamed:@"defaultfavicon"];
+        }
+        
+        if([[defaults objectForKey:@"untrustedSitesArray"] containsObject:self.addressBar.stringValue]) {
+            [self.addressBar setTextColor:[NSColor redColor]];
         }
         
         // Set values for use on spark:// pages

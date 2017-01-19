@@ -1285,7 +1285,7 @@ DQ
                     </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="514" y="-569"/>
+            <point key="canvasLocation" x="513.5" y="-569"/>
         </window>
         <menu title="TabContextMenu" id="o06-WA-3Lg">
             <items>
