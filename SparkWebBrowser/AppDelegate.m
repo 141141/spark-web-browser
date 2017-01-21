@@ -480,7 +480,6 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     }
     
     
-    
     //[[self.webView preferences] setJavaEnabled:false];
 }
 
@@ -1229,10 +1228,10 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         
         self.addressBar.stringValue = self.webView.mainFrameURL;
         
-    } else if([urlToString isEqual: @"spark://quit"] || [urlToString isEqual: @"spark://close"] || [urlToString isEqual: @"spark://endsession"] || [urlToString isEqual: @"spark://closesession"]) {
-        // spark://quit || spark://close || spark://endsession || spark://closesession called
+    } else if([urlToString isEqual: @"spark://quit"] || [urlToString isEqual: @"spark://close"] || [urlToString isEqual: @"spark://end"] || [urlToString isEqual: @"spark://endsession"] || [urlToString isEqual: @"spark://closesession"]) {
+        // spark://quit || spark://close || spark://end  || spark://endsession || spark://closesession called
         
-        NSLog(@"spark://quit || spark://close || spark://endsession || spark://closesession called. Quitting...");
+        NSLog(@"spark://quit || spark://close || spark://endsession || spark://end || spark://closesession called. Quitting...");
         
         [[NSApplication sharedApplication] terminate:nil];
         
@@ -1331,12 +1330,14 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         NSLog(@"spark://invalidcert-proceedanyway called. Loading...");
         
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[defaults objectForKey:@"lastSession"]]];
+        NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
         
         [untrustedSites addObject:[defaults objectForKey:@"lastSession"]];
         
         [defaults setObject:untrustedSites forKey:@"untrustedSitesArray"];
         
-        NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+        [self.addressBar setStringValue:[NSString stringWithFormat:@"%@", request.URL]];
+        
         [urlConnection start];
         
     } else if([urlToString hasPrefix: @"spark://"] || [urlToString hasPrefix: @"spark:"]) {
