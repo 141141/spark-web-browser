@@ -479,8 +479,10 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         self.customSearchEngineSaveBtn.hidden = YES;
     }
     
-    
-    //[[self.webView preferences] setJavaEnabled:false];
+    // Future preferences options
+    // [[self.webView preferences] setJavaEnabled:false];
+    // [[self.webView preferences] setJavaScriptEnabled:false];
+    // [[self.webView preferences] setPlugInsEnabled:false];
 }
 
 #pragma mark - IBActions
