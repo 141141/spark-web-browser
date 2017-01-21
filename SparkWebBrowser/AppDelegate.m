@@ -11,7 +11,7 @@
 #import "NSUserDefaults+ColorSupport.h"
 #import "Sparkle.framework/Headers/SUUpdater.h"
 
-@interface AppDelegate () <NSTabViewDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate, NSURLSessionDelegate>
+@interface AppDelegate () <NSTabViewDelegate>
 
 @end
 
@@ -478,6 +478,10 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         self.customSearchEngineField.hidden = YES;
         self.customSearchEngineSaveBtn.hidden = YES;
     }
+    
+    
+    
+    //[[self.webView preferences] setJavaEnabled:false];
 }
 
 #pragma mark - IBActions
@@ -1665,6 +1669,8 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         
         if([[defaults objectForKey:@"untrustedSitesArray"] containsObject:self.addressBar.stringValue]) {
             [self.addressBar setTextColor:[NSColor redColor]];
+        } else {
+            [self.addressBar setTextColor:[NSColor blackColor]];
         }
         
         // Set values for use on spark:// pages
