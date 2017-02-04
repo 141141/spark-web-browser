@@ -107,7 +107,6 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
 
 #pragma mark - Pre-initializing
 
-
 + (void)initialize {
     defaults = [NSUserDefaults standardUserDefaults]; // Set up NSUserDefaults
     
@@ -151,7 +150,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     
     releaseChannel = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"currentReleaseChannel"]]; // Get current release channel
     editedVersionString = [macOSVersionString stringByReplacingOccurrencesOfString:@"." withString:@"_"]; // Replace dots in version string with underscores
-    userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel %@ %@) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36 Spark/%@.%@", macOSProductName, editedVersionString, appVersion, buildNumber]; // Set user agent respective to the current versions of Spark and macOS
+    userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel %@ %@) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36 Spark/%@.%@", macOSProductName, editedVersionString, appVersion, buildNumber]; // Set user agent respective to the current versions of Spark and macOS
     
     untrustedSites = [NSMutableArray array]; // Set up untrusted sites array
 }
@@ -608,6 +607,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-about" ofType:@"html"] isDirectory:NO]]];
         
         self.addressBar.stringValue = @"spark://about";
+        
     } else {
         NSLog(@"Opening About window...");
         
