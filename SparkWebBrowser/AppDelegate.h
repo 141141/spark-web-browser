@@ -62,6 +62,7 @@
 @property (assign, nonatomic) IBOutlet NSButton *popupWindowBtn1;
 @property (assign, nonatomic) IBOutlet NSButton *popupWindowBtn2;
 @property (assign, nonatomic) IBOutlet NSButton *useAboutPageBtn;
+@property (assign, nonatomic) IBOutlet NSScrollView *prefsScrollView;
 
 @property (nonatomic, assign) long bytesReceived;
 
