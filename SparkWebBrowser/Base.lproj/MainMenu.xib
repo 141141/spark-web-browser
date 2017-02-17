@@ -1237,9 +1237,17 @@ Spark is made possible by the WebKit open source project and other open source s
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSMenuOnStateTemplate" id="1YL-hD-bfD"/>
                     </imageView>
+                    <button verticalHuggingPriority="750" misplaced="YES" id="d6I-vZ-FrW">
+                        <rect key="frame" x="1051" y="657" width="27" height="19"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="roundRect" bezelStyle="roundedRect" image="NSBookmarksTemplate" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FFa-Yc-AgX">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="cellTitle"/>
+                        </buttonCell>
+                    </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="930" y="175"/>
+            <point key="canvasLocation" x="929.5" y="174.5"/>
         </window>
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="uuQ-xY-3aS" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
@@ -1371,6 +1379,7 @@ DQ
         <image name="AppIcon256" width="61.439998626708984" height="61.439998626708984"/>
         <image name="NSActionTemplate" width="14" height="14"/>
         <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="NSBookmarksTemplate" width="17" height="18"/>
         <image name="NSGoLeftTemplate" width="9" height="12"/>
         <image name="NSGoRightTemplate" width="9" height="12"/>
         <image name="NSIconViewTemplate" width="10" height="10"/>

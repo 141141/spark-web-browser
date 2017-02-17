@@ -39,7 +39,8 @@ NSString *askDefaultURL = @"http://www.ask.com/";
 NSString *aolDefaultURL = @"http://www.aol.com/";
 
 // Strings for "Help" menu bar item
-NSString *appIssuesURL = @"https://www.github.com/insleep/spark-web-browser/issues/new?title=Describe%20your%20feature%20request%20or%20bug%20report,%20succinctly&body=**Spark%20version:**%20%0A%20**Spark%20build:**%20%0A%20**Release%20channel:**%20%0A%20**macOS%20version:**%20%0A%0A%20**Description:**%20%0A%0A%20**Steps%20to%20reproduce:**%20%0A%0A%20**Expected%20results:**%20%0A%0A%20**Actual%20results:**%20";
+NSString *appReportIssueURL = @"https://www.github.com/insleep/spark-web-browser/issues/new?title=Describe%20your%20feature%20request%20or%20bug%20report,%20succinctly&body=**Spark%20version:**%20%0A%20**Spark%20build:**%20%0A%20**Release%20channel:**%20%0A%20**macOS%20version:**%20%0A%0A%20**Description:**%20%0A%0A%20**Steps%20to%20reproduce:**%20%0A%0A%20**Expected%20results:**%20%0A%0A%20**Actual%20results:**%20";
+NSString *appExistingIssuesURL = @"https://www.github.com/insleep/spark-web-browser/issues/";
 NSString *appReleasesURL = @"https://www.github.com/insleep/spark-web-browser/releases/tag/%@/";
 
 // Theme colors
@@ -507,8 +508,8 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
 - (IBAction)reportIssueAboutWindow:(id)sender {
     
     [self.aboutWindow close];
-    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:appIssuesURL]]];
-    self.addressBar.stringValue = appIssuesURL;
+    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:appReportIssueURL]]];
+    self.addressBar.stringValue = appReportIssueURL;
 }
 
 - (IBAction)closeDownloadingView:(id)sender {
@@ -751,8 +752,8 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
 }
 
 - (IBAction)reportIssue:(id)sender {
-    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:appIssuesURL]]];
-    self.addressBar.stringValue = appIssuesURL;
+    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:appReportIssueURL]]];
+    self.addressBar.stringValue = appReportIssueURL;
 }
 
 - (IBAction)setSearchEngine:(id)sender {
@@ -1304,12 +1305,20 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         
         [[SUUpdater sharedUpdater] checkForUpdates:nil];
         
-    } else if([urlToString isEqual: @"spark://reportissue"] || [urlToString isEqual: @"spark://reportanissue"] || [urlToString isEqual: @"spark://issue"] || [urlToString isEqual: @"spark://issues"]) {
-        // spark://reportissue || spark://reportanissue || spark://issue || spark://issues called
+    } else if([urlToString isEqual: @"spark://reportissue"] || [urlToString isEqual: @"spark://reportanissue"] || [urlToString isEqual: @"spark://issue"]) {
+        // spark://reportissue || spark://reportanissue || spark://issue
         
         NSLog(@"spark://reportissue || spark://reportanissue || spark://issue || spark://issues called. Loading...");
         
         [self reportIssue:nil];
+        
+    } else if([urlToString isEqual: @"spark://issues"]) {
+        // spark://issues called
+        
+        NSLog(@"spark://issues called. Loading...");
+        
+        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:appExistingIssuesURL]]];
+        self.addressBar.stringValue = appExistingIssuesURL;
         
     } else if([urlToString isEqual: @"spark://releasenotes"]) {
         // spark://releasenotes called
