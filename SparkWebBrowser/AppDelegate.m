@@ -618,6 +618,34 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     }
 }
 
+- (IBAction)addBookmark:(id)sender {
+    
+    if([defaults objectForKey:@"storedBookmarksArray"] == nil) {
+        
+        NSLog(@"StoredBookmarksArray: nil");
+        
+        NSMutableArray *currentBookmarksArray = [NSMutableArray array];
+        
+        [currentBookmarksArray addObject:self.addressBar.stringValue];
+        
+        [defaults setObject:currentBookmarksArray forKey:@"storedBookmarksArray"];
+        
+        NSLog(@"%@", currentBookmarksArray);
+        
+    } else {
+        NSLog(@"StoredBookmarksArray exists");
+        
+        NSMutableArray *currentBookmarksArray = [[defaults objectForKey:@"storedBookmarksArray"] mutableCopy];
+        
+        [currentBookmarksArray addObject:self.addressBar.stringValue];
+        
+        [defaults setObject:currentBookmarksArray forKey:@"storedBookmarksArray"];
+        
+        NSLog(@"%@", currentBookmarksArray);
+        
+    }
+}
+
 - (IBAction)setTopBarColor:(id)sender {
     
     NSLog(@"Setting theme color...");

@@ -62,6 +62,7 @@
 @property (assign, nonatomic) IBOutlet NSButton *popupWindowBtn1;
 @property (assign, nonatomic) IBOutlet NSButton *popupWindowBtn2;
 @property (assign, nonatomic) IBOutlet NSButton *useAboutPageBtn;
+@property (assign, nonatomic) IBOutlet NSMenu *menuBarBookmarks;
 
 @property (nonatomic, assign) long bytesReceived;
 
@@ -85,6 +86,7 @@
 - (IBAction)setReleaseChannelBtnClicked:(id)sender;
 - (IBAction)useAboutPage:(id)sender;
 - (IBAction)openAboutWindow:(id)sender;
+- (IBAction)addBookmark:(id)sender;
 
 #pragma mark - Various methods
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame;

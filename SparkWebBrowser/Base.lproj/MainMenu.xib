@@ -44,6 +44,7 @@
                 <outlet property="homepageTextField" destination="wPk-qF-HnV" id="sfR-SW-cWa"/>
                 <outlet property="lastSessionRadioBtn" destination="gmm-t7-PDm" id="C8c-zQ-6w1"/>
                 <outlet property="loadingIndicator" destination="1qB-mY-4UE" id="EYD-he-pSG"/>
+                <outlet property="menuBarBookmarks" destination="drg-vE-MEd" id="I0Z-VL-A66"/>
                 <outlet property="ntBtn" destination="pmy-Gn-uac" id="eJG-ga-1rU"/>
                 <outlet property="ntBtnBackground" destination="VRX-Sp-sir" id="uAL-Ad-2Pe"/>
                 <outlet property="ntNotSupported" destination="e3k-CE-CDi" id="JB0-P4-EAc"/>
@@ -348,6 +349,55 @@
                         </items>
                     </menu>
                 </menuItem>
+                <menuItem title="Bookmarks" id="5EW-Rg-5WU">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Bookmarks" id="drg-vE-MEd">
+                        <items>
+                            <menuItem title="Bookmark This Page..." keyEquivalent="d" id="Kum-5e-TBA">
+                                <connections>
+                                    <action selector="reload:" target="ffM-a6-P1L" id="nR6-kJ-4p0"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="L6g-po-7xA"/>
+                            <menuItem title="Bookmark1" id="u4U-oA-n33">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="makeTextSmaller:" target="ffM-a6-P1L" id="XQR-xZ-52E"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Bookmark2" id="Tqr-WK-LQX">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="makeTextSmaller:" target="ffM-a6-P1L" id="Ko8-6m-FDm"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Bookmark3" id="f1p-F1-wAZ">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="makeTextSmaller:" target="ffM-a6-P1L" id="XBW-Ir-QHe"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Bookmark4" id="D5b-KO-ScL">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="makeTextSmaller:" target="ffM-a6-P1L" id="zIB-Sl-ThK"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Bookmark5" id="5uP-7m-ohF">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="makeTextSmaller:" target="ffM-a6-P1L" id="4Rb-aC-JG3"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Bookmark6" id="Cs4-vn-a1M">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="makeTextSmaller:" target="ffM-a6-P1L" id="BuB-aJ-wrB"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
                 <menuItem title="View" id="H8h-7b-M4v" userLabel="Window">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Window" systemMenu="window" id="Dxw-62-3Rz">
@@ -461,17 +511,6 @@ Spark is made possible by the WebKit open source project and other open source s
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button verticalHuggingPriority="750" misplaced="YES" id="kZy-dn-WEH">
-                        <rect key="frame" x="14" y="52" width="154" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Check for Updates" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="neH-Bx-srP">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="checkForUpdates:" target="Knx-RJ-zJs" id="Sd6-6f-yNs"/>
-                        </connections>
-                    </button>
                     <button verticalHuggingPriority="750" misplaced="YES" id="WGq-tv-AWA">
                         <rect key="frame" x="168" y="52" width="135" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -481,6 +520,17 @@ Spark is made possible by the WebKit open source project and other open source s
                         </buttonCell>
                         <connections>
                             <action selector="reportIssueAboutWindow:" target="Voe-Tx-rLC" id="Cpn-VE-lJ8"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" misplaced="YES" id="kZy-dn-WEH">
+                        <rect key="frame" x="14" y="52" width="154" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Check for Updates" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="neH-Bx-srP">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="checkForUpdates:" target="Knx-RJ-zJs" id="Sd6-6f-yNs"/>
                         </connections>
                     </button>
                 </subviews>
@@ -876,7 +926,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     </tabView>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="1477" y="-884"/>
+            <point key="canvasLocation" x="1480" y="-481"/>
         </window>
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="qp2-Mq-gTe" userLabel="Config Window" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
@@ -1244,10 +1294,13 @@ Spark is made possible by the WebKit open source project and other open source s
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="addBookmark:" target="Voe-Tx-rLC" id="x1Z-fN-EFY"/>
+                        </connections>
                     </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="929.5" y="174.5"/>
+            <point key="canvasLocation" x="872" y="114"/>
         </window>
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="uuQ-xY-3aS" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
@@ -1372,7 +1425,7 @@ DQ
                     </connections>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="514" y="-279"/>
+            <point key="canvasLocation" x="692.5" y="-348.5"/>
         </menu>
     </objects>
     <resources>
