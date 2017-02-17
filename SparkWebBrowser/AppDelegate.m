@@ -65,6 +65,8 @@ NSTrackingArea *backBtnTrackingArea = nil; // Back button tracking area (used fo
 NSTrackingArea *forwardBtnTrackingArea = nil; // Forward button tracking area (used for hover effect)
 NSTrackingArea *reloadBtnTrackingArea = nil; // Reload button tracking area (used for hover effect)
 NSTrackingArea *settingsBtnTrackingArea = nil; // Settings button tracking area (used for hover effect)
+NSMutableArray *currentBookmarksArray = nil; // Mutable array for bookmark URLs
+NSMutableArray *currentBookmarkTitlesArray = nil; // Mutable array for bookmark titles
 NSString *appVersion = nil; // Spark version number
 NSString *buildNumber = nil; // Spark build number
 NSString *macOSVersionString = nil; // macOS version number
@@ -332,11 +334,10 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     self.settingsWindow.backgroundColor = [NSColor whiteColor];
     self.configWindow.backgroundColor = [NSColor whiteColor];
     
-    NSMutableArray *currentBookmarkTitlesArray = [defaults objectForKey:@"storedBookmarkTitlesArray"];
+    currentBookmarkTitlesArray = [defaults objectForKey:@"storedBookmarkTitlesArray"];
     
     for(id bookmarkTitle in currentBookmarkTitlesArray) {
         int index = (int)[currentBookmarkTitlesArray indexOfObject:bookmarkTitle];
-        //NSLog(@"%@", bookmarkTitle);
         NSMenuItem *bookmarkItem = [self.menuBarBookmarks addItemWithTitle:bookmarkTitle action:@selector(openBookmark:) keyEquivalent:@""];
         [bookmarkItem setRepresentedObject:[NSNumber numberWithInt:index]];
     }
@@ -629,14 +630,12 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
 
 - (IBAction)addBookmark:(id)sender {
     
-    
-    
     if([defaults objectForKey:@"storedBookmarksArray"] == nil) {
         
         NSLog(@"StoredBookmarksArray: nil");
         
-        NSMutableArray *currentBookmarksArray = [NSMutableArray array];
-        NSMutableArray *currentBookmarkTitlesArray = [NSMutableArray array];
+        currentBookmarksArray = [NSMutableArray array];
+        currentBookmarkTitlesArray = [NSMutableArray array];
         
         [currentBookmarksArray addObject:self.addressBar.stringValue];
         [currentBookmarkTitlesArray addObject:self.webView.mainFrameTitle];
@@ -655,8 +654,8 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         
         NSLog(@"StoredBookmarksArray exists");
         
-        NSMutableArray *currentBookmarksArray = [[defaults objectForKey:@"storedBookmarksArray"] mutableCopy];
-        NSMutableArray *currentBookmarkTitlesArray = [[defaults objectForKey:@"storedBookmarkTitlesArray"] mutableCopy];
+        currentBookmarksArray = [[defaults objectForKey:@"storedBookmarksArray"] mutableCopy];
+        currentBookmarkTitlesArray = [[defaults objectForKey:@"storedBookmarkTitlesArray"] mutableCopy];
         
         [currentBookmarksArray addObject:self.addressBar.stringValue];
         [currentBookmarkTitlesArray addObject:self.webView.mainFrameTitle];
@@ -677,7 +676,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     NSNumber *intString = [sender representedObject];
     NSLog(@"Loading bookmark: %@", intString);
     
-    NSMutableArray *currentBookmarksArray = [defaults objectForKey:@"storedBookmarksArray"];
+    currentBookmarksArray = [defaults objectForKey:@"storedBookmarksArray"];
     
     NSString *bookmarkString = [currentBookmarksArray objectAtIndex:[intString intValue]];
     
