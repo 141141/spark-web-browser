@@ -355,46 +355,10 @@
                         <items>
                             <menuItem title="Bookmark This Page..." keyEquivalent="d" id="Kum-5e-TBA">
                                 <connections>
-                                    <action selector="reload:" target="ffM-a6-P1L" id="nR6-kJ-4p0"/>
+                                    <action selector="addBookmark:" target="Voe-Tx-rLC" id="2WC-bb-QIQ"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="L6g-po-7xA"/>
-                            <menuItem title="Bookmark1" id="u4U-oA-n33">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="makeTextSmaller:" target="ffM-a6-P1L" id="XQR-xZ-52E"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Bookmark2" id="Tqr-WK-LQX">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="makeTextSmaller:" target="ffM-a6-P1L" id="Ko8-6m-FDm"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Bookmark3" id="f1p-F1-wAZ">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="makeTextSmaller:" target="ffM-a6-P1L" id="XBW-Ir-QHe"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Bookmark4" id="D5b-KO-ScL">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="makeTextSmaller:" target="ffM-a6-P1L" id="zIB-Sl-ThK"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Bookmark5" id="5uP-7m-ohF">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="makeTextSmaller:" target="ffM-a6-P1L" id="4Rb-aC-JG3"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Bookmark6" id="Cs4-vn-a1M">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="makeTextSmaller:" target="ffM-a6-P1L" id="BuB-aJ-wrB"/>
-                                </connections>
-                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>

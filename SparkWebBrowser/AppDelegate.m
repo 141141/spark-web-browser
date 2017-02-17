@@ -106,6 +106,8 @@ NSData *faviconData = nil; // Data retrieved from faviconURLString service
 NSImage *websiteFavicon = nil; // Current website favicon, as an NSImage
 NSMutableArray *untrustedSites = nil; // Array of untrusted websites
 
+NSMenuItem *bookmarkItem = nil;
+
 #pragma mark - Pre-initializing
 
 + (void)initialize {
@@ -620,30 +622,67 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
 
 - (IBAction)addBookmark:(id)sender {
     
-    if([defaults objectForKey:@"storedBookmarksArray"] == nil) {
+    NSMutableArray *currentBookmarksArray = [defaults objectForKey:@"storedBookmarksArray"];
+    
+    NSMutableArray *currentBookmarkTitlesArray = [defaults objectForKey:@"storedBookmarkTitlesArray"];
+    
+    for(id bookmarkTitle in currentBookmarkTitlesArray) {
+        NSLog(@"%@", bookmarkTitle);
+        bookmarkItem = [self.menuBarBookmarks addItemWithTitle:bookmarkTitle action:@selector(openBookmark:) keyEquivalent:@""];
+        for (int i = 0; i < [currentBookmarksArray count]; i++) {
+            [bookmarkItem setRepresentedObject:[currentBookmarksArray objectAtIndex: i]];
+        }
+    }
+    
+    /*for (int i = 0; i < [currentBookmarksArray count]; i++) {
+        [bookmarkItem setRepresentedObject:[currentBookmarksArray objectAtIndex: i]];
+    }*/
+    
+    for(id bookmarkURL in currentBookmarksArray) {
+        //NSLog(@"%@", bookmarkURL);
+        
+    }
+    
+    /*if([defaults objectForKey:@"storedBookmarksArray"] == nil) {
         
         NSLog(@"StoredBookmarksArray: nil");
         
         NSMutableArray *currentBookmarksArray = [NSMutableArray array];
+        NSMutableArray *currentBookmarkTitlesArray = [NSMutableArray array];
         
         [currentBookmarksArray addObject:self.addressBar.stringValue];
+        [currentBookmarkTitlesArray addObject:self.titleStatus.stringValue];
         
         [defaults setObject:currentBookmarksArray forKey:@"storedBookmarksArray"];
+        [defaults setObject:currentBookmarkTitlesArray forKey:@"storedBookmarkTitlesArray"];
         
-        NSLog(@"%@", currentBookmarksArray);
+        NSMenuItem *bookmarkItem = [self.menuBarBookmarks addItemWithTitle:self.webView.mainFrameTitle action:@selector(openBookmark:) keyEquivalent:@""];
+        [bookmarkItem setRepresentedObject:self.addressBar.stringValue];
         
     } else {
         NSLog(@"StoredBookmarksArray exists");
         
         NSMutableArray *currentBookmarksArray = [[defaults objectForKey:@"storedBookmarksArray"] mutableCopy];
+        NSMutableArray *currentBookmarkTitlesArray = [[defaults objectForKey:@"storedBookmarkTitlesArray"] mutableCopy];
         
         [currentBookmarksArray addObject:self.addressBar.stringValue];
+        [currentBookmarkTitlesArray addObject:self.titleStatus.stringValue];
         
         [defaults setObject:currentBookmarksArray forKey:@"storedBookmarksArray"];
+        [defaults setObject:currentBookmarkTitlesArray forKey:@"storedBookmarkTitlesArray"];
         
-        NSLog(@"%@", currentBookmarksArray);
+        NSMenuItem *bookmarkItem = [self.menuBarBookmarks addItemWithTitle:self.webView.mainFrameTitle action:@selector(openBookmark:) keyEquivalent:@""];
+        [bookmarkItem setRepresentedObject:self.addressBar.stringValue];
         
-    }
+    }*/
+}
+
+- (IBAction)openBookmark:(id)sender {
+    NSString *bookmarkString = [sender representedObject];
+    NSLog(@"Loading bookmark: %@", bookmarkString);
+    
+    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:bookmarkString]]];
+    self.addressBar.stringValue = bookmarkString;
 }
 
 - (IBAction)setTopBarColor:(id)sender {
