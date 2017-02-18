@@ -674,7 +674,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
 
 - (IBAction)openBookmark:(id)sender {
     NSNumber *intString = [sender representedObject];
-    NSLog(@"Loading bookmark: %@", intString);
+    NSLog(@"Loading bookmark with index: %@", intString);
     
     currentBookmarksArray = [defaults objectForKey:@"storedBookmarksArray"];
     
@@ -682,6 +682,32 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     
     [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:bookmarkString]]];
     self.addressBar.stringValue = bookmarkString;
+}
+
+- (IBAction)clearBookmarks:(id)sender {
+    NSLog(@"Clearing bookmarks...");
+
+    [defaults setObject:nil forKey:@"storedBookmarksArray"];
+    [defaults setObject:nil forKey:@"storedBookmarkTitlesArray"];
+    
+    [self.menuBarBookmarks removeAllItems];
+    
+    NSMenuItem *bookmarkItem = [self.menuBarBookmarks addItemWithTitle:@"Bookmark This Page..." action:@selector(addBookmark:) keyEquivalent:@"d"];
+    [bookmarkItem setKeyEquivalentModifierMask: NSCommandKeyMask];
+    
+    [self.menuBarBookmarks addItem:[NSMenuItem separatorItem]];
+    
+    NSLog(@"Bookmarks cleared.");
+    
+    // Display a checkmark after bookmarks are cleared
+    self.bookmarksClearedIcon.hidden = NO;
+    
+    // Timer to display the checkmark for 2 seconds
+    int64_t delayInSeconds = 2.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void) {
+        self.bookmarksClearedIcon.hidden = YES;
+    });
 }
 
 - (IBAction)setTopBarColor:(id)sender {
@@ -1106,7 +1132,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     // Timer to display the label for 2 seconds
     int64_t delayInSeconds = 2.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void) {
         self.ntNotSupported.hidden = YES;
     });
 }
