@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16E163f" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16E175b" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaDFRPlugin" version="7104"/>
@@ -67,6 +67,7 @@
                 <outlet property="titleStatus" destination="JvK-hQ-Wwq" id="SHO-kH-keU"/>
                 <outlet property="topBarBg" destination="bY4-GT-wGb" id="gOF-sW-3Lj"/>
                 <outlet property="topBarColorPicker" destination="XHo-Io-iG9" id="A34-iL-EJS"/>
+                <outlet property="touchBar" destination="jdx-WA-Hhz" id="6Y4-V1-Pgf"/>
                 <outlet property="useAboutPageBtn" destination="Dsd-aD-fO0" id="BKp-8D-uSF"/>
                 <outlet property="webView" destination="ffM-a6-P1L" id="vO9-FI-Eez"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="FlD-yq-Bjm"/>

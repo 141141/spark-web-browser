@@ -174,6 +174,9 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     // NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
     // [defaults removePersistentDomainForName:appDomain];
     
+    // Set up Touch Bar
+    [NSApplication sharedApplication].touchBar = self.touchBar;
+    
     // Set up WebView
     [self.webView setPolicyDelegate:(id<WebPolicyDelegate>)self];
     [self.webView setDownloadDelegate:(id<WebDownloadDelegate>)self];
