@@ -146,14 +146,24 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="AAC-cI-AQY"/>
-                            <menuItem title="Back" keyEquivalent="" id="Was-JA-tGl">
+                            <menuItem title="Back" keyEquivalent="[" id="Was-JA-tGl">
                                 <connections>
                                     <action selector="goBack:" target="ffM-a6-P1L" id="P54-nm-XyH"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Forward" keyEquivalent="" id="IAo-SY-fd9">
+                            <menuItem title="Back" hidden="YES" keyEquivalent="" id="63k-8r-OKx">
+                                <connections>
+                                    <action selector="goBack:" target="ffM-a6-P1L" id="X12-yq-wPy"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Forward" keyEquivalent="]" id="IAo-SY-fd9">
                                 <connections>
                                     <action selector="goForward:" target="ffM-a6-P1L" id="lz9-j0-VD0"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Forward" hidden="YES" keyEquivalent="" id="iCm-Nt-RgL">
+                                <connections>
+                                    <action selector="goForward:" target="ffM-a6-P1L" id="TMU-Pc-QgV"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
@@ -424,7 +434,7 @@
                     </menu>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="944" y="-695"/>
+            <point key="canvasLocation" x="944" y="-652"/>
         </menu>
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="oJi-1c-Sb5" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
@@ -503,7 +513,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="944" y="-481"/>
+            <point key="canvasLocation" x="944" y="-459"/>
         </window>
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="MMA-4M-Pa4" userLabel="Preferences Window" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
@@ -910,7 +920,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     </tabView>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="1480" y="-481.5"/>
+            <point key="canvasLocation" x="1515" y="-482"/>
         </window>
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="qp2-Mq-gTe" userLabel="Config Window" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
@@ -971,7 +981,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     </imageView>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="840" y="-863"/>
+            <point key="canvasLocation" x="840" y="-891"/>
         </window>
         <window allowsToolTipsWhenApplicationIsInactive="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES"/>
@@ -1374,7 +1384,7 @@ DQ
                     </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="513.5" y="-569"/>
+            <point key="canvasLocation" x="483" y="-568"/>
         </window>
         <menu title="TabContextMenu" id="o06-WA-3Lg">
             <items>
@@ -1500,7 +1510,7 @@ DQ
                     <size key="designTimeSize" width="72" height="30"/>
                 </touchBarItem>
             </touchBarItems>
-            <point key="canvasLocation" x="1496" y="-779"/>
+            <point key="canvasLocation" x="1079" y="-728"/>
         </touchBar>
     </objects>
     <resources>
