@@ -36,7 +36,7 @@ NSString *bingDefaultURL = @"https://www.bing.com/";
 NSString *yahooDefaultURL = @"https://www.yahoo.com/";
 NSString *duckDuckGoDefaultURL = @"https://www.duckduckgo.com/";
 NSString *askDefaultURL = @"http://www.ask.com/";
-NSString *aolDefaultURL = @"http://www.aol.com/";
+NSString *aolDefaultURL = @"https://www.aol.com/";
 
 // Strings for "Help" menu bar item
 NSString *appReportIssueURL = @"https://www.github.com/insleep/spark-web-browser/issues/new?title=Describe%20your%20feature%20request%20or%20bug%20report,%20succinctly&body=**Spark%20version:**%20%0A%20**Spark%20build:**%20%0A%20**Release%20channel:**%20%0A%20**macOS%20version:**%20%0A%0A%20**Description:**%20%0A%0A%20**Steps%20to%20reproduce:**%20%0A%0A%20**Expected%20results:**%20%0A%0A%20**Actual%20results:**%20";
