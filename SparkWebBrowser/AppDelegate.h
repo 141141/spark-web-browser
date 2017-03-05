@@ -64,7 +64,6 @@
 @property (assign, nonatomic) IBOutlet NSButton *useAboutPageBtn;
 @property (assign, nonatomic) IBOutlet NSMenu *menuBarBookmarks;
 @property (assign, nonatomic) IBOutlet NSImageView *bookmarksClearedIcon;
-@property (assign, nonatomic) IBOutlet NSTouchBar *touchBar;
 
 @property (nonatomic, assign) long bytesReceived;
 
@@ -90,9 +89,6 @@
 - (IBAction)openAboutWindow:(id)sender;
 - (IBAction)addBookmark:(id)sender;
 - (IBAction)clearBookmarks:(id)sender;
-- (IBAction)goBackTouchBar:(id)sender;
-- (IBAction)goForwardTouchBar:(id)sender;
-- (IBAction)refreshPageTouchBar:(id)sender;
 - (IBAction)loadHomepage:(id)sender;
 
 #pragma mark - Various methods

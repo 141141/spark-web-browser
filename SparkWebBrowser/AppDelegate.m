@@ -174,9 +174,6 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     // NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
     // [defaults removePersistentDomainForName:appDomain];
     
-    // Set up Touch Bar
-    [NSApplication sharedApplication].touchBar = self.touchBar;
-    
     // Set up WebView
     [self.webView setPolicyDelegate:(id<WebPolicyDelegate>)self];
     [self.webView setDownloadDelegate:(id<WebDownloadDelegate>)self];
@@ -721,18 +718,6 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void) {
         self.bookmarksClearedIcon.hidden = YES;
     });
-}
-
-- (IBAction)goBackTouchBar:(id)sender {
-    [self.webView goBack:nil];
-}
-
-- (IBAction)goForwardTouchBar:(id)sender {
-    [self.webView goForward:nil];
-}
-
-- (IBAction)refreshPageTouchBar:(id)sender {
-    [[self.webView mainFrame] reload];
 }
 
 - (IBAction)loadHomepage:(id)sender {
