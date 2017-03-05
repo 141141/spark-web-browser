@@ -1456,7 +1456,7 @@ DQ
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <buttonCell key="cell" type="push" title="Search or type URL" bezelStyle="rounded" image="TouchBarSearchIcon" imagePosition="left" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="F0T-SV-u33">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="system" size="16"/>
+                                <font key="font" metaFont="system" size="15"/>
                             </buttonCell>
                             <connections>
                                 <accessibilityConnection property="title" destination="6S4-CW-iwm" id="ys2-fU-8zR"/>
@@ -1466,23 +1466,48 @@ DQ
                     </viewController>
                     <size key="designTimeSize" width="180" height="30"/>
                 </touchBarItem>
-                <touchBarItem id="MPH-nw-Av4">
-                    <viewController key="viewController" id="O6g-LQ-rEq">
-                        <view key="view" id="i68-52-wBw">
-                            <rect key="frame" x="0.0" y="-30" width="277" height="30"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                        </view>
+                <touchBarSpacerItem identifier="NSTouchBarItemIdentifierFixedSpaceSmall" id="oo4-qT-qMD"/>
+                <touchBarItem id="AHH-NH-WM7">
+                    <viewController key="viewController" id="iL9-dQ-ZEi">
+                        <button key="view" verticalHuggingPriority="750" id="7zq-UC-V7S">
+                            <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSAddTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6bT-lG-8Mw">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="newTab:" target="Voe-Tx-rLC" id="wfU-l4-BN6"/>
+                            </connections>
+                        </button>
                     </viewController>
-                    <size key="designTimeSize" width="277" height="30"/>
+                </touchBarItem>
+                <touchBarSpacerItem identifier="NSTouchBarItemIdentifierFixedSpaceSmall" id="99c-NB-7ge"/>
+                <touchBarItem id="pNM-Qb-d12">
+                    <viewController key="viewController" id="MWm-ll-wn1">
+                        <button key="view" verticalHuggingPriority="750" id="pCs-Cj-WhI">
+                            <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSBookmarksTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lNL-9g-ozB">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="addBookmark:" target="Voe-Tx-rLC" id="2Yx-5D-IPP"/>
+                            </connections>
+                        </button>
+                    </viewController>
+                    <size key="designTimeSize" width="72" height="30"/>
                 </touchBarItem>
             </touchBarItems>
-            <point key="canvasLocation" x="1535.5" y="-778"/>
+            <point key="canvasLocation" x="1496" y="-779"/>
         </touchBar>
     </objects>
     <resources>
         <image name="AppIcon256" width="61.439998626708984" height="61.439998626708984"/>
         <image name="NSActionTemplate" width="14" height="14"/>
         <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="NSBookmarksTemplate" width="17" height="18"/>
         <image name="NSGoLeftTemplate" width="9" height="12"/>
         <image name="NSGoRightTemplate" width="9" height="12"/>
         <image name="NSIconViewTemplate" width="10" height="10"/>
