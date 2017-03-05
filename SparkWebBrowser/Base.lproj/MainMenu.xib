@@ -151,14 +151,14 @@
                                     <action selector="goBack:" target="ffM-a6-P1L" id="P54-nm-XyH"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Back" hidden="YES" keyEquivalent="" id="63k-8r-OKx">
-                                <connections>
-                                    <action selector="goBack:" target="ffM-a6-P1L" id="X12-yq-wPy"/>
-                                </connections>
-                            </menuItem>
                             <menuItem title="Forward" keyEquivalent="]" id="IAo-SY-fd9">
                                 <connections>
                                     <action selector="goForward:" target="ffM-a6-P1L" id="lz9-j0-VD0"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Back" hidden="YES" keyEquivalent="" id="63k-8r-OKx">
+                                <connections>
+                                    <action selector="goBack:" target="ffM-a6-P1L" id="X12-yq-wPy"/>
                                 </connections>
                             </menuItem>
                             <menuItem title="Forward" hidden="YES" keyEquivalent="" id="iCm-Nt-RgL">
@@ -329,6 +329,12 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="View" id="rKx-c4-g9e">
                         <items>
+                            <menuItem title="Home" keyEquivalent="H" id="HoM-xg-cmM">
+                                <connections>
+                                    <action selector="loadHomepage:" target="Voe-Tx-rLC" id="gjf-N4-hUl"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="Gkk-6w-H8Z"/>
                             <menuItem title="Reload This Page" keyEquivalent="r" id="kBd-Ld-2GK">
                                 <connections>
                                     <action selector="reload:" target="ffM-a6-P1L" id="l80-02-gHg"/>

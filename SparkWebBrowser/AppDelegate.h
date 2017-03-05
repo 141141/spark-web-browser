@@ -93,6 +93,7 @@
 - (IBAction)goBackTouchBar:(id)sender;
 - (IBAction)goForwardTouchBar:(id)sender;
 - (IBAction)refreshPageTouchBar:(id)sender;
+- (IBAction)loadHomepage:(id)sender;
 
 #pragma mark - Various methods
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame;

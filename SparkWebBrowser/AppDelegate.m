@@ -735,6 +735,10 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     [[self.webView mainFrame] reload];
 }
 
+- (IBAction)loadHomepage:(id)sender {
+    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", [defaults valueForKey:@"userHomepage"]]]]];
+}
+
 - (IBAction)setTopBarColor:(id)sender {
     
     NSLog(@"Setting theme color...");
