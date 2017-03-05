@@ -1411,6 +1411,9 @@ DQ
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
+                            <connections>
+                                <action selector="goBackTouchBar:" target="Voe-Tx-rLC" id="hw0-Iq-0Pq"/>
+                            </connections>
                         </button>
                     </viewController>
                 </touchBarItem>
@@ -1423,6 +1426,9 @@ DQ
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
+                            <connections>
+                                <action selector="goForwardTouchBar:" target="Voe-Tx-rLC" id="6wb-NM-uxR"/>
+                            </connections>
                         </button>
                     </viewController>
                 </touchBarItem>
@@ -1436,11 +1442,41 @@ DQ
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
+                            <connections>
+                                <action selector="refreshPageTouchBar:" target="Voe-Tx-rLC" id="UAZ-m0-uk5"/>
+                            </connections>
                         </button>
                     </viewController>
                 </touchBarItem>
+                <touchBarSpacerItem identifier="NSTouchBarItemIdentifierFixedSpaceSmall" id="GXt-xg-OjE"/>
+                <touchBarItem id="rEY-4R-iG5">
+                    <viewController key="viewController" id="hUr-1F-nLG">
+                        <button key="view" verticalHuggingPriority="750" misplaced="YES" id="PKR-DX-yfY">
+                            <rect key="frame" x="0.0" y="0.0" width="180" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="push" title="Search or type URL" bezelStyle="rounded" image="TouchBarSearchIcon" imagePosition="left" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="F0T-SV-u33">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system" size="16"/>
+                            </buttonCell>
+                            <connections>
+                                <accessibilityConnection property="title" destination="6S4-CW-iwm" id="ys2-fU-8zR"/>
+                                <action selector="selectText:" target="6S4-CW-iwm" id="VFo-4i-k68"/>
+                            </connections>
+                        </button>
+                    </viewController>
+                    <size key="designTimeSize" width="180" height="30"/>
+                </touchBarItem>
+                <touchBarItem id="MPH-nw-Av4">
+                    <viewController key="viewController" id="O6g-LQ-rEq">
+                        <view key="view" id="i68-52-wBw">
+                            <rect key="frame" x="0.0" y="-30" width="277" height="30"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </view>
+                    </viewController>
+                    <size key="designTimeSize" width="277" height="30"/>
+                </touchBarItem>
             </touchBarItems>
-            <point key="canvasLocation" x="1536" y="-778"/>
+            <point key="canvasLocation" x="1535.5" y="-778"/>
         </touchBar>
     </objects>
     <resources>
@@ -1453,6 +1489,7 @@ DQ
         <image name="NSMenuOnStateTemplate" width="12" height="12"/>
         <image name="NSRefreshTemplate" width="11" height="15"/>
         <image name="NSStopProgressFreestandingTemplate" width="14" height="14"/>
+        <image name="TouchBarSearchIcon" width="16" height="16"/>
         <image name="aol-search-engine-icon" width="16" height="16"/>
         <image name="ask-search-engine-icon" width="16" height="16"/>
         <image name="bing-search-engine-icon" width="16" height="16"/>

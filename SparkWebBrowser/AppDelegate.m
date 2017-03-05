@@ -660,17 +660,27 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         currentBookmarksArray = [[defaults objectForKey:@"storedBookmarksArray"] mutableCopy];
         currentBookmarkTitlesArray = [[defaults objectForKey:@"storedBookmarkTitlesArray"] mutableCopy];
         
-        [currentBookmarksArray addObject:self.addressBar.stringValue];
-        [currentBookmarkTitlesArray addObject:self.webView.mainFrameTitle];
-        
-        [defaults setObject:currentBookmarksArray forKey:@"storedBookmarksArray"];
-        [defaults setObject:currentBookmarkTitlesArray forKey:@"storedBookmarkTitlesArray"];
-        
-        NSMenuItem *bookmarkItem = [self.menuBarBookmarks addItemWithTitle:self.webView.mainFrameTitle action:@selector(openBookmark:) keyEquivalent:@""];
-        
-        for(id bookmarkTitle in currentBookmarkTitlesArray) {
-            int index = (int)[currentBookmarkTitlesArray indexOfObject:bookmarkTitle];
-            [bookmarkItem setRepresentedObject:[NSNumber numberWithInt:index]];
+        if([currentBookmarksArray containsObject:self.addressBar.stringValue]) {
+            NSLog(@"Bookmark already exists");
+            
+            self.errorPanelTitle.stringValue = @"Error";
+            self.errorPanelText.stringValue = [NSString stringWithFormat:@"An error occurred: %@ is already bookmarked. If you'd like to clear your bookmarks, click the \"Clear Bookmarks\" button in Preferences.", self.titleStatus.stringValue];
+            self.errorWindow.isVisible = YES;
+            [self.errorWindow makeKeyAndOrderFront:nil];
+            [NSApp activateIgnoringOtherApps:YES];
+        } else {
+            [currentBookmarksArray addObject:self.addressBar.stringValue];
+            [currentBookmarkTitlesArray addObject:self.webView.mainFrameTitle];
+            
+            [defaults setObject:currentBookmarksArray forKey:@"storedBookmarksArray"];
+            [defaults setObject:currentBookmarkTitlesArray forKey:@"storedBookmarkTitlesArray"];
+            
+            NSMenuItem *bookmarkItem = [self.menuBarBookmarks addItemWithTitle:self.webView.mainFrameTitle action:@selector(openBookmark:) keyEquivalent:@""];
+            
+            for(id bookmarkTitle in currentBookmarkTitlesArray) {
+                int index = (int)[currentBookmarkTitlesArray indexOfObject:bookmarkTitle];
+                [bookmarkItem setRepresentedObject:[NSNumber numberWithInt:index]];
+            }
         }
     }
 }
@@ -711,6 +721,18 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void) {
         self.bookmarksClearedIcon.hidden = YES;
     });
+}
+
+- (IBAction)goBackTouchBar:(id)sender {
+    [self.webView goBack:nil];
+}
+
+- (IBAction)goForwardTouchBar:(id)sender {
+    [self.webView goForward:nil];
+}
+
+- (IBAction)refreshPageTouchBar:(id)sender {
+    [[self.webView mainFrame] reload];
 }
 
 - (IBAction)setTopBarColor:(id)sender {

@@ -90,6 +90,9 @@
 - (IBAction)openAboutWindow:(id)sender;
 - (IBAction)addBookmark:(id)sender;
 - (IBAction)clearBookmarks:(id)sender;
+- (IBAction)goBackTouchBar:(id)sender;
+- (IBAction)goForwardTouchBar:(id)sender;
+- (IBAction)refreshPageTouchBar:(id)sender;
 
 #pragma mark - Various methods
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame;
