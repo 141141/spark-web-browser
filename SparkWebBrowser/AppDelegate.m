@@ -65,6 +65,7 @@ NSTrackingArea *backBtnTrackingArea = nil; // Back button tracking area (used fo
 NSTrackingArea *forwardBtnTrackingArea = nil; // Forward button tracking area (used for hover effect)
 NSTrackingArea *reloadBtnTrackingArea = nil; // Reload button tracking area (used for hover effect)
 NSTrackingArea *settingsBtnTrackingArea = nil; // Settings button tracking area (used for hover effect)
+NSTrackingArea *sparkSecurePageViewTrackingArea = nil;
 NSMutableArray *currentBookmarksArray = nil; // Mutable array for bookmark URLs
 NSMutableArray *currentBookmarkTitlesArray = nil; // Mutable array for bookmark titles
 NSString *appVersion = nil; // Spark version number
@@ -350,11 +351,13 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     forwardBtnTrackingArea = [[NSTrackingArea alloc] initWithRect:[self.forwardBtn bounds] options:NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways owner:self userInfo:nil];
     reloadBtnTrackingArea = [[NSTrackingArea alloc] initWithRect:[self.reloadBtn bounds] options:NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways owner:self userInfo:nil];
     settingsBtnTrackingArea = [[NSTrackingArea alloc] initWithRect:[self.settingsBtn bounds] options:NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways owner:self userInfo:nil];
+    sparkSecurePageViewTrackingArea = [[NSTrackingArea alloc] initWithRect:[self.sparkSecurePageImg bounds] options:NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways owner:self userInfo:nil];
     
     [self.backBtn addTrackingArea:backBtnTrackingArea];
     [self.forwardBtn addTrackingArea:forwardBtnTrackingArea];
     [self.reloadBtn addTrackingArea:reloadBtnTrackingArea];
     [self.settingsBtn addTrackingArea:settingsBtnTrackingArea];
+    [self.sparkSecurePageImg addTrackingArea:sparkSecurePageViewTrackingArea];
     
     // Check whether or not a custom search engine is in use
     if([[defaults objectForKey:@"customSearchEngine"] isEqual: @""]) {
@@ -619,6 +622,8 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         
         self.addressBar.stringValue = @"spark://about";
         
+        self.sparkSecurePageImg.hidden = NO;
+        
     } else {
         NSLog(@"Opening About window...");
         
@@ -683,6 +688,8 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
 }
 
 - (IBAction)openBookmark:(id)sender {
+    self.sparkSecurePageImg.hidden = YES;
+    
     NSNumber *intString = [sender representedObject];
     NSLog(@"Loading bookmark with index: %@", intString);
     
@@ -696,7 +703,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
 
 - (IBAction)clearBookmarks:(id)sender {
     NSLog(@"Clearing bookmarks...");
-
+    
     [defaults setObject:nil forKey:@"storedBookmarksArray"];
     [defaults setObject:nil forKey:@"storedBookmarkTitlesArray"];
     
@@ -925,6 +932,8 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     
     if([searchString hasPrefix:@"https://"]) {
         
+        self.sparkSecurePageImg.hidden = YES;
+        
         if(candidateURL && candidateURL.scheme && candidateURL.host) {
             
             NSLog(@"URL is valid. Loading HTTPS webpage...");
@@ -934,6 +943,8 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         }
         
     } else if([searchString hasPrefix:@"http://"]) {
+        
+        self.sparkSecurePageImg.hidden = YES;
         
         if(candidateURL && candidateURL.scheme && candidateURL.host) {
             
@@ -958,6 +969,8 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         // file:// prefix
         NSLog(@"file:// prefix");
         
+        self.sparkSecurePageImg.hidden = YES;
+        
         [self handleFilePrefix:nil];
         
     } else if([searchString hasPrefix:@"spark://"]) {
@@ -970,6 +983,8 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     } else {
         
         NSLog(@"User has initiated a search. Fetching search engine...");
+        
+        self.sparkSecurePageImg.hidden = YES;
         
         if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Google"]) {
             
@@ -1288,6 +1303,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     
     eventURL = [NSURL URLWithString:[[event paramDescriptorForKeyword:keyDirectObject] stringValue]];
     urlToString = [eventURL absoluteString];
+    
     if([urlToString isEqual: @"spark://about"] || [urlToString isEqual: @"spark://spark"]) {
         // spark://about || spark://spark called
         
@@ -1298,6 +1314,8 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-about" ofType:@"html"] isDirectory:NO]]];
             
             self.addressBar.stringValue = @"spark://about";
+            self.sparkSecurePageImg.hidden = NO;
+            
         } else {
             NSLog(@"spark://about || spark://spark called. Opening About window...");
             
@@ -1314,6 +1332,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-version" ofType:@"html"] isDirectory:NO]]];
         
         self.addressBar.stringValue = @"spark://version";
+        self.sparkSecurePageImg.hidden = NO;
         
     } else if([urlToString isEqual: @"spark://prefs"] || [urlToString isEqual: @"spark://preferences"] || [urlToString isEqual: @"spark://settings"]) {
         // spark://prefs || spark://preferences || spark://settings called
@@ -1403,6 +1422,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-urls" ofType:@"html"] isDirectory:NO]]];
         
         self.addressBar.stringValue = @"spark://urls";
+        self.sparkSecurePageImg.hidden = NO;
         
     } else if([urlToString isEqual: @"spark://checkforupdates"] || [urlToString isEqual: @"spark://update"] || [urlToString isEqual:@"spark://updates"]) {
         // spark://checkforupdates || spark://update || spark://updates called
@@ -1481,16 +1501,28 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         [[self.reloadBtn cell] setBackgroundColor:[NSColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f]];
     } else if([[theEvent trackingArea] isEqual:settingsBtnTrackingArea]) {
         [[self.settingsBtn cell] setBackgroundColor:[NSColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f]];
+    } else if([[theEvent trackingArea] isEqual:sparkSecurePageViewTrackingArea]) {
+    
+        self.sparkSecurePageView.hidden = NO;
+        self.titleStatus.toolTip = @"";
     }
 }
 
 - (void)mouseExited:(NSEvent *)theEvent {
     // Mouse exited tracking area
     
-    [[self.backBtn cell] setBackgroundColor:[NSColor whiteColor]];
-    [[self.forwardBtn cell] setBackgroundColor:[NSColor whiteColor]];
-    [[self.reloadBtn cell] setBackgroundColor:[NSColor whiteColor]];
-    [[self.settingsBtn cell] setBackgroundColor:[NSColor whiteColor]];
+    if([[theEvent trackingArea] isEqual:backBtnTrackingArea]) {
+        [[self.backBtn cell] setBackgroundColor:[NSColor whiteColor]];
+    } else if([[theEvent trackingArea] isEqual:forwardBtnTrackingArea]) {
+        [[self.forwardBtn cell] setBackgroundColor:[NSColor whiteColor]];
+    } else if([[theEvent trackingArea] isEqual:reloadBtnTrackingArea]) {
+        [[self.reloadBtn cell] setBackgroundColor:[NSColor whiteColor]];
+    } else if([[theEvent trackingArea] isEqual:settingsBtnTrackingArea]) {
+        [[self.settingsBtn cell] setBackgroundColor:[NSColor whiteColor]];
+    } else if([[theEvent trackingArea] isEqual:sparkSecurePageViewTrackingArea]) {
+        
+        self.sparkSecurePageView.hidden = YES;
+    }
 }
 
 #pragma mark - WebView download handling

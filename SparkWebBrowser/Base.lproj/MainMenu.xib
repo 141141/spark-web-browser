@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16E175b" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16E192b" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
@@ -61,6 +61,8 @@
                 <outlet property="settingsBtn" destination="Nsh-fL-8Ic" id="c7u-0x-cPE"/>
                 <outlet property="settingsPopupBtn" destination="vH7-Li-e10" id="uXS-4j-fNl"/>
                 <outlet property="settingsWindow" destination="MMA-4M-Pa4" id="6F0-cu-izG"/>
+                <outlet property="sparkSecurePageImg" destination="KaJ-aG-MHC" id="QVd-Tw-OBn"/>
+                <outlet property="sparkSecurePageView" destination="fxN-sd-bxd" id="X31-Gs-rZO"/>
                 <outlet property="tabBg" destination="7o9-5H-k8C" id="eFO-J4-FaZ"/>
                 <outlet property="titleStatus" destination="JvK-hQ-Wwq" id="SHO-kH-keU"/>
                 <outlet property="topBarBg" destination="bY4-GT-wGb" id="gOF-sW-3Lj"/>
@@ -1284,9 +1286,46 @@ Spark is made possible by the WebKit open source project and other open source s
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSMenuOnStateTemplate" id="1YL-hD-bfD"/>
                     </imageView>
+                    <imageView hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="KaJ-aG-MHC">
+                        <rect key="frame" x="258" y="690" width="11" height="12"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSMenuOnStateTemplate" id="KZU-p7-6T4"/>
+                    </imageView>
+                    <customView hidden="YES" wantsLayer="YES" misplaced="YES" id="fxN-sd-bxd">
+                        <rect key="frame" x="34" y="627" width="293" height="76"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" id="rdL-MZ-Z7Z">
+                                <rect key="frame" x="20" y="20" width="253" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <shadow key="shadow" blurRadius="2">
+                                    <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </shadow>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" drawsBackground="YES" id="2wp-99-kax">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="DD3-2h-Xt5">
+                                <rect key="frame" x="53" y="30" width="216" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="You are viewing a secure Spark page." id="O0K-0g-7th">
+                                    <font key="font" metaFont="system" size="12"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="GJg-yp-PZi">
+                                <rect key="frame" x="31" y="28" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="SparkIcon256" id="f3U-Ma-DJi"/>
+                            </imageView>
+                        </subviews>
+                    </customView>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="872" y="114"/>
+            <point key="canvasLocation" x="867.5" y="107.5"/>
         </window>
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="uuQ-xY-3aS" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
@@ -1424,6 +1463,7 @@ DQ
         <image name="NSMenuOnStateTemplate" width="12" height="12"/>
         <image name="NSRefreshTemplate" width="11" height="15"/>
         <image name="NSStopProgressFreestandingTemplate" width="14" height="14"/>
+        <image name="SparkIcon256" width="61.439998626708984" height="61.439998626708984"/>
         <image name="aol-search-engine-icon" width="16" height="16"/>
         <image name="ask-search-engine-icon" width="16" height="16"/>
         <image name="bing-search-engine-icon" width="16" height="16"/>
