@@ -144,27 +144,6 @@
                                     <action selector="performClose:" target="-1" id="YkB-EU-n4x"/>
                                 </connections>
                             </menuItem>
-                            <menuItem isSeparatorItem="YES" id="AAC-cI-AQY"/>
-                            <menuItem title="Back" keyEquivalent="[" id="Was-JA-tGl">
-                                <connections>
-                                    <action selector="goBack:" target="ffM-a6-P1L" id="P54-nm-XyH"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Forward" keyEquivalent="]" id="IAo-SY-fd9">
-                                <connections>
-                                    <action selector="goForward:" target="ffM-a6-P1L" id="lz9-j0-VD0"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Back" hidden="YES" keyEquivalent="" id="63k-8r-OKx">
-                                <connections>
-                                    <action selector="goBack:" target="ffM-a6-P1L" id="X12-yq-wPy"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Forward" hidden="YES" keyEquivalent="" id="iCm-Nt-RgL">
-                                <connections>
-                                    <action selector="goForward:" target="ffM-a6-P1L" id="TMU-Pc-QgV"/>
-                                </connections>
-                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
                             <menuItem title="Page Setup…" keyEquivalent="P" id="Lx2-4M-ojB">
                                 <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
@@ -331,6 +310,26 @@
                             <menuItem title="Home" keyEquivalent="H" id="HoM-xg-cmM">
                                 <connections>
                                     <action selector="loadHomepage:" target="Voe-Tx-rLC" id="gjf-N4-hUl"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Back" keyEquivalent="[" id="Was-JA-tGl">
+                                <connections>
+                                    <action selector="goBack:" target="ffM-a6-P1L" id="P54-nm-XyH"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Forward" keyEquivalent="]" id="IAo-SY-fd9">
+                                <connections>
+                                    <action selector="goForward:" target="ffM-a6-P1L" id="lz9-j0-VD0"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Back" hidden="YES" keyEquivalent="" id="63k-8r-OKx">
+                                <connections>
+                                    <action selector="goBack:" target="ffM-a6-P1L" id="X12-yq-wPy"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Forward" hidden="YES" keyEquivalent="" id="iCm-Nt-RgL">
+                                <connections>
+                                    <action selector="goForward:" target="ffM-a6-P1L" id="TMU-Pc-QgV"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="Gkk-6w-H8Z"/>
