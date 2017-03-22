@@ -12,11 +12,7 @@ Spark for macOS is compatible with macOS 10.11 El Capitan and later. Earlier ver
 
 ## Screenshots
 
-<img src="./Screenshots/Screenshot1.png" alt="Screenshot1" width="200" />
-<img src="./Screenshots/Screenshot2.png" alt="Screenshot2" width="200" />
-<img src="./Screenshots/Screenshot3.png" alt="Screenshot3" width="200" />
-<img src="./Screenshots/Screenshot4.png" alt="Screenshot4" width="200" />
-<img src="./Screenshots/Screenshot5.png" alt="Screenshot5" width="200" />
+<img src="./Screenshots/Screenshot1.png" alt="Screenshot1" width="200" /><img src="./Screenshots/Screenshot2.png" alt="Screenshot2" width="200" /><img src="./Screenshots/Screenshot3.png" alt="Screenshot3" width="200" /><img src="./Screenshots/Screenshot4.png" alt="Screenshot4" width="200" /><img src="./Screenshots/Screenshot5.png" alt="Screenshot5" width="200" />
 
 ## Install
 
