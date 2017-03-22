@@ -62,7 +62,7 @@
 @property (assign, nonatomic) IBOutlet NSButton *popupWindowBtn1;
 @property (assign, nonatomic) IBOutlet NSButton *popupWindowBtn2;
 @property (assign, nonatomic) IBOutlet NSButton *useAboutPageBtn;
-@property (assign, nonatomic) IBOutlet NSImageView *sparkSecurePageImg;
+@property (assign, nonatomic) IBOutlet NSImageView *pageStatusImage;
 @property (assign, nonatomic) IBOutlet NSMenu *menuBarBookmarks;
 @property (assign, nonatomic) IBOutlet NSImageView *bookmarksClearedIcon;
 @property (assign, nonatomic) IBOutlet NSView *sparkSecurePageView;

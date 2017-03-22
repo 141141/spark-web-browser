@@ -351,13 +351,13 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     forwardBtnTrackingArea = [[NSTrackingArea alloc] initWithRect:[self.forwardBtn bounds] options:NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways owner:self userInfo:nil];
     reloadBtnTrackingArea = [[NSTrackingArea alloc] initWithRect:[self.reloadBtn bounds] options:NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways owner:self userInfo:nil];
     settingsBtnTrackingArea = [[NSTrackingArea alloc] initWithRect:[self.settingsBtn bounds] options:NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways owner:self userInfo:nil];
-    sparkSecurePageViewTrackingArea = [[NSTrackingArea alloc] initWithRect:[self.sparkSecurePageImg bounds] options:NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways owner:self userInfo:nil];
+    sparkSecurePageViewTrackingArea = [[NSTrackingArea alloc] initWithRect:[self.pageStatusImage bounds] options:NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways owner:self userInfo:nil];
     
     [self.backBtn addTrackingArea:backBtnTrackingArea];
     [self.forwardBtn addTrackingArea:forwardBtnTrackingArea];
     [self.reloadBtn addTrackingArea:reloadBtnTrackingArea];
     [self.settingsBtn addTrackingArea:settingsBtnTrackingArea];
-    [self.sparkSecurePageImg addTrackingArea:sparkSecurePageViewTrackingArea];
+    [self.pageStatusImage addTrackingArea:sparkSecurePageViewTrackingArea];
     
     // Check whether or not a custom search engine is in use
     if([[defaults objectForKey:@"customSearchEngine"] isEqual: @""]) {
@@ -622,7 +622,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         
         self.addressBar.stringValue = @"spark://about";
         
-        self.sparkSecurePageImg.hidden = NO;
+        self.pageStatusImage.hidden = NO;
         
     } else {
         NSLog(@"Opening About window...");
@@ -688,7 +688,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
 }
 
 - (IBAction)openBookmark:(id)sender {
-    self.sparkSecurePageImg.hidden = YES;
+    self.pageStatusImage.hidden = YES;
     
     NSNumber *intString = [sender representedObject];
     NSLog(@"Loading bookmark with index: %@", intString);
@@ -932,7 +932,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     
     if([searchString hasPrefix:@"https://"]) {
         
-        self.sparkSecurePageImg.hidden = YES;
+        self.pageStatusImage.hidden = YES;
         
         if(candidateURL && candidateURL.scheme && candidateURL.host) {
             
@@ -944,7 +944,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         
     } else if([searchString hasPrefix:@"http://"]) {
         
-        self.sparkSecurePageImg.hidden = YES;
+        self.pageStatusImage.hidden = YES;
         
         if(candidateURL && candidateURL.scheme && candidateURL.host) {
             
@@ -969,7 +969,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         // file:// prefix
         NSLog(@"file:// prefix");
         
-        self.sparkSecurePageImg.hidden = YES;
+        self.pageStatusImage.hidden = YES;
         
         [self handleFilePrefix:nil];
         
@@ -984,7 +984,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         
         NSLog(@"User has initiated a search. Fetching search engine...");
         
-        self.sparkSecurePageImg.hidden = YES;
+        self.pageStatusImage.hidden = YES;
         
         if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Google"]) {
             
@@ -1314,7 +1314,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-about" ofType:@"html"] isDirectory:NO]]];
             
             self.addressBar.stringValue = @"spark://about";
-            self.sparkSecurePageImg.hidden = NO;
+            self.pageStatusImage.hidden = NO;
             
         } else {
             NSLog(@"spark://about || spark://spark called. Opening About window...");
@@ -1332,7 +1332,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-version" ofType:@"html"] isDirectory:NO]]];
         
         self.addressBar.stringValue = @"spark://version";
-        self.sparkSecurePageImg.hidden = NO;
+        self.pageStatusImage.hidden = NO;
         
     } else if([urlToString isEqual: @"spark://prefs"] || [urlToString isEqual: @"spark://preferences"] || [urlToString isEqual: @"spark://settings"]) {
         // spark://prefs || spark://preferences || spark://settings called
@@ -1422,7 +1422,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-urls" ofType:@"html"] isDirectory:NO]]];
         
         self.addressBar.stringValue = @"spark://urls";
-        self.sparkSecurePageImg.hidden = NO;
+        self.pageStatusImage.hidden = NO;
         
     } else if([urlToString isEqual: @"spark://checkforupdates"] || [urlToString isEqual: @"spark://update"] || [urlToString isEqual:@"spark://updates"]) {
         // spark://checkforupdates || spark://update || spark://updates called
