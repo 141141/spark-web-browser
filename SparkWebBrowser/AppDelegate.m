@@ -7,6 +7,7 @@
 //  You may copy, distribute and modify the software as long as you track changes/dates in source files. Any modifications to or software including (via compiler) GPL-licensed code must also be made available under the GPL along with build & install instructions.
 
 #import "AppDelegate.h"
+#import "SPKHistoryHandler.h"
 #import "WebKit/WebKit.h"
 #import "NSUserDefaults+ColorSupport.h"
 #import "Sparkle.framework/Headers/SUUpdater.h"
@@ -20,6 +21,9 @@
 @synthesize window;
 
 #pragma mark - Declarations
+
+// Classes
+SPKHistoryHandler *historyHandler = nil;
 
 // Search engine query strings
 NSString *googleSearchString = @"https://www.google.com/search?q=%@";
@@ -74,6 +78,8 @@ NSTrackingArea *settingsBtnTrackingArea = nil; // Settings button tracking area 
 NSTrackingArea *sparkSecurePageViewTrackingArea = nil; // Secure page image tracking area (used to show custom view)
 NSMutableArray *currentBookmarksArray = nil; // Mutable array for bookmark URLs
 NSMutableArray *currentBookmarkTitlesArray = nil; // Mutable array for bookmark titles
+NSMutableArray *currentHistoryArray = nil; // Mutable array for history URLs
+NSMutableArray *currentHistoryTitlesArray = nil; // Mutable array for history page titles
 long long expectedLength = 0; // Expected length of a file being downloaded
 bool downloadOverride = NO; // Boolean for whether or not to download a file even if WebView can display it
 
@@ -120,6 +126,9 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
 #pragma mark - Pre-initializing
 
 + (void)initialize {
+    
+    historyHandler = [[SPKHistoryHandler alloc] init]; // Initialize history handler
+    
     defaults = [NSUserDefaults standardUserDefaults]; // Set up NSUserDefaults
     
     // Set up theme colors
@@ -350,6 +359,8 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         NSMenuItem *bookmarkItem = [self.menuBarBookmarks addItemWithTitle:bookmarkTitle action:@selector(openBookmark:) keyEquivalent:@""];
         [bookmarkItem setRepresentedObject:[NSNumber numberWithInt:index]];
     }
+    
+    //currentHistoryTitlesArray = [defaults objectForKey:@"storedHistoryTitlesArray"];
     
     // Check experimental configuration settings
     [self checkExperimentalConfig:nil];
@@ -1485,7 +1496,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     } else if([[theEvent trackingArea] isEqual:settingsBtnTrackingArea]) {
         [[self.settingsBtn cell] setBackgroundColor:[NSColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f]];
     } else if([[theEvent trackingArea] isEqual:sparkSecurePageViewTrackingArea]) {
-    
+        
         self.sparkSecurePageView.hidden = NO;
         self.titleStatus.toolTip = @"";
     }
@@ -1796,6 +1807,9 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         if([lastSession rangeOfString:@"/"].location != NSNotFound) {
             lastSession = [lastSession substringToIndex:[lastSession rangeOfString:@"/"].location];
         }
+        
+        // Add webpage to history
+        [historyHandler addHistoryItem:self.webView.mainFrameURL withHistoryTitle:self.webView.mainFrameTitle];
         
         [self.loadingIndicator stopAnimation:self];
         self.reloadBtn.image = [NSImage imageNamed:NSImageNameRefreshTemplate];

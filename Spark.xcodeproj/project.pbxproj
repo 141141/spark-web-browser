@@ -37,6 +37,8 @@
 		ABE2C7161E22E524005CE2C3 /* spark-redirect-loop.html in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C70D1E22E524005CE2C3 /* spark-redirect-loop.html */; };
 		ABE2C7171E22E524005CE2C3 /* spark-urls.html in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C70E1E22E524005CE2C3 /* spark-urls.html */; };
 		ABE2C7181E22E524005CE2C3 /* spark-version.html in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C70F1E22E524005CE2C3 /* spark-version.html */; };
+		ABEB97521E85D2EE006C6533 /* SPKHistoryHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEB97511E85D2EE006C6533 /* SPKHistoryHandler.m */; };
+		ABEB97611E85DCBF006C6533 /* SPKHistoryTable.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEB97601E85DCBF006C6533 /* SPKHistoryTable.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -98,6 +100,10 @@
 		ABE32C7C1DA15AEA00D0B07E /* Screenshot3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot3.png; sourceTree = "<group>"; };
 		ABE32C7D1DA15AEA00D0B07E /* Screenshot4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot4.png; sourceTree = "<group>"; };
 		ABE32C7E1DA15AEA00D0B07E /* Screenshot5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot5.png; sourceTree = "<group>"; };
+		ABEB97501E85D2EE006C6533 /* SPKHistoryHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPKHistoryHandler.h; path = SparkWebBrowser/SPKHistoryHandler.h; sourceTree = SOURCE_ROOT; };
+		ABEB97511E85D2EE006C6533 /* SPKHistoryHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPKHistoryHandler.m; path = SparkWebBrowser/SPKHistoryHandler.m; sourceTree = SOURCE_ROOT; };
+		ABEB975F1E85DCBF006C6533 /* SPKHistoryTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPKHistoryTable.h; path = SparkWebBrowser/SPKHistoryTable.h; sourceTree = SOURCE_ROOT; };
+		ABEB97601E85DCBF006C6533 /* SPKHistoryTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPKHistoryTable.m; path = SparkWebBrowser/SPKHistoryTable.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +168,10 @@
 				ABA41DA51D84E40600F01B90 /* Frameworks */,
 				AB04FD031C712BB500F08232 /* AppDelegate.h */,
 				AB04FD041C712BB500F08232 /* AppDelegate.m */,
+				ABEB97501E85D2EE006C6533 /* SPKHistoryHandler.h */,
+				ABEB97511E85D2EE006C6533 /* SPKHistoryHandler.m */,
+				ABEB975F1E85DCBF006C6533 /* SPKHistoryTable.h */,
+				ABEB97601E85DCBF006C6533 /* SPKHistoryTable.m */,
 				ABA41D9D1D84DC2300F01B90 /* NSUserDefaults+ColorSupport.h */,
 				ABA41D9E1D84DC2300F01B90 /* NSUserDefaults+ColorSupport.m */,
 				AB04FD111C712C6000F08232 /* MainMenu.xib */,
@@ -366,7 +376,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABEB97521E85D2EE006C6533 /* SPKHistoryHandler.m in Sources */,
 				ABA41D9F1D84DC2300F01B90 /* NSUserDefaults+ColorSupport.m in Sources */,
+				ABEB97611E85DCBF006C6533 /* SPKHistoryTable.m in Sources */,
 				AB04FD0C1C712BDB00F08232 /* main.m in Sources */,
 				AB04FD051C712BB500F08232 /* AppDelegate.m in Sources */,
 			);
