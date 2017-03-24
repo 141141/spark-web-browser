@@ -11,6 +11,9 @@
 		AB04FD051C712BB500F08232 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB04FD041C712BB500F08232 /* AppDelegate.m */; };
 		AB04FD0C1C712BDB00F08232 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB04FD0A1C712BDB00F08232 /* main.m */; };
 		AB04FD131C712C6000F08232 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB04FD111C712C6000F08232 /* MainMenu.xib */; };
+		AB7355591E82024600DBEBA4 /* Sparkle.framework in Resources */ = {isa = PBXBuildFile; fileRef = AB7355551E82023B00DBEBA4 /* Sparkle.framework */; };
+		AB73555D1E8202A300DBEBA4 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB7355551E82023B00DBEBA4 /* Sparkle.framework */; };
+		AB73555E1E8202A300DBEBA4 /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB7355551E82023B00DBEBA4 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AB8587B71D7C9DFE0073515C /* SparkIcon256.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8587B61D7C9DFE0073515C /* SparkIcon256.png */; };
 		AB98DDDC1D370CD100ABCF16 /* WebKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB83983B19817E15001D31B7 /* WebKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AB98DDDE1D370CD400ABCF16 /* Cocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB83980719817D8E001D31B7 /* Cocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -34,9 +37,6 @@
 		ABE2C7161E22E524005CE2C3 /* spark-redirect-loop.html in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C70D1E22E524005CE2C3 /* spark-redirect-loop.html */; };
 		ABE2C7171E22E524005CE2C3 /* spark-urls.html in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C70E1E22E524005CE2C3 /* spark-urls.html */; };
 		ABE2C7181E22E524005CE2C3 /* spark-version.html in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C70F1E22E524005CE2C3 /* spark-version.html */; };
-		ABEB632D1DF4AFD80005FFB9 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEB632B1DF4AFD00005FFB9 /* Sparkle.framework */; };
-		ABEB632E1DF4AFD80005FFB9 /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ABEB632B1DF4AFD00005FFB9 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		ABEB632F1DF4B00B0005FFB9 /* Sparkle.framework in Resources */ = {isa = PBXBuildFile; fileRef = ABEB632B1DF4AFD00005FFB9 /* Sparkle.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,7 +47,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				AB98DDDE1D370CD400ABCF16 /* Cocoa.framework in Embed Frameworks */,
-				ABEB632E1DF4AFD80005FFB9 /* Sparkle.framework in Embed Frameworks */,
+				AB73555E1E8202A300DBEBA4 /* Sparkle.framework in Embed Frameworks */,
 				AB98DDDC1D370CD100ABCF16 /* WebKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -63,6 +63,7 @@
 		AB04FD0A1C712BDB00F08232 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = SparkWebBrowser/main.m; sourceTree = SOURCE_ROOT; };
 		AB04FD0B1C712BDB00F08232 /* Spark-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Spark-Prefix.pch"; path = "SparkWebBrowser/Spark-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		AB04FD121C712C6000F08232 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = SparkWebBrowser/Base.lproj/MainMenu.xib; sourceTree = SOURCE_ROOT; };
+		AB7355551E82023B00DBEBA4 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = SparkWebBrowser/Sparkle.framework; sourceTree = SOURCE_ROOT; };
 		AB83980419817D8E001D31B7 /* Spark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB83980719817D8E001D31B7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		AB83980A19817D8E001D31B7 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -97,7 +98,6 @@
 		ABE32C7C1DA15AEA00D0B07E /* Screenshot3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot3.png; sourceTree = "<group>"; };
 		ABE32C7D1DA15AEA00D0B07E /* Screenshot4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot4.png; sourceTree = "<group>"; };
 		ABE32C7E1DA15AEA00D0B07E /* Screenshot5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot5.png; sourceTree = "<group>"; };
-		ABEB632B1DF4AFD00005FFB9 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = SparkWebBrowser/Sparkle.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +106,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABBD6C211D3707C600C48592 /* WebKit.framework in Frameworks */,
-				ABEB632D1DF4AFD80005FFB9 /* Sparkle.framework in Frameworks */,
+				AB73555D1E8202A300DBEBA4 /* Sparkle.framework in Frameworks */,
 				ABBD6C201D3707B900C48592 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,7 +189,7 @@
 		ABA41DA51D84E40600F01B90 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				ABEB632B1DF4AFD00005FFB9 /* Sparkle.framework */,
+				AB7355551E82023B00DBEBA4 /* Sparkle.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -335,8 +335,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB7355591E82024600DBEBA4 /* Sparkle.framework in Resources */,
 				ABE2C7161E22E524005CE2C3 /* spark-redirect-loop.html in Resources */,
-				ABEB632F1DF4B00B0005FFB9 /* Sparkle.framework in Resources */,
 				ABE2C7171E22E524005CE2C3 /* spark-urls.html in Resources */,
 				AB04FD021C712BAD00F08232 /* Images.xcassets in Resources */,
 				ABE2C7111E22E524005CE2C3 /* spark-cert-invalid.html in Resources */,
