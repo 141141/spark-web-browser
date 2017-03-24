@@ -26,7 +26,6 @@ NSString *googleSearchString = @"https://www.google.com/search?q=%@";
 NSString *bingSearchString = @"https://www.bing.com/search?q=%@";
 NSString *yahooSearchString = @"https://search.yahoo.com/search?p=%@";
 NSString *duckDuckGoSearchString = @"https://www.duckduckgo.com/%@";
-NSString *askSearchString = @"http://www.ask.com/web?q=%@";
 NSString *aolSearchString = @"https://search.aol.com/aol/search?q=%@";
 NSString *customSearchString = nil;
 
@@ -35,7 +34,6 @@ NSString *googleDefaultURL = @"https://www.google.com/";
 NSString *bingDefaultURL = @"https://www.bing.com/";
 NSString *yahooDefaultURL = @"https://www.yahoo.com/";
 NSString *duckDuckGoDefaultURL = @"https://www.duckduckgo.com/";
-NSString *askDefaultURL = @"http://www.ask.com/";
 NSString *aolDefaultURL = @"https://www.aol.com/";
 
 // Strings for "Help" menu bar item
@@ -622,8 +620,6 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         
         self.addressBar.stringValue = @"spark://about";
         
-        self.pageStatusImage.hidden = NO;
-        
     } else {
         NSLog(@"Opening About window...");
         
@@ -688,7 +684,6 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
 }
 
 - (IBAction)openBookmark:(id)sender {
-    self.pageStatusImage.hidden = YES;
     
     NSNumber *intString = [sender representedObject];
     NSLog(@"Loading bookmark with index: %@", intString);
@@ -1044,20 +1039,6 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
             self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
             
-        } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Ask"]) {
-            
-            // Ask search initiated
-            
-            NSLog(@"Search engine found: Ask");
-            
-            searchString = [searchString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-            
-            urlString = [NSString stringWithFormat:askSearchString, searchString];
-            editedURLString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-            
-            [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", editedURLString]]]];
-            self.addressBar.stringValue = [NSString stringWithFormat:@"%@", editedURLString];
-            
         } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"AOL"]) {
             
             // AOL search initiated
@@ -1250,11 +1231,6 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         // Set homepage to DuckDuckGo
         [self setHomepageWithString:duckDuckGoDefaultURL];
         
-    } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"Ask"]) {
-        
-        // Set homepage to Ask
-        [self setHomepageWithString:askDefaultURL];
-        
     } else if([[defaults objectForKey:@"currentSearchEngine"] isEqual: @"AOL"]) {
         
         // Set homepage to AOL
@@ -1314,7 +1290,6 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-about" ofType:@"html"] isDirectory:NO]]];
             
             self.addressBar.stringValue = @"spark://about";
-            self.pageStatusImage.hidden = NO;
             
         } else {
             NSLog(@"spark://about || spark://spark called. Opening About window...");
@@ -1332,7 +1307,6 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-version" ofType:@"html"] isDirectory:NO]]];
         
         self.addressBar.stringValue = @"spark://version";
-        self.pageStatusImage.hidden = NO;
         
     } else if([urlToString isEqual: @"spark://prefs"] || [urlToString isEqual: @"spark://preferences"] || [urlToString isEqual: @"spark://settings"]) {
         // spark://prefs || spark://preferences || spark://settings called
@@ -1422,7 +1396,6 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-urls" ofType:@"html"] isDirectory:NO]]];
         
         self.addressBar.stringValue = @"spark://urls";
-        self.pageStatusImage.hidden = NO;
         
     } else if([urlToString isEqual: @"spark://checkforupdates"] || [urlToString isEqual: @"spark://update"] || [urlToString isEqual:@"spark://updates"]) {
         // spark://checkforupdates || spark://update || spark://updates called
@@ -1821,6 +1794,22 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
             [self.addressBar setTextColor:[NSColor redColor]];
         } else {
             [self.addressBar setTextColor:[NSColor blackColor]];
+        }
+        
+        // Set up page indicator
+        if([self.addressBar.stringValue hasPrefix:@"https://"]) {
+            // In the future, we should probably figure out a way to detect if the site is actually using HTTPS. For now, we'll just do a string check.
+            self.pageStatusImage.hidden = NO;
+            self.pageStatusImage.image = [NSImage imageNamed:NSImageNameLockLockedTemplate];
+            self.sparkSecurePageIcon.image = [NSImage imageNamed:NSImageNameLockLockedTemplate];
+            self.sparkSecurePageText.stringValue = @"Your connection to this site is secure.";
+        } else if([self.addressBar.stringValue hasPrefix:@"spark://"]) {
+            self.pageStatusImage.hidden = NO;
+            self.pageStatusImage.image = [NSImage imageNamed:NSImageNameMenuOnStateTemplate];
+            self.sparkSecurePageIcon.image = [NSImage imageNamed:@"SparkIcon256"];
+            self.sparkSecurePageText.stringValue = @"You are viewing a secure Spark page.";
+        } else {
+            self.pageStatusImage.hidden = YES;
         }
         
         // Set values for use on spark:// pages

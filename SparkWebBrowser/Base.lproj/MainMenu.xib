@@ -62,6 +62,8 @@
                 <outlet property="settingsBtn" destination="Nsh-fL-8Ic" id="c7u-0x-cPE"/>
                 <outlet property="settingsPopupBtn" destination="vH7-Li-e10" id="uXS-4j-fNl"/>
                 <outlet property="settingsWindow" destination="MMA-4M-Pa4" id="6F0-cu-izG"/>
+                <outlet property="sparkSecurePageIcon" destination="GJg-yp-PZi" id="I6x-nB-9Tw"/>
+                <outlet property="sparkSecurePageText" destination="DD3-2h-Xt5" id="9ak-bw-FaX"/>
                 <outlet property="sparkSecurePageView" destination="fxN-sd-bxd" id="X31-Gs-rZO"/>
                 <outlet property="tabBg" destination="7o9-5H-k8C" id="eFO-J4-FaZ"/>
                 <outlet property="titleStatus" destination="JvK-hQ-Wwq" id="SHO-kH-keU"/>
@@ -699,7 +701,6 @@ Spark is made possible by the WebKit open source project and other open source s
                                                         <menuItem title="Bing" image="bing-search-engine-icon" id="iHg-JP-TzF"/>
                                                         <menuItem title="Yahoo!" image="yahoo-search-engine-icon" id="RpJ-j3-k0A"/>
                                                         <menuItem title="DuckDuckGo" image="duckduckgo-search-engine-icon" id="nq3-GM-uav"/>
-                                                        <menuItem title="Ask" image="ask-search-engine-icon" id="sIf-t4-D9y"/>
                                                         <menuItem title="AOL" image="aol-search-engine-icon" id="zAg-Ww-56y"/>
                                                         <menuItem isSeparatorItem="YES" id="toF-XD-kdO"/>
                                                         <menuItem title="Custom" id="jS2-St-NcO"/>
@@ -1300,7 +1301,7 @@ Spark is made possible by the WebKit open source project and other open source s
                                 <rect key="frame" x="53" y="30" width="216" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="You are viewing a secure Spark page." id="O0K-0g-7th">
-                                    <font key="font" metaFont="system" size="12"/>
+                                    <font key="font" metaFont="cellTitle"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -1464,7 +1465,6 @@ DQ
         <image name="NSStopProgressFreestandingTemplate" width="14" height="14"/>
         <image name="SparkIcon256" width="61.439998626708984" height="61.439998626708984"/>
         <image name="aol-search-engine-icon" width="16" height="16"/>
-        <image name="ask-search-engine-icon" width="16" height="16"/>
         <image name="bing-search-engine-icon" width="16" height="16"/>
         <image name="duckduckgo-search-engine-icon" width="16" height="16"/>
         <image name="google-search-engine-icon" width="16" height="16"/>

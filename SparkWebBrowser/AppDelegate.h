@@ -66,6 +66,8 @@
 @property (assign, nonatomic) IBOutlet NSMenu *menuBarBookmarks;
 @property (assign, nonatomic) IBOutlet NSImageView *bookmarksClearedIcon;
 @property (assign, nonatomic) IBOutlet NSView *sparkSecurePageView;
+@property (assign, nonatomic) IBOutlet NSTextField *sparkSecurePageText;
+@property (assign, nonatomic) IBOutlet NSImageView *sparkSecurePageIcon;
 
 @property (nonatomic, assign) long bytesReceived;
 
