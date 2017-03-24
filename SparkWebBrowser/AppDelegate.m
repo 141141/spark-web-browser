@@ -41,6 +41,14 @@ NSString *appReportIssueURL = @"https://www.github.com/insleep/spark-web-browser
 NSString *appExistingIssuesURL = @"https://www.github.com/insleep/spark-web-browser/issues/";
 NSString *appReleasesURL = @"https://www.github.com/insleep/spark-web-browser/releases/tag/%@/";
 
+// Strings related to page indicator
+NSString *secureSparkPageText = @"You are viewing a secure Spark page."; // Text shown when a secure Spark page is loaded
+NSString *secureHTTPSPageText = @"Your connection to this site is secure."; // Text shown when a secure site is loaded
+NSString *insecureHTTPSPageText = @"Your connection to this site is not secure."; // Text shown when an insecure site is loaded
+NSString *secureHTTPSPageDetailText = @"Your information (for example, passwords or credit card numbers) is private when it is sent to this site."; // Detail text shown when a secure site is loaded
+NSString *insecureHTTPSPageDetailText = @"You should not enter any sensitive information on this site (for example, passwords or credit cards)."; // Detail text shown when an insecure site is loaded
+NSString *secureSparkPageDetailText = @"Your information is private when it is sent to secure Spark pages."; // Detail text shown when a secure Spark page is loaded
+
 // Theme colors
 NSColor *defaultColor = nil;
 NSColor *rubyRedColor = nil;
@@ -66,6 +74,10 @@ NSTrackingArea *settingsBtnTrackingArea = nil; // Settings button tracking area 
 NSTrackingArea *sparkSecurePageViewTrackingArea = nil; // Secure page image tracking area (used to show custom view)
 NSMutableArray *currentBookmarksArray = nil; // Mutable array for bookmark URLs
 NSMutableArray *currentBookmarkTitlesArray = nil; // Mutable array for bookmark titles
+long long expectedLength = 0; // Expected length of a file being downloaded
+bool downloadOverride = NO; // Boolean for whether or not to download a file even if WebView can display it
+
+// Mutable strings
 NSString *appVersion = nil; // Spark version number
 NSString *buildNumber = nil; // Spark build number
 NSString *macOSVersionString = nil; // macOS version number
@@ -85,8 +97,6 @@ NSString *downloadLocationEdited = nil; // Download location, edited to remove s
 NSString *bytesReceivedFormatted = nil; // Bytes received (file download) (formatted)
 NSString *expectedLengthFormatted = nil; // Expected length of file being downloaded (formatted)
 NSString *lastSession = nil; // Value from NSUserDefaults of lastSession
-long long expectedLength = 0; // Expected length of a file being downloaded
-bool downloadOverride = NO; // Boolean for whether or not to download a file even if WebView can display it
 
 // Objects related (somewhat) to loading webpages
 NSString *searchString = nil; // String used when initiating a search query
@@ -1681,6 +1691,16 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         
         self.addressBar.stringValue = [defaults objectForKey:@"lastSession"];
         
+        // Set key insecureHTTPSOverride to YES to prevent the indicator from misbehaving on load completion
+        [defaults setBool:YES forKey:@"insecureHTTPSOverride"];
+        
+        // Show page status image + view
+        self.pageStatusImage.hidden = NO;
+        self.pageStatusImage.image = [NSImage imageNamed:NSImageNameLockUnlockedTemplate];
+        self.sparkSecurePageIcon.image = [NSImage imageNamed:NSImageNameLockUnlockedTemplate];
+        self.sparkSecurePageText.stringValue = insecureHTTPSPageText;
+        self.sparkSecurePageDetailText.stringValue = insecureHTTPSPageDetailText;
+        
     } else if(error.code == -1003) {
         // NSURLErrorCannotFindHost
         
@@ -1790,26 +1810,41 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
             self.faviconImage.image = [NSImage imageNamed:@"defaultfavicon"];
         }
         
-        if([[defaults objectForKey:@"untrustedSitesArray"] containsObject:self.addressBar.stringValue]) {
-            [self.addressBar setTextColor:[NSColor redColor]];
-        } else {
-            [self.addressBar setTextColor:[NSColor blackColor]];
-        }
-        
         // Set up page indicator
-        if([self.addressBar.stringValue hasPrefix:@"https://"]) {
+        if([self.addressBar.stringValue hasPrefix:@"https://"] && [defaults boolForKey:@"insecureHTTPSOverride"] != YES) {
             // In the future, we should probably figure out a way to detect if the site is actually using HTTPS. For now, we'll just do a string check.
             self.pageStatusImage.hidden = NO;
             self.pageStatusImage.image = [NSImage imageNamed:NSImageNameLockLockedTemplate];
             self.sparkSecurePageIcon.image = [NSImage imageNamed:NSImageNameLockLockedTemplate];
-            self.sparkSecurePageText.stringValue = @"Your connection to this site is secure.";
-        } else if([self.addressBar.stringValue hasPrefix:@"spark://"]) {
+            self.sparkSecurePageText.stringValue = secureHTTPSPageText;
+            self.sparkSecurePageDetailText.stringValue = secureHTTPSPageDetailText;
+        } else if([self.addressBar.stringValue hasPrefix:@"spark://"] && [defaults boolForKey:@"insecureHTTPSOverride"] != YES) {
             self.pageStatusImage.hidden = NO;
             self.pageStatusImage.image = [NSImage imageNamed:NSImageNameMenuOnStateTemplate];
             self.sparkSecurePageIcon.image = [NSImage imageNamed:@"SparkIcon256"];
-            self.sparkSecurePageText.stringValue = @"You are viewing a secure Spark page.";
-        } else {
+            self.sparkSecurePageText.stringValue = secureSparkPageText;
+            self.sparkSecurePageDetailText.stringValue = secureSparkPageDetailText;
+        } else if([self.addressBar.stringValue hasPrefix:@"http://"] || [self.addressBar.stringValue hasPrefix:@"file://"]) {
             self.pageStatusImage.hidden = YES;
+        }
+        
+        if([[defaults objectForKey:@"untrustedSitesArray"] containsObject:self.addressBar.stringValue]) {
+            [self.addressBar setTextColor:[NSColor redColor]];
+            
+            // Show page status image + view
+            self.pageStatusImage.hidden = NO;
+            self.pageStatusImage.image = [NSImage imageNamed:NSImageNameLockUnlockedTemplate];
+            self.sparkSecurePageIcon.image = [NSImage imageNamed:NSImageNameLockUnlockedTemplate];
+            self.sparkSecurePageText.stringValue = insecureHTTPSPageText;
+            self.sparkSecurePageDetailText.stringValue = insecureHTTPSPageDetailText;
+        } else {
+            [self.addressBar setTextColor:[NSColor blackColor]];
+        }
+        
+        // Reset insecureHTTPSOverride key (if set)
+        if([defaults boolForKey:@"insecureHTTPSOverride"] == YES) {
+            [defaults setBool:NO forKey:@"insecureHTTPSOverride"];
+            NSLog(@"Successfully reset insecureHTTPSOverride key.");
         }
         
         // Set values for use on spark:// pages

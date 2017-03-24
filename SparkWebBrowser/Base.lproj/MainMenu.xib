@@ -37,7 +37,6 @@
                 <outlet property="errorPanelTitle" destination="4M2-zn-hbU" id="J2s-1b-st5"/>
                 <outlet property="errorWindow" destination="uuQ-xY-3aS" id="gyF-Ts-abR"/>
                 <outlet property="faviconImage" destination="t5k-sW-5ra" id="bKl-he-loz"/>
-                <outlet property="fileDownloadStatusIcon" destination="JL1-ow-kAk" id="wG2-rp-dPa"/>
                 <outlet property="fileDownloadingText" destination="OQ0-32-CRq" id="4XW-55-JXZ"/>
                 <outlet property="forwardBtn" destination="wRb-WG-N9I" id="G2y-ac-Zki"/>
                 <outlet property="homepageBasedOnSearchEngineBtn" destination="5Uw-Fh-cJ1" id="CNY-RK-NbX"/>
@@ -62,6 +61,7 @@
                 <outlet property="settingsBtn" destination="Nsh-fL-8Ic" id="c7u-0x-cPE"/>
                 <outlet property="settingsPopupBtn" destination="vH7-Li-e10" id="uXS-4j-fNl"/>
                 <outlet property="settingsWindow" destination="MMA-4M-Pa4" id="6F0-cu-izG"/>
+                <outlet property="sparkSecurePageDetailText" destination="smS-Rv-SjS" id="864-LM-mga"/>
                 <outlet property="sparkSecurePageIcon" destination="GJg-yp-PZi" id="I6x-nB-9Tw"/>
                 <outlet property="sparkSecurePageText" destination="DD3-2h-Xt5" id="9ak-bw-FaX"/>
                 <outlet property="sparkSecurePageView" destination="fxN-sd-bxd" id="X31-Gs-rZO"/>
@@ -1008,8 +1008,8 @@ Spark is made possible by the WebKit open source project and other open source s
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="7o9-5H-k8C">
-                        <rect key="frame" x="84" y="680" width="192" height="31"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="7o9-5H-k8C">
+                        <rect key="frame" x="84" y="680" width="204" height="31"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" drawsBackground="YES" id="j3a-rZ-Cwc">
                             <font key="font" metaFont="system"/>
@@ -1070,8 +1070,8 @@ Spark is made possible by the WebKit open source project and other open source s
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSIconViewTemplate" id="lec-S4-uJt"/>
                     </imageView>
-                    <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="e3k-CE-CDi">
-                        <rect key="frame" x="308" y="688" width="263" height="16"/>
+                    <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="e3k-CE-CDi">
+                        <rect key="frame" x="323" y="688" width="263" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Tabs are not available in this version of Spark." id="gfc-dE-ICK">
                             <font key="font" metaFont="systemLight" size="12"/>
@@ -1093,28 +1093,6 @@ Spark is made possible by the WebKit open source project and other open source s
                         <rect key="frame" x="92" y="688" width="16" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </progressIndicator>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="VRX-Sp-sir">
-                        <rect key="frame" x="282" y="687" width="18" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" drawsBackground="YES" id="Igf-fF-DKK">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" white="1" alpha="0.80367080479452058" colorSpace="deviceWhite"/>
-                        </textFieldCell>
-                    </textField>
-                    <button toolTip="Open a new tab" verticalHuggingPriority="750" id="pmy-Gn-uac">
-                        <rect key="frame" x="281" y="687" width="21" height="19"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="bx5-yX-Nf2">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                            <string key="keyEquivalent">t</string>
-                            <modifierMask key="keyEquivalentModifierMask" command="YES"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="newTab:" target="Voe-Tx-rLC" id="yOZ-pK-xAy"/>
-                        </connections>
-                    </button>
                     <popUpButton hidden="YES" verticalHuggingPriority="750" misplaced="YES" id="vH7-Li-e10">
                         <rect key="frame" x="1078" y="653" width="24" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
@@ -1239,15 +1217,6 @@ Spark is made possible by the WebKit open source project and other open source s
                             <color key="backgroundColor" red="0.8708558058375635" green="0.8708558058375635" blue="0.8708558058375635" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="JvK-hQ-Wwq">
-                        <rect key="frame" x="111" y="686" width="162" height="19"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" placeholderString="Loading..." id="I9i-cv-n8A">
-                            <font key="font" metaFont="cellTitle"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                     <progressIndicator hidden="YES" wantsLayer="YES" misplaced="YES" maxValue="100" style="spinning" id="DMz-UI-kVs">
                         <rect key="frame" x="20" y="10" width="32" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1281,12 +1250,48 @@ Spark is made possible by the WebKit open source project and other open source s
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="JvK-hQ-Wwq">
+                        <rect key="frame" x="111" y="686" width="155" height="19"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" placeholderString="Loading..." id="I9i-cv-n8A">
+                            <font key="font" metaFont="cellTitle"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <imageView hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="KaJ-aG-MHC">
+                        <rect key="frame" x="272" y="690" width="11" height="12"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSMenuOnStateTemplate" id="KZU-p7-6T4"/>
+                    </imageView>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="VRX-Sp-sir">
+                        <rect key="frame" x="297" y="687" width="18" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" drawsBackground="YES" id="Igf-fF-DKK">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" white="1" alpha="0.80367080479452058" colorSpace="deviceWhite"/>
+                        </textFieldCell>
+                    </textField>
+                    <button toolTip="Open a new tab" verticalHuggingPriority="750" misplaced="YES" id="pmy-Gn-uac">
+                        <rect key="frame" x="296" y="687" width="21" height="19"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="bx5-yX-Nf2">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent">t</string>
+                            <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="newTab:" target="Voe-Tx-rLC" id="yOZ-pK-xAy"/>
+                        </connections>
+                    </button>
                     <customView hidden="YES" wantsLayer="YES" misplaced="YES" id="fxN-sd-bxd">
-                        <rect key="frame" x="34" y="627" width="293" height="76"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <rect key="frame" x="34" y="588" width="326" height="114"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" id="rdL-MZ-Z7Z">
-                                <rect key="frame" x="20" y="20" width="253" height="36"/>
+                                <rect key="frame" x="20" y="20" width="286" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <shadow key="shadow" blurRadius="2">
                                     <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1297,32 +1302,31 @@ Spark is made possible by the WebKit open source project and other open source s
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="DD3-2h-Xt5">
-                                <rect key="frame" x="53" y="30" width="216" height="16"/>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="GJg-yp-PZi">
+                                <rect key="frame" x="26" y="65" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="You are viewing a secure Spark page." id="O0K-0g-7th">
-                                    <font key="font" metaFont="cellTitle"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="SparkIcon256" id="f3U-Ma-DJi"/>
+                            </imageView>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" id="smS-Rv-SjS">
+                                <rect key="frame" x="29" y="29" width="279" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="SecurePageIndicatorDetailText" id="4m1-3i-SVD">
+                                    <font key="font" metaFont="system" size="11"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="GJg-yp-PZi">
-                                <rect key="frame" x="31" y="28" width="20" height="20"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" id="DD3-2h-Xt5">
+                                <rect key="frame" x="49" y="68" width="259" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="SparkIcon256" id="f3U-Ma-DJi"/>
-                            </imageView>
-                            <imageView hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="JL1-ow-kAk">
-                                <rect key="frame" x="122" y="14" width="48" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSMenuOnStateTemplate" id="1YL-hD-bfD"/>
-                            </imageView>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="SecurePageIndicatorText" id="O0K-0g-7th">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </customView>
-                    <imageView hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="KaJ-aG-MHC">
-                        <rect key="frame" x="258" y="690" width="11" height="12"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSMenuOnStateTemplate" id="KZU-p7-6T4"/>
-                    </imageView>
                 </subviews>
             </view>
             <point key="canvasLocation" x="867.5" y="107.5"/>
