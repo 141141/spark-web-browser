@@ -40,6 +40,7 @@
                 <outlet property="fileDownloadingText" destination="OQ0-32-CRq" id="4XW-55-JXZ"/>
                 <outlet property="forwardBtn" destination="wRb-WG-N9I" id="G2y-ac-Zki"/>
                 <outlet property="historyWindow" destination="cZf-cc-a2l" id="GER-El-iRP"/>
+                <outlet property="homeBtn" destination="4hs-mM-3d8" id="kN5-La-Hoe"/>
                 <outlet property="homepageBasedOnSearchEngineBtn" destination="5Uw-Fh-cJ1" id="CNY-RK-NbX"/>
                 <outlet property="homepageRadioBtn" destination="NUL-1g-aHX" id="akT-DQ-8cG"/>
                 <outlet property="homepageTextField" destination="wPk-qF-HnV" id="sfR-SW-cWa"/>
@@ -62,6 +63,7 @@
                 <outlet property="settingsBtn" destination="Nsh-fL-8Ic" id="c7u-0x-cPE"/>
                 <outlet property="settingsPopupBtn" destination="vH7-Li-e10" id="uXS-4j-fNl"/>
                 <outlet property="settingsWindow" destination="MMA-4M-Pa4" id="6F0-cu-izG"/>
+                <outlet property="showHomeBtn" destination="Mxh-Tp-E98" id="8Y7-n0-qDg"/>
                 <outlet property="sparkSecurePageDetailText" destination="smS-Rv-SjS" id="864-LM-mga"/>
                 <outlet property="sparkSecurePageIcon" destination="GJg-yp-PZi" id="I6x-nB-9Tw"/>
                 <outlet property="sparkSecurePageText" destination="DD3-2h-Xt5" id="9ak-bw-FaX"/>
@@ -716,6 +718,17 @@ Spark is made possible by the WebKit open source project and other open source s
                                                 <action selector="lastSessionRadioBtnSelected:" target="Voe-Tx-rLC" id="NM8-Pu-Czr"/>
                                             </connections>
                                         </button>
+                                        <button misplaced="YES" id="Mxh-Tp-E98">
+                                            <rect key="frame" x="15" y="23" width="136" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="check" title="Show home button" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="nO8-EK-3NC">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="startShowingHomeBtn:" target="Voe-Tx-rLC" id="UwJ-Jm-kJa"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </view>
                             </tabViewItem>
@@ -1054,6 +1067,47 @@ Spark is made possible by the WebKit open source project and other open source s
                 <rect key="frame" x="0.0" y="0.0" width="1107" height="711"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
+                    <customView hidden="YES" wantsLayer="YES" misplaced="YES" id="fxN-sd-bxd">
+                        <rect key="frame" x="215" y="503" width="326" height="114"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" id="rdL-MZ-Z7Z">
+                                <rect key="frame" x="20" y="20" width="286" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <shadow key="shadow" blurRadius="2">
+                                    <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </shadow>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" drawsBackground="YES" id="2wp-99-kax">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="GJg-yp-PZi">
+                                <rect key="frame" x="26" y="65" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="SparkIcon256" id="f3U-Ma-DJi"/>
+                            </imageView>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" id="smS-Rv-SjS">
+                                <rect key="frame" x="29" y="29" width="279" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="SecurePageIndicatorDetailText" id="4m1-3i-SVD">
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" id="DD3-2h-Xt5">
+                                <rect key="frame" x="49" y="68" width="259" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="SecurePageIndicatorText" id="O0K-0g-7th">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </customView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="bY4-GT-wGb" userLabel="Label">
                         <rect key="frame" x="-2" y="652" width="1109" height="31"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -1098,7 +1152,7 @@ Spark is made possible by the WebKit open source project and other open source s
                         </connections>
                     </button>
                     <textField verticalHuggingPriority="750" misplaced="YES" id="6S4-CW-iwm">
-                        <rect key="frame" x="89" y="656" width="991" height="22"/>
+                        <rect key="frame" x="113" y="656" width="967" height="22"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" title="https://" placeholderString="" bezelStyle="round" id="MSe-fD-WSx">
                             <font key="font" metaFont="cellTitle"/>
@@ -1341,47 +1395,17 @@ Spark is made possible by the WebKit open source project and other open source s
                             <action selector="newTab:" target="Voe-Tx-rLC" id="yOZ-pK-xAy"/>
                         </connections>
                     </button>
-                    <customView hidden="YES" wantsLayer="YES" misplaced="YES" id="fxN-sd-bxd">
-                        <rect key="frame" x="34" y="588" width="326" height="114"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" id="rdL-MZ-Z7Z">
-                                <rect key="frame" x="20" y="20" width="286" height="74"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <shadow key="shadow" blurRadius="2">
-                                    <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </shadow>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" drawsBackground="YES" id="2wp-99-kax">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="GJg-yp-PZi">
-                                <rect key="frame" x="26" y="65" width="22" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="SparkIcon256" id="f3U-Ma-DJi"/>
-                            </imageView>
-                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" id="smS-Rv-SjS">
-                                <rect key="frame" x="29" y="29" width="279" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="SecurePageIndicatorDetailText" id="4m1-3i-SVD">
-                                    <font key="font" metaFont="smallSystem"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" id="DD3-2h-Xt5">
-                                <rect key="frame" x="49" y="68" width="259" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="SecurePageIndicatorText" id="O0K-0g-7th">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                        </subviews>
-                    </customView>
+                    <button toolTip="Reload this page" verticalHuggingPriority="750" misplaced="YES" id="4hs-mM-3d8">
+                        <rect key="frame" x="84" y="657" width="23" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSHomeTemplate" imagePosition="overlaps" alignment="center" state="on" inset="2" id="mwl-fH-EfB">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="loadHomepage:" target="Voe-Tx-rLC" id="fXr-LP-pKs"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <point key="canvasLocation" x="867.5" y="107.5"/>
@@ -1600,6 +1624,7 @@ DQ
         <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSGoLeftTemplate" width="9" height="12"/>
         <image name="NSGoRightTemplate" width="9" height="12"/>
+        <image name="NSHomeTemplate" width="14" height="14"/>
         <image name="NSIconViewTemplate" width="10" height="10"/>
         <image name="NSMenuOnStateTemplate" width="12" height="12"/>
         <image name="NSRefreshTemplate" width="11" height="15"/>

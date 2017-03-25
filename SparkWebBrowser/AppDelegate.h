@@ -42,6 +42,7 @@
 @property (assign, nonatomic) IBOutlet NSTextField *topBarBg;
 @property (assign, nonatomic) IBOutlet NSButton *backBtn;
 @property (assign, nonatomic) IBOutlet NSButton *forwardBtn;
+@property (assign, nonatomic) IBOutlet NSButton *homeBtn;
 @property (assign, nonatomic) IBOutlet NSButton *settingsBtn;
 @property (assign, nonatomic) IBOutlet NSPopUpButton *settingsPopupBtn;
 @property (assign, nonatomic) IBOutlet NSColorWell *customColorWell;
@@ -70,6 +71,7 @@
 @property (assign, nonatomic) IBOutlet NSTextField *sparkSecurePageText;
 @property (assign, nonatomic) IBOutlet NSTextField *sparkSecurePageDetailText;
 @property (assign, nonatomic) IBOutlet NSImageView *sparkSecurePageIcon;
+@property (assign, nonatomic) IBOutlet NSButton *showHomeBtn;
 
 @property (nonatomic, assign) long bytesReceived;
 
@@ -97,6 +99,7 @@
 - (IBAction)clearBookmarks:(id)sender;
 - (IBAction)clearHistory:(id)sender;
 - (IBAction)loadHomepage:(id)sender;
+- (IBAction)startShowingHomeBtn:(id)sender;
 
 #pragma mark - Various methods
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame;
@@ -104,7 +107,7 @@
 - (void)setHomepageWithString:(NSString *)homepageToSet;
 - (void)settingsMenuClicked:(id)sender;
 - (void)setHomepageBasedOnSearchEngine:(id)sender;
-- (void)checkExperimentalConfig:(id)sender;
-- (void)handleFilePrefix:(id)sender;
+- (void)checkExperimentalConfig;
+- (void)handleFilePrefix;
 
 @end

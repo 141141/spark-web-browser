@@ -147,7 +147,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     
     if([defaults objectForKey:@"currentReleaseChannel"] == nil) { // This is called in applicationDidFinishLaunching as well, but calling it here ensures it's properly set
         // No release channel is set -- revert to default
-        NSLog(@"Error: no release channel is set. Setting now...");
+        NSLog(@"Warning: no release channel is set. Setting now...");
         
         [defaults setObject:[NSString stringWithFormat:@"stable"] forKey:@"currentReleaseChannel"];
     }
@@ -203,14 +203,14 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     // NSUserDefaults key value checking
     if([defaults objectForKey:@"currentReleaseChannel"] == nil) {
         // No release channel is set -- revert to default
-        NSLog(@"Error: no release channel is set. Setting now...");
+        NSLog(@"Warning: no release channel is set. Setting now...");
         
         [defaults setObject:[NSString stringWithFormat:@"stable"] forKey:@"currentReleaseChannel"];
     }
     
     if([defaults objectForKey:@"releaseChannelIndex"] == nil) {
         // No release channel index is set -- revert to default
-        NSLog(@"Error: no release channel index is set. Setting now...");
+        NSLog(@"Warning: no release channel index is set. Setting now...");
         
         [defaults setInteger:0 forKey:@"releaseChannelIndex"];
     }
@@ -219,14 +219,14 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     
     if([defaults objectForKey:@"currentSearchEngine"] == nil) {
         // No search engine is set -- revert to default
-        NSLog(@"Error: no search engine is set. Setting now...");
+        NSLog(@"Warning: no search engine is set. Setting now...");
         
         [defaults setObject:[NSString stringWithFormat:@"Google"] forKey:@"currentSearchEngine"];
     }
     
     if([defaults objectForKey:@"searchEngineIndex"] == nil) {
         // No search engine index is set -- revert to default
-        NSLog(@"Error: no search engine index is set. Setting now...");
+        NSLog(@"Warning: no search engine index is set. Setting now...");
         
         [defaults setInteger:0 forKey:@"searchEngineIndex"];
     }
@@ -235,7 +235,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     
     if([defaults objectForKey:@"customSearchEngine"] == nil) {
         // A custom search engine is not set
-        NSLog(@"Error: the value of \"customSearchEngine\" is nil. Setting now...");
+        NSLog(@"Warning: the value of \"customSearchEngine\" is nil. Setting now...");
         
         [defaults setObject:@"" forKey:@"customSearchEngine"];
         self.customSearchEngineField.hidden = YES;
@@ -244,7 +244,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     
     if([defaults objectForKey:@"currentColor"] == nil) {
         // No theme color is set -- revert to default
-        NSLog(@"Error: no theme color is set. Setting now...");
+        NSLog(@"Warning: no theme color is set. Setting now...");
         
         [defaults setObject:@"Default" forKey:@"currentColor"];
     }
@@ -253,7 +253,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     
     if([defaults objectForKey:@"currentDownloadLocation"] == nil) {
         // No download location is set -- revert to default
-        NSLog(@"Error: no download location is set. Setting now...");
+        NSLog(@"Warning: no download location is set. Setting now...");
         
         [defaults setObject:[NSString stringWithFormat:@"%@/Downloads/", homeDirectory] forKey:@"currentDownloadLocation"];
     }
@@ -266,6 +266,17 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         [defaults setBool:NO forKey:@"startupWithLastSession"];
         self.lastSessionRadioBtn.state = NSOffState;
         self.homepageRadioBtn.state = NSOnState;
+    }
+    
+    // Set key if not already set
+    if([defaults objectForKey:@"showHomeBtn"] == nil) {
+        
+        NSLog(@"Warning: no key is set for object showHomeBtn. Setting now...");
+        
+        [defaults setBool:NO forKey:@"showHomeBtn"];
+        self.showHomeBtn.state = NSOffState;
+        self.homeBtn.hidden = YES;
+        [self.addressBar setFrame:NSMakeRect(89, 656, 991, 22)];
     }
     
     // Check which radio button should be on (startup settings)
@@ -324,6 +335,17 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         self.setHomepageBtn.enabled = YES;
     }
     
+    // Check if checkbox should be checked (showHomeBtn)
+    if([defaults boolForKey:@"showHomeBtn"] == YES) {
+        self.showHomeBtn.state = NSOnState;
+        self.homeBtn.hidden = NO;
+        [self.addressBar setFrame:NSMakeRect(113, 656, 967, 22)];
+    } else {
+        self.showHomeBtn.state = NSOffState;
+        self.homeBtn.hidden = YES;
+        [self.addressBar setFrame:NSMakeRect(89, 656, 991, 22)];
+    }
+    
     if([[defaults objectForKey:@"currentReleaseChannel"] isEqual: @"dev"]) { // Create fallback from "dev" channel for those migrating from previous versions
         NSLog(@"Resetting release channel to \"nightly\"");
         
@@ -365,7 +387,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     }
     
     // Check experimental configuration settings
-    [self checkExperimentalConfig:nil];
+    [self checkExperimentalConfig];
     
     // Set up tracking areas
     backBtnTrackingArea = [[NSTrackingArea alloc] initWithRect:[self.backBtn bounds] options:NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways owner:self userInfo:nil];
@@ -783,6 +805,24 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", [defaults valueForKey:@"userHomepage"]]]]];
 }
 
+- (IBAction)startShowingHomeBtn:(id)sender {
+    
+    if([self.showHomeBtn state] == NSOnState) {
+        // On
+        
+        [defaults setBool:YES forKey:@"showHomeBtn"];
+        self.homeBtn.hidden = NO;
+        [self.addressBar setFrame:NSMakeRect(113, 656, 967, 22)];
+        
+    } else if([self.showHomeBtn state] == NSOffState) {
+        // Off
+        
+        [defaults setBool:NO forKey:@"showHomeBtn"];
+        self.homeBtn.hidden = YES;
+        [self.addressBar setFrame:NSMakeRect(89, 656, 991, 22)];
+    }
+}
+
 - (IBAction)setTopBarColor:(id)sender {
     
     NSLog(@"Setting theme color...");
@@ -1023,7 +1063,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         
         self.pageStatusImage.hidden = YES;
         
-        [self handleFilePrefix:nil];
+        [self handleFilePrefix];
         
     } else if([searchString hasPrefix:@"spark://"]) {
         // spark:// prefix
@@ -1206,7 +1246,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
 
 #pragma mark - Various methods
 
-- (void)handleFilePrefix:(id)sender {
+- (void)handleFilePrefix {
     
     clippedTitle = self.webView.mainFrameURL;
     
@@ -1219,7 +1259,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     self.titleStatus.toolTip = self.webView.mainFrameURL; // Set tooltip to unclipped title
 }
 
-- (void)checkExperimentalConfig:(id)sender {
+- (void)checkExperimentalConfig {
     
     // Check if checkbox should be checked (spark://config - "Use spark://about webpage")
     if([defaults boolForKey:@"useSparkAboutPage"] == YES) {
@@ -1820,7 +1860,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         
         // Check whether or not we're handling a local file
         if([self.addressBar.stringValue hasPrefix:@"file://"]) {
-            [self handleFilePrefix:nil];
+            [self handleFilePrefix];
         }
         
         // Use Google to get website favicons
