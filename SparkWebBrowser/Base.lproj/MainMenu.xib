@@ -1420,7 +1420,7 @@ Spark is made possible by the WebKit open source project and other open source s
                         </subviews>
                     </customView>
                     <customView hidden="YES" wantsLayer="YES" misplaced="YES" id="yET-9q-S0G">
-                        <rect key="frame" x="781" y="512" width="326" height="136"/>
+                        <rect key="frame" x="775" y="541" width="326" height="136"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" id="fhM-ya-3YI">
