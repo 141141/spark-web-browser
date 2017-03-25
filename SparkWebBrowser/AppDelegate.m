@@ -79,6 +79,7 @@ NSTrackingArea *backBtnTrackingArea = nil; // Back button tracking area (used fo
 NSTrackingArea *forwardBtnTrackingArea = nil; // Forward button tracking area (used for hover effect)
 NSTrackingArea *reloadBtnTrackingArea = nil; // Reload button tracking area (used for hover effect)
 NSTrackingArea *settingsBtnTrackingArea = nil; // Settings button tracking area (used for hover effect)
+NSTrackingArea *homeBtnTrackingArea = nil; // Home button tracking area (used for hover effect)
 NSTrackingArea *sparkSecurePageViewTrackingArea = nil; // Secure page image tracking area (used to show custom view)
 NSMutableArray *currentBookmarksArray = nil; // Mutable array for bookmark URLs
 NSMutableArray *currentBookmarkTitlesArray = nil; // Mutable array for bookmark titles
@@ -396,12 +397,14 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     backBtnTrackingArea = [[NSTrackingArea alloc] initWithRect:[self.backBtn bounds] options:NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways owner:self userInfo:nil];
     forwardBtnTrackingArea = [[NSTrackingArea alloc] initWithRect:[self.forwardBtn bounds] options:NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways owner:self userInfo:nil];
     reloadBtnTrackingArea = [[NSTrackingArea alloc] initWithRect:[self.reloadBtn bounds] options:NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways owner:self userInfo:nil];
+    homeBtnTrackingArea = [[NSTrackingArea alloc] initWithRect:[self.homeBtn bounds] options:NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways owner:self userInfo:nil];
     settingsBtnTrackingArea = [[NSTrackingArea alloc] initWithRect:[self.settingsBtn bounds] options:NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways owner:self userInfo:nil];
     sparkSecurePageViewTrackingArea = [[NSTrackingArea alloc] initWithRect:[self.pageStatusImage bounds] options:NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways owner:self userInfo:nil];
     
     [self.backBtn addTrackingArea:backBtnTrackingArea];
     [self.forwardBtn addTrackingArea:forwardBtnTrackingArea];
     [self.reloadBtn addTrackingArea:reloadBtnTrackingArea];
+    [self.homeBtn addTrackingArea:homeBtnTrackingArea];
     [self.settingsBtn addTrackingArea:settingsBtnTrackingArea];
     [self.pageStatusImage addTrackingArea:sparkSecurePageViewTrackingArea];
     
@@ -1498,10 +1501,11 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         [[self.forwardBtn cell] setBackgroundColor:[NSColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f]];
     } else if([[theEvent trackingArea] isEqual:reloadBtnTrackingArea]) {
         [[self.reloadBtn cell] setBackgroundColor:[NSColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f]];
+    } else if([[theEvent trackingArea] isEqual:homeBtnTrackingArea]) {
+        [[self.homeBtn cell] setBackgroundColor:[NSColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f]];
     } else if([[theEvent trackingArea] isEqual:settingsBtnTrackingArea]) {
         [[self.settingsBtn cell] setBackgroundColor:[NSColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f]];
     } else if([[theEvent trackingArea] isEqual:sparkSecurePageViewTrackingArea]) {
-        
         self.sparkSecurePageView.hidden = NO;
         self.titleStatus.toolTip = @"";
     }
@@ -1516,10 +1520,11 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         [[self.forwardBtn cell] setBackgroundColor:[NSColor whiteColor]];
     } else if([[theEvent trackingArea] isEqual:reloadBtnTrackingArea]) {
         [[self.reloadBtn cell] setBackgroundColor:[NSColor whiteColor]];
+    } else if([[theEvent trackingArea] isEqual:homeBtnTrackingArea]) {
+        [[self.homeBtn cell] setBackgroundColor:[NSColor whiteColor]];
     } else if([[theEvent trackingArea] isEqual:settingsBtnTrackingArea]) {
         [[self.settingsBtn cell] setBackgroundColor:[NSColor whiteColor]];
     } else if([[theEvent trackingArea] isEqual:sparkSecurePageViewTrackingArea]) {
-        
         self.sparkSecurePageView.hidden = YES;
     }
 }

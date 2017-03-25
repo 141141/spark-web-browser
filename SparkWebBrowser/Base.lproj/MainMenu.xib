@@ -408,7 +408,7 @@
                                     <action selector="goForward:" target="ffM-a6-P1L" id="sIe-Rj-pp3"/>
                                 </connections>
                             </menuItem>
-                            <menuItem isSeparatorItem="YES" id="ZeB-v9-tLs"/>
+                            <menuItem isSeparatorItem="YES" id="gGS-TV-nRr"/>
                             <menuItem title="Show Full History" keyEquivalent="y" id="lBh-Xn-2Mc">
                                 <connections>
                                     <action selector="makeKeyAndOrderFront:" target="cZf-cc-a2l" id="Uz2-SI-1Mv"/>
@@ -1135,7 +1135,7 @@ Spark is made possible by the WebKit open source project and other open source s
                             <action selector="reload:" target="ffM-a6-P1L" id="WKU-c5-Vk8"/>
                         </connections>
                     </button>
-                    <button toolTip="Reload this page" verticalHuggingPriority="750" misplaced="YES" id="4hs-mM-3d8">
+                    <button toolTip="Open the home page" verticalHuggingPriority="750" misplaced="YES" id="4hs-mM-3d8">
                         <rect key="frame" x="84" y="657" width="23" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSHomeTemplate" imagePosition="overlaps" alignment="center" state="on" inset="2" id="mwl-fH-EfB">
@@ -1144,17 +1144,6 @@ Spark is made possible by the WebKit open source project and other open source s
                         </buttonCell>
                         <connections>
                             <action selector="loadHomepage:" target="Voe-Tx-rLC" id="fXr-LP-pKs"/>
-                        </connections>
-                    </button>
-                    <button toolTip="Reload this page" verticalHuggingPriority="750" misplaced="YES" id="eie-eg-Awo">
-                        <rect key="frame" x="1057" y="656" width="23" height="22"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSBookmarksTemplate" imagePosition="overlaps" alignment="center" state="on" inset="2" id="8Ik-fs-b3D">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="addBookmarkAddressBar:" target="Voe-Tx-rLC" id="LuH-pB-O4K"/>
                         </connections>
                     </button>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="t5k-sW-5ra">
@@ -1378,6 +1367,17 @@ Spark is made possible by the WebKit open source project and other open source s
                             <action selector="newTab:" target="Voe-Tx-rLC" id="yOZ-pK-xAy"/>
                         </connections>
                     </button>
+                    <button toolTip="Bookmark this page" verticalHuggingPriority="750" misplaced="YES" id="eie-eg-Awo">
+                        <rect key="frame" x="1056" y="656" width="23" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSBookmarksTemplate" imagePosition="overlaps" alignment="center" state="on" inset="2" id="8Ik-fs-b3D">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="addBookmarkAddressBar:" target="Voe-Tx-rLC" id="LuH-pB-O4K"/>
+                        </connections>
+                    </button>
                     <customView hidden="YES" wantsLayer="YES" misplaced="YES" id="fxN-sd-bxd">
                         <rect key="frame" x="34" y="588" width="326" height="114"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
@@ -1420,7 +1420,7 @@ Spark is made possible by the WebKit open source project and other open source s
                         </subviews>
                     </customView>
                     <customView hidden="YES" wantsLayer="YES" misplaced="YES" id="yET-9q-S0G">
-                        <rect key="frame" x="775" y="541" width="326" height="136"/>
+                        <rect key="frame" x="781" y="512" width="326" height="136"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" id="fhM-ya-3YI">
@@ -1457,7 +1457,7 @@ Spark is made possible by the WebKit open source project and other open source s
                                 <rect key="frame" x="77" y="62" width="205" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" title="SPKBookmarkSiteName" placeholderString="" bezelStyle="round" id="cXF-Uj-ECj">
-                                    <font key="font" metaFont="system" size="12"/>
+                                    <font key="font" metaFont="cellTitle"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
