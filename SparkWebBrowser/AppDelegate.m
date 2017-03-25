@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "SPKHistoryHandler.h"
+#import "SPKHistoryTable.h"
 #import "WebKit/WebKit.h"
 #import "NSUserDefaults+ColorSupport.h"
 #import "Sparkle.framework/Headers/SUUpdater.h"
@@ -24,6 +25,7 @@
 
 // Classes
 SPKHistoryHandler *historyHandler = nil;
+SPKHistoryTable *historyTable = nil;
 
 // Search engine query strings
 NSString *googleSearchString = @"https://www.google.com/search?q=%@";
@@ -128,6 +130,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
 + (void)initialize {
     
     historyHandler = [[SPKHistoryHandler alloc] init]; // Initialize history handler
+    historyTable = [[SPKHistoryTable alloc] init]; // Initialize history table
     
     defaults = [NSUserDefaults standardUserDefaults]; // Set up NSUserDefaults
     
@@ -351,6 +354,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     self.popupWindow.backgroundColor = [NSColor whiteColor];
     self.settingsWindow.backgroundColor = [NSColor whiteColor];
     self.configWindow.backgroundColor = [NSColor whiteColor];
+    self.historyWindow.backgroundColor = [NSColor whiteColor];
     
     currentBookmarkTitlesArray = [defaults objectForKey:@"storedBookmarkTitlesArray"];
     
@@ -359,8 +363,6 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         NSMenuItem *bookmarkItem = [self.menuBarBookmarks addItemWithTitle:bookmarkTitle action:@selector(openBookmark:) keyEquivalent:@""];
         [bookmarkItem setRepresentedObject:[NSNumber numberWithInt:index]];
     }
-    
-    //currentHistoryTitlesArray = [defaults objectForKey:@"storedHistoryTitlesArray"];
     
     // Check experimental configuration settings
     [self checkExperimentalConfig:nil];
@@ -741,6 +743,40 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void) {
         self.bookmarksClearedIcon.hidden = YES;
     });
+}
+
+- (IBAction)clearHistory:(id)sender {
+    
+    NSLog(@"Clearing history...");
+    
+    [defaults setObject:nil forKey:@"storedHistoryArray"];
+    [defaults setObject:nil forKey:@"storedHistoryTitlesArray"];
+    
+    [historyTable resetTableView];
+    
+    NSLog(@"History cleared.");
+    
+    self.popupWindowTitle.stringValue = @"Clear History and Restart?";
+    self.popupWindowText.stringValue = [NSString stringWithFormat:@"This action cannot be undone. Are you sure you want to clear your history? A browser restart is required for this to take effect."];
+    self.popupWindowBtn1.title = @"Clear History";
+    self.popupWindowBtn2.title = @"Restart Later";
+    self.popupWindowBtn1.action = @selector(clearHistoryBtnClicked);
+    self.popupWindow.isVisible = YES;
+    [self.popupWindow makeKeyAndOrderFront:nil];
+    [NSApp activateIgnoringOtherApps:YES];
+}
+
+- (IBAction)clearHistoryBtnClicked {
+    NSTask *task = [[NSTask alloc] init];
+    NSMutableArray *args = [NSMutableArray array];
+    
+    [args addObject:@"-c"];
+    [args addObject:[NSString stringWithFormat:@"sleep %d; open \"%@\"", 0, [[NSBundle mainBundle] bundlePath]]];
+    [task setLaunchPath:@"/bin/sh"];
+    [task setArguments:args];
+    [task launch];
+    
+    [[NSApplication sharedApplication] terminate:nil];
 }
 
 - (IBAction)loadHomepage:(id)sender {
@@ -1711,7 +1747,6 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         self.sparkSecurePageIcon.image = [NSImage imageNamed:NSImageNameLockUnlockedTemplate];
         self.sparkSecurePageText.stringValue = insecureHTTPSPageText;
         self.sparkSecurePageText.textColor = [NSColor colorWithRed:0.88 green:0.23 blue:0.19 alpha:1.0];
-        
         self.sparkSecurePageDetailText.stringValue = insecureHTTPSPageDetailText;
         
     } else if(error.code == -1003) {

@@ -12,4 +12,6 @@
 
 @property (assign, nonatomic) IBOutlet NSTableView *historyTableView;
 
+- (void)resetTableView;
+
 @end

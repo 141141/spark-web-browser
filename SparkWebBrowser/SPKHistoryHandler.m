@@ -7,6 +7,7 @@
 //  You may copy, distribute and modify the software as long as you track changes/dates in source files. Any modifications to or software including (via compiler) GPL-licensed code must also be made available under the GPL along with build & install instructions.
 
 #import "SPKHistoryHandler.h"
+#import "SPKHistoryTable.h"
 #import "AppDelegate.h"
 
 @implementation SPKHistoryHandler
@@ -30,16 +31,9 @@
         [defaults setObject:currentHistoryArray forKey:@"storedHistoryArray"];
         [defaults setObject:currentHistoryTitlesArray forKey:@"storedHistoryTitlesArray"];
         
-        /*NSMenuItem *bookmarkItem = [self.menuBarBookmarks addItemWithTitle:self.webView.mainFrameTitle action:@selector(openBookmark:) keyEquivalent:@""];
-         
-         for(id bookmarkTitle in currentBookmarkTitlesArray) {
-         int index = (int)[currentBookmarkTitlesArray indexOfObject:bookmarkTitle];
-         [bookmarkItem setRepresentedObject:[NSNumber numberWithInt:index]];
-         }*/
-        
     } else {
         
-        NSLog(@"StoredHistoryArray exists");
+        //NSLog(@"StoredHistoryArray exists");
         
         currentHistoryArray = [[defaults objectForKey:@"storedHistoryArray"] mutableCopy];
         currentHistoryTitlesArray = [[defaults objectForKey:@"storedHistoryTitlesArray"] mutableCopy];
@@ -49,17 +43,7 @@
         
         [defaults setObject:currentHistoryArray forKey:@"storedHistoryArray"];
         [defaults setObject:currentHistoryTitlesArray forKey:@"storedHistoryTitlesArray"];
-        
-        /*NSMenuItem *bookmarkItem = [self.menuBarBookmarks addItemWithTitle:self.webView.mainFrameTitle action:@selector(openBookmark:) keyEquivalent:@""];
-         
-         for(id bookmarkTitle in currentBookmarkTitlesArray) {
-         int index = (int)[currentBookmarkTitlesArray indexOfObject:bookmarkTitle];
-         [bookmarkItem setRepresentedObject:[NSNumber numberWithInt:index]];
-         }*/
     }
-    
-    //NSLog(@"SPKHistoryHandler history array: %@", currentHistoryArray);
-    //NSLog(@"SPKHistoryHandler history titles array: %@", currentHistoryTitlesArray);
 }
 
 - (NSMutableArray *)getHistoryItems {
@@ -73,25 +57,11 @@
         
         currentHistoryArray = [NSMutableArray array];
         
-        /*NSMenuItem *bookmarkItem = [self.menuBarBookmarks addItemWithTitle:self.webView.mainFrameTitle action:@selector(openBookmark:) keyEquivalent:@""];
-         
-         for(id bookmarkTitle in currentBookmarkTitlesArray) {
-         int index = (int)[currentBookmarkTitlesArray indexOfObject:bookmarkTitle];
-         [bookmarkItem setRepresentedObject:[NSNumber numberWithInt:index]];
-         }*/
-        
     } else {
         
-        NSLog(@"StoredHistoryArray exists");
+        //NSLog(@"StoredHistoryArray exists");
         
         currentHistoryArray = [[defaults objectForKey:@"storedHistoryArray"] mutableCopy];
-        
-        /*NSMenuItem *bookmarkItem = [self.menuBarBookmarks addItemWithTitle:self.webView.mainFrameTitle action:@selector(openBookmark:) keyEquivalent:@""];
-         
-         for(id bookmarkTitle in currentBookmarkTitlesArray) {
-         int index = (int)[currentBookmarkTitlesArray indexOfObject:bookmarkTitle];
-         [bookmarkItem setRepresentedObject:[NSNumber numberWithInt:index]];
-         }*/
     }
     
     return currentHistoryArray;
@@ -108,29 +78,14 @@
         
         currentHistoryTitlesArray = [NSMutableArray array];
         
-        /*NSMenuItem *bookmarkItem = [self.menuBarBookmarks addItemWithTitle:self.webView.mainFrameTitle action:@selector(openBookmark:) keyEquivalent:@""];
-         
-         for(id bookmarkTitle in currentBookmarkTitlesArray) {
-         int index = (int)[currentBookmarkTitlesArray indexOfObject:bookmarkTitle];
-         [bookmarkItem setRepresentedObject:[NSNumber numberWithInt:index]];
-         }*/
-        
     } else {
         
-        NSLog(@"StoredHistoryTitlesArray exists");
+        //NSLog(@"StoredHistoryTitlesArray exists");
         
         currentHistoryTitlesArray = [[defaults objectForKey:@"storedHistoryTitlesArray"] mutableCopy];
-        
-        /*NSMenuItem *bookmarkItem = [self.menuBarBookmarks addItemWithTitle:self.webView.mainFrameTitle action:@selector(openBookmark:) keyEquivalent:@""];
-         
-         for(id bookmarkTitle in currentBookmarkTitlesArray) {
-         int index = (int)[currentBookmarkTitlesArray indexOfObject:bookmarkTitle];
-         [bookmarkItem setRepresentedObject:[NSNumber numberWithInt:index]];
-         }*/
     }
     
     return currentHistoryTitlesArray;
 }
-
 
 @end

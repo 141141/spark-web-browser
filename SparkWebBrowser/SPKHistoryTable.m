@@ -19,32 +19,42 @@
 
 @implementation SPKHistoryTable
 
-- (id)init {
-    if(self = [super init]) {
-        
-        SPKHistoryHandler *historyHandler = [[SPKHistoryHandler alloc] init];
-        self.historyTitlesArray = [historyHandler getHistoryTitleItems];
-        self.historyURLArray = [historyHandler getHistoryItems];
-    }
-    
-    return self;
+NSString *historyURL = nil;
+NSArray *reversedHistoryArray = nil;
+NSArray *reversedHistoryTitlesArray = nil;
+
+- (void)awakeFromNib {
+    SPKHistoryHandler *historyHandler = [[SPKHistoryHandler alloc] init];
+    self.historyTitlesArray = [historyHandler getHistoryTitleItems];
+    self.historyURLArray = [historyHandler getHistoryItems];
 }
 
 - (IBAction)doubleClickedTableViewCell:(id)sender {
     
-    AppDelegate *appDelegate = [[AppDelegate alloc] init];
-    
-    NSLog(@"DOUBLE CLICKED");
-    [[appDelegate.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://tesla.com/"]]]];
+    AppDelegate *appDelegate = (AppDelegate *)[[NSApplication sharedApplication] delegate];
+
+    [[appDelegate.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", historyURL]]]];
 }
 
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-    return self.historyTitlesArray.count;
+- (void)resetTableView {
+    //[self.historyTitlesArray removeAllObjects];
+    //[self.historyURLArray removeAllObjects];
+    [self.historyTableView reloadData];
 }
 
 - (id)tableView:(NSTableView *)historyTable objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)rowIndex {
     
-    return [self.historyTitlesArray objectAtIndex:rowIndex];
+    // Sort tables in descending order
+    reversedHistoryArray = [[self.historyURLArray reverseObjectEnumerator] allObjects];
+    reversedHistoryTitlesArray = [[self.historyTitlesArray reverseObjectEnumerator] allObjects];
+    
+    historyURL = [reversedHistoryArray objectAtIndex:rowIndex];
+
+    return [reversedHistoryTitlesArray objectAtIndex:rowIndex];
+}
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
+    return self.historyTitlesArray.count;
 }
 
 @end

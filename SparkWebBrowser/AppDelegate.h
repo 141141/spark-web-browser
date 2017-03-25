@@ -25,6 +25,7 @@
 @property (assign, nonatomic) IBOutlet NSPanel *popupWindow;
 @property (assign, nonatomic) IBOutlet NSPanel *aboutWindow;
 @property (assign, nonatomic) IBOutlet NSPanel *configWindow;
+@property (assign, nonatomic) IBOutlet NSWindow *historyWindow;
 @property (assign, nonatomic) IBOutlet NSProgressIndicator *loadingIndicator;
 @property (assign, nonatomic) IBOutlet NSImageView *faviconImage;
 @property (assign, nonatomic) IBOutlet NSTextField *homepageTextField;
@@ -94,6 +95,7 @@
 - (IBAction)openAboutWindow:(id)sender;
 - (IBAction)addBookmark:(id)sender;
 - (IBAction)clearBookmarks:(id)sender;
+- (IBAction)clearHistory:(id)sender;
 - (IBAction)loadHomepage:(id)sender;
 
 #pragma mark - Various methods
