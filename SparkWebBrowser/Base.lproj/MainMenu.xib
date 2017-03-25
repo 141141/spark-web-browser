@@ -1436,10 +1436,10 @@ Spark is made possible by the WebKit open source project and other open source s
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" id="TAy-iy-MF8">
-                                <rect key="frame" x="29" y="90" width="112" height="17"/>
+                                <rect key="frame" x="29" y="90" width="119" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Create Bookmark" id="1fm-Du-ZKf">
-                                    <font key="font" metaFont="systemMedium" size="13"/>
+                                    <font key="font" metaFont="systemMedium" size="14"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -1456,25 +1456,25 @@ Spark is made possible by the WebKit open source project and other open source s
                             <textField verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" textCompletion="NO" id="VEY-SJ-d0j">
                                 <rect key="frame" x="77" y="62" width="205" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" placeholderString="SPKBookmarkSiteName" bezelStyle="round" id="cXF-Uj-ECj">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" title="SPKBookmarkSiteName" placeholderString="" bezelStyle="round" id="cXF-Uj-ECj">
                                     <font key="font" metaFont="system" size="12"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" misplaced="YES" id="1RD-AT-nF1">
-                                <rect key="frame" x="231" y="30" width="56" height="25"/>
+                                <rect key="frame" x="225" y="30" width="57" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="roundTextured" title="Create" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hr4-YS-ezQ">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="systemMedium" size="13"/>
+                                    <font key="font" metaFont="systemSemibold" size="13"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="bookmarkAddedDoneBtnPressed:" target="Voe-Tx-rLC" id="KeC-4W-z94"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" misplaced="YES" id="AOj-Ge-lyS">
-                                <rect key="frame" x="166" y="30" width="57" height="25"/>
+                                <rect key="frame" x="160" y="30" width="57" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="roundTextured" title="Cancel" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="VgA-yg-Odv">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
