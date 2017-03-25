@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "SPKHistoryHandler.h"
 #import "SPKHistoryTable.h"
+#import "SPKBookmarkHandler.h"
 #import "WebKit/WebKit.h"
 #import "NSUserDefaults+ColorSupport.h"
 #import "Sparkle.framework/Headers/SUUpdater.h"
@@ -26,6 +27,7 @@
 // Classes
 SPKHistoryHandler *historyHandler = nil;
 SPKHistoryTable *historyTable = nil;
+SPKBookmarkHandler *bookmarkHandler = nil;
 
 // Search engine query strings
 NSString *googleSearchString = @"https://www.google.com/search?q=%@";
@@ -131,6 +133,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     
     historyHandler = [[SPKHistoryHandler alloc] init]; // Initialize history handler
     historyTable = [[SPKHistoryTable alloc] init]; // Initialize history table
+    bookmarkHandler = [[SPKBookmarkHandler alloc] init]; // Initialize bookmark handler
     
     defaults = [NSUserDefaults standardUserDefaults]; // Set up NSUserDefaults
     
@@ -675,57 +678,22 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
 }
 
 - (IBAction)addBookmark:(id)sender {
-    
-    if([defaults objectForKey:@"storedBookmarksArray"] == nil) {
-        
-        NSLog(@"StoredBookmarksArray: nil");
-        
-        currentBookmarksArray = [NSMutableArray array];
-        currentBookmarkTitlesArray = [NSMutableArray array];
-        
-        [currentBookmarksArray addObject:self.addressBar.stringValue];
-        [currentBookmarkTitlesArray addObject:self.webView.mainFrameTitle];
-        
-        [defaults setObject:currentBookmarksArray forKey:@"storedBookmarksArray"];
-        [defaults setObject:currentBookmarkTitlesArray forKey:@"storedBookmarkTitlesArray"];
-        
-        NSMenuItem *bookmarkItem = [self.menuBarBookmarks addItemWithTitle:self.webView.mainFrameTitle action:@selector(openBookmark:) keyEquivalent:@""];
-        
-        for(id bookmarkTitle in currentBookmarkTitlesArray) {
-            int index = (int)[currentBookmarkTitlesArray indexOfObject:bookmarkTitle];
-            [bookmarkItem setRepresentedObject:[NSNumber numberWithInt:index]];
-        }
-        
-    } else {
-        
-        NSLog(@"StoredBookmarksArray exists");
-        
-        currentBookmarksArray = [[defaults objectForKey:@"storedBookmarksArray"] mutableCopy];
-        currentBookmarkTitlesArray = [[defaults objectForKey:@"storedBookmarkTitlesArray"] mutableCopy];
-        
-        if([currentBookmarksArray containsObject:self.addressBar.stringValue]) {
-            NSLog(@"Bookmark already exists");
-            
-            self.errorPanelTitle.stringValue = @"Error";
-            self.errorPanelText.stringValue = [NSString stringWithFormat:@"An error occurred: %@ is already bookmarked. If you'd like to clear your bookmarks, click the \"Clear Bookmarks\" button in Preferences.", self.titleStatus.stringValue];
-            self.errorWindow.isVisible = YES;
-            [self.errorWindow makeKeyAndOrderFront:nil];
-            [NSApp activateIgnoringOtherApps:YES];
-        } else {
-            [currentBookmarksArray addObject:self.addressBar.stringValue];
-            [currentBookmarkTitlesArray addObject:self.webView.mainFrameTitle];
-            
-            [defaults setObject:currentBookmarksArray forKey:@"storedBookmarksArray"];
-            [defaults setObject:currentBookmarkTitlesArray forKey:@"storedBookmarkTitlesArray"];
-            
-            NSMenuItem *bookmarkItem = [self.menuBarBookmarks addItemWithTitle:self.webView.mainFrameTitle action:@selector(openBookmark:) keyEquivalent:@""];
-            
-            for(id bookmarkTitle in currentBookmarkTitlesArray) {
-                int index = (int)[currentBookmarkTitlesArray indexOfObject:bookmarkTitle];
-                [bookmarkItem setRepresentedObject:[NSNumber numberWithInt:index]];
-            }
-        }
-    }
+    self.bookmarkAddedName.stringValue = [NSString stringWithFormat:@"%@", self.webView.mainFrameTitle];
+    self.bookmarkAddedView.hidden = NO;
+}
+
+- (IBAction)addBookmarkAddressBar:(id)sender {
+    self.bookmarkAddedName.stringValue = [NSString stringWithFormat:@"%@", self.webView.mainFrameTitle];
+    self.bookmarkAddedView.hidden = NO;
+}
+
+- (IBAction)bookmarkAddedDoneBtnPressed:(id)sender {
+    [bookmarkHandler addBookmark:self.addressBar.stringValue withBookmarkTitle:self.bookmarkAddedName.stringValue];
+    self.bookmarkAddedView.hidden = YES;
+}
+
+- (IBAction)cancelBookmarkCreation:(id)sender {
+    self.bookmarkAddedView.hidden = YES;
 }
 
 - (IBAction)openBookmark:(id)sender {
@@ -742,50 +710,11 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
 }
 
 - (IBAction)clearBookmarks:(id)sender {
-    NSLog(@"Clearing bookmarks...");
-    
-    [defaults setObject:nil forKey:@"storedBookmarksArray"];
-    [defaults setObject:nil forKey:@"storedBookmarkTitlesArray"];
-    
-    [self.menuBarBookmarks removeAllItems];
-    
-    NSMenuItem *bookmarkItem = [self.menuBarBookmarks addItemWithTitle:@"Bookmark This Page..." action:@selector(addBookmark:) keyEquivalent:@"d"];
-    [bookmarkItem setKeyEquivalentModifierMask: NSCommandKeyMask];
-    
-    [self.menuBarBookmarks addItem:[NSMenuItem separatorItem]];
-    
-    NSLog(@"Bookmarks cleared.");
-    
-    // Display a checkmark after bookmarks are cleared
-    self.bookmarksClearedIcon.hidden = NO;
-    
-    // Timer to display the checkmark for 2 seconds
-    int64_t delayInSeconds = 2.0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void) {
-        self.bookmarksClearedIcon.hidden = YES;
-    });
+    [bookmarkHandler clearBookmarks];
 }
 
 - (IBAction)clearHistory:(id)sender {
-    
-    NSLog(@"Clearing history...");
-    
-    [defaults setObject:nil forKey:@"storedHistoryArray"];
-    [defaults setObject:nil forKey:@"storedHistoryTitlesArray"];
-    
-    [historyTable resetTableView];
-    
-    NSLog(@"History cleared.");
-    
-    self.popupWindowTitle.stringValue = @"Clear History and Restart?";
-    self.popupWindowText.stringValue = [NSString stringWithFormat:@"This action cannot be undone. Are you sure you want to clear your history? A browser restart is required for this to take effect."];
-    self.popupWindowBtn1.title = @"Clear History";
-    self.popupWindowBtn2.title = @"Restart Later";
-    self.popupWindowBtn1.action = @selector(clearHistoryBtnClicked);
-    self.popupWindow.isVisible = YES;
-    [self.popupWindow makeKeyAndOrderFront:nil];
-    [NSApp activateIgnoringOtherApps:YES];
+    [historyHandler clearHistory];
 }
 
 - (IBAction)clearHistoryBtnClicked {

@@ -1,5 +1,5 @@
 //
-//  SPKHistoryHandler.h
+//  SPKBookmarkHandler.h
 //  Spark
 //
 //  Copyright (c) 2014-2017 Jonathan Wukitsch / Insleep
@@ -8,12 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SPKHistoryHandler : NSObject
+@interface SPKBookmarkHandler : NSObject
 
-- (void)addHistoryItem:(NSString *)historyURL withHistoryTitle:(NSString *)historyTitle;
-- (void)clearHistory;
-- (void)clearHistoryBtnClicked;
-- (NSMutableArray *)getHistoryItems;
-- (NSMutableArray *)getHistoryTitleItems;
+- (void)addBookmark:(NSString *)bookmarkURL withBookmarkTitle:(NSString *)bookmarkTitle;
+- (void)clearBookmarks;
+- (void)openBookmark:(id)sender;
 
 @end

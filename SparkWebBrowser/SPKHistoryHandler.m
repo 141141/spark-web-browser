@@ -32,9 +32,6 @@
         [defaults setObject:currentHistoryTitlesArray forKey:@"storedHistoryTitlesArray"];
         
     } else {
-        
-        //NSLog(@"StoredHistoryArray exists");
-        
         currentHistoryArray = [[defaults objectForKey:@"storedHistoryArray"] mutableCopy];
         currentHistoryTitlesArray = [[defaults objectForKey:@"storedHistoryTitlesArray"] mutableCopy];
         
@@ -44,6 +41,35 @@
         [defaults setObject:currentHistoryArray forKey:@"storedHistoryArray"];
         [defaults setObject:currentHistoryTitlesArray forKey:@"storedHistoryTitlesArray"];
     }
+}
+
+- (void)clearHistory {
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[NSApplication sharedApplication] delegate];
+    SPKHistoryTable *historyTable = [[SPKHistoryTable alloc] init];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSLog(@"Clearing history...");
+    
+    [defaults setObject:nil forKey:@"storedHistoryArray"];
+    [defaults setObject:nil forKey:@"storedHistoryTitlesArray"];
+    
+    [historyTable resetTableView];
+    
+    NSLog(@"History cleared.");
+    
+    appDelegate.popupWindowTitle.stringValue = @"Clear History and Restart?";
+    appDelegate.popupWindowText.stringValue = [NSString stringWithFormat:@"This action cannot be undone. Are you sure you want to clear your history? A browser restart is required for this to take effect."];
+    appDelegate.popupWindowBtn1.title = @"Clear History";
+    appDelegate.popupWindowBtn2.title = @"Restart Later";
+    appDelegate.popupWindowBtn1.action = @selector(clearHistoryBtnClicked);
+    appDelegate.popupWindow.isVisible = YES;
+    [appDelegate.popupWindow makeKeyAndOrderFront:nil];
+    [NSApp activateIgnoringOtherApps:YES];
+}
+
+- (void)clearHistoryBtnClicked {
+    // Do nothing - this method is in AppDelegate.m. This is only here to silence Xcode warnings.
 }
 
 - (NSMutableArray *)getHistoryItems {
@@ -58,9 +84,6 @@
         currentHistoryArray = [NSMutableArray array];
         
     } else {
-        
-        //NSLog(@"StoredHistoryArray exists");
-        
         currentHistoryArray = [[defaults objectForKey:@"storedHistoryArray"] mutableCopy];
     }
     
@@ -79,9 +102,6 @@
         currentHistoryTitlesArray = [NSMutableArray array];
         
     } else {
-        
-        //NSLog(@"StoredHistoryTitlesArray exists");
-        
         currentHistoryTitlesArray = [[defaults objectForKey:@"storedHistoryTitlesArray"] mutableCopy];
     }
     

@@ -72,6 +72,8 @@
 @property (assign, nonatomic) IBOutlet NSTextField *sparkSecurePageDetailText;
 @property (assign, nonatomic) IBOutlet NSImageView *sparkSecurePageIcon;
 @property (assign, nonatomic) IBOutlet NSButton *showHomeBtn;
+@property (assign, nonatomic) IBOutlet NSView *bookmarkAddedView;
+@property (assign, nonatomic) IBOutlet NSTextField *bookmarkAddedName;
 
 @property (nonatomic, assign) long bytesReceived;
 
@@ -96,10 +98,13 @@
 - (IBAction)useAboutPage:(id)sender;
 - (IBAction)openAboutWindow:(id)sender;
 - (IBAction)addBookmark:(id)sender;
+- (IBAction)addBookmarkAddressBar:(id)sender;
 - (IBAction)clearBookmarks:(id)sender;
 - (IBAction)clearHistory:(id)sender;
 - (IBAction)loadHomepage:(id)sender;
 - (IBAction)startShowingHomeBtn:(id)sender;
+- (IBAction)bookmarkAddedDoneBtnPressed:(id)sender;
+- (IBAction)cancelBookmarkCreation:(id)sender;
 
 #pragma mark - Various methods
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame;
