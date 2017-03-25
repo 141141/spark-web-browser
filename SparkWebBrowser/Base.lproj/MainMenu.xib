@@ -1114,7 +1114,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     </button>
                     <textField verticalHuggingPriority="750" misplaced="YES" id="6S4-CW-iwm">
                         <rect key="frame" x="113" y="656" width="967" height="22"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" title="https://" placeholderString="" bezelStyle="round" id="MSe-fD-WSx">
                             <font key="font" metaFont="cellTitle"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1367,17 +1367,6 @@ Spark is made possible by the WebKit open source project and other open source s
                             <action selector="newTab:" target="Voe-Tx-rLC" id="yOZ-pK-xAy"/>
                         </connections>
                     </button>
-                    <button toolTip="Bookmark this page" verticalHuggingPriority="750" misplaced="YES" id="eie-eg-Awo">
-                        <rect key="frame" x="1056" y="656" width="23" height="22"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSBookmarksTemplate" imagePosition="overlaps" alignment="center" state="on" inset="2" id="8Ik-fs-b3D">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="addBookmarkAddressBar:" target="Voe-Tx-rLC" id="LuH-pB-O4K"/>
-                        </connections>
-                    </button>
                     <customView hidden="YES" wantsLayer="YES" misplaced="YES" id="fxN-sd-bxd">
                         <rect key="frame" x="34" y="588" width="326" height="114"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
@@ -1421,7 +1410,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     </customView>
                     <customView hidden="YES" wantsLayer="YES" misplaced="YES" id="yET-9q-S0G">
                         <rect key="frame" x="775" y="541" width="326" height="136"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" id="fhM-ya-3YI">
                                 <rect key="frame" x="20" y="20" width="286" height="96"/>
@@ -1486,6 +1475,17 @@ Spark is made possible by the WebKit open source project and other open source s
                             </button>
                         </subviews>
                     </customView>
+                    <button toolTip="Bookmark this page" verticalHuggingPriority="750" misplaced="YES" id="eie-eg-Awo">
+                        <rect key="frame" x="1056" y="656" width="23" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSBookmarksTemplate" imagePosition="overlaps" alignment="center" state="on" inset="2" id="8Ik-fs-b3D">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="addBookmarkAddressBar:" target="Voe-Tx-rLC" id="LuH-pB-O4K"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <point key="canvasLocation" x="867.5" y="107.5"/>

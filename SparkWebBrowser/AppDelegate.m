@@ -686,17 +686,32 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
 }
 
 - (IBAction)addBookmarkAddressBar:(id)sender {
-    self.bookmarkAddedName.stringValue = [NSString stringWithFormat:@"%@", self.webView.mainFrameTitle];
-    self.bookmarkAddedView.hidden = NO;
+    
+    if([defaults objectForKey:@"bookmarkViewOpen"] == nil) {
+        self.bookmarkAddedName.stringValue = [NSString stringWithFormat:@"%@", self.webView.mainFrameTitle];
+        self.bookmarkAddedView.hidden = NO;
+        [defaults setBool:YES forKey:@"bookmarkViewOpen"];
+    }
+    
+    if([defaults boolForKey:@"bookmarkViewOpen"] == NO) {
+        self.bookmarkAddedName.stringValue = [NSString stringWithFormat:@"%@", self.webView.mainFrameTitle];
+        self.bookmarkAddedView.hidden = NO;
+        [defaults setBool:YES forKey:@"bookmarkViewOpen"];
+    } else if([defaults boolForKey:@"bookmarkViewOpen"] == YES) {
+        self.bookmarkAddedView.hidden = YES;
+        [defaults setBool:NO forKey:@"bookmarkViewOpen"];
+    }
 }
 
 - (IBAction)bookmarkAddedDoneBtnPressed:(id)sender {
     [bookmarkHandler addBookmark:self.addressBar.stringValue withBookmarkTitle:self.bookmarkAddedName.stringValue];
     self.bookmarkAddedView.hidden = YES;
+    [defaults setBool:NO forKey:@"bookmarkViewOpen"];
 }
 
 - (IBAction)cancelBookmarkCreation:(id)sender {
     self.bookmarkAddedView.hidden = YES;
+    [defaults setBool:NO forKey:@"bookmarkViewOpen"];
 }
 
 - (IBAction)openBookmark:(id)sender {
