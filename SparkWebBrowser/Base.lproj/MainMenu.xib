@@ -77,7 +77,7 @@
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <customObject id="CMV-zn-UZO" customClass="SPKHistoryTable">
             <connections>
-                <outlet property="historyTable" destination="Exy-nG-ZCS" id="W3K-2u-7C1"/>
+                <outlet property="historyTableView" destination="Exy-nG-ZCS" id="Sgu-ei-71o"/>
             </connections>
         </customObject>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
@@ -369,6 +369,44 @@
                             <menuItem title="Zoom Out" keyEquivalent="-" id="2mC-9m-Fag">
                                 <connections>
                                     <action selector="makeTextSmaller:" target="ffM-a6-P1L" id="qqG-Bt-0zK"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="History" id="F4Z-zX-Us6">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="History" id="lcH-NI-BJn">
+                        <items>
+                            <menuItem title="Home" keyEquivalent="H" id="q4K-NN-nWc">
+                                <connections>
+                                    <action selector="loadHomepage:" target="Voe-Tx-rLC" id="SNF-wv-m6c"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Back" keyEquivalent="[" id="IkD-0T-yfr">
+                                <connections>
+                                    <action selector="goBack:" target="ffM-a6-P1L" id="ouR-mc-UR3"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Forward" keyEquivalent="]" id="rXS-v7-maI">
+                                <connections>
+                                    <action selector="goForward:" target="ffM-a6-P1L" id="nmj-Zc-DTb"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Back" hidden="YES" keyEquivalent="" id="2sC-Rd-WMr">
+                                <connections>
+                                    <action selector="goBack:" target="ffM-a6-P1L" id="khp-Ui-Pn8"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Forward" hidden="YES" keyEquivalent="" id="krd-Xn-9w6">
+                                <connections>
+                                    <action selector="goForward:" target="ffM-a6-P1L" id="sIe-Rj-pp3"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="ZeB-v9-tLs"/>
+                            <menuItem title="Show Full History" keyEquivalent="y" id="lBh-Xn-2Mc">
+                                <connections>
+                                    <action selector="makeKeyAndOrderFront:" target="cZf-cc-a2l" id="Uz2-SI-1Mv"/>
                                 </connections>
                             </menuItem>
                         </items>
@@ -1316,7 +1354,7 @@ Spark is made possible by the WebKit open source project and other open source s
                                 <rect key="frame" x="29" y="29" width="279" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="SecurePageIndicatorDetailText" id="4m1-3i-SVD">
-                                    <font key="font" metaFont="system" size="11"/>
+                                    <font key="font" metaFont="smallSystem"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -1326,7 +1364,7 @@ Spark is made possible by the WebKit open source project and other open source s
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="SecurePageIndicatorText" id="O0K-0g-7th">
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" red="0.88235294117647056" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -1461,71 +1499,52 @@ DQ
             </items>
             <point key="canvasLocation" x="692.5" y="-348.5"/>
         </menu>
-        <window title="History" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="cZf-cc-a2l">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+        <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="cZf-cc-a2l">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="207" width="480" height="270"/>
+            <rect key="contentRect" x="196" y="207" width="480" height="341"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
-            <view key="contentView" id="s10-cx-W3l">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+            <view key="contentView" misplaced="YES" id="s10-cx-W3l">
+                <rect key="frame" x="0.0" y="0.0" width="480" height="341"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="Ku2-cq-q6N">
-                        <rect key="frame" x="-1" y="0.0" width="482" height="271"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <rect key="frame" x="-1" y="0.0" width="482" height="299"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <clipView key="contentView" id="rwn-wd-BYf">
-                            <rect key="frame" x="1" y="0.0" width="480" height="270"/>
+                            <rect key="frame" x="1" y="0.0" width="480" height="298"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="bP2-VA-qib" viewBased="YES" id="Exy-nG-ZCS">
-                                    <rect key="frame" x="0.0" y="0.0" width="480" height="247"/>
+                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" multipleSelection="NO" autosaveColumns="NO" headerView="bP2-VA-qib" id="Exy-nG-ZCS">
+                                    <rect key="frame" x="0.0" y="0.0" width="480" height="275"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn width="116" minWidth="40" maxWidth="1000" id="hEv-RG-36n">
-                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
+                                        <tableColumn identifier="historyTitle" editable="NO" width="477" minWidth="40" maxWidth="1000" id="hEv-RG-36n">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Website">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                             </tableHeaderCell>
-                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="iMF-mM-ntP">
+                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" id="iMF-mM-ntP">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
-                                            <prototypeCellViews>
-                                                <tableCellView id="h8A-5w-nFs">
-                                                    <rect key="frame" x="1" y="1" width="116" height="17"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    <subviews>
-                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="NO" id="qYA-LU-gcS">
-                                                            <rect key="frame" x="0.0" y="0.0" width="116" height="17"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="History Title" id="yyl-h3-ufP">
-                                                                <font key="font" metaFont="system"/>
-                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                            </textFieldCell>
-                                                        </textField>
-                                                    </subviews>
-                                                    <connections>
-                                                        <outlet property="textField" destination="qYA-LU-gcS" id="V6O-mg-PON"/>
-                                                    </connections>
-                                                </tableCellView>
-                                            </prototypeCellViews>
                                         </tableColumn>
                                     </tableColumns>
                                     <connections>
+                                        <action trigger="doubleAction" selector="doubleClickedTableViewCell:" target="CMV-zn-UZO" id="ZVI-0V-lNT"/>
                                         <outlet property="dataSource" destination="CMV-zn-UZO" id="nib-Vm-hiI"/>
                                     </connections>
                                 </tableView>
                             </subviews>
                         </clipView>
-                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="UHK-X4-zZM">
-                            <rect key="frame" x="1" y="254" width="480" height="16"/>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="UHK-X4-zZM">
+                            <rect key="frame" x="1" y="281" width="480" height="16"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="1Dw-W1-CpU">
@@ -1537,9 +1556,18 @@ DQ
                             <autoresizingMask key="autoresizingMask"/>
                         </tableHeaderView>
                     </scrollView>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="CHx-V7-h9W">
+                        <rect key="frame" x="18" y="307" width="96" height="34"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="History" id="0z2-dr-9nr">
+                            <font key="font" metaFont="systemMedium" size="28"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="1740" y="20"/>
+            <point key="canvasLocation" x="1740" y="-15.5"/>
         </window>
     </objects>
     <resources>

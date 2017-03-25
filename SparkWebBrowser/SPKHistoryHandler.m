@@ -97,4 +97,40 @@
     return currentHistoryArray;
 }
 
+- (NSMutableArray *)getHistoryTitleItems {
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *currentHistoryTitlesArray = nil; // Mutable array for history URL titles
+    
+    if([defaults objectForKey:@"storedHistoryTitlesArray"] == nil) {
+        
+        NSLog(@"StoredHistoryTitlesArray: nil");
+        
+        currentHistoryTitlesArray = [NSMutableArray array];
+        
+        /*NSMenuItem *bookmarkItem = [self.menuBarBookmarks addItemWithTitle:self.webView.mainFrameTitle action:@selector(openBookmark:) keyEquivalent:@""];
+         
+         for(id bookmarkTitle in currentBookmarkTitlesArray) {
+         int index = (int)[currentBookmarkTitlesArray indexOfObject:bookmarkTitle];
+         [bookmarkItem setRepresentedObject:[NSNumber numberWithInt:index]];
+         }*/
+        
+    } else {
+        
+        NSLog(@"StoredHistoryTitlesArray exists");
+        
+        currentHistoryTitlesArray = [[defaults objectForKey:@"storedHistoryTitlesArray"] mutableCopy];
+        
+        /*NSMenuItem *bookmarkItem = [self.menuBarBookmarks addItemWithTitle:self.webView.mainFrameTitle action:@selector(openBookmark:) keyEquivalent:@""];
+         
+         for(id bookmarkTitle in currentBookmarkTitlesArray) {
+         int index = (int)[currentBookmarkTitlesArray indexOfObject:bookmarkTitle];
+         [bookmarkItem setRepresentedObject:[NSNumber numberWithInt:index]];
+         }*/
+    }
+    
+    return currentHistoryTitlesArray;
+}
+
+
 @end

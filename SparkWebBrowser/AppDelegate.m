@@ -47,11 +47,11 @@ NSString *appReleasesURL = @"https://www.github.com/insleep/spark-web-browser/re
 
 // Strings related to page indicator
 NSString *secureSparkPageText = @"You are viewing a secure Spark page."; // Text shown when a secure Spark page is loaded
+NSString *secureSparkPageDetailText = @"Your information is private when it is sent to secure Spark pages."; // Detail text shown when a secure Spark page is loaded
 NSString *secureHTTPSPageText = @"Your connection to this site is secure."; // Text shown when a secure site is loaded
 NSString *insecureHTTPSPageText = @"Your connection to this site is not secure."; // Text shown when an insecure site is loaded
 NSString *secureHTTPSPageDetailText = @"Your information (for example, passwords or credit card numbers) is private when it is sent to this site."; // Detail text shown when a secure site is loaded
 NSString *insecureHTTPSPageDetailText = @"You should not enter any sensitive information on this site (for example, passwords or credit cards)."; // Detail text shown when an insecure site is loaded
-NSString *secureSparkPageDetailText = @"Your information is private when it is sent to secure Spark pages."; // Detail text shown when a secure Spark page is loaded
 
 // Theme colors
 NSColor *defaultColor = nil;
@@ -1710,6 +1710,8 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         self.pageStatusImage.image = [NSImage imageNamed:NSImageNameLockUnlockedTemplate];
         self.sparkSecurePageIcon.image = [NSImage imageNamed:NSImageNameLockUnlockedTemplate];
         self.sparkSecurePageText.stringValue = insecureHTTPSPageText;
+        self.sparkSecurePageText.textColor = [NSColor colorWithRed:0.88 green:0.23 blue:0.19 alpha:1.0];
+        
         self.sparkSecurePageDetailText.stringValue = insecureHTTPSPageDetailText;
         
     } else if(error.code == -1003) {
@@ -1831,12 +1833,14 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
             self.pageStatusImage.image = [NSImage imageNamed:NSImageNameLockLockedTemplate];
             self.sparkSecurePageIcon.image = [NSImage imageNamed:NSImageNameLockLockedTemplate];
             self.sparkSecurePageText.stringValue = secureHTTPSPageText;
+            self.sparkSecurePageText.textColor = [NSColor colorWithRed:0.29 green:0.60 blue:0.44 alpha:1.0];
             self.sparkSecurePageDetailText.stringValue = secureHTTPSPageDetailText;
         } else if([self.addressBar.stringValue hasPrefix:@"spark://"] && [defaults boolForKey:@"insecureHTTPSOverride"] != YES) {
             self.pageStatusImage.hidden = NO;
             self.pageStatusImage.image = [NSImage imageNamed:NSImageNameMenuOnStateTemplate];
             self.sparkSecurePageIcon.image = [NSImage imageNamed:@"SparkIcon256"];
             self.sparkSecurePageText.stringValue = secureSparkPageText;
+            self.sparkSecurePageText.textColor = [NSColor blackColor];
             self.sparkSecurePageDetailText.stringValue = secureSparkPageDetailText;
         } else if([self.addressBar.stringValue hasPrefix:@"http://"] || [self.addressBar.stringValue hasPrefix:@"file://"]) {
             self.pageStatusImage.hidden = YES;
@@ -1850,6 +1854,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
             self.pageStatusImage.image = [NSImage imageNamed:NSImageNameLockUnlockedTemplate];
             self.sparkSecurePageIcon.image = [NSImage imageNamed:NSImageNameLockUnlockedTemplate];
             self.sparkSecurePageText.stringValue = insecureHTTPSPageText;
+            self.sparkSecurePageText.textColor = [NSColor colorWithRed:0.88 green:0.23 blue:0.19 alpha:1.0];
             self.sparkSecurePageDetailText.stringValue = insecureHTTPSPageDetailText;
         } else {
             [self.addressBar setTextColor:[NSColor blackColor]];

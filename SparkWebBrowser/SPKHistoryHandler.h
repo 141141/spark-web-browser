@@ -12,5 +12,6 @@
 
 - (void)addHistoryItem:(NSString *)historyURL withHistoryTitle:(NSString *)historyTitle;
 - (NSMutableArray *)getHistoryItems;
+- (NSMutableArray *)getHistoryTitleItems;
 
 @end
