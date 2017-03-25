@@ -767,6 +767,8 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         [defaults setBool:NO forKey:@"showHomeBtn"];
         self.homeBtn.hidden = YES;
         [self.addressBar setFrame:NSMakeRect(89, 656, 991, 22)];
+        
+        //[self.addressBar setAutoresizingMask:NSViewMinXMargin | NSViewMinYMargin];
     }
 }
 

@@ -1114,7 +1114,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     </button>
                     <textField verticalHuggingPriority="750" misplaced="YES" id="6S4-CW-iwm">
                         <rect key="frame" x="113" y="656" width="967" height="22"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" title="https://" placeholderString="" bezelStyle="round" id="MSe-fD-WSx">
                             <font key="font" metaFont="cellTitle"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1477,7 +1477,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     </customView>
                     <button toolTip="Bookmark this page" verticalHuggingPriority="750" misplaced="YES" id="eie-eg-Awo">
                         <rect key="frame" x="1056" y="656" width="23" height="22"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSBookmarksTemplate" imagePosition="overlaps" alignment="center" state="on" inset="2" id="8Ik-fs-b3D">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
