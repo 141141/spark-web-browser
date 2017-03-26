@@ -12,7 +12,6 @@
 
 - (void)addHistoryItem:(NSString *)historyURL withHistoryTitle:(NSString *)historyTitle;
 - (void)clearHistory;
-- (void)clearHistoryBtnClicked;
 - (NSMutableArray *)getHistoryItems;
 - (NSMutableArray *)getHistoryTitleItems;
 

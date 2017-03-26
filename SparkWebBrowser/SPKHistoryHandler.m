@@ -18,6 +18,8 @@
     NSMutableArray *currentHistoryArray = nil; // Mutable array for history URLs
     NSMutableArray *currentHistoryTitlesArray = nil; // Mutable array for history page titles
     
+    SPKHistoryTable *historyTable = [[SPKHistoryTable alloc] init];
+    
     if([defaults objectForKey:@"storedHistoryArray"] == nil) {
         
         NSLog(@"StoredHistoryArray: nil");
@@ -31,7 +33,12 @@
         [defaults setObject:currentHistoryArray forKey:@"storedHistoryArray"];
         [defaults setObject:currentHistoryTitlesArray forKey:@"storedHistoryTitlesArray"];
         
+        [historyTable refreshHistoryContent];
+        
     } else {
+        
+        // StoredHistoryArray exists
+        
         currentHistoryArray = [[defaults objectForKey:@"storedHistoryArray"] mutableCopy];
         currentHistoryTitlesArray = [[defaults objectForKey:@"storedHistoryTitlesArray"] mutableCopy];
         
@@ -40,6 +47,8 @@
         
         [defaults setObject:currentHistoryArray forKey:@"storedHistoryArray"];
         [defaults setObject:currentHistoryTitlesArray forKey:@"storedHistoryTitlesArray"];
+        
+        [historyTable refreshHistoryContent];
     }
 }
 
@@ -51,25 +60,23 @@
     
     NSLog(@"Clearing history...");
     
-    [defaults setObject:nil forKey:@"storedHistoryArray"];
-    [defaults setObject:nil forKey:@"storedHistoryTitlesArray"];
+    [defaults setObject:nil forKey:@"storedHistoryArray"]; // Clear URLs array
+    [defaults setObject:nil forKey:@"storedHistoryTitlesArray"]; // Clear titles array
     
     [historyTable resetTableView];
+    [historyTable refreshHistoryContent];
     
     NSLog(@"History cleared.");
     
-    appDelegate.popupWindowTitle.stringValue = @"Clear History and Restart?";
-    appDelegate.popupWindowText.stringValue = [NSString stringWithFormat:@"This action cannot be undone. Are you sure you want to clear your history? A browser restart is required for this to take effect."];
-    appDelegate.popupWindowBtn1.title = @"Clear History";
-    appDelegate.popupWindowBtn2.title = @"Restart Later";
-    appDelegate.popupWindowBtn1.action = @selector(clearHistoryBtnClicked);
-    appDelegate.popupWindow.isVisible = YES;
-    [appDelegate.popupWindow makeKeyAndOrderFront:nil];
-    [NSApp activateIgnoringOtherApps:YES];
-}
-
-- (void)clearHistoryBtnClicked {
-    // Do nothing - this method is in AppDelegate.m. This is only here to silence Xcode warnings.
+    // Display a checkmark after history is cleared
+    appDelegate.historyClearedIcon.hidden = NO;
+    
+    // Timer to display the checkmark for 2 seconds
+    int64_t delayInSeconds = 2.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void) {
+        appDelegate.historyClearedIcon.hidden = YES;
+    });
 }
 
 - (NSMutableArray *)getHistoryItems {
@@ -84,6 +91,7 @@
         currentHistoryArray = [NSMutableArray array];
         
     } else {
+        // StoredHistoryArray exists
         currentHistoryArray = [[defaults objectForKey:@"storedHistoryArray"] mutableCopy];
     }
     
@@ -102,6 +110,7 @@
         currentHistoryTitlesArray = [NSMutableArray array];
         
     } else {
+        // StoredHistoryTitlesArray exists
         currentHistoryTitlesArray = [[defaults objectForKey:@"storedHistoryTitlesArray"] mutableCopy];
     }
     

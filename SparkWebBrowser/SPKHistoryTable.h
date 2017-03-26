@@ -11,7 +11,10 @@
 @interface SPKHistoryTable : NSObject <NSTableViewDataSource>
 
 @property (assign, nonatomic) IBOutlet NSTableView *historyTableView;
+@property (nonatomic) NSMutableArray *historyTitlesArray;
+@property (nonatomic) NSMutableArray *historyURLArray;
 
+- (void)refreshHistoryContent;
 - (void)resetTableView;
 
 @end

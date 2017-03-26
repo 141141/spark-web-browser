@@ -12,9 +12,6 @@
 
 @interface SPKHistoryTable ()
 
-@property (nonatomic) NSMutableArray *historyTitlesArray;
-@property (nonatomic) NSMutableArray *historyURLArray;
-
 @end
 
 @implementation SPKHistoryTable
@@ -27,6 +24,8 @@ NSArray *reversedHistoryTitlesArray = nil;
     SPKHistoryHandler *historyHandler = [[SPKHistoryHandler alloc] init];
     self.historyTitlesArray = [historyHandler getHistoryTitleItems];
     self.historyURLArray = [historyHandler getHistoryItems];
+    
+    [self.historyTableView setDataSource:self];
 }
 
 - (IBAction)doubleClickedTableViewCell:(id)sender {
@@ -36,24 +35,33 @@ NSArray *reversedHistoryTitlesArray = nil;
     [[appDelegate.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", historyURL]]]];
 }
 
+- (void)refreshHistoryContent {
+    SPKHistoryHandler *historyHandler = [[SPKHistoryHandler alloc] init];
+    
+    self.historyTitlesArray = [historyHandler getHistoryTitleItems];
+    self.historyURLArray = [historyHandler getHistoryItems];
+    [self.historyTableView reloadData];
+}
+
 - (void)resetTableView {
-    //[self.historyTitlesArray removeAllObjects];
-    //[self.historyURLArray removeAllObjects];
+    [self.historyTitlesArray removeAllObjects];
+    [self.historyURLArray removeAllObjects];
     [self.historyTableView reloadData];
 }
 
 - (id)tableView:(NSTableView *)historyTable objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)rowIndex {
     
-    // Sort tables in descending order
+    // Sort table items in descending order
     reversedHistoryArray = [[self.historyURLArray reverseObjectEnumerator] allObjects];
     reversedHistoryTitlesArray = [[self.historyTitlesArray reverseObjectEnumerator] allObjects];
     
     historyURL = [reversedHistoryArray objectAtIndex:rowIndex];
-
     return [reversedHistoryTitlesArray objectAtIndex:rowIndex];
+    
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
+    
     return self.historyTitlesArray.count;
 }
 

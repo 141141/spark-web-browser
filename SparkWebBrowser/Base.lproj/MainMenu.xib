@@ -41,6 +41,7 @@
                 <outlet property="faviconImage" destination="t5k-sW-5ra" id="bKl-he-loz"/>
                 <outlet property="fileDownloadingText" destination="OQ0-32-CRq" id="4XW-55-JXZ"/>
                 <outlet property="forwardBtn" destination="wRb-WG-N9I" id="G2y-ac-Zki"/>
+                <outlet property="historyClearedIcon" destination="4gf-yc-Un8" id="63W-zv-xfg"/>
                 <outlet property="historyWindow" destination="cZf-cc-a2l" id="GER-El-iRP"/>
                 <outlet property="homeBtn" destination="4hs-mM-3d8" id="kN5-La-Hoe"/>
                 <outlet property="homepageBasedOnSearchEngineBtn" destination="5Uw-Fh-cJ1" id="CNY-RK-NbX"/>
@@ -528,7 +529,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="sbh-Aa-9pH">
                         <rect key="frame" x="18" y="126" width="281" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Version {VERSION}" id="sH9-de-kgl">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="SPKVersion" id="sH9-de-kgl">
                             <font key="font" metaFont="system" size="18"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -537,7 +538,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="Nsk-Kz-xZ8">
                         <rect key="frame" x="18" y="96" width="281" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="{CHANNEL} release channel" id="JpR-fy-tP0">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="SPKReleaseChannel" id="JpR-fy-tP0">
                             <font key="font" metaFont="system" size="18"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -988,6 +989,11 @@ Spark is made possible by the WebKit open source project and other open source s
                                                 <action selector="resetAllSettings:" target="Voe-Tx-rLC" id="ekn-0Z-BVd"/>
                                             </connections>
                                         </button>
+                                        <imageView hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="4gf-yc-Un8">
+                                            <rect key="frame" x="132" y="117" width="12" height="12"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSMenuOnStateTemplate" id="o1Z-Cm-GfY"/>
+                                        </imageView>
                                     </subviews>
                                 </view>
                             </tabViewItem>
@@ -1655,7 +1661,6 @@ DQ
                                     </tableColumns>
                                     <connections>
                                         <action trigger="doubleAction" selector="doubleClickedTableViewCell:" target="CMV-zn-UZO" id="ZVI-0V-lNT"/>
-                                        <outlet property="dataSource" destination="CMV-zn-UZO" id="nib-Vm-hiI"/>
                                     </connections>
                                 </tableView>
                             </subviews>
@@ -1675,7 +1680,7 @@ DQ
                     </scrollView>
                     <button verticalHuggingPriority="750" misplaced="YES" id="LLF-Q7-Xc1">
                         <rect key="frame" x="356" y="306" width="119" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Clear History" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7ug-T7-Dfr">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>

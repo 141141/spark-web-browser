@@ -735,19 +735,6 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     [historyHandler clearHistory];
 }
 
-- (IBAction)clearHistoryBtnClicked {
-    NSTask *task = [[NSTask alloc] init];
-    NSMutableArray *args = [NSMutableArray array];
-    
-    [args addObject:@"-c"];
-    [args addObject:[NSString stringWithFormat:@"sleep %d; open \"%@\"", 0, [[NSBundle mainBundle] bundlePath]]];
-    [task setLaunchPath:@"/bin/sh"];
-    [task setArguments:args];
-    [task launch];
-    
-    [[NSApplication sharedApplication] terminate:nil];
-}
-
 - (IBAction)loadHomepage:(id)sender {
     [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", [defaults valueForKey:@"userHomepage"]]]]];
 }
@@ -767,8 +754,6 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         [defaults setBool:NO forKey:@"showHomeBtn"];
         self.homeBtn.hidden = YES;
         [self.addressBar setFrame:NSMakeRect(89, 656, 991, 22)];
-        
-        //[self.addressBar setAutoresizingMask:NSViewMinXMargin | NSViewMinYMargin];
     }
 }
 
