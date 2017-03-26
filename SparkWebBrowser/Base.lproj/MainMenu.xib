@@ -1166,8 +1166,8 @@ Spark is made possible by the WebKit open source project and other open source s
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <webView id="ffM-a6-P1L">
-                        <rect key="frame" x="0.0" y="0.0" width="1107" height="652"/>
+                    <webView misplaced="YES" id="ffM-a6-P1L">
+                        <rect key="frame" x="0.0" y="0.0" width="1107" height="620"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12" javaScriptCanOpenWindowsAutomatically="NO">
                             <nil key="identifier"/>
@@ -1492,6 +1492,29 @@ Spark is made possible by the WebKit open source project and other open source s
                             <action selector="addBookmarkAddressBar:" target="Voe-Tx-rLC" id="LuH-pB-O4K"/>
                         </connections>
                     </button>
+                    <customView misplaced="YES" id="3Jz-wn-zYf">
+                        <rect key="frame" x="0.0" y="619" width="1107" height="33"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" id="SuP-FX-eup">
+                                <rect key="frame" x="0.0" y="0.0" width="1107" height="33"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" drawsBackground="YES" id="sGq-jn-4UB">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" misplaced="YES" imageHugsTitle="YES" id="TSL-hQ-NQ6">
+                                <rect key="frame" x="0.0" y="0.0" width="78" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="smallSquare" title=" Google" bezelStyle="smallSquare" image="google-search-engine-icon" imagePosition="left" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="JNd-Gy-if7">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                        </subviews>
+                    </customView>
                 </subviews>
             </view>
             <point key="canvasLocation" x="867.5" y="107.5"/>

@@ -10,7 +10,7 @@
 
 @interface SPKBookmarkHandler : NSObject
 
-- (void)addBookmark:(NSString *)bookmarkURL withBookmarkTitle:(NSString *)bookmarkTitle;
+- (void)addBookmark:(NSString *)bookmarkURL withBookmarkTitle:(NSString *)bookmarkTitle withBookmarkIcon:(NSImage *)bookmarkIcon;
 - (void)clearBookmarks;
 - (void)openBookmark:(id)sender;
 

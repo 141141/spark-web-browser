@@ -83,6 +83,7 @@ NSTrackingArea *homeBtnTrackingArea = nil; // Home button tracking area (used fo
 NSTrackingArea *sparkSecurePageViewTrackingArea = nil; // Secure page image tracking area (used to show custom view)
 NSMutableArray *currentBookmarksArray = nil; // Mutable array for bookmark URLs
 NSMutableArray *currentBookmarkTitlesArray = nil; // Mutable array for bookmark titles
+NSMutableArray *currentBookmarkIconsArray = nil; // Mutable array for bookmark icons
 NSMutableArray *currentHistoryArray = nil; // Mutable array for history URLs
 NSMutableArray *currentHistoryTitlesArray = nil; // Mutable array for history page titles
 long long expectedLength = 0; // Expected length of a file being downloaded
@@ -383,10 +384,15 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     self.historyWindow.backgroundColor = [NSColor whiteColor];
     
     currentBookmarkTitlesArray = [defaults objectForKey:@"storedBookmarkTitlesArray"];
+    currentBookmarkIconsArray = [defaults objectForKey:@"storedBookmarkIconsArray"];
     
     for(id bookmarkTitle in currentBookmarkTitlesArray) {
         int index = (int)[currentBookmarkTitlesArray indexOfObject:bookmarkTitle];
         NSMenuItem *bookmarkItem = [self.menuBarBookmarks addItemWithTitle:bookmarkTitle action:@selector(openBookmark:) keyEquivalent:@""];
+        
+        NSImage *bookmarkIcon = [[NSImage alloc] initWithData:[currentBookmarkIconsArray objectAtIndex:index]];
+        bookmarkItem.image = bookmarkIcon;
+        
         [bookmarkItem setRepresentedObject:[NSNumber numberWithInt:index]];
     }
     
@@ -704,7 +710,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
 }
 
 - (IBAction)bookmarkAddedDoneBtnPressed:(id)sender {
-    [bookmarkHandler addBookmark:self.addressBar.stringValue withBookmarkTitle:self.bookmarkAddedName.stringValue];
+    [bookmarkHandler addBookmark:self.addressBar.stringValue withBookmarkTitle:self.bookmarkAddedName.stringValue withBookmarkIcon:self.faviconImage.image];
     self.bookmarkAddedView.hidden = YES;
     [defaults setBool:NO forKey:@"bookmarkViewOpen"];
 }

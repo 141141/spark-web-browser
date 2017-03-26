@@ -11,28 +11,36 @@
 
 @implementation SPKBookmarkHandler
 
-- (void)addBookmark:(NSString *)bookmarkURL withBookmarkTitle:(NSString *)bookmarkTitle {
+- (void)addBookmark:(NSString *)bookmarkURL withBookmarkTitle:(NSString *)bookmarkTitle withBookmarkIcon:(NSImage *)bookmarkIcon {
     
     AppDelegate *appDelegate = (AppDelegate *)[[NSApplication sharedApplication] delegate];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSMutableArray *currentBookmarksArray = nil;
     NSMutableArray *currentBookmarkTitlesArray = nil;
+    NSMutableArray *currentBookmarkIconsArray = nil;
+    NSData *bookmarkIconData = nil;
     
     if([defaults objectForKey:@"storedBookmarksArray"] == nil) {
         
         NSLog(@"StoredBookmarksArray: nil");
         
+        bookmarkIconData = [bookmarkIcon TIFFRepresentation];
+        
         currentBookmarksArray = [NSMutableArray array];
         currentBookmarkTitlesArray = [NSMutableArray array];
+        currentBookmarkIconsArray = [NSMutableArray array];
         
         [currentBookmarksArray addObject:bookmarkURL];
         [currentBookmarkTitlesArray addObject:bookmarkTitle];
+        [currentBookmarkIconsArray addObject:bookmarkIconData];
         
         [defaults setObject:currentBookmarksArray forKey:@"storedBookmarksArray"];
         [defaults setObject:currentBookmarkTitlesArray forKey:@"storedBookmarkTitlesArray"];
+        [defaults setObject:currentBookmarkIconsArray forKey:@"storedBookmarkIconsArray"];
         
         NSMenuItem *bookmarkItem = [appDelegate.menuBarBookmarks addItemWithTitle:bookmarkTitle action:@selector(openBookmark:) keyEquivalent:@""];
+        bookmarkItem.image = [[NSImage alloc] initWithData:bookmarkIconData];
         
         for(id bookmarkTitle in currentBookmarkTitlesArray) {
             int index = (int)[currentBookmarkTitlesArray indexOfObject:bookmarkTitle];
@@ -43,16 +51,22 @@
         
         NSLog(@"StoredBookmarksArray exists");
         
+        bookmarkIconData = [bookmarkIcon TIFFRepresentation];
+        
         currentBookmarksArray = [[defaults objectForKey:@"storedBookmarksArray"] mutableCopy];
         currentBookmarkTitlesArray = [[defaults objectForKey:@"storedBookmarkTitlesArray"] mutableCopy];
+        currentBookmarkIconsArray = [[defaults objectForKey:@"storedBookmarkIconsArray"] mutableCopy];
         
         [currentBookmarksArray addObject:bookmarkURL];
         [currentBookmarkTitlesArray addObject:bookmarkTitle];
+        [currentBookmarkIconsArray addObject:bookmarkIconData];
         
         [defaults setObject:currentBookmarksArray forKey:@"storedBookmarksArray"];
         [defaults setObject:currentBookmarkTitlesArray forKey:@"storedBookmarkTitlesArray"];
+        [defaults setObject:currentBookmarkIconsArray forKey:@"storedBookmarkIconsArray"];
         
         NSMenuItem *bookmarkItem = [appDelegate.menuBarBookmarks addItemWithTitle:bookmarkTitle action:@selector(openBookmark:) keyEquivalent:@""];
+        bookmarkItem.image = [[NSImage alloc] initWithData:bookmarkIconData];
         
         for(id bookmarkTitle in currentBookmarkTitlesArray) {
             int index = (int)[currentBookmarkTitlesArray indexOfObject:bookmarkTitle];

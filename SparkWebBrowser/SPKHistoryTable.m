@@ -31,7 +31,7 @@ NSArray *reversedHistoryTitlesArray = nil;
 - (IBAction)doubleClickedTableViewCell:(id)sender {
     
     AppDelegate *appDelegate = (AppDelegate *)[[NSApplication sharedApplication] delegate];
-
+    
     [[appDelegate.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", historyURL]]]];
 }
 
@@ -51,16 +51,21 @@ NSArray *reversedHistoryTitlesArray = nil;
 
 - (id)tableView:(NSTableView *)historyTable objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)rowIndex {
     
+    SPKHistoryTable *spkHistoryTable = [[SPKHistoryTable alloc] init];
+    [spkHistoryTable refreshHistoryContent];
+    
     // Sort table items in descending order
     reversedHistoryArray = [[self.historyURLArray reverseObjectEnumerator] allObjects];
     reversedHistoryTitlesArray = [[self.historyTitlesArray reverseObjectEnumerator] allObjects];
     
     historyURL = [reversedHistoryArray objectAtIndex:rowIndex];
     return [reversedHistoryTitlesArray objectAtIndex:rowIndex];
-    
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
+    
+    SPKHistoryTable *historyTable = [[SPKHistoryTable alloc] init];
+    [historyTable refreshHistoryContent];
     
     return self.historyTitlesArray.count;
 }
