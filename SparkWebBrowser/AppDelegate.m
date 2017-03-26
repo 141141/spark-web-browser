@@ -643,6 +643,8 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
 
 - (IBAction)setReleaseChannelBtnClicked:(id)sender {
     
+    NSLog(@"Release channel set. Restarting...");
+    
     task = [[NSTask alloc] init];
     args = [NSMutableArray array];
     [args addObject:@"-c"];
