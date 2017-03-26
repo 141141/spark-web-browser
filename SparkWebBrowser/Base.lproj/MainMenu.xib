@@ -39,6 +39,7 @@
                 <outlet property="errorPanelTitle" destination="4M2-zn-hbU" id="J2s-1b-st5"/>
                 <outlet property="errorWindow" destination="uuQ-xY-3aS" id="gyF-Ts-abR"/>
                 <outlet property="faviconImage" destination="t5k-sW-5ra" id="bKl-he-loz"/>
+                <outlet property="fileDownloadStatusIcon" destination="L0I-fX-hCW" id="Kdt-2j-MwQ"/>
                 <outlet property="fileDownloadingText" destination="OQ0-32-CRq" id="4XW-55-JXZ"/>
                 <outlet property="forwardBtn" destination="wRb-WG-N9I" id="G2y-ac-Zki"/>
                 <outlet property="historyClearedIcon" destination="4gf-yc-Un8" id="63W-zv-xfg"/>
@@ -1492,6 +1493,11 @@ Spark is made possible by the WebKit open source project and other open source s
                             <action selector="addBookmarkAddressBar:" target="Voe-Tx-rLC" id="LuH-pB-O4K"/>
                         </connections>
                     </button>
+                    <imageView hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="L0I-fX-hCW">
+                        <rect key="frame" x="31" y="20" width="11" height="12"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSMenuOnStateTemplate" id="ypF-PB-dje"/>
+                    </imageView>
                 </subviews>
             </view>
             <point key="canvasLocation" x="867.5" y="107.5"/>

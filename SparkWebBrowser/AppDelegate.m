@@ -1901,10 +1901,10 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
 
 - (void)webView:(WebView *)sender didReceiveTitle:(NSString *)title forFrame:(WebFrame *)frame {
     
-    clippedTitle = title;
-    
     // Only report feedback for the main frame.
     if(frame == [sender mainFrame]) {
+        
+        clippedTitle = title;
         
         const int clipLength = 25;
         if([title length] > clipLength) {
