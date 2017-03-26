@@ -1514,7 +1514,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" id="4M2-zn-hbU">
                         <rect key="frame" x="18" y="152" width="312" height="33"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Error" id="pgZ-Cf-zBF">
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="SPKError" id="pgZ-Cf-zBF">
                             <font key="font" metaFont="system" size="27"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1523,7 +1523,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" id="gH6-oi-BWq">
                         <rect key="frame" x="18" y="49" width="312" height="95"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="An error occurred. Please try again later." id="gSr-ue-frb">
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="SPKErrorDetailText" id="gSr-ue-frb">
                             <font key="font" metaFont="system" size="16"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1559,7 +1559,7 @@ DQ
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" id="Ei6-eI-B5u">
                         <rect key="frame" x="18" y="184" width="355" height="28"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Set Release Channel and Restart?" id="uxL-Wq-1KZ">
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="SPKPopup" id="uxL-Wq-1KZ">
                             <font key="font" metaFont="system" size="23"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1568,7 +1568,7 @@ DQ
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" id="MgW-iD-K0u">
                         <rect key="frame" x="18" y="79" width="355" height="91"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Spark release channel will be set to: {CHANNEL}. A browser restart is required for this to take effect." id="TQE-ib-1Rc">
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="SPKPopupDetailText" id="TQE-ib-1Rc">
                             <font key="font" metaFont="system" size="16"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1577,7 +1577,7 @@ DQ
                     <button verticalHuggingPriority="750" misplaced="YES" id="bmc-PM-vg5">
                         <rect key="frame" x="113" y="43" width="165" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Set Release Channel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="sWz-1s-svc">
+                        <buttonCell key="cell" type="push" title="SPKButton1Text" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="sWz-1s-svc">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                             <string key="keyEquivalent" base64-UTF8="YES">
@@ -1591,7 +1591,7 @@ DQ
                     <button verticalHuggingPriority="750" misplaced="YES" id="Jha-mn-8n9">
                         <rect key="frame" x="136" y="13" width="119" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Restart Later" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ktp-Uy-CBm">
+                        <buttonCell key="cell" type="push" title="SPKButton2" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ktp-Uy-CBm">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>

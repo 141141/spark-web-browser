@@ -557,7 +557,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
 
 - (IBAction)resetAllSettings:(id)sender {
     self.popupWindowTitle.stringValue = @"Reset Settings and Restart?";
-    self.popupWindowText.stringValue = [NSString stringWithFormat:@"This will reset your startup page, release channel, search engine, download location, and theme. A browser restart is required for this to take effect."];
+    self.popupWindowText.stringValue = [NSString stringWithFormat:@"This will reset your startup page, release channel, search engine, bookmarks, and theme. A browser restart is required for this to take effect."];
     self.popupWindowBtn1.title = @"Reset All Settings";
     self.popupWindowBtn2.title = @"Cancel";
     self.popupWindowBtn1.action = @selector(resetAllSettingsBtnClicked:);
