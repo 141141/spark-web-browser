@@ -35,12 +35,18 @@ NSArray *reversedHistoryTitlesArray = nil;
     [[appDelegate.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", historyURL]]]];
 }
 
+- (IBAction)refreshHistoryBtnClicked:(id)sender {
+    [self refreshHistoryContent];
+}
+
 - (void)refreshHistoryContent {
     SPKHistoryHandler *historyHandler = [[SPKHistoryHandler alloc] init];
     
     self.historyTitlesArray = [historyHandler getHistoryTitleItems];
     self.historyURLArray = [historyHandler getHistoryItems];
     [self.historyTableView reloadData];
+    
+    NSLog(@"History refreshed.");
 }
 
 - (void)resetTableView {
@@ -51,9 +57,6 @@ NSArray *reversedHistoryTitlesArray = nil;
 
 - (id)tableView:(NSTableView *)historyTable objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)rowIndex {
     
-    SPKHistoryTable *spkHistoryTable = [[SPKHistoryTable alloc] init];
-    [spkHistoryTable refreshHistoryContent];
-    
     // Sort table items in descending order
     reversedHistoryArray = [[self.historyURLArray reverseObjectEnumerator] allObjects];
     reversedHistoryTitlesArray = [[self.historyTitlesArray reverseObjectEnumerator] allObjects];
@@ -63,10 +66,6 @@ NSArray *reversedHistoryTitlesArray = nil;
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-    
-    SPKHistoryTable *historyTable = [[SPKHistoryTable alloc] init];
-    [historyTable refreshHistoryContent];
-    
     return self.historyTitlesArray.count;
 }
 

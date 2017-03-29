@@ -14,6 +14,8 @@
 @property (nonatomic) NSMutableArray *historyTitlesArray;
 @property (nonatomic) NSMutableArray *historyURLArray;
 
+- (IBAction)refreshHistoryBtnClicked:(id)sender;
+
 - (void)refreshHistoryContent;
 - (void)resetTableView;
 

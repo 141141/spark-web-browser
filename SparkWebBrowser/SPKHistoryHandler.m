@@ -18,8 +18,6 @@
     NSMutableArray *currentHistoryArray = nil; // Mutable array for history URLs
     NSMutableArray *currentHistoryTitlesArray = nil; // Mutable array for history page titles
     
-    SPKHistoryTable *historyTable = [[SPKHistoryTable alloc] init];
-    
     if([defaults objectForKey:@"storedHistoryArray"] == nil) {
         
         NSLog(@"StoredHistoryArray: nil");
@@ -33,8 +31,6 @@
         [defaults setObject:currentHistoryArray forKey:@"storedHistoryArray"];
         [defaults setObject:currentHistoryTitlesArray forKey:@"storedHistoryTitlesArray"];
         
-        [historyTable refreshHistoryContent];
-        
     } else {
         
         // StoredHistoryArray exists
@@ -47,8 +43,6 @@
         
         [defaults setObject:currentHistoryArray forKey:@"storedHistoryArray"];
         [defaults setObject:currentHistoryTitlesArray forKey:@"storedHistoryTitlesArray"];
-        
-        [historyTable refreshHistoryContent];
     }
 }
 
