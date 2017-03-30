@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "mac",
-      "filename" : "SparkIcon256.png",
+      "filename" : "SparkIcon128.png",
       "scale" : "1x"
     },
     {
       "idiom" : "mac",
+      "filename" : "SparkIcon256.png",
       "scale" : "2x"
     }
   ],
