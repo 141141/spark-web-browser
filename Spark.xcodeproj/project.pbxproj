@@ -12,11 +12,6 @@
 		AB04FD0C1C712BDB00F08232 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB04FD0A1C712BDB00F08232 /* main.m */; };
 		AB04FD131C712C6000F08232 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB04FD111C712C6000F08232 /* MainMenu.xib */; };
 		AB2B75261E86FC1C0021A2C8 /* SPKBookmarkHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2B75251E86FC1C0021A2C8 /* SPKBookmarkHandler.m */; };
-		AB46C3671E930A30009F9BE0 /* Screenshot1.png in Resources */ = {isa = PBXBuildFile; fileRef = AB46C3621E930A30009F9BE0 /* Screenshot1.png */; };
-		AB46C3681E930A30009F9BE0 /* Screenshot2.png in Resources */ = {isa = PBXBuildFile; fileRef = AB46C3631E930A30009F9BE0 /* Screenshot2.png */; };
-		AB46C3691E930A30009F9BE0 /* Screenshot3.png in Resources */ = {isa = PBXBuildFile; fileRef = AB46C3641E930A30009F9BE0 /* Screenshot3.png */; };
-		AB46C36A1E930A30009F9BE0 /* Screenshot4.png in Resources */ = {isa = PBXBuildFile; fileRef = AB46C3651E930A30009F9BE0 /* Screenshot4.png */; };
-		AB46C36B1E930A30009F9BE0 /* Screenshot5.png in Resources */ = {isa = PBXBuildFile; fileRef = AB46C3661E930A30009F9BE0 /* Screenshot5.png */; };
 		AB7355591E82024600DBEBA4 /* Sparkle.framework in Resources */ = {isa = PBXBuildFile; fileRef = AB7355551E82023B00DBEBA4 /* Sparkle.framework */; };
 		AB73555D1E8202A300DBEBA4 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB7355551E82023B00DBEBA4 /* Sparkle.framework */; };
 		AB73555E1E8202A300DBEBA4 /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB7355551E82023B00DBEBA4 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -358,11 +353,8 @@
 				AB7355591E82024600DBEBA4 /* Sparkle.framework in Resources */,
 				ABE2C7161E22E524005CE2C3 /* spark-redirect-loop.html in Resources */,
 				ABE2C7171E22E524005CE2C3 /* spark-urls.html in Resources */,
-				AB46C3691E930A30009F9BE0 /* Screenshot3.png in Resources */,
 				AB04FD021C712BAD00F08232 /* Images.xcassets in Resources */,
 				ABE2C7111E22E524005CE2C3 /* spark-cert-invalid.html in Resources */,
-				AB46C3671E930A30009F9BE0 /* Screenshot1.png in Resources */,
-				AB46C36B1E930A30009F9BE0 /* Screenshot5.png in Resources */,
 				ABE2C7121E22E524005CE2C3 /* spark-connection-fail.html in Resources */,
 				ABE2C6FB1E22E500005CE2C3 /* bootstrap.min.js in Resources */,
 				ABE2C6FE1E22E506005CE2C3 /* bootstrap.min.css in Resources */,
@@ -379,8 +371,6 @@
 				ABE2C7041E22E514005CE2C3 /* favicon.ico in Resources */,
 				ABE2C7151E22E524005CE2C3 /* spark-invalid-url.html in Resources */,
 				ABE2C7141E22E524005CE2C3 /* spark-dns-failed.html in Resources */,
-				AB46C36A1E930A30009F9BE0 /* Screenshot4.png in Resources */,
-				AB46C3681E930A30009F9BE0 /* Screenshot2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
