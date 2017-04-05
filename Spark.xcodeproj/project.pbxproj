@@ -27,7 +27,6 @@
 		ABE2C6FE1E22E506005CE2C3 /* bootstrap.min.css in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C6FD1E22E506005CE2C3 /* bootstrap.min.css */; };
 		ABE2C7011E22E50E005CE2C3 /* ErrorIcon256.png in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C6FF1E22E50E005CE2C3 /* ErrorIcon256.png */; };
 		ABE2C7021E22E50E005CE2C3 /* InternetDisconnected.png in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C7001E22E50E005CE2C3 /* InternetDisconnected.png */; };
-		ABE2C7041E22E514005CE2C3 /* favicon.ico in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C7031E22E514005CE2C3 /* favicon.ico */; };
 		ABE2C7061E22E51D005CE2C3 /* stylesheet.css in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C7051E22E51D005CE2C3 /* stylesheet.css */; };
 		ABE2C7101E22E524005CE2C3 /* spark-about.html in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C7071E22E524005CE2C3 /* spark-about.html */; };
 		ABE2C7111E22E524005CE2C3 /* spark-cert-invalid.html in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C7081E22E524005CE2C3 /* spark-cert-invalid.html */; };
@@ -40,6 +39,7 @@
 		ABE2C7181E22E524005CE2C3 /* spark-version.html in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C70F1E22E524005CE2C3 /* spark-version.html */; };
 		ABEB97521E85D2EE006C6533 /* SPKHistoryHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEB97511E85D2EE006C6533 /* SPKHistoryHandler.m */; };
 		ABEB97611E85DCBF006C6533 /* SPKHistoryTable.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEB97601E85DCBF006C6533 /* SPKHistoryTable.m */; };
+		ABFEEAA31E946EAF005C9544 /* favicon.ico in Resources */ = {isa = PBXBuildFile; fileRef = ABFEEAA21E946EAF005C9544 /* favicon.ico */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -92,7 +92,6 @@
 		ABE2C6FD1E22E506005CE2C3 /* bootstrap.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = bootstrap.min.css; path = "SparkWebBrowser/URL Resources/bootstrap.min.css"; sourceTree = SOURCE_ROOT; };
 		ABE2C6FF1E22E50E005CE2C3 /* ErrorIcon256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ErrorIcon256.png; path = "SparkWebBrowser/URL Resources/ErrorIcon256.png"; sourceTree = SOURCE_ROOT; };
 		ABE2C7001E22E50E005CE2C3 /* InternetDisconnected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = InternetDisconnected.png; path = "SparkWebBrowser/URL Resources/InternetDisconnected.png"; sourceTree = SOURCE_ROOT; };
-		ABE2C7031E22E514005CE2C3 /* favicon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = favicon.ico; sourceTree = "<group>"; };
 		ABE2C7051E22E51D005CE2C3 /* stylesheet.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = stylesheet.css; sourceTree = "<group>"; };
 		ABE2C7071E22E524005CE2C3 /* spark-about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "spark-about.html"; sourceTree = "<group>"; };
 		ABE2C7081E22E524005CE2C3 /* spark-cert-invalid.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "spark-cert-invalid.html"; sourceTree = "<group>"; };
@@ -107,6 +106,7 @@
 		ABEB97511E85D2EE006C6533 /* SPKHistoryHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPKHistoryHandler.m; path = SparkWebBrowser/SPKHistoryHandler.m; sourceTree = SOURCE_ROOT; };
 		ABEB975F1E85DCBF006C6533 /* SPKHistoryTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPKHistoryTable.h; path = SparkWebBrowser/SPKHistoryTable.h; sourceTree = SOURCE_ROOT; };
 		ABEB97601E85DCBF006C6533 /* SPKHistoryTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPKHistoryTable.m; path = SparkWebBrowser/SPKHistoryTable.m; sourceTree = SOURCE_ROOT; };
+		ABFEEAA21E946EAF005C9544 /* favicon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = favicon.ico; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,7 +232,7 @@
 		ABAC7A721DB324D30087FF6B /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				ABE2C7031E22E514005CE2C3 /* favicon.ico */,
+				ABFEEAA21E946EAF005C9544 /* favicon.ico */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -368,9 +368,9 @@
 				ABE2C7101E22E524005CE2C3 /* spark-about.html in Resources */,
 				ABB443631D84634C001D55C7 /* dsa_pub.pem in Resources */,
 				ABE2C7011E22E50E005CE2C3 /* ErrorIcon256.png in Resources */,
-				ABE2C7041E22E514005CE2C3 /* favicon.ico in Resources */,
 				ABE2C7151E22E524005CE2C3 /* spark-invalid-url.html in Resources */,
 				ABE2C7141E22E524005CE2C3 /* spark-dns-failed.html in Resources */,
+				ABFEEAA31E946EAF005C9544 /* favicon.ico in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -43,6 +43,7 @@
                 <outlet property="fileDownloadingText" destination="OQ0-32-CRq" id="4XW-55-JXZ"/>
                 <outlet property="forwardBtn" destination="wRb-WG-N9I" id="G2y-ac-Zki"/>
                 <outlet property="historyClearedIcon" destination="4gf-yc-Un8" id="63W-zv-xfg"/>
+                <outlet property="historyClearedIcon2" destination="Psw-WS-ByW" id="WgO-aJ-tTm"/>
                 <outlet property="historyWindow" destination="cZf-cc-a2l" id="GER-El-iRP"/>
                 <outlet property="homeBtn" destination="4hs-mM-3d8" id="kN5-La-Hoe"/>
                 <outlet property="homepageBasedOnSearchEngineBtn" destination="5Uw-Fh-cJ1" id="CNY-RK-NbX"/>
@@ -1715,13 +1716,18 @@ DQ
                             <action selector="refreshHistoryBtnClicked:" target="CMV-zn-UZO" id="Em8-Ht-eK2"/>
                         </connections>
                     </button>
+                    <imageView hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="Psw-WS-ByW">
+                        <rect key="frame" x="342" y="318" width="12" height="12"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSMenuOnStateTemplate" id="TuP-gk-a9E"/>
+                    </imageView>
                 </subviews>
             </view>
             <point key="canvasLocation" x="1718" y="-78.5"/>
         </window>
     </objects>
     <resources>
-        <image name="AppIcon256" width="61.439998626708984" height="61.439998626708984"/>
+        <image name="AppIcon256" width="30.719999313354492" height="30.719999313354492"/>
         <image name="NSActionTemplate" width="14" height="14"/>
         <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSBookmarksTemplate" width="17" height="18"/>

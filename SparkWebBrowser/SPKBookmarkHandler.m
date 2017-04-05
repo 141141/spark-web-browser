@@ -25,7 +25,12 @@
         
         NSLog(@"StoredBookmarksArray: nil");
         
-        bookmarkIconData = [bookmarkIcon TIFFRepresentation];
+        if(appDelegate.faviconImage.image == [NSImage imageNamed:@"favicon.ico"]) { // Check whether or not the current page is a spark: page
+            NSLog(@"Spark verified page detected - setting bookmarkIconData to avoid image scaling issues");
+            bookmarkIconData = [[NSImage imageNamed:@"SparkFavicon"] TIFFRepresentation];
+        } else {
+            bookmarkIconData = [bookmarkIcon TIFFRepresentation];
+        }
         
         currentBookmarksArray = [NSMutableArray array];
         currentBookmarkTitlesArray = [NSMutableArray array];
@@ -51,7 +56,12 @@
         
         NSLog(@"StoredBookmarksArray exists");
         
-        bookmarkIconData = [bookmarkIcon TIFFRepresentation];
+        if(appDelegate.faviconImage.image == [NSImage imageNamed:@"favicon.ico"]) { // Check whether or not the current page is a spark: page
+            NSLog(@"Spark verified page detected - setting bookmarkIconData to avoid image scaling issues");
+            bookmarkIconData = [[NSImage imageNamed:@"SparkFavicon"] TIFFRepresentation];
+        } else {
+            bookmarkIconData = [bookmarkIcon TIFFRepresentation];
+        }
         
         currentBookmarksArray = [[defaults objectForKey:@"storedBookmarksArray"] mutableCopy];
         currentBookmarkTitlesArray = [[defaults objectForKey:@"storedBookmarkTitlesArray"] mutableCopy];

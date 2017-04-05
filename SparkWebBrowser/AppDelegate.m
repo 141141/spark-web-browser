@@ -1279,7 +1279,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
 
 - (void)setHomepageWithString:(NSString *)homepageToSet {
     
-    if([homepageToSet hasPrefix:@"https://"] || [homepageToSet hasPrefix:@"http://"]) { // Valid address
+    if([homepageToSet hasPrefix:@"https://"] || [homepageToSet hasPrefix:@"http://"] || [homepageToSet hasPrefix:@"file://"] || [homepageToSet hasPrefix:@"spark://"]) { // Valid address
         NSLog(@"Setting homepage...");
         [defaults setObject:[NSString stringWithFormat:@"%@", homepageToSet] forKey:@"userHomepage"];
         self.homepageTextField.stringValue = [defaults objectForKey:@"userHomepage"];
