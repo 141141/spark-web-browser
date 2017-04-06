@@ -1324,24 +1324,33 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         
         if([defaults boolForKey:@"useSparkAboutPage"] == YES) {
             
-            NSLog(@"spark://about || spark://spark called. Loading spark-about.html...");
+            NSLog(@"%@ called. Loading spark-about.html...", urlToString);
             
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-about" ofType:@"html"] isDirectory:NO]]];
             
             self.addressBar.stringValue = @"spark://about";
             
         } else {
-            NSLog(@"spark://about || spark://spark called. Opening About window...");
+            NSLog(@"%@ called. Opening About window...", urlToString);
             
             self.aboutWindow.isVisible = YES;
             [self.aboutWindow makeKeyAndOrderFront:nil];
             [NSApp activateIgnoringOtherApps:YES];
         }
         
+    } else if([urlToString isEqual: @"spark://about/force-page"]) {
+        // spark://about/force-page called
+        
+        NSLog(@"%@ called. Loading spark-about.html...", urlToString);
+        
+        [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-about" ofType:@"html"] isDirectory:NO]]];
+        
+        self.addressBar.stringValue = @"spark://about/force-page";
+        
     } else if([urlToString isEqual: @"spark://version"] || [urlToString isEqual:@"spark://currentversion"]) {
         // spark://version || spark://currentversion called
         
-        NSLog(@"spark://version || spark://currentversion called. Loading spark-version.html...");
+        NSLog(@"%@ called. Loading spark-version.html...", urlToString);
         
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-version" ofType:@"html"] isDirectory:NO]]];
         
@@ -1350,7 +1359,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     } else if([urlToString isEqual: @"spark://prefs"] || [urlToString isEqual: @"spark://preferences"] || [urlToString isEqual: @"spark://settings"]) {
         // spark://prefs || spark://preferences || spark://settings called
         
-        NSLog(@"spark://prefs || spark://preferences || spark://settings called. Loading...");
+        NSLog(@"%@ called. Opening Preferences window...", urlToString);
         
         self.settingsWindow.isVisible = YES;
         [self.settingsWindow makeKeyAndOrderFront:nil];
@@ -1361,7 +1370,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     } else if([urlToString isEqual: @"spark://config"]) {
         // spark://config called
         
-        NSLog(@"spark://config called. Opening Configuration window...");
+        NSLog(@"%@ called. Opening Configuration window...", urlToString);
         
         self.configWindow.isVisible = YES;
         [self.configWindow makeKeyAndOrderFront:nil];
@@ -1369,17 +1378,17 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         
         self.addressBar.stringValue = self.webView.mainFrameURL;
         
-    } else if([urlToString isEqual: @"spark://quit"] || [urlToString isEqual: @"spark://close"] || [urlToString isEqual: @"spark://end"] || [urlToString isEqual: @"spark://endsession"] || [urlToString isEqual: @"spark://closesession"]) {
-        // spark://quit || spark://close || spark://end  || spark://endsession || spark://closesession called
+    } else if([urlToString isEqual: @"spark://quit"] || [urlToString isEqual: @"spark://close"] || [urlToString isEqual: @"spark://end"] || [urlToString isEqual: @"spark://endsession"] || [urlToString isEqual: @"spark://closesession"] || [urlToString isEqual: @"spark://terminate"]) {
+        // spark://quit || spark://close || spark://end  || spark://endsession || spark://closesession || spark://terminate called
         
-        NSLog(@"spark://quit || spark://close || spark://endsession || spark://end || spark://closesession called. Quitting...");
+        NSLog(@"%@ called. Quitting...", urlToString);
         
         [[NSApplication sharedApplication] terminate:nil];
         
-    } else if([urlToString isEqual: @"spark://restart"]) {
-        // spark://restart called
+    } else if([urlToString isEqual: @"spark://restart"] || [urlToString isEqual: @"spark://reboot"]) {
+        // spark://restart || spark://reboot called
         
-        NSLog(@"spark://restart called. Restarting...");
+        NSLog(@"%@ called. Restarting...", urlToString);
         
         task = [[NSTask alloc] init];
         args = [NSMutableArray array];
@@ -1394,7 +1403,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     } else if([urlToString isEqual: @"spark://refresh"] || [urlToString isEqual: @"spark://reload"]) {
         // spark://refresh || spark://reload called
         
-        NSLog(@"spark://refresh || spark://reload called. Refreshing webpage...");
+        NSLog(@"%@ called. Refreshing webpage...", urlToString);
         
         [[self.webView mainFrame] reload];
         
@@ -1403,7 +1412,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     } else if([urlToString isEqual: @"spark://back"] || [urlToString isEqual: @"spark://goback"] || [urlToString isEqual: @"spark://previouspage"]) {
         // spark://back || spark://goback || spark://previouspage called
         
-        NSLog(@"spark://back || spark://goback || spark://previouspage called. Loading...");
+        NSLog(@"%@ called. Loading...", urlToString);
         
         [self.webView goBack:nil];
         
@@ -1412,7 +1421,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     } else if([urlToString isEqual: @"spark://forward"] || [urlToString isEqual: @"spark://goforward"] || [urlToString isEqual: @"spark://nextpage"]) {
         // spark://forward || spark://goforward || spark://nextpage called
         
-        NSLog(@"spark://forward || spark://goforward || spark://nextpage called. Loading...");
+        NSLog(@"%@ called. Loading...", urlToString);
         
         [self.webView goForward:nil];
         
@@ -1421,7 +1430,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     } else if([urlToString isEqual: @"spark://newtab"] || [urlToString isEqual: @"spark://addtab"]) {
         // spark://newtab || spark://addtab called
         
-        NSLog(@"spark://newtab || spark://addtab called. Loading...");
+        NSLog(@"%@ called. Loading...", urlToString);
         
         [self newTab:nil];
         
@@ -1430,7 +1439,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     } else if([urlToString isEqual: @"spark://urls"] || [urlToString isEqual: @"spark://spark-urls"]) {
         // spark://urls || spark://spark-urls called
         
-        NSLog(@"spark://urls || spark://spark-urls called. Loading spark-urls.html...");
+        NSLog(@"%@ called. Loading spark-urls.html...", urlToString);
         
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-urls" ofType:@"html"] isDirectory:NO]]];
         
@@ -1439,21 +1448,21 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     } else if([urlToString isEqual: @"spark://checkforupdates"] || [urlToString isEqual: @"spark://update"] || [urlToString isEqual:@"spark://updates"]) {
         // spark://checkforupdates || spark://update || spark://updates called
         
-        NSLog(@"spark://checkforupdates || spark://update || spark://updates called. Checking for updates...");
+        NSLog(@"%@ called. Checking for updates...", urlToString);
         
         [[SUUpdater sharedUpdater] checkForUpdates:nil];
         
     } else if([urlToString isEqual: @"spark://reportissue"] || [urlToString isEqual: @"spark://reportanissue"] || [urlToString isEqual: @"spark://issue"]) {
         // spark://reportissue || spark://reportanissue || spark://issue
         
-        NSLog(@"spark://reportissue || spark://reportanissue || spark://issue || spark://issues called. Loading...");
+        NSLog(@"%@ called. Loading issues page...", urlToString);
         
         [self reportIssue:nil];
         
     } else if([urlToString isEqual: @"spark://issues"]) {
         // spark://issues called
         
-        NSLog(@"spark://issues called. Loading...");
+        NSLog(@"%@ called. Loading issues page...", urlToString);
         
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:appExistingIssuesURL]]];
         self.addressBar.stringValue = appExistingIssuesURL;
@@ -1461,14 +1470,14 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     } else if([urlToString isEqual: @"spark://releasenotes"]) {
         // spark://releasenotes called
         
-        NSLog(@"spark://releasenotes called. Loading...");
+        NSLog(@"%@ called. Loading release notes...", urlToString);
         
         [self viewReleaseNotes:nil];
         
     } else if([urlToString isEqual: @"spark://lastsession"]) {
         // spark://lastsession called
         
-        NSLog(@"spark://lastsession called. Loading...");
+        NSLog(@"%@ called. Loading last session...", urlToString);
         
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[defaults objectForKey:@"lastSession"]]]];
         self.addressBar.stringValue = [defaults objectForKey:@"lastSession"];
@@ -1476,7 +1485,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     } else if([urlToString isEqual: @"spark://invalidcert-proceedanyway"]) {
         // spark://invalidcert-proceedanyway called
         
-        NSLog(@"spark://invalidcert-proceedanyway called. Loading...");
+        NSLog(@"%@ called. Loading last session...", urlToString);
         
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[defaults objectForKey:@"lastSession"]]];
         NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -1492,7 +1501,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     } else if([urlToString hasPrefix: @"spark://"] || [urlToString hasPrefix: @"spark:"]) {
         // Invalid spark:// URL
         
-        NSLog(@"Error: invalid spark:// URL. Loading spark-invalid-url.html...");
+        NSLog(@"Error: invalid spark:// URL: %@. Loading spark-invalid-url.html...", urlToString);
         
         [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]                                                                           pathForResource:@"spark-invalid-url" ofType:@"html"] isDirectory:NO]]];
         
