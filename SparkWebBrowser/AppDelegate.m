@@ -281,7 +281,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         [defaults setBool:NO forKey:@"showHomeBtn"];
         self.showHomeBtn.state = NSOffState;
         self.homeBtn.hidden = YES;
-        [self.addressBar setFrame:NSMakeRect(89, 656, 991, 22)];
+        [self.addressBar setFrame:NSMakeRect(89, 595, 991, 22)];
     }
     
     // Check which radio button should be on (startup settings)
@@ -344,11 +344,11 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     if([defaults boolForKey:@"showHomeBtn"] == YES) {
         self.showHomeBtn.state = NSOnState;
         self.homeBtn.hidden = NO;
-        [self.addressBar setFrame:NSMakeRect(113, 656, 967, 22)];
+        [self.addressBar setFrame:NSMakeRect(113, 595, 967, 22)];
     } else {
         self.showHomeBtn.state = NSOffState;
         self.homeBtn.hidden = YES;
-        [self.addressBar setFrame:NSMakeRect(89, 656, 991, 22)];
+        [self.addressBar setFrame:NSMakeRect(89, 595, 991, 22)];
     }
     
     if([[defaults objectForKey:@"currentReleaseChannel"] isEqual: @"dev"]) { // Create fallback from "dev" channel for those migrating from previous versions
@@ -754,14 +754,14 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         
         [defaults setBool:YES forKey:@"showHomeBtn"];
         self.homeBtn.hidden = NO;
-        [self.addressBar setFrame:NSMakeRect(113, 656, 967, 22)];
+        [self.addressBar setFrame:NSMakeRect(113, 595, 967, 22)];
         
     } else if([self.showHomeBtn state] == NSOffState) {
         // Off
         
         [defaults setBool:NO forKey:@"showHomeBtn"];
         self.homeBtn.hidden = YES;
-        [self.addressBar setFrame:NSMakeRect(89, 656, 991, 22)];
+        [self.addressBar setFrame:NSMakeRect(89, 595, 991, 22)];
     }
 }
 
