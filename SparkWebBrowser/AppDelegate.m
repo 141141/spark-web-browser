@@ -66,6 +66,7 @@ NSColor *redmondBlueColor = nil;
 NSColor *leafGreenColor = nil;
 NSColor *alloyOrangeColor = nil;
 NSColor *canaryYellowColor = nil;
+NSColor *hotPinkColor = nil;
 NSColor *darkGrayColor = nil;
 NSData *customColorData = nil;
 
@@ -148,6 +149,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     leafGreenColor = [NSColor colorWithRed:8.0f/255.0f green:157.0f/255.0f blue:0.0f/255.0f alpha:1.0f];
     alloyOrangeColor = [NSColor colorWithRed:200.0f/255.0f green:80.0f/255.0f blue:1.0f/255.0f alpha:1.0f];
     canaryYellowColor = [NSColor colorWithRed:253.0f/255.0f green:193.0f/255.0f blue:53.0f/255.0f alpha:1.0f];
+    hotPinkColor = [NSColor colorWithRed:195.0f/255.0f green:80.0f/255.0f blue:112.0f/255.0f alpha:1.0f];
     darkGrayColor = [NSColor colorWithRed:44.0f/255.0f green:44.0f/255.0f blue:44.0f/255.0f alpha:1.0f];
     
     if([defaults objectForKey:@"currentReleaseChannel"] == nil) { // This is called in applicationDidFinishLaunching as well, but calling it here ensures it's properly set
@@ -507,6 +509,16 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         // Still set color in NSColorWell in case user wants it later
         self.customColorWell.color = [defaults colorForKey:@"customColor"];
         
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Hot Pink"]) {
+        
+        self.customColorWell.hidden = YES;
+        
+        // Set window color to hot pink
+        self.window.backgroundColor = hotPinkColor;
+        
+        // Still set color in NSColorWell in case user wants it later
+        self.customColorWell.color = [defaults colorForKey:@"customColor"];
+        
     } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Dark Gray"]) {
         
         self.customColorWell.hidden = YES;
@@ -849,6 +861,16 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         
         // Set window color to Canary Yellow
         self.window.backgroundColor = canaryYellowColor;
+        
+        // Still set color in NSColorWell in case user wants it later
+        self.customColorWell.color = [defaults colorForKey:@"customColor"];
+        
+    } else if([[defaults objectForKey:@"currentColor"] isEqual: @"Hot Pink"]) {
+        
+        self.customColorWell.hidden = YES;
+        
+        // Set window color to hot pink
+        self.window.backgroundColor = hotPinkColor;
         
         // Still set color in NSColorWell in case user wants it later
         self.customColorWell.color = [defaults colorForKey:@"customColor"];
