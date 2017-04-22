@@ -91,10 +91,10 @@ long long expectedLength = 0; // Expected length of a file being downloaded
 bool downloadOverride = NO; // Boolean for whether or not to download a file even if WebView can display it
 
 // Mutable strings
-NSString *appVersion = nil; // Spark version number
-NSString *buildNumber = nil; // Spark build number
-NSString *macOSVersionString = nil; // macOS version number
-NSString *macOSBuildString = nil; // macOS build number
+NSString *appVersionString = nil; // Spark version number
+NSString *appBuildString = nil; // Spark build number
+NSString *operatingSystemVersionString = nil; // macOS version number
+NSString *operatingSystemBuildString = nil; // macOS build number
 NSString *macOSProductName = nil; // macOS product name
 NSString *customMacOSProductName = nil; // Edited macOS product name
 NSString *releaseChannel = nil; // Spark release channel
@@ -166,11 +166,11 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     
     homeDirectory = NSHomeDirectory(); // Retrieve user home directory
     infoDict = [[NSBundle mainBundle] infoDictionary]; // Load Info.plist
-    appVersion = [infoDict objectForKey:@"CFBundleShortVersionString"]; // Fetch the version number from Info.plist
-    buildNumber = [infoDict objectForKey:@"CFBundleVersion"]; // Fetch the build number from Info.plist
+    appVersionString = [infoDict objectForKey:@"CFBundleShortVersionString"]; // Fetch the version number from Info.plist
+    appBuildString = [infoDict objectForKey:@"CFBundleVersion"]; // Fetch the build number from Info.plist
     sv = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"]; // Load SystemVersion.plist
-    macOSVersionString = [sv objectForKey:@"ProductVersion"]; // Get macOS version
-    macOSBuildString = [sv objectForKey:@"ProductBuildVersion"]; // Get macOS build number
+    operatingSystemVersionString = [sv objectForKey:@"ProductVersion"]; // Get macOS version
+    operatingSystemBuildString = [sv objectForKey:@"ProductBuildVersion"]; // Get macOS build number
     macOSProductName = [sv objectForKey:@"ProductName"]; // Get macOS product name
     
     if([[NSProcessInfo processInfo] operatingSystemVersion].minorVersion < 12) { // Check whether or not user is running macOS 10.12 or later
@@ -180,8 +180,8 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     }
     
     releaseChannel = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"currentReleaseChannel"]]; // Get current release channel
-    editedVersionString = [macOSVersionString stringByReplacingOccurrencesOfString:@"." withString:@"_"]; // Replace dots in version string with underscores
-    userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel %@ %@) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36 Spark/%@.%@", macOSProductName, editedVersionString, appVersion, buildNumber]; // Set user agent respective to the current versions of Spark and macOS
+    editedVersionString = [operatingSystemVersionString stringByReplacingOccurrencesOfString:@"." withString:@"_"]; // Replace dots in version string with underscores
+    userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel %@ %@) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36 Spark/%@.%@", macOSProductName, editedVersionString, appVersionString, appBuildString]; // Set user agent respective to the current versions of Spark and macOS
     
     untrustedSites = [NSMutableArray array]; // Set up untrusted sites array
 }
@@ -206,6 +206,17 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     [self.webView setPolicyDelegate:(id<WebPolicyDelegate>)self];
     [self.webView setDownloadDelegate:(id<WebDownloadDelegate>)self];
     [self.webView setCustomUserAgent:userAgent];
+
+    // Set key if not already set
+    if([defaults objectForKey:@"showHomeBtn"] == nil) {
+        
+        NSLog(@"Warning: no key is set for object showHomeBtn. Setting now...");
+        
+        [defaults setBool:NO forKey:@"showHomeBtn"];
+        self.showHomeBtn.state = NSOffState;
+        self.homeBtn.hidden = YES;
+        [self.addressBar setFrame:NSMakeRect(89, 595, 991, 22)];
+    }
     
     // NSUserDefaults key value checking
     if([defaults objectForKey:@"currentReleaseChannel"] == nil) {
@@ -273,17 +284,6 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         [defaults setBool:NO forKey:@"startupWithLastSession"];
         self.lastSessionRadioBtn.state = NSOffState;
         self.homepageRadioBtn.state = NSOnState;
-    }
-    
-    // Set key if not already set
-    if([defaults objectForKey:@"showHomeBtn"] == nil) {
-        
-        NSLog(@"Warning: no key is set for object showHomeBtn. Setting now...");
-        
-        [defaults setBool:NO forKey:@"showHomeBtn"];
-        self.showHomeBtn.state = NSOffState;
-        self.homeBtn.hidden = YES;
-        [self.addressBar setFrame:NSMakeRect(89, 595, 991, 22)];
     }
     
     // Check which radio button should be on (startup settings)
@@ -374,7 +374,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     [self.loadingIndicator startAnimation:self];
     
     // Set strings
-    self.currentVersion.stringValue = [NSString stringWithFormat:@"Version %@.%@", appVersion, buildNumber];
+    self.currentVersion.stringValue = [NSString stringWithFormat:@"Version %@.%@", appVersionString, appBuildString];
     self.currentReleaseChannel.stringValue = [NSString stringWithFormat:@"%@ release channel", [releaseChannel capitalizedString]];
     
     // Window setup
@@ -916,8 +916,8 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
 }
 
 - (IBAction)viewReleaseNotes:(id)sender {
-    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:appReleasesURL, appVersion]]]];
-    self.addressBar.stringValue = [NSString stringWithFormat:appReleasesURL, appVersion];
+    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:appReleasesURL, appVersionString]]]];
+    self.addressBar.stringValue = [NSString stringWithFormat:appReleasesURL, appVersionString];
 }
 
 - (IBAction)reportIssue:(id)sender {
@@ -1008,17 +1008,6 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
             
             [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:candidateURL]];
             self.addressBar.stringValue = [NSString stringWithFormat:@"%@", searchString];
-            
-            /*NSCachedURLResponse *urlResponse = [[NSURLCache sharedURLCache] cachedResponseForRequest:webView.request];
-             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*) urlResponse.response;
-             NSInteger statusCode = httpResponse.statusCode;
-             if (statusCode > 399) {
-             NSError *error = [NSError errorWithDomain:@"HTTP Error" code:httpResponse.statusCode userInfo:@{@"response":httpResponse}];
-             // Forward the error to webView:didFailLoadWithError: or other
-             }
-             else {
-             // No HTTP error
-             }*/
         }
         
     } else if([searchString hasPrefix:@"file://"]) {
@@ -1919,16 +1908,16 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         // Set values for use on spark:// pages
         
         // Shared resources
-        [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-currentVersion').innerHTML = '%@';", appVersion]];
-        [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-currentBuild').innerHTML = '%@';", buildNumber]];
+        [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-currentVersion').innerHTML = '%@';", appVersionString]];
+        [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-currentBuild').innerHTML = '%@';", appBuildString]];
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-currentReleaseChannel').innerHTML = '%@';", releaseChannel]];
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-userAgent').innerHTML = '%@';", userAgent]];
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-webpageRequested').innerHTML = '%@';", lastSession]];
         
         // spark://version resources
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-operatingSystemName').innerHTML = '%@';", customMacOSProductName]];
-        [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-operatingSystemVersion').innerHTML = '%@';", macOSVersionString]];
-        [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-operatingSystemBuild').innerHTML = '%@';", macOSBuildString]];
+        [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-operatingSystemVersion').innerHTML = '%@';", operatingSystemVersionString]];
+        [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-operatingSystemBuild').innerHTML = '%@';", operatingSystemBuildString]];
     }
 }
 

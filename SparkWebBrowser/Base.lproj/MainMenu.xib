@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12118" systemVersion="16F43c" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12120" systemVersion="16F60a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12118"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="12118"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12120"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="12120"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
@@ -820,7 +820,7 @@ Spark is made possible by the WebKit open source project and other open source s
                                         <textField verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="YES" id="17K-HH-EGB">
                                             <rect key="frame" x="17" y="89" width="254" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" allowsUndo="NO" state="on" borderStyle="bezel" placeholderString="Download Location" drawsBackground="YES" id="ia2-zH-dOh">
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" allowsUndo="NO" state="on" borderStyle="bezel" placeholderString="SPKDownloadLocation" drawsBackground="YES" id="ia2-zH-dOh">
                                                 <font key="font" metaFont="cellTitle"/>
                                                 <color key="textColor" red="0.34577252538071068" green="0.34577252538071068" blue="0.34577252538071068" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1022,7 +1022,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" allowsCharacterPickerTouchBarItem="YES" id="3Kt-xI-ELp">
                         <rect key="frame" x="18" y="60" width="489" height="52"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="gRr-nC-ra9">
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" id="gRr-nC-ra9">
                             <font key="font" metaFont="system" size="10"/>
                             <string key="title">                  These experimental features may change, break, or disappear at any time. There are absolutely no guarantees about what may happen if you turn one of these experiments on, and your browser may delete all your data, or your security and privacy could be compromised in unexpected ways. Please proceed with caution.</string>
                             <color key="textColor" red="0.33004838199999997" green="0.33004838199999997" blue="0.33004838199999997" alpha="0.93430543659999998" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1065,7 +1065,7 @@ Spark is made possible by the WebKit open source project and other open source s
                     </imageView>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="840" y="-891"/>
+            <point key="canvasLocation" x="839.5" y="-891.5"/>
         </window>
         <window allowsToolTipsWhenApplicationIsInactive="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES"/>
@@ -1654,7 +1654,7 @@ DQ
                                     <tableColumns>
                                         <tableColumn identifier="historyTitle" editable="NO" width="477" minWidth="40" maxWidth="1000" id="hEv-RG-36n">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Website">
-                                                <font key="font" metaFont="smallSystem"/>
+                                                <font key="font" metaFont="systemMedium" size="11"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                             </tableHeaderCell>
