@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12120" systemVersion="16F60a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12120" systemVersion="16F67a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12120"/>
@@ -473,6 +473,12 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="viewReleaseNotes:" target="Voe-Tx-rLC" id="y8M-W9-SIy"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Feature Roadmap" id="Lkx-rr-g6y">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="viewFeatureRoadmap:" target="Voe-Tx-rLC" id="ddE-2B-sVk"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="yX2-xh-ELo"/>
@@ -1654,7 +1660,7 @@ DQ
                                     <tableColumns>
                                         <tableColumn identifier="historyTitle" editable="NO" width="477" minWidth="40" maxWidth="1000" id="hEv-RG-36n">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Website">
-                                                <font key="font" metaFont="systemMedium" size="11"/>
+                                                <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                             </tableHeaderCell>

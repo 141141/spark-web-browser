@@ -48,6 +48,7 @@ NSString *aolDefaultURL = @"https://www.aol.com/";
 NSString *appReportIssueURL = @"https://www.github.com/insleep/spark-web-browser/issues/new?title=Describe%20your%20feature%20request%20or%20bug%20report,%20succinctly&body=**Spark%20version:**%20%0A%20**Spark%20build:**%20%0A%20**Release%20channel:**%20%0A%20**macOS%20version:**%20%0A%0A%20**Description:**%20%0A%0A%20**Steps%20to%20reproduce:**%20%0A%0A%20**Expected%20results:**%20%0A%0A%20**Actual%20results:**%20";
 NSString *appExistingIssuesURL = @"https://www.github.com/insleep/spark-web-browser/issues/";
 NSString *appReleasesURL = @"https://www.github.com/insleep/spark-web-browser/releases/tag/%@/";
+NSString *appRoadmapURL = @"https://trello.com/b/TPd5oizl/spark-roadmap/";
 
 // Strings related to page indicator
 NSString *secureSparkPageText = @"You are viewing a secure Spark page."; // Text shown when a secure Spark page is loaded
@@ -918,6 +919,11 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
 - (IBAction)viewReleaseNotes:(id)sender {
     [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:appReleasesURL, appVersionString]]]];
     self.addressBar.stringValue = [NSString stringWithFormat:appReleasesURL, appVersionString];
+}
+
+- (IBAction)viewFeatureRoadmap:(id)sender {
+    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:appRoadmapURL]]]];
+    self.addressBar.stringValue = [NSString stringWithFormat:appRoadmapURL];
 }
 
 - (IBAction)reportIssue:(id)sender {

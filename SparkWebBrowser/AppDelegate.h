@@ -87,6 +87,7 @@
 - (IBAction)initWebpageLoad:(id)sender;
 - (IBAction)setSearchEngine:(id)sender;
 - (IBAction)viewReleaseNotes:(id)sender;
+- (IBAction)viewFeatureRoadmap:(id)sender;
 - (IBAction)startSettingHomepageBasedOnSearchEngine:(id)sender;
 - (IBAction)setTopBarColor:(id)sender;
 - (IBAction)setCustomColor:(id)sender;
