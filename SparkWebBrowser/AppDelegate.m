@@ -922,8 +922,8 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
 }
 
 - (IBAction)viewFeatureRoadmap:(id)sender {
-    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:appRoadmapURL]]]];
-    self.addressBar.stringValue = [NSString stringWithFormat:appRoadmapURL];
+    [[self.webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:appRoadmapURL]]];
+    self.addressBar.stringValue = appRoadmapURL;
 }
 
 - (IBAction)reportIssue:(id)sender {
