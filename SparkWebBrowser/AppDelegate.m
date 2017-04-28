@@ -1395,6 +1395,17 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         
         self.addressBar.stringValue = self.webView.mainFrameURL;
         
+    } else if([urlToString isEqual: @"spark://history"] || [urlToString isEqual:@"spark://viewhistory"]) {
+        // spark://history || spark://viewhistory called
+        
+        NSLog(@"%@ called. Opening History window...", urlToString);
+        
+        self.historyWindow.isVisible = YES;
+        [self.historyWindow makeKeyAndOrderFront:nil];
+        [NSApp activateIgnoringOtherApps:YES];
+        
+        self.addressBar.stringValue = self.webView.mainFrameURL;
+        
     } else if([urlToString isEqual: @"spark://quit"] || [urlToString isEqual: @"spark://close"] || [urlToString isEqual: @"spark://end"] || [urlToString isEqual: @"spark://endsession"] || [urlToString isEqual: @"spark://closesession"] || [urlToString isEqual: @"spark://terminate"]) {
         // spark://quit || spark://close || spark://end  || spark://endsession || spark://closesession || spark://terminate called
         
