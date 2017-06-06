@@ -22,7 +22,7 @@ Installation is easy. Click [here](https://github.com/insleep/spark-web-browser/
 
 In order to build Spark for macOS, you need to have Xcode 9 beta 1 and git 1.7 or later. Earlier versions might work, but are not supported.
 
-Git is downloadable [here](https://git-scm.com/downloads) and Xcode is downloadable within the Mac App Store.
+Git is downloadable [here](https://git-scm.com/downloads) and Xcode 9 beta is downloadable via the Apple Developer portal.
 
 #### Instructions:
 
