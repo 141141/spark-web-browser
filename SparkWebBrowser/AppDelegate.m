@@ -182,7 +182,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     
     releaseChannel = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"currentReleaseChannel"]]; // Get current release channel
     editedVersionString = [operatingSystemVersionString stringByReplacingOccurrencesOfString:@"." withString:@"_"]; // Replace dots in version string with underscores
-    userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel %@ %@) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 Spark/%@.%@", macOSProductName, editedVersionString, appVersionString, appBuildString]; // Set user agent respective to the current versions of Spark and macOS
+    userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel %@ %@) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.86 Safari/537.36 Spark/%@.%@", macOSProductName, editedVersionString, appVersionString, appBuildString]; // Set user agent respective to the current versions of Spark and macOS
     
     untrustedSites = [NSMutableArray array]; // Set up untrusted sites array
 }
@@ -385,6 +385,14 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     self.settingsWindow.backgroundColor = [NSColor whiteColor];
     self.configWindow.backgroundColor = [NSColor whiteColor];
     self.historyWindow.backgroundColor = [NSColor whiteColor];
+    
+    self.window.titlebarAppearsTransparent = YES;
+    self.aboutWindow.titlebarAppearsTransparent = YES;
+    self.errorWindow.titlebarAppearsTransparent = YES;
+    self.popupWindow.titlebarAppearsTransparent = YES;
+    self.settingsWindow.titlebarAppearsTransparent = YES;
+    self.configWindow.titlebarAppearsTransparent = YES;
+    self.historyWindow.titlebarAppearsTransparent = YES;
     
     currentBookmarkTitlesArray = [defaults objectForKey:@"storedBookmarkTitlesArray"];
     currentBookmarkIconsArray = [defaults objectForKey:@"storedBookmarkIconsArray"];
@@ -1935,6 +1943,11 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-operatingSystemName').innerHTML = '%@';", customMacOSProductName]];
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-operatingSystemVersion').innerHTML = '%@';", operatingSystemVersionString]];
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-operatingSystemBuild').innerHTML = '%@';", operatingSystemBuildString]];
+        
+        if([[NSProcessInfo processInfo] operatingSystemVersion].minorVersion == 13 && ![operatingSystemBuildString isEqual: @"17A264c"]) { // Check whether or not user is running macOS 10.13 or later
+            // Beta operating system disclaimer
+            [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-operatingSystemBetaDisclaimer').innerHTML = '<p class=\"about-betadisclaimer\"><span class=\"about-betadisclaimer-warning\">WARNING: </span>You are running a build of macOS 10.13 High Sierra that is not officially supported by Spark (%@). Please be aware that Spark may function improperly.</p>';", operatingSystemBuildString]];
+        }
     }
 }
 

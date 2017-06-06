@@ -65,6 +65,18 @@ a {
     background-color: #C1C1C1;
 }
 
+.about-betadisclaimer {
+    font-weight: 200;
+    font-size: 12px;
+    padding-top: 25px;
+    width: 25em;
+    word-wrap: break-word;
+}
+
+.about-betadisclaimer-warning {
+    color: red;
+}
+
 .about-copyright {
     font-weight: 200;
     font-size: 11px;
