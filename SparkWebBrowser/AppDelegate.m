@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  Spark
 //
-//  Copyright (c) 2014-2017 Jonathan Wukitsch / Insleep
+//  Copyright (c) 2014-2017 Insleep
 //  This code is distributed under the terms and conditions of the GNU license.
 //  You may copy, distribute and modify the software as long as you track changes/dates in source files. Any modifications to or software including (via compiler) GPL-licensed code must also be made available under the GPL along with build & install instructions.
 
@@ -57,6 +57,11 @@ NSString *secureHTTPSPageText = @"Your connection to this site is secure."; // T
 NSString *insecureHTTPSPageText = @"Your connection to this site is not secure."; // Text shown when an insecure site is loaded
 NSString *secureHTTPSPageDetailText = @"Your information (for example, passwords or credit card numbers) is private when it is sent to this site."; // Detail text shown when a secure site is loaded
 NSString *insecureHTTPSPageDetailText = @"You should not enter any sensitive information on this site (for example, passwords or credit cards)."; // Detail text shown when an insecure site is loaded
+
+// Miscellaneous strings
+NSString *betaOperatingSystemDisclaimerText = @"You are running a build of macOS 10.13 High Sierra that is not officially supported by Spark (%@). Please be aware that Spark may function improperly."; // Disclaimer shown when user is running a non-supported beta build of macOS 10.13
+
+NSString *currentChromeVersion = @"59.0.3071.104"; // Used when setting user agent
 
 // Theme colors
 NSColor *defaultColor = nil;
@@ -182,7 +187,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
     
     releaseChannel = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"currentReleaseChannel"]]; // Get current release channel
     editedVersionString = [operatingSystemVersionString stringByReplacingOccurrencesOfString:@"." withString:@"_"]; // Replace dots in version string with underscores
-    userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel %@ %@) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.86 Safari/537.36 Spark/%@.%@", macOSProductName, editedVersionString, appVersionString, appBuildString]; // Set user agent respective to the current versions of Spark and macOS
+    userAgent = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel %@ %@) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/%@ Safari/537.36 Spark/%@.%@", macOSProductName, editedVersionString, currentChromeVersion, appVersionString, appBuildString]; // Set user agent respective to the current versions of Spark and macOS
     
     untrustedSites = [NSMutableArray array]; // Set up untrusted sites array
 }
@@ -1134,6 +1139,7 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         }
         
         [defaults setObject:[NSString stringWithFormat:@"%@", self.addressBar.stringValue] forKey:@"lastSession"];
+        
     }
 }
 
@@ -1944,10 +1950,11 @@ NSMutableArray *untrustedSites = nil; // Array of untrusted websites
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-operatingSystemVersion').innerHTML = '%@';", operatingSystemVersionString]];
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-operatingSystemBuild').innerHTML = '%@';", operatingSystemBuildString]];
         
-        if([[NSProcessInfo processInfo] operatingSystemVersion].minorVersion == 13 && ![operatingSystemBuildString isEqual: @"17A264c"]) { // Check whether or not user is running macOS 10.13 or later
+        // Commented this out as of v3.0.5 (sunset update) so that Spark is fully functional on 10.13. This block used to check whether or not a user was on 10.13 and display a disclaimer accordingly.
+        /*if([[NSProcessInfo processInfo] operatingSystemVersion].minorVersion == 13 && ![operatingSystemBuildString isEqual: @"17A264c"]) { // Check whether or not user is running macOS 10.13 or later
             // Beta operating system disclaimer
-            [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-operatingSystemBetaDisclaimer').innerHTML = '<p class=\"about-betadisclaimer\"><span class=\"about-betadisclaimer-warning\">WARNING: </span>You are running a build of macOS 10.13 High Sierra that is not officially supported by Spark (%@). Please be aware that Spark may function improperly.</p>';", operatingSystemBuildString]];
-        }
+            [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('sparkWebBrowser-operatingSystemBetaDisclaimer').innerHTML = '<p class=\"about-betadisclaimer\"><span class=\"about-betadisclaimer-warning\">WARNING: </span>%@</p>';", [NSString stringWithFormat:betaOperatingSystemDisclaimerText, operatingSystemBuildString]]];
+        }*/
     }
 }
 

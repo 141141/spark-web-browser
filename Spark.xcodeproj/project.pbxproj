@@ -12,16 +12,16 @@
 		AB04FD0C1C712BDB00F08232 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB04FD0A1C712BDB00F08232 /* main.m */; };
 		AB04FD131C712C6000F08232 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB04FD111C712C6000F08232 /* MainMenu.xib */; };
 		AB2B75261E86FC1C0021A2C8 /* SPKBookmarkHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2B75251E86FC1C0021A2C8 /* SPKBookmarkHandler.m */; };
+		AB52BAA31EF0EB7E0082C5E9 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83983B19817E15001D31B7 /* WebKit.framework */; };
+		AB52BAA41EF0EB8D0082C5E9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83980719817D8E001D31B7 /* Cocoa.framework */; };
+		AB52BAA51EF0EBE90082C5E9 /* WebKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB83983B19817E15001D31B7 /* WebKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AB52BAA61EF0EBED0082C5E9 /* Cocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB83980719817D8E001D31B7 /* Cocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AB52BAA81EF0ECDA0082C5E9 /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB7355551E82023B00DBEBA4 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AB52BAA91EF0ECE10082C5E9 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB7355551E82023B00DBEBA4 /* Sparkle.framework */; };
 		AB7355591E82024600DBEBA4 /* Sparkle.framework in Resources */ = {isa = PBXBuildFile; fileRef = AB7355551E82023B00DBEBA4 /* Sparkle.framework */; };
-		AB73555D1E8202A300DBEBA4 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB7355551E82023B00DBEBA4 /* Sparkle.framework */; };
-		AB73555E1E8202A300DBEBA4 /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB7355551E82023B00DBEBA4 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AB8587B71D7C9DFE0073515C /* SparkIcon256.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8587B61D7C9DFE0073515C /* SparkIcon256.png */; };
-		AB98DDDC1D370CD100ABCF16 /* WebKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB83983B19817E15001D31B7 /* WebKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AB98DDDE1D370CD400ABCF16 /* Cocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB83980719817D8E001D31B7 /* Cocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ABA41D9F1D84DC2300F01B90 /* NSUserDefaults+ColorSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA41D9E1D84DC2300F01B90 /* NSUserDefaults+ColorSupport.m */; };
 		ABB443631D84634C001D55C7 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = ABB443621D84634C001D55C7 /* dsa_pub.pem */; };
-		ABBD6C201D3707B900C48592 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83980719817D8E001D31B7 /* Cocoa.framework */; };
-		ABBD6C211D3707C600C48592 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83983B19817E15001D31B7 /* WebKit.framework */; };
 		ABE2C6FB1E22E500005CE2C3 /* bootstrap.min.js in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C6F91E22E500005CE2C3 /* bootstrap.min.js */; };
 		ABE2C6FC1E22E500005CE2C3 /* jquery.min.js in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C6FA1E22E500005CE2C3 /* jquery.min.js */; };
 		ABE2C6FE1E22E506005CE2C3 /* bootstrap.min.css in Resources */ = {isa = PBXBuildFile; fileRef = ABE2C6FD1E22E506005CE2C3 /* bootstrap.min.css */; };
@@ -45,13 +45,13 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		ABBD6C1B1D37078100C48592 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				AB98DDDE1D370CD400ABCF16 /* Cocoa.framework in Embed Frameworks */,
-				AB73555E1E8202A300DBEBA4 /* Sparkle.framework in Embed Frameworks */,
-				AB98DDDC1D370CD100ABCF16 /* WebKit.framework in Embed Frameworks */,
+				AB52BAA81EF0ECDA0082C5E9 /* Sparkle.framework in Embed Frameworks */,
+				AB52BAA61EF0EBED0082C5E9 /* Cocoa.framework in Embed Frameworks */,
+				AB52BAA51EF0EBE90082C5E9 /* WebKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,9 +114,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABBD6C211D3707C600C48592 /* WebKit.framework in Frameworks */,
-				AB73555D1E8202A300DBEBA4 /* Sparkle.framework in Frameworks */,
-				ABBD6C201D3707B900C48592 /* Cocoa.framework in Frameworks */,
+				AB52BAA41EF0EB8D0082C5E9 /* Cocoa.framework in Frameworks */,
+				AB52BAA31EF0EB7E0082C5E9 /* WebKit.framework in Frameworks */,
+				AB52BAA91EF0ECE10082C5E9 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
