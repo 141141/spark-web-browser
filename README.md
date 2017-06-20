@@ -1,4 +1,6 @@
- [![Spark Logo](spark-banner.png)](https://github.com/insleep/spark-web-browser/ "Spark - a minimal web browser for macOS")
+# NOTICE: Spark for macOS is no longer in active development.
+
+[![Spark Logo](spark-banner.png)](https://github.com/insleep/spark-web-browser/ "Spark - a minimal web browser for macOS")
 
 [![Version](https://img.shields.io/github/release/insleep/spark-web-browser.svg?style=flat-square)](https://github.com/insleep/spark-web-browser/releases/)&nbsp;[![Build Status](https://img.shields.io/travis/insleep/spark-web-browser/master.svg?style=flat-square)](https://travis-ci.org/insleep/spark-web-browser)&nbsp;[![Language](https://img.shields.io/badge/language-Objective--C-red.svg?style=flat-square)](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html)
 
@@ -20,7 +22,7 @@ Installation is easy. Click [here](https://github.com/insleep/spark-web-browser/
 
 ## Custom Builds
 
-In order to build Spark for macOS, you need to have Xcode 9 beta 1 and git 1.7 or later. Earlier versions might work, but are not supported.
+In order to build Spark for macOS, you need to have Xcode 8 and git 1.7 or later. Earlier versions might work, but are not supported.
 
 Git is downloadable [here](https://git-scm.com/downloads) and Xcode 9 beta is downloadable via the Apple Developer portal.
 
